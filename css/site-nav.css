@@ -133,68 +133,6 @@
   color: var(--ink-charcoal);
 }
 
-/* ---- 左侧章节目录卡片 ---- */
-.story-nav {
-  position: fixed;
-  left: clamp(16px, 2.5vw, 40px);
-  top: calc(var(--nav-top-h) + 24px);
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  padding: 18px 16px;
-  background: rgba(244, 239, 228, 0.88);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-radius: 4px;
-  z-index: 9400;
-  min-width: 100px;
-}
-
-.story-nav::before {
-  content: '目录';
-  display: block;
-  font-family: 'Huiwen', serif;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  color: var(--rose-deep);
-  padding-bottom: 10px;
-  margin-bottom: 4px;
-  border-bottom: 1px dashed rgba(192, 96, 120, 0.22);
-}
-
-.story-nav a {
-  display: block;
-  text-decoration: none;
-  color: var(--ink-note);
-  font-family: 'Huiwen', 'Noto Serif SC', serif;
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  padding: 8px 12px;
-  border-left: 3px solid transparent;
-  transition: background 0.2s, color 0.2s, border-color 0.22s;
-}
-
-.story-nav a:hover {
-  background: rgba(224, 128, 160, 0.08);
-  color: var(--ink-charcoal);
-}
-
-.story-nav a.is-active {
-  background: rgba(224, 128, 160, 0.12);
-  color: var(--ink-charcoal);
-  border-left-color: var(--rose-main);
-}
-
-.story-nav .nav-top {
-  margin-top: 6px;
-  padding-top: 12px;
-  border-top: 1px dashed rgba(192, 96, 120, 0.22);
-  font-size: 11px;
-  letter-spacing: 0.12em;
-}
-
 /* 锚点偏移（顶栏不遮挡） */
 #hero,
 #prologue,
@@ -233,9 +171,6 @@
     font-size: 9px;
   }
 
-  .story-nav {
-    display: none;
-  }
 }
 
 @media (max-width: 640px) {
