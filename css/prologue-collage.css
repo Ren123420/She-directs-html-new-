@@ -133,72 +133,6 @@
               6px 14px 36px rgba(192, 96, 120, 0.14);
 }
 
-/* 章节导览框 */
-.prologue-chapter-route {
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0;
-  margin: 36px auto 8px;
-  border: 2px solid var(--ink-charcoal);
-  background: var(--paper-sticky);
-  box-shadow: 3px 5px 0 rgba(44, 36, 22, 0.12);
-  overflow: hidden;
-}
-
-.prologue-chapter-route .route-node {
-  flex: 1 1 120px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  min-width: 0;
-  padding: 16px 12px;
-  text-decoration: none;
-  color: var(--ink-charcoal);
-  border-right: 1px solid var(--paper-archive);
-  transition: background 0.22s ease, color 0.22s ease;
-}
-
-.prologue-chapter-route .route-node:last-child {
-  border-right: none;
-}
-
-.prologue-chapter-route .route-node:hover {
-  background: rgba(224, 128, 160, 0.14);
-  color: var(--rose-deep);
-}
-
-.prologue-chapter-route .route-label {
-  font-family: 'Huiwen', 'Noto Serif SC', serif;
-  font-size: clamp(18px, 1.8vw, 24px);
-  font-weight: 700;
-  letter-spacing: 0.12em;
-}
-
-.prologue-chapter-route .route-node small {
-  font-family: 'Punk Typewriter', monospace;
-  font-size: 9px;
-  letter-spacing: 0.08em;
-  color: var(--ink-note);
-  text-align: center;
-  line-height: 1.5;
-}
-
-.prologue-chapter-route .route-arrow {
-  display: flex;
-  align-items: center;
-  padding: 0 2px;
-  font-family: 'Punk Typewriter', monospace;
-  font-size: 14px;
-  color: var(--rose-deep);
-  background: rgba(244, 239, 228, 0.9);
-  border-right: 1px solid var(--paper-archive);
-  flex-shrink: 0;
-}
-
 @media (max-width: 960px) {
   .mosaic-board--directors {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -206,24 +140,6 @@
 
   .mosaic-board--posters {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .prologue-chapter-route {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .prologue-chapter-route .route-arrow {
-    justify-content: center;
-    padding: 6px;
-    border-right: none;
-    border-bottom: 1px dashed var(--paper-archive);
-    transform: rotate(90deg);
-  }
-
-  .prologue-chapter-route .route-node {
-    border-right: none;
-    border-bottom: 1px solid var(--paper-archive);
   }
 }
 

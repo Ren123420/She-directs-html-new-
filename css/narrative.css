@@ -27,7 +27,7 @@
 /* ---- ???? ---- */
 .story-prologue {
   position: relative;
-  padding: 72px 24px 80px;
+  padding: 72px 24px 120px;
   background: var(--paper-canvas);
   overflow: hidden;
 }
