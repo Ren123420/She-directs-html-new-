@@ -1,0 +1,2071 @@
+/* ================================================================
+   她执导 · 图表区块样式（场记板 + 便签纸）
+   ================================================================ */
+
+.chapter-section {
+  position: relative;
+  z-index: 1;
+  background: var(--paper-canvas);
+  padding: 0 0 120px;
+}
+
+.chapter-section .chapter-inner {
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.chapter-header {
+  padding: 72px 0 48px;
+  max-width: none;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.chapter-header .section-label {
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 12px;
+  color: var(--ink-note);
+  letter-spacing: 0.12em;
+  margin-bottom: 14px;
+}
+
+.chapter-header h2 {
+  font-family: 'Huiwen', serif;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin-bottom: 18px;
+}
+
+.chapter-header .lead {
+  font-size: clamp(15px, 1.8vw, 18px);
+  color: var(--ink-note);
+  line-height: 1.9;
+}
+
+/* ---- 滚动叙事步骤（宽屏由 center-layout 接管 grid） ---- */
+.scroll-step {
+  min-height: 88vh;
+  padding: 48px 0 64px;
+  opacity: 0.22;
+  transform: translateY(24px);
+  transition: opacity 0.65s ease, transform 0.65s ease, filter 0.5s ease;
+  filter: grayscale(0.12);
+}
+
+.scroll-step.is-active {
+  opacity: 1;
+  transform: translateY(0);
+  filter: none;
+}
+
+.step-copy {
+  max-width: none;
+  margin-bottom: 28px;
+}
+
+.step-copy .step-tag {
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 11px;
+  color: var(--rose-deep);
+  letter-spacing: 0.14em;
+  margin-bottom: 10px;
+}
+
+.step-copy h3 {
+  font-family: 'Huiwen', serif;
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 700;
+  margin-bottom: 12px;
+  line-height: 1.35;
+}
+
+.step-copy.body-copy > p {
+  color: var(--ink-charcoal);
+  line-height: 2;
+}
+
+.step-copy .highlight-stat {
+  font-family: 'Punk Typewriter', monospace;
+  color: var(--rose-deep);
+  font-size: 1.05em;
+}
+
+/* ---- 场记板图表容器 · 2/3 宽居中 ---- */
+.chart-frame {
+  position: relative;
+  width: var(--chart-width);
+  max-width: min(var(--chart-width), calc(100vw - var(--page-pad, 40px) * 2));
+  margin: 8px auto 0;
+  box-sizing: border-box;
+  background: var(--paper-sticky);
+  padding: 28px 24px 20px;
+  transform: rotate(-0.5deg);
+  filter: drop-shadow(2px 4px 8px rgba(44, 36, 22, 0.08));
+}
+
+.chart-frame .tape {
+  position: absolute;
+  top: -9px;
+  right: 36px;
+  width: 48px;
+  height: 15px;
+  background: var(--tape);
+  transform: rotate(4deg);
+  border-radius: 1px;
+  z-index: 2;
+}
+
+.chart-frame .slate-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 10px;
+  color: var(--ink-note);
+  letter-spacing: 0.08em;
+}
+
+.chart-frame .slate-bar::before {
+  content: '';
+  width: 28px;
+  height: 10px;
+  border-radius: 2px 2px 0 0;
+  background: repeating-linear-gradient(
+    -38deg,
+    var(--paper-canvas) 0 5px,
+    var(--ink-charcoal) 5px 10px
+  );
+}
+
+.chart-frame .chart-title {
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: clamp(15px, 1.25vw, 17px);
+  font-weight: 700;
+  color: var(--ink-charcoal);
+  margin: 0 0 14px;
+  padding: 0;
+  text-indent: 0;
+  text-align: center;
+  letter-spacing: 0.04em;
+  line-height: 1.45;
+}
+
+.chart-frame .chart-subtitle {
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 11px;
+  color: var(--ink-note);
+  margin-bottom: 12px;
+}
+
+.chart-canvas {
+  width: 100%;
+  height: 380px;
+}
+
+/* 词云节 · 图表 2/3 宽居中，剪影紧凑显示 */
+#chapter03-wordcloud {
+  --wc-scale: 2;
+  --wc-chart-w: min(var(--chart-width), calc(520px * var(--wc-scale)));
+  --wc-chart-h: min(80vh, calc(var(--wc-chart-w) * 642 / 636));
+}
+
+#chapter03-wordcloud .copy-subtitle,
+#chapter03-wordcloud .step-copy {
+  width: var(--copy-width);
+  max-width: min(var(--copy-width), calc(100vw - var(--page-pad, 40px) * 2));
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+#chapter03-wordcloud .chart-frame {
+  width: var(--chart-width);
+  max-width: var(--chart-width);
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+#chapter03-wordcloud .chart-mid-copy,
+#chapter03-wordcloud .chart-insight,
+#chapter03-wordcloud .chart-source {
+  width: 100%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+/* 词云 · 女性剪影（紧凑尺寸） */
+.wc-stage {
+  position: relative;
+  width: min(var(--wc-chart-w), 100%);
+  aspect-ratio: 636 / 642;
+  max-height: var(--wc-chart-h);
+  margin: 0 auto 8px;
+  background: var(--paper-canvas, #f4efe4);
+}
+
+#chart3-wordcloud {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  background: transparent;
+}
+
+#chart3-wordcloud::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../assets/charts/wordcloud-silhouette-bg.jpg') center center / contain no-repeat;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#chart3-wordcloud.is-wordcloud-ready::before {
+  opacity: 1;
+}
+
+#chart3-wordcloud canvas {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.chart-canvas.chart-tall#chart3-wordcloud {
+  height: 100%;
+  min-height: 0;
+}
+
+/* 第四章 · 荆棘玫瑰带时间轴 */
+.rose-ribbon-host {
+  position: relative;
+  height: auto !important;
+  min-height: 380px;
+  padding: 0;
+  overflow: visible;
+  background: transparent;
+}
+
+.rose-ribbon-timeline {
+  width: 100%;
+  max-width: var(--chart-width);
+  margin: 0 auto;
+}
+
+.rose-ribbon-timeline svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid rgba(44, 36, 22, 0.08);
+  box-shadow: 0 8px 24px rgba(44, 36, 22, 0.06);
+}
+
+.rose-ribbon-era {
+  fill: rgba(224, 128, 160, 0.07);
+}
+
+.rose-ribbon-caption {
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: 15px;
+  fill: var(--ink-charcoal, #2c2416);
+  letter-spacing: 0.06em;
+}
+
+.rose-ribbon-subcaption {
+  font-family: 'Punk Typewriter', 'Courier New', monospace;
+  font-size: 10px;
+  fill: var(--ink-note, #6b5e4a);
+  letter-spacing: 0.04em;
+}
+
+.rose-ribbon-legend text {
+  font-family: 'Punk Typewriter', 'Courier New', monospace;
+  font-size: 10px;
+  fill: var(--ink-note, #6b5e4a);
+}
+
+.rose-ribbon-year {
+  font-family: 'Punk Typewriter', 'Courier New', monospace;
+  font-size: 10px;
+  fill: var(--ink-note, #6b5e4a);
+}
+
+.rose-ribbon-tick {
+  stroke: rgba(107, 94, 74, 0.35);
+  stroke-width: 1;
+}
+
+.rose-ribbon-branch {
+  fill: none;
+  stroke: #4a5c3f;
+  stroke-width: 3.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.rose-ribbon-thorn {
+  fill: #4a5c3f;
+  opacity: 0.75;
+}
+
+.rose-ribbon-petal {
+  opacity: 0.92;
+  stroke: rgba(255, 255, 255, 0.45);
+  stroke-width: 0.4;
+}
+
+.rose-ribbon-flower {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+.rose-ribbon-flower.is-active,
+.rose-ribbon-flower:hover {
+  filter: drop-shadow(0 3px 6px rgba(44, 36, 22, 0.2));
+}
+
+.rose-ribbon-flower.is-won .rose-ribbon-petal {
+  stroke: rgba(255, 236, 170, 0.55);
+}
+
+.rose-ribbon-stem {
+  opacity: 0.85;
+}
+
+.rose-ribbon-tip {
+  position: absolute;
+  z-index: 4;
+  min-width: 180px;
+  max-width: 240px;
+  padding: 10px 12px;
+  background: rgba(255, 252, 247, 0.97);
+  border: 1px solid rgba(44, 36, 22, 0.12);
+  box-shadow: 0 8px 20px rgba(44, 36, 22, 0.12);
+  pointer-events: none;
+  font-size: 11px;
+  line-height: 1.55;
+  color: var(--ink-charcoal, #2c2416);
+}
+
+.rose-ribbon-tip strong {
+  display: block;
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: 13px;
+  color: var(--ink-red, #8c3a3a);
+  margin-bottom: 4px;
+}
+
+.rose-ribbon-tip span {
+  display: block;
+  color: var(--ink-note, #6b5e4a);
+}
+
+.rose-ribbon-tip em {
+  display: block;
+  margin-top: 6px;
+  font-style: normal;
+  font-family: 'Punk Typewriter', 'Courier New', monospace;
+  font-size: 10px;
+  color: var(--rose-deep, #c06078);
+}
+
+/* 第四章 · 人形剪影漏斗 */
+.silhouette-funnel-host {
+  height: auto !important;
+  min-height: 420px;
+  padding: 8px 0 0;
+  background: transparent;
+}
+
+.silhouette-funnel-wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 0.42fr);
+  gap: 20px 28px;
+  align-items: center;
+  max-width: var(--chart-width);
+  margin: 0 auto;
+}
+
+.silhouette-funnel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  filter: drop-shadow(0 8px 20px rgba(44, 36, 22, 0.06));
+}
+
+.sf-layer + .sf-layer {
+  margin-top: -1px;
+}
+
+.sf-layer {
+  outline: none;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.sf-layer.is-active {
+  transform: translateY(-2px);
+  filter: drop-shadow(0 6px 14px rgba(44, 36, 22, 0.12));
+}
+
+.sf-layer-surface {
+  border: 1px solid rgba(44, 36, 22, 0.08);
+  padding: 14px 10px 16px;
+  min-height: 108px;
+}
+
+.sf-layer-surface--stand {
+  min-height: 250px;
+  padding-bottom: 18px;
+}
+
+.sf-layer-surface--bend {
+  min-height: 120px;
+}
+
+.sf-layer-surface--fall {
+  min-height: 96px;
+}
+
+.sf-layer-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 6px 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.sf-layer-name {
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: 13px;
+  color: var(--ink-charcoal, #2c2416);
+  letter-spacing: 0.04em;
+}
+
+.sf-layer-value {
+  font-family: 'Punk Typewriter', 'Courier New', monospace;
+  font-size: 22px;
+  line-height: 1;
+  color: var(--ink-red, #8c3a3a);
+}
+
+.sf-layer-rate {
+  width: 100%;
+  font-family: 'Punk Typewriter', 'Courier New', monospace;
+  font-size: 10px;
+  color: var(--ink-note, #6b5e4a);
+}
+
+.sf-figure-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(var(--sf-cols, 10), minmax(0, 1fr));
+  gap: 3px 4px;
+  padding: 0 3%;
+  box-sizing: border-box;
+  align-content: start;
+  justify-items: stretch;
+}
+
+.sf-figure-grid--stand,
+.sf-figure-grid--bend,
+.sf-figure-grid--fall {
+  max-width: none;
+}
+
+.sf-figure {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 20 / 26;
+  opacity: 0.88;
+  filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.35));
+}
+
+.sf-figure-grid--stand .sf-figure {
+  max-height: 17px;
+}
+
+.sf-figure-grid--bend .sf-figure {
+  max-height: 24px;
+}
+
+.sf-figure-grid--fall .sf-figure {
+  max-height: 30px;
+}
+
+.sf-layer.is-active .sf-figure {
+  opacity: 1;
+}
+
+.sf-handnote {
+  margin: 0;
+  padding: 16px 14px 14px 18px;
+  border-left: 3px solid var(--rose-main, #e080a0);
+  background: rgba(244, 239, 228, 0.65);
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--ink-charcoal, #2c2416);
+  letter-spacing: 0.03em;
+  position: relative;
+}
+
+.sf-handnote::before {
+  content: '“';
+  position: absolute;
+  left: 8px;
+  top: 4px;
+  font-size: 28px;
+  line-height: 1;
+  color: rgba(224, 128, 160, 0.45);
+}
+
+/* 第二章 · 导演-演员合作弧线图 */
+.collab-arc-host {
+  height: auto !important;
+  min-height: 380px;
+  padding: 0;
+  overflow: visible;
+  background: transparent;
+}
+
+.collab-arc-chart {
+  width: 100%;
+  max-width: var(--chart-width);
+  margin: 0 auto;
+}
+
+.collab-arc-chart svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid rgba(44, 36, 22, 0.08);
+  box-shadow: 0 8px 24px rgba(44, 36, 22, 0.06);
+}
+
+.collab-arc-colhead {
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: 13px;
+  fill: var(--ink-charcoal, #2c2416);
+  letter-spacing: 0.08em;
+}
+
+.collab-arc-caption {
+  font-family: 'Punk Typewriter', 'Courier New', monospace;
+  font-size: 10px;
+  fill: var(--ink-note, #6b5e4a);
+  letter-spacing: 0.04em;
+}
+
+.collab-arc-midfield {
+  pointer-events: none;
+}
+
+.collab-arc-link {
+  cursor: pointer;
+  outline: none;
+}
+
+.collab-arc-ribbon {
+  transition: stroke-opacity 0.2s ease, stroke-width 0.2s ease;
+}
+
+.collab-arc-count {
+  font-family: 'Punk Typewriter', 'Courier New', monospace;
+  font-size: 10px;
+  fill: var(--ink-red, #8c3a3a);
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+.collab-arc-node {
+  cursor: pointer;
+  outline: none;
+}
+
+.collab-arc-node circle {
+  stroke: rgba(255, 255, 255, 0.55);
+  stroke-width: 1.5;
+  transition: filter 0.2s ease, r 0.2s ease;
+}
+
+.collab-arc-label {
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: 12px;
+  fill: var(--ink-charcoal, #2c2416);
+  pointer-events: none;
+}
+
+.collab-arc-link.is-active .collab-arc-ribbon,
+.collab-arc-link:hover .collab-arc-ribbon,
+.collab-arc-link:focus-visible .collab-arc-ribbon {
+  stroke-opacity: 0.95;
+  filter: drop-shadow(0 2px 4px rgba(192, 96, 120, 0.35));
+}
+
+.collab-arc-link.is-active .collab-arc-count,
+.collab-arc-link:hover .collab-arc-count {
+  opacity: 1;
+  font-size: 11px;
+}
+
+.collab-arc-node.is-active circle,
+.collab-arc-node:hover circle,
+.collab-arc-node:focus-visible circle {
+  filter: drop-shadow(0 3px 8px rgba(44, 36, 22, 0.2));
+}
+
+.collab-arc-node.is-director.is-active circle,
+.collab-arc-node.is-director:hover circle {
+  fill: var(--rose-deep, #c06078);
+}
+
+/* 第四章 · 话语权三角雷达 */
+.voice-radar-host {
+  height: auto !important;
+  min-height: 420px;
+  padding: 0;
+  overflow: visible;
+  background: transparent;
+}
+
+.voice-radar-chart {
+  width: 100%;
+  max-width: var(--chart-width);
+  margin: 0 auto;
+}
+
+.voice-radar-chart svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid rgba(44, 36, 22, 0.08);
+  box-shadow: 0 8px 24px rgba(44, 36, 22, 0.06);
+}
+
+.voice-radar-title {
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: 16px;
+  fill: var(--ink-charcoal, #2c2416);
+  letter-spacing: 0.06em;
+}
+
+.voice-radar-subtitle {
+  font-family: 'Punk Typewriter', 'Courier New', monospace;
+  font-size: 10px;
+  fill: var(--ink-note, #6b5e4a);
+  letter-spacing: 0.04em;
+}
+
+.voice-radar-grid {
+  fill: rgba(244, 239, 228, 0.45);
+  stroke: rgba(107, 94, 74, 0.22);
+  stroke-width: 1;
+}
+
+.voice-radar-grid:nth-child(2) { fill: rgba(244, 239, 228, 0.32); }
+.voice-radar-grid:nth-child(3) { fill: rgba(236, 229, 216, 0.38); }
+.voice-radar-grid:nth-child(4) { fill: rgba(224, 128, 160, 0.06); }
+
+.voice-radar-axis {
+  stroke: rgba(107, 94, 74, 0.35);
+  stroke-width: 1.2;
+}
+
+.voice-radar-axis-label {
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: 14px;
+  fill: var(--ink-charcoal, #2c2416);
+  letter-spacing: 0.06em;
+}
+
+.voice-radar-scale {
+  font-family: 'Punk Typewriter', 'Courier New', monospace;
+  font-size: 9px;
+  fill: var(--ink-note, #6b5e4a);
+}
+
+.voice-radar-hub {
+  stroke: rgba(255, 255, 255, 0.7);
+  stroke-width: 1.5;
+}
+
+.voice-radar-year {
+  cursor: pointer;
+  outline: none;
+  transition: opacity 0.2s ease;
+}
+
+.voice-radar-area {
+  transition: fill-opacity 0.2s ease, stroke-width 0.2s ease;
+}
+
+.voice-radar-vertex-label {
+  font-family: 'Punk Typewriter', 'Courier New', monospace;
+  font-size: 9px;
+  fill: var(--ink-charcoal, #2c2416);
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.voice-radar-legend-item {
+  cursor: pointer;
+  outline: none;
+}
+
+.voice-radar-legend text {
+  font-family: 'Punk Typewriter', 'Courier New', monospace;
+  font-size: 11px;
+  fill: var(--ink-charcoal, #2c2416);
+}
+
+.voice-radar-year.is-dim {
+  opacity: 0.28;
+}
+
+.voice-radar-year.is-active .voice-radar-area,
+.voice-radar-year:hover .voice-radar-area,
+.voice-radar-year:focus-visible .voice-radar-area {
+  fill-opacity: 0.28;
+  stroke-width: 3;
+  filter: drop-shadow(0 3px 8px rgba(44, 36, 22, 0.15));
+}
+
+.voice-radar-year.is-active .voice-radar-vertex-label,
+.voice-radar-year:hover .voice-radar-vertex-label {
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.voice-radar-legend-item.is-active rect,
+.voice-radar-legend-item:hover rect {
+  fill-opacity: 0.9;
+}
+
+.voice-radar-legend-item.is-dim {
+  opacity: 0.35;
+}
+
+/* 第三章 · 议题图谱 Issue Atlas */
+.issue-atlas-host {
+  height: auto !important;
+  min-height: 540px;
+  padding: 0;
+  overflow: visible;
+  background: transparent;
+}
+
+.issue-atlas {
+  max-width: var(--chart-width);
+  margin: 0 auto;
+  padding: 14px 14px 12px;
+  background: linear-gradient(180deg, rgba(255, 252, 247, 0.96), rgba(244, 239, 228, 0.78));
+  border: 1px solid rgba(44, 36, 22, 0.08);
+  box-shadow: 0 10px 28px rgba(44, 36, 22, 0.06);
+  border-radius: 2px;
+}
+
+.issue-atlas-stage {
+  position: relative;
+  min-height: 540px;
+}
+
+.issue-atlas-caption {
+  position: absolute;
+  top: 4px;
+  left: 2px;
+  z-index: 4;
+  margin: 0;
+  font-family: 'Punk Typewriter', 'Courier New', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: var(--ink-note, #6b5e4a);
+}
+
+.issue-atlas-toolbar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 6;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  max-width: 92%;
+}
+
+.issue-atlas-filter.is-active {
+  background: var(--ink-charcoal, #2c2416);
+  border-color: var(--ink-charcoal, #2c2416);
+  color: #f4efe4;
+}
+
+.issue-atlas-film-select {
+  display: none;
+}
+
+.issue-atlas-film-picker {
+  position: relative;
+}
+
+.issue-atlas-film-trigger {
+  padding: 5px 24px 5px 10px;
+  border: 1px solid rgba(44, 36, 22, 0.12);
+  background: rgba(255, 252, 247, 0.95);
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: 11px;
+  color: var(--ink-charcoal, #2c2416);
+  border-radius: 2px;
+  cursor: pointer;
+  min-width: 108px;
+  text-align: left;
+  background-image: linear-gradient(45deg, transparent 50%, #6b5e4a 50%), linear-gradient(135deg, #6b5e4a 50%, transparent 50%);
+  background-position: calc(100% - 14px) 55%, calc(100% - 9px) 55%;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+
+.issue-atlas-film-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  z-index: 12;
+  min-width: 168px;
+  max-height: 280px;
+  overflow: auto;
+  margin: 0;
+  padding: 6px 0;
+  list-style: none;
+  background: rgba(24, 20, 16, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 14px 32px rgba(20, 16, 12, 0.35);
+  border-radius: 2px;
+}
+
+.issue-atlas-film-option {
+  display: block;
+  width: 100%;
+  padding: 7px 14px;
+  border: none;
+  background: transparent;
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: 11px;
+  color: rgba(244, 239, 228, 0.88);
+  text-align: left;
+  cursor: pointer;
+}
+
+.issue-atlas-film-option:hover,
+.issue-atlas-film-option.is-active {
+  background: rgba(224, 128, 160, 0.22);
+  color: #fff8ef;
+}
+
+.issue-atlas-center-ring {
+  fill: none;
+  stroke: rgba(224, 128, 160, 0.55);
+  stroke-width: 2.5;
+  pointer-events: none;
+}
+
+.issue-atlas-film-marker {
+  cursor: pointer;
+  outline: none;
+}
+
+.issue-atlas-film-marker-dot {
+  fill: #fffaf4;
+  stroke: rgba(44, 36, 22, 0.16);
+  stroke-width: 1.1;
+  filter: drop-shadow(0 2px 5px rgba(44, 36, 22, 0.12));
+}
+
+.issue-atlas-film-marker-label {
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: 8px;
+  fill: var(--ink-charcoal, #2c2416);
+  pointer-events: none;
+}
+
+.issue-atlas-film-marker.is-dim {
+  opacity: 0.16;
+}
+
+.issue-atlas-film-marker.is-active .issue-atlas-film-marker-dot {
+  stroke: rgba(192, 96, 120, 0.65);
+  filter: drop-shadow(0 3px 8px rgba(192, 96, 120, 0.35));
+}
+
+.issue-atlas-stage.has-film-focus .issue-atlas-film-link.is-dim path,
+.issue-atlas-stage.has-film-focus .issue-atlas-bundle[data-film]:not(.is-active) path {
+  stroke-opacity: 0.025 !important;
+}
+
+.issue-atlas-stage.has-film-focus .issue-atlas-film-marker.is-dim {
+  opacity: 0.12;
+}
+
+.issue-atlas-hub-link path {
+  stroke-opacity: 0.1;
+}
+
+.issue-atlas-film-link path {
+  stroke-opacity: 0.07;
+}
+
+.issue-atlas-stage.has-film-focus .issue-atlas-film-link:not(.is-dim) path {
+  stroke-opacity: 0.14;
+}
+
+.issue-atlas-reset {
+  padding: 5px 12px;
+  border: 1px solid rgba(44, 36, 22, 0.12);
+  background: transparent;
+  font-family: 'Punk Typewriter', 'Courier New', monospace;
+  font-size: 10px;
+  color: var(--ink-note, #6b5e4a);
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.issue-atlas-watermark {
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: 48px;
+  fill: rgba(44, 36, 22, 0.04);
+  letter-spacing: 0.2em;
+  pointer-events: none;
+}
+
+.issue-atlas-bundle {
+  pointer-events: stroke;
+  cursor: pointer;
+}
+
+.issue-atlas-bundle.is-dim path {
+  stroke-opacity: 0.03 !important;
+}
+
+.issue-atlas-bundle.is-active path {
+  stroke-opacity: 0.55 !important;
+  filter: drop-shadow(0 2px 5px rgba(44, 36, 22, 0.15));
+}
+
+.issue-atlas-bundle.is-locked path {
+  stroke-opacity: 0.72 !important;
+  stroke-width: 2.4px !important;
+  filter: drop-shadow(0 3px 8px rgba(44, 36, 22, 0.22));
+}
+
+.issue-atlas-link-marker {
+  pointer-events: none;
+}
+
+.issue-atlas-link-marker-halo {
+  fill: rgba(255, 250, 244, 0.55);
+  stroke: none;
+}
+
+.issue-atlas-link-marker-dot {
+  fill: #fffaf4;
+  stroke: rgba(44, 36, 22, 0.18);
+  stroke-width: 1.2;
+}
+
+.issue-atlas-link-marker-label {
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: 9px;
+  fill: var(--ink-charcoal, #2c2416);
+  pointer-events: none;
+}
+
+.issue-atlas-center-glow {
+  pointer-events: none;
+}
+
+.issue-atlas-center.is-hub text,
+.issue-atlas-center.is-film text {
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: 11px;
+  fill: #f4efe4;
+  letter-spacing: 0.06em;
+  pointer-events: none;
+}
+
+.issue-atlas-hub-codes {
+  font-family: 'Punk Typewriter', 'Courier New', monospace !important;
+  font-size: 8px !important;
+  fill: rgba(244, 239, 228, 0.55) !important;
+  letter-spacing: 0.1em !important;
+}
+
+.issue-atlas-center-film {
+  font-size: 12px !important;
+  fill: var(--ink-charcoal, #2c2416) !important;
+}
+
+.issue-atlas-issue-title {
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: 11px;
+  fill: #fff8ef;
+  pointer-events: none;
+}
+
+.issue-atlas-filter {
+  padding: 5px 12px;
+  border: 1px solid rgba(44, 36, 22, 0.12);
+  background: rgba(255, 252, 247, 0.85);
+  font-family: 'Punk Typewriter', 'Courier New', monospace;
+  font-size: 10px;
+  color: var(--ink-charcoal, #2c2416);
+  cursor: pointer;
+  border-radius: 999px;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.issue-atlas-filter:hover {
+  background: rgba(224, 128, 160, 0.14);
+  border-color: rgba(192, 96, 120, 0.45);
+}
+
+.issue-atlas-filter.is-active:hover {
+  background: var(--ink-charcoal, #2c2416);
+}
+
+.issue-atlas-stage svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.issue-atlas-ring {
+  fill: none;
+  stroke: rgba(107, 94, 74, 0.08);
+  stroke-width: 1;
+  stroke-dasharray: 3 8;
+}
+
+.issue-atlas-issue.is-ghost {
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+.issue-atlas-issue.is-ghost .issue-atlas-issue-dot {
+  fill-opacity: 0.35;
+}
+
+.issue-atlas-film-link path {
+  stroke-opacity: 0.025;
+}
+
+.issue-atlas-hub-link path {
+  stroke-opacity: 0.035;
+}
+
+.issue-atlas-center.is-film {
+  cursor: pointer;
+  outline: none;
+}
+
+.issue-atlas-detail-kicker.is-rose {
+  color: rgba(224, 128, 160, 0.95);
+}
+
+.issue-atlas-hub-link {
+  fill: none;
+  stroke-width: 1.4;
+  stroke-opacity: 0.14;
+  stroke-linecap: round;
+  transition: stroke-opacity 0.2s ease, stroke-width 0.2s ease;
+}
+
+.issue-atlas-film-link {
+  fill: none;
+  stroke-linecap: round;
+  transition: stroke-opacity 0.2s ease, stroke-width 0.2s ease, filter 0.2s ease;
+}
+
+.issue-atlas-hub-link.is-active,
+.issue-atlas-film-link.is-active {
+  stroke-opacity: 0.92 !important;
+  filter: drop-shadow(0 2px 6px rgba(44, 36, 22, 0.18));
+}
+
+.issue-atlas-hub-link.is-dim,
+.issue-atlas-film-link.is-dim {
+  stroke-opacity: 0.05 !important;
+}
+
+.issue-atlas-hub text {
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: 11px;
+  fill: #f4efe4;
+  letter-spacing: 0.08em;
+  pointer-events: none;
+}
+
+.issue-atlas-film {
+  cursor: pointer;
+  outline: none;
+  transition: opacity 0.2s ease;
+}
+
+.issue-atlas-film-dot {
+  fill: var(--rose-deep, #c06078);
+  stroke: rgba(255, 255, 255, 0.7);
+  stroke-width: 1.2;
+  transition: filter 0.2s ease;
+}
+
+.issue-atlas-film.is-active .issue-atlas-film-dot,
+.issue-atlas-film:hover .issue-atlas-film-dot {
+  filter: drop-shadow(0 2px 5px rgba(192, 96, 120, 0.45));
+}
+
+.issue-atlas-film.is-dim {
+  opacity: 0.2;
+}
+
+.issue-atlas-issue {
+  cursor: pointer;
+  outline: none;
+  transition: opacity 0.2s ease;
+}
+
+.issue-atlas-issue.is-dim {
+  opacity: 0.24;
+}
+
+.issue-atlas-issue-dot {
+  stroke: rgba(255, 255, 255, 0.45);
+  stroke-width: 1.5;
+  transition: filter 0.2s ease;
+}
+
+.issue-atlas-issue.is-active .issue-atlas-issue-dot,
+.issue-atlas-issue:hover .issue-atlas-issue-dot {
+  filter: drop-shadow(0 4px 10px rgba(44, 36, 22, 0.22));
+}
+
+.issue-atlas-issue-count {
+  font-family: 'Punk Typewriter', 'Courier New', monospace;
+  font-size: 10px;
+  fill: #f7f2e8;
+  pointer-events: none;
+}
+
+.issue-atlas-issue-label {
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: 12px;
+  fill: var(--ink-charcoal, #2c2416);
+  letter-spacing: 0.04em;
+  pointer-events: none;
+}
+
+.issue-atlas-legend {
+  position: absolute;
+  left: 2px;
+  bottom: 4px;
+  z-index: 4;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.issue-atlas-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Punk Typewriter', 'Courier New', monospace;
+  font-size: 9px;
+  color: var(--ink-note, #6b5e4a);
+}
+
+.issue-atlas-legend-item i {
+  display: inline-block;
+  width: 18px;
+  height: 3px;
+  border-radius: 2px;
+  font-style: normal;
+}
+
+.issue-atlas-detail {
+  position: absolute;
+  right: 4px;
+  bottom: 44px;
+  z-index: 5;
+  width: min(250px, 46%);
+  padding: 14px 14px 12px;
+  background: rgba(24, 20, 16, 0.92);
+  color: #f4efe4;
+  box-shadow: 0 12px 28px rgba(44, 36, 22, 0.22);
+  border-radius: 2px;
+}
+
+.issue-atlas-detail-kicker {
+  margin: 0 0 6px;
+  font-family: 'Punk Typewriter', 'Courier New', monospace;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  color: rgba(244, 239, 228, 0.55);
+}
+
+.issue-atlas-detail strong {
+  display: block;
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: 16px;
+  color: #fff8ef;
+  margin-bottom: 6px;
+}
+
+.issue-atlas-detail-meta {
+  margin: 0 0 10px;
+  font-size: 11px;
+  line-height: 1.6;
+  color: rgba(244, 239, 228, 0.72);
+}
+
+.issue-atlas-detail-films {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.issue-atlas-detail-films li {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 5px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 11px;
+}
+
+.issue-atlas-detail-films em {
+  font-style: normal;
+  font-family: 'Punk Typewriter', 'Courier New', monospace;
+  color: rgba(224, 160, 192, 0.9);
+  white-space: nowrap;
+}
+
+/* 第三章 · 情感河流交互看板 */
+.emotion-rivers-wrap {
+  display: block;
+}
+
+.er-board-host {
+  height: auto !important;
+  min-height: 0;
+  padding: 0;
+  background: transparent;
+}
+
+.er-board {
+  width: 100%;
+  border: 1px solid rgba(44, 36, 22, 0.08);
+  box-shadow: 0 8px 24px rgba(44, 36, 22, 0.06);
+  border-radius: 2px;
+  background: rgba(247, 242, 232, 0.45);
+  overflow: hidden;
+}
+
+.er-board-toolbar {
+  display: grid;
+  grid-template-columns: minmax(140px, 1.1fr) minmax(0, 1.6fr) minmax(0, 1.6fr) minmax(160px, 1.2fr) minmax(120px, 0.9fr);
+  gap: 10px 12px;
+  align-items: start;
+  padding: 14px 16px 12px;
+  border-bottom: 1px solid rgba(44, 36, 22, 0.08);
+  background: rgba(255, 252, 247, 0.82);
+}
+
+.er-slice,
+.er-peak {
+  padding: 8px 10px;
+  background: rgba(244, 239, 228, 0.75);
+  border: 1px solid rgba(44, 36, 22, 0.08);
+  min-height: 72px;
+}
+
+.er-slice-kicker,
+.er-peak-kicker {
+  font-family: 'Punk Typewriter', 'Courier New', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: var(--ink-note, #6b5e4a);
+  margin-bottom: 4px;
+}
+
+.er-slice-date,
+.er-peak-film {
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: 13px;
+  color: var(--ink-charcoal, #2c2416);
+  line-height: 1.4;
+}
+
+.er-slice-row {
+  margin-top: 6px;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.er-slice-num {
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink-red, #8c3a3a);
+  line-height: 1;
+}
+
+.er-slice-unit {
+  font-family: 'Punk Typewriter', 'Courier New', monospace;
+  font-size: 9px;
+  color: var(--ink-note, #6b5e4a);
+}
+
+.er-slice-emotion {
+  margin-top: 4px;
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: 14px;
+  color: var(--rose-deep, #c06078);
+}
+
+.er-slice-emotion em {
+  display: block;
+  margin-top: 2px;
+  font-style: normal;
+  font-family: 'Punk Typewriter', 'Courier New', monospace;
+  font-size: 9px;
+  color: var(--ink-note, #6b5e4a);
+}
+
+.er-peak-date {
+  margin-top: 4px;
+  font-family: 'Punk Typewriter', 'Courier New', monospace;
+  font-size: 11px;
+  color: var(--ink-note, #6b5e4a);
+}
+
+.er-toolbar-label {
+  font-family: 'Punk Typewriter', 'Courier New', monospace;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: var(--ink-note, #6b5e4a);
+  margin-bottom: 6px;
+}
+
+.er-btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.er-btn {
+  border: 1px solid rgba(44, 36, 22, 0.14);
+  background: rgba(255, 252, 247, 0.9);
+  color: var(--ink-charcoal, #2c2416);
+  font-family: 'Punk Typewriter', 'Courier New', monospace;
+  font-size: 10px;
+  padding: 4px 8px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.er-btn:hover {
+  border-color: rgba(192, 96, 120, 0.45);
+  color: var(--rose-deep, #c06078);
+}
+
+.er-btn.is-active {
+  background: var(--ink-charcoal, #2c2416);
+  border-color: var(--ink-charcoal, #2c2416);
+  color: #fff;
+}
+
+.er-toolbar-slider {
+  grid-column: span 1;
+}
+
+.er-slider-wrap {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Punk Typewriter', 'Courier New', monospace;
+  font-size: 9px;
+  color: var(--ink-note, #6b5e4a);
+}
+
+.er-slider-input {
+  width: 100%;
+  height: 4px;
+  appearance: none;
+  background: rgba(224, 128, 160, 0.25);
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+.er-slider-input::-webkit-slider-thumb {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--rose-deep, #c06078);
+  border: 2px solid #fff;
+  box-shadow: 0 1px 4px rgba(44, 36, 22, 0.2);
+}
+
+.er-slider-input::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--rose-deep, #c06078);
+  border: 2px solid #fff;
+  box-shadow: 0 1px 4px rgba(44, 36, 22, 0.2);
+}
+
+.er-rivers {
+  display: grid;
+  gap: 2px;
+  padding: 8px 10px 12px;
+}
+
+.er-river-row {
+  width: 100%;
+}
+
+.er-river-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 130px;
+}
+
+.er-plot-bg {
+  fill: rgba(247, 242, 232, 0.35);
+}
+
+.er-grid {
+  stroke: rgba(107, 94, 74, 0.12);
+  stroke-width: 1;
+}
+
+.er-film-title {
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: 13px;
+  fill: var(--ink-charcoal, #2c2416);
+}
+
+.er-film-meta {
+  font-family: 'Punk Typewriter', 'Courier New', monospace;
+  font-size: 8px;
+  fill: var(--ink-note, #6b5e4a);
+}
+
+.er-band-layer {
+  stroke: none;
+}
+
+.er-band-pos {
+  stroke: rgba(224, 128, 160, 0.45);
+  stroke-width: 0.8;
+}
+
+.er-band-neg {
+  stroke: rgba(90, 120, 150, 0.35);
+  stroke-width: 0.8;
+}
+
+.er-envelope {
+  fill: none;
+  stroke: rgba(44, 36, 22, 0.55);
+  stroke-width: 1.2;
+  stroke-dasharray: 4 3;
+}
+
+.er-baseline {
+  stroke: rgba(107, 94, 74, 0.35);
+  stroke-width: 1;
+}
+
+.er-release-line,
+.er-cursor-line {
+  stroke-width: 1;
+  stroke-dasharray: 4 4;
+}
+
+.er-release-line {
+  stroke: rgba(140, 58, 58, 0.45);
+}
+
+.er-cursor-line {
+  stroke: rgba(44, 36, 22, 0.5);
+}
+
+.er-peak-dot {
+  fill: var(--rose-deep, #c06078);
+  stroke: #fff;
+  stroke-width: 1;
+}
+
+.er-release-label {
+  font-family: 'Punk Typewriter', 'Courier New', monospace;
+  font-size: 9px;
+  fill: var(--ink-red, #8c3a3a);
+}
+
+.er-neutral-mark {
+  stroke: rgba(107, 94, 74, 0.35);
+  stroke-width: 1.2;
+}
+
+.er-analysis-mark {
+  stroke: rgba(44, 36, 22, 0.42);
+  stroke-width: 1;
+}
+
+@media (max-width: 960px) {
+  .er-board-toolbar {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .er-toolbar-slider {
+    grid-column: 1 / -1;
+  }
+
+  .er-slice,
+  .er-peak {
+    grid-column: span 1;
+  }
+}
+
+/* 第四章 · 全球纬线地球图 */
+.globe-latitude-host {
+  height: auto !important;
+  min-height: 440px;
+  padding: 0;
+  overflow: visible;
+  background: transparent;
+}
+
+.globe-latitude-chart {
+  width: 100%;
+  max-width: var(--chart-width);
+  margin: 0 auto;
+  position: relative;
+}
+
+.globe-latitude-chart svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid rgba(44, 36, 22, 0.08);
+  box-shadow: 0 8px 24px rgba(44, 36, 22, 0.06);
+}
+
+.globe-latitude-title {
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: 17px;
+  fill: var(--ink-charcoal, #2c2416);
+  letter-spacing: 0.06em;
+}
+
+.globe-latitude-subtitle {
+  font-family: 'Punk Typewriter', 'Courier New', monospace;
+  font-size: 10px;
+  fill: var(--ink-note, #6b5e4a);
+  letter-spacing: 0.04em;
+}
+
+.globe-latitude-outline {
+  fill: none;
+  stroke: rgba(44, 36, 22, 0.12);
+  stroke-width: 1.5;
+}
+
+.globe-latitude-earth {
+  pointer-events: none;
+}
+
+.globe-latitude-pole-label {
+  font-family: 'Punk Typewriter', 'Courier New', monospace;
+  font-size: 10px;
+  fill: var(--ink-note, #6b5e4a);
+  letter-spacing: 0.08em;
+}
+
+.globe-latitude-scale-tick {
+  stroke: rgba(107, 94, 74, 0.3);
+  stroke-width: 1;
+}
+
+.globe-latitude-scale-label {
+  font-family: 'Punk Typewriter', 'Courier New', monospace;
+  font-size: 9px;
+  fill: var(--ink-note, #6b5e4a);
+}
+
+.globe-latitude-band {
+  cursor: pointer;
+  outline: none;
+}
+
+.globe-latitude-arc {
+  transition: stroke-width 0.2s ease, filter 0.2s ease;
+}
+
+.globe-latitude-node {
+  opacity: 0.9;
+  transition: r 0.2s ease;
+}
+
+.globe-latitude-name {
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: 13px;
+  fill: var(--ink-charcoal, #2c2416);
+  letter-spacing: 0.04em;
+  pointer-events: none;
+}
+
+.globe-latitude-pct {
+  font-family: 'Punk Typewriter', 'Courier New', monospace;
+  font-size: 12px;
+  fill: var(--ink-red, #8c3a3a);
+  pointer-events: none;
+}
+
+.globe-latitude-pct.is-question {
+  font-size: 18px;
+  fill: var(--ink-note, #6b5e4a);
+  font-style: italic;
+}
+
+.globe-latitude-band.is-active .globe-latitude-arc,
+.globe-latitude-band:hover .globe-latitude-arc,
+.globe-latitude-band:focus-visible .globe-latitude-arc {
+  stroke-width: 3.6;
+  filter: drop-shadow(0 2px 4px rgba(44, 36, 22, 0.18));
+}
+
+.globe-latitude-band.is-active .globe-latitude-node,
+.globe-latitude-band:hover .globe-latitude-node,
+.globe-latitude-band:focus-visible .globe-latitude-node {
+  r: 5;
+}
+
+.globe-latitude-band.is-missing.is-active .globe-latitude-arc,
+.globe-latitude-band.is-missing:hover .globe-latitude-arc {
+  stroke-width: 2.8;
+}
+
+.globe-latitude-tip {
+  position: absolute;
+  z-index: 4;
+  min-width: 180px;
+  max-width: 240px;
+  padding: 10px 12px;
+  background: rgba(255, 252, 247, 0.97);
+  border: 1px solid rgba(44, 36, 22, 0.12);
+  box-shadow: 0 8px 20px rgba(44, 36, 22, 0.12);
+  pointer-events: none;
+  font-size: 11px;
+  line-height: 1.55;
+  color: var(--ink-charcoal, #2c2416);
+}
+
+.globe-latitude-tip strong {
+  display: block;
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: 13px;
+  color: var(--ink-red, #8c3a3a);
+  margin-bottom: 4px;
+}
+
+.globe-latitude-tip span {
+  display: block;
+  color: var(--ink-note, #6b5e4a);
+}
+
+.globe-latitude-tip em {
+  display: block;
+  margin-top: 6px;
+  font-style: normal;
+  font-family: 'Punk Typewriter', 'Courier New', monospace;
+  font-size: 10px;
+  color: var(--rose-deep, #c06078);
+}
+
+.wc-detail-card {
+  position: absolute;
+  z-index: 5;
+  padding: 14px 16px 12px;
+  background: rgba(255, 252, 247, 0.97);
+  border: 1px solid rgba(44, 36, 22, 0.1);
+  box-shadow: 0 10px 28px rgba(44, 36, 22, 0.14);
+  border-radius: 2px;
+  pointer-events: auto;
+  transform: translateY(6px);
+  opacity: 0;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.wc-detail-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.wc-detail-close {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  border: 0;
+  background: transparent;
+  color: var(--ink-note);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 2px 6px;
+}
+
+.wc-detail-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+  padding-right: 20px;
+}
+
+.wc-detail-word {
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--ink-red);
+  letter-spacing: 0.04em;
+}
+
+.wc-detail-count {
+  font-family: 'Punk Typewriter', 'Courier New', monospace;
+  font-size: 11px;
+  color: var(--ink-note);
+  white-space: nowrap;
+}
+
+.wc-detail-meta {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid rgba(44, 36, 22, 0.08);
+}
+
+.wc-detail-meta > div {
+  display: grid;
+  grid-template-columns: 5.2em 1fr;
+  gap: 8px;
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(44, 36, 22, 0.06);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.wc-detail-meta dt {
+  margin: 0;
+  color: var(--ink-note);
+  font-family: 'Punk Typewriter', 'Courier New', monospace;
+}
+
+.wc-detail-meta dd {
+  margin: 0;
+  color: var(--ink-charcoal);
+}
+
+.wc-detail-films dd {
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+.wc-detail-quote {
+  margin: 10px 0 0;
+  padding: 10px 0 0;
+  border-top: 1px dashed rgba(44, 36, 22, 0.12);
+  font-family: 'Noto Serif SC', serif;
+  font-size: 12px;
+  line-height: 1.75;
+  color: var(--ink-charcoal);
+}
+
+.wc-detail-quote cite {
+  display: block;
+  margin-top: 6px;
+  font-style: normal;
+  font-size: 11px;
+  color: var(--ink-note);
+  text-align: right;
+}
+
+.chart-insight {
+  margin-top: 12px;
+  padding: 12px 16px;
+  background: rgba(244, 239, 228, 0.75);
+  border-left: 3px solid var(--rose-main);
+  font-family: 'Punk Typewriter', 'Courier New', monospace;
+  font-size: 11px;
+  line-height: 1.75;
+  color: var(--ink-note);
+  text-align: center;
+  min-height: 2.4em;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.chart-insight strong {
+  color: var(--ink-charcoal);
+  font-weight: 700;
+}
+
+.chart-insight em {
+  font-style: normal;
+  color: var(--rose-deep);
+}
+
+.chart-insight .insight-tag {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 8px;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: var(--paper-canvas);
+  background: var(--rose-deep);
+  border-radius: 2px;
+}
+
+.chart-insight .insight-list {
+  display: block;
+  margin-top: 6px;
+  font-size: 11px;
+  line-height: 1.65;
+  color: var(--ink-note);
+  letter-spacing: 0.02em;
+}
+
+.chart-canvas.chart-tall:not(.silhouette-funnel-host):not(.globe-latitude-host):not(.rose-ribbon-host):not(.collab-arc-host):not(.voice-radar-host):not(.issue-atlas-host) { height: 480px; }
+.chart-canvas.chart-map { height: 460px; }
+
+.chart-source {
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--paper-archive);
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 10px;
+  color: var(--ink-note);
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+}
+
+.chart-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  padding: 24px;
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 11px;
+  color: var(--rose-deep);
+  text-align: center;
+  line-height: 1.8;
+  letter-spacing: 0.04em;
+  background: var(--paper-sticky);
+  border: 1px dashed var(--rose-deep);
+}
+
+.chart-callout {
+  margin-top: 10px;
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 11px;
+  color: var(--rose-deep);
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 768px) {
+  .scroll-step { min-height: auto; padding: 40px 0 56px; opacity: 1; transform: none; }
+  .chart-canvas { height: 300px; }
+  .chart-canvas.chart-map { height: 320px; }
+  #chart3-wordcloud.chart-canvas {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+  }
+
+  #chapter03-wordcloud .wc-stage {
+    width: min(var(--wc-chart-w), 100%);
+    max-height: min(var(--wc-chart-h), 80vh);
+  }
+
+  .wc-detail-card {
+    max-width: calc(100% - 16px);
+  }
+
+  #chapter03-wordcloud .chart-mid-copy,
+  #chapter03-wordcloud .chart-insight,
+  #chapter03-wordcloud .chart-source {
+    width: min(var(--copy-width, 92vw), calc(100vw - var(--page-pad-sm) * 2));
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .silhouette-funnel-host {
+    min-height: 0;
+    padding: 0;
+  }
+
+  .silhouette-funnel-wrap {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .sf-layer-surface {
+    padding: 12px 8px 14px;
+  }
+
+  .sf-layer-surface--stand {
+    min-height: 200px;
+  }
+
+  .sf-layer-value {
+    font-size: 18px;
+  }
+
+  .sf-figure-grid--stand .sf-figure {
+    max-height: 14px;
+  }
+
+  .sf-figure-grid--bend .sf-figure {
+    max-height: 20px;
+  }
+
+  .sf-figure-grid--fall .sf-figure {
+    max-height: 24px;
+  }
+
+  .sf-handnote {
+    font-size: 13px;
+    padding: 12px 12px 12px 16px;
+  }
+
+  .issue-atlas {
+    padding: 12px;
+  }
+
+  .issue-atlas-detail {
+    position: static;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .globe-latitude-host {
+    min-height: 0;
+  }
+
+  .globe-latitude-chart .globe-latitude-name {
+    font-size: 11px;
+  }
+
+  .globe-latitude-chart .globe-latitude-pct {
+    font-size: 10px;
+  }
+
+  .globe-latitude-chart .globe-latitude-title {
+    font-size: 14px;
+  }
+
+  .chart-frame { transform: none; padding: 20px 16px 16px; }
+}
+
+/* file:// 全屏提示 */
+.file-protocol-blocker {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(44, 36, 22, 0.72);
+  backdrop-filter: blur(4px);
+}
+
+.file-protocol-blocker .blocker-card {
+  max-width: 480px;
+  padding: 40px 36px;
+  background: var(--paper-canvas);
+  border: 2px solid var(--rose-deep);
+  box-shadow: 8px 16px 48px rgba(44, 36, 22, 0.25);
+  text-align: center;
+}
+
+.file-protocol-blocker .blocker-icon {
+  font-size: 36px;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.file-protocol-blocker h2 {
+  font-family: 'Huiwen', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink-charcoal);
+  margin: 0 0 12px;
+}
+
+.file-protocol-blocker p {
+  font-size: 13px;
+  line-height: 1.85;
+  color: var(--ink-note);
+  margin: 0 0 20px;
+}
+
+.file-protocol-blocker .blocker-steps {
+  text-align: left;
+  margin: 0 0 24px;
+  padding: 16px 20px;
+  background: rgba(236, 229, 216, 0.5);
+  border-left: 3px solid var(--rose-main);
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 11px;
+  line-height: 2;
+  color: var(--ink-charcoal);
+}
+
+.file-protocol-blocker .blocker-url {
+  display: inline-block;
+  padding: 10px 20px;
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--paper-canvas);
+  background: var(--rose-deep);
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.file-protocol-blocker .blocker-url:hover {
+  background: var(--ink-charcoal);
+}

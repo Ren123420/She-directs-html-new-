@@ -1,0 +1,200 @@
+/* ================================================================
+   背景音乐 · 光碟浮动按钮
+   ================================================================ */
+
+.bgm-player {
+  position: fixed;
+  left: clamp(16px, 2.5vw, 32px);
+  bottom: clamp(20px, 3vh, 36px);
+  z-index: 9400;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.25s ease;
+}
+
+.bgm-player:hover {
+  transform: translateY(-3px);
+}
+
+.bgm-player:focus-visible {
+  outline: 2px solid var(--rose-main);
+  outline-offset: 6px;
+  border-radius: 50%;
+}
+
+.bgm-disc {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, var(--ink-charcoal) 0 8px, #1a1612 8px 9px, transparent 9px),
+    repeating-radial-gradient(
+      circle at 50% 50%,
+      #2c2416 0 2px,
+      #3a3228 2px 4px
+    ),
+    repeating-conic-gradient(
+      from 12deg,
+      #2c2416 0deg 6deg,
+      #4a4034 6deg 12deg
+    );
+  box-shadow:
+    0 6px 18px rgba(44, 36, 22, 0.24),
+    inset 0 0 0 2px rgba(244, 239, 228, 0.14),
+    inset 0 0 16px rgba(0, 0, 0, 0.4);
+  transition: box-shadow 0.35s ease;
+}
+
+.bgm-groove {
+  position: absolute;
+  inset: 14px;
+  border-radius: 50%;
+  border: 1px solid rgba(244, 239, 228, 0.06);
+  pointer-events: none;
+}
+
+.bgm-groove--2 {
+  inset: 20px;
+  border-color: rgba(244, 239, 228, 0.04);
+}
+
+.bgm-disc-inner {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.1), transparent 42%);
+  pointer-events: none;
+}
+
+.bgm-note {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--rose-light);
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.55));
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.bgm-player.is-playing .bgm-disc {
+  box-shadow:
+    0 6px 22px rgba(192, 96, 120, 0.38),
+    0 0 0 2px rgba(224, 128, 160, 0.5),
+    inset 0 0 0 2px rgba(244, 239, 228, 0.1);
+  animation: bgm-spin 3.8s linear infinite;
+}
+
+.bgm-player.is-playing .bgm-disc::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid rgba(224, 128, 160, 0.35);
+  animation: bgm-pulse 2s ease-out infinite;
+  pointer-events: none;
+}
+
+.bgm-player.is-playing .bgm-note {
+  opacity: 0.25;
+  transform: scale(0.8);
+}
+
+.bgm-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  max-width: 88px;
+}
+
+.bgm-label {
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  color: var(--ink-note);
+  background: rgba(244, 239, 228, 0.94);
+  padding: 3px 10px;
+  border: 1px solid var(--paper-archive);
+  border-radius: 2px;
+  box-shadow: 1px 2px 0 rgba(44, 36, 22, 0.08);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.bgm-track {
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: 10px;
+  line-height: 1.35;
+  letter-spacing: 0.04em;
+  color: var(--ink-note);
+  text-align: center;
+  opacity: 0.85;
+  transition: color 0.2s, opacity 0.2s;
+}
+
+.bgm-player.is-playing .bgm-label {
+  color: var(--rose-deep);
+  border-color: var(--rose-light);
+}
+
+.bgm-player.is-playing .bgm-track {
+  color: var(--rose-deep);
+  opacity: 1;
+}
+
+.bgm-player.is-unavailable .bgm-disc {
+  opacity: 0.42;
+  filter: grayscale(0.65);
+}
+
+.bgm-player.is-unavailable .bgm-track::after {
+  content: '（待上传）';
+  display: block;
+  font-size: 9px;
+  color: var(--ink-note);
+  margin-top: 2px;
+}
+
+@keyframes bgm-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes bgm-pulse {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1.18); opacity: 0; }
+}
+
+@media (max-width: 960px) {
+  .bgm-player {
+    left: auto;
+    right: clamp(16px, 4vw, 24px);
+    bottom: clamp(16px, 2.5vh, 28px);
+  }
+
+  .bgm-track {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bgm-player.is-playing .bgm-disc {
+    animation: none;
+  }
+
+  .bgm-player.is-playing .bgm-disc::after {
+    animation: none;
+    display: none;
+  }
+}

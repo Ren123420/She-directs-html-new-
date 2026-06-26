@@ -1,0 +1,113 @@
+{
+  "source": "数据来源：三大电影节",
+  "sourceFile": "图表数据整理/图表数据整理/第四部分/四、图表4：女性电影话语权综合指数.csv",
+  "summary": {
+    "totalChineseMainComp": 145,
+    "femaleMainComp": 13,
+    "femaleMainCompPct": 9.0,
+    "byFestival": [
+      {
+        "festival": "威尼斯",
+        "chineseTotal": 30,
+        "femaleCount": 7,
+        "femalePct": 23.3
+      },
+      {
+        "festival": "柏林",
+        "chineseTotal": 60,
+        "femaleCount": 6,
+        "femalePct": 10.0
+      },
+      {
+        "festival": "戛纳",
+        "chineseTotal": 55,
+        "femaleCount": 0,
+        "femalePct": 0.0
+      }
+    ],
+    "conversionNote": "女导演主竞赛转化率约为男导演的 1/8（文案口径）"
+  },
+  "entries": [
+    {
+      "year": 2001,
+      "film": "动词变位",
+      "director": "唐晓白",
+      "festival": "洛迦诺",
+      "unit": "特别提及",
+      "tier": "side",
+      "won": true
+    },
+    {
+      "year": 2003,
+      "film": "牛皮",
+      "director": "刘伽茵",
+      "festival": "柏林",
+      "unit": "费比西奖",
+      "tier": "side",
+      "won": true
+    },
+    {
+      "year": 2003,
+      "film": "我和爸爸",
+      "director": "徐静蕾",
+      "festival": "国际邀请",
+      "unit": "多个电影节",
+      "tier": "side",
+      "won": false
+    },
+    {
+      "year": 2006,
+      "film": "公园",
+      "director": "尹丽川",
+      "festival": "国际",
+      "unit": "入围",
+      "tier": "side",
+      "won": false
+    },
+    {
+      "year": 2013,
+      "film": "水印街",
+      "director": "文晏",
+      "festival": "威尼斯",
+      "unit": "影评人周",
+      "tier": "side",
+      "won": false
+    },
+    {
+      "year": 2015,
+      "film": "哥哥教我的歌",
+      "director": "赵婷",
+      "festival": "戛纳",
+      "unit": "首映",
+      "tier": "side",
+      "won": false
+    },
+    {
+      "year": 2019,
+      "film": "过春天",
+      "director": "白雪",
+      "festival": "柏林",
+      "unit": "主竞赛/新生代",
+      "tier": "main",
+      "won": false
+    },
+    {
+      "year": 2023,
+      "film": "小白船",
+      "director": "耿子涵",
+      "festival": "戛纳",
+      "unit": "一种关注",
+      "tier": "side",
+      "won": false
+    },
+    {
+      "year": 2024,
+      "film": "一匹白马的热梦",
+      "director": "姜晓萱",
+      "festival": "威尼斯",
+      "unit": "威尼斯日",
+      "tier": "side",
+      "won": false
+    }
+  ]
+}

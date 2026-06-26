@@ -1,0 +1,470 @@
+/* ================================================================
+   Quadrant scatter + FILM NOTEBOOK card
+   ================================================================ */
+
+.quadrant-scatter-board {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.55fr);
+  gap: clamp(24px, 3vw, 40px);
+  align-items: start;
+  width: 100%;
+  font-family: 'Punk Typewriter', 'Courier New', monospace;
+  color: #2c2416;
+}
+
+.scatter-head-panel,
+.scatter-side-panel {
+  width: 100%;
+  max-width: none;
+  text-align: left;
+}
+
+.scatter-head-panel .side-tag,
+.scatter-side-panel .side-tag {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: #c06078;
+  margin-bottom: 10px;
+}
+
+.scatter-head-panel .side-title,
+.scatter-side-panel .side-title {
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 0 0 14px;
+  color: #2c2416;
+}
+
+.side-main-title {
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: clamp(26px, 2.4vw, 36px);
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 16px;
+  color: #2c2416;
+  letter-spacing: 0.02em;
+}
+
+.side-main-title .title-accent {
+  color: #c06078;
+}
+
+.side-quadrant-label {
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: clamp(17px, 1.6vw, 22px);
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 0 0 8px;
+  color: #2c2416;
+}
+
+.side-quadrant-tag {
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: #c06078;
+  margin: 0 0 12px;
+  text-indent: 0;
+}
+
+.side-quadrant-tag[hidden] {
+  display: none;
+}
+
+.scatter-side-panel {
+  flex-shrink: 0;
+  padding-top: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-width: 0;
+}
+
+.side-case-slot {
+  margin-top: 18px;
+}
+
+.side-case-slot:empty {
+  display: none;
+}
+
+.side-case-slot .case-card {
+  text-align: left;
+  margin: 0;
+  padding: 14px 16px;
+  background: rgba(244, 239, 228, 0.72);
+  border: 1px solid #e0d8c8;
+  border-left: 3px solid #c06078;
+}
+
+.side-case-slot .case-card .case-title {
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #2c2416;
+  margin-bottom: 6px;
+}
+
+.side-case-slot .case-card .case-meta {
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: #9a9088;
+  margin-bottom: 8px;
+}
+
+.side-case-slot .case-card p {
+  font-family: 'Huiwen', serif;
+  font-size: 12px;
+  line-height: 1.75;
+  color: #6b5e4a;
+  margin: 0;
+}
+
+.scatter-head-panel .side-copy,
+.scatter-side-panel .side-copy {
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: clamp(12px, 1.05vw, 14px);
+  line-height: 1.85;
+  color: #6b5e4a;
+  margin: 0;
+  letter-spacing: 0.02em;
+  max-width: none;
+}
+
+.scatter-head-panel .side-copy em,
+.scatter-side-panel .side-copy em {
+  font-style: normal;
+  color: #c06078;
+}
+
+/* ---- 图表列 + 右侧说明栏（同板并排，对齐视频参考） ---- */
+.scatter-chart-col {
+  position: relative;
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+}
+
+.scatter-chart-col .scatter-canvas {
+  width: 100%;
+  height: clamp(520px, 62vh, 720px);
+  background: #f4efe4;
+  border: 1px solid #e0d8c8;
+}
+
+.scatter-footnote {
+  margin-top: 10px;
+  font-size: 9px;
+  line-height: 1.65;
+  letter-spacing: 0.04em;
+  color: #6b5e4a;
+  text-align: center;
+  padding: 0 8px;
+}
+
+.scatter-notebook-slot {
+  width: 100%;
+  max-width: none;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin-top: 18px;
+  min-height: 0;
+}
+
+/* ---- FILM NOTEBOOK wrapper ---- */
+.film-file-card {
+  margin-top: 0;
+  perspective: 1400px;
+  width: 100%;
+  display: flex;
+  justify-content: stretch;
+}
+
+.film-notebook {
+  display: flex;
+  width: 100%;
+  min-height: 260px;
+  max-height: min(420px, 42vh);
+  filter: drop-shadow(2px 6px 18px rgba(44, 36, 22, 0.07));
+  transition: filter 0.35s ease;
+}
+
+.film-notebook .fn-page {
+  overflow-y: auto;
+}
+
+.film-notebook.is-open {
+  filter: drop-shadow(4px 10px 28px rgba(192, 96, 120, 0.14));
+}
+
+.film-notebook.is-pinned .fn-spine {
+  background: linear-gradient(180deg, #b85068 0%, #c06078 50%, #a84860 100%);
+}
+
+/* Rose spine tab */
+.fn-spine {
+  flex: 0 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #d07088 0%, #c06078 45%, #b85870 100%);
+  border-radius: 2px 0 0 2px;
+  position: relative;
+  z-index: 2;
+}
+
+.fn-spine span {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.92);
+  padding: 12px 0;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+/* Page body */
+.fn-page {
+  flex: 1;
+  position: relative;
+  min-width: 0;
+  background: linear-gradient(145deg, #f8f0f2 0%, #f4efe4 55%, #efe8e0 100%);
+  border: 1px solid #e8dce0;
+  border-left: none;
+  padding: 28px 22px 24px;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(0.23, 1, 0.32, 1),
+              box-shadow 0.45s ease;
+}
+
+.film-notebook.is-open .fn-page {
+  transform: rotateY(-6deg) translateX(2px);
+  box-shadow: 6px 4px 20px rgba(44, 36, 22, 0.08);
+}
+
+/* Clear tape strip */
+.fn-tape {
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-1.5deg);
+  width: 72px;
+  height: 22px;
+  background: rgba(236, 229, 216, 0.55);
+  border: 1px solid rgba(224, 216, 200, 0.8);
+  box-shadow: 0 1px 3px rgba(44, 36, 22, 0.06);
+  pointer-events: none;
+}
+
+.fn-kicker {
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  color: #9a9088;
+  margin: 0 0 18px;
+}
+
+/* ---- Empty / cover state ---- */
+.fn-cover {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 200px;
+  padding: 8px 4px 12px;
+}
+
+.film-notebook.is-open .fn-cover {
+  display: none;
+}
+
+.fn-invite {
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: clamp(17px, 2.4vw, 20px);
+  font-weight: 700;
+  line-height: 1.55;
+  color: #2c2416;
+  margin: 0 0 14px;
+}
+
+.fn-hint {
+  font-family: 'Huiwen', serif;
+  font-size: 11px;
+  line-height: 1.85;
+  color: #8a8078;
+  margin: 0;
+  max-width: 28em;
+}
+
+/* ---- Open / inner page ---- */
+.fn-inner {
+  display: none;
+  animation: fnPageIn 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+.film-notebook.is-open .fn-inner {
+  display: block;
+}
+
+@keyframes fnPageIn {
+  from {
+    opacity: 0;
+    transform: translateX(12px) rotateY(8deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) rotateY(0);
+  }
+}
+
+.fn-title {
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: clamp(20px, 2.8vw, 26px);
+  font-weight: 700;
+  line-height: 1.3;
+  color: #2c2416;
+  margin: 0 0 10px;
+}
+
+.fn-meta {
+  font-family: 'Huiwen', serif;
+  font-size: 12px;
+  color: #6b5e4a;
+  margin: 0 0 8px;
+  letter-spacing: 0.04em;
+}
+
+.fn-stats {
+  font-family: 'Huiwen', serif;
+  font-size: 11px;
+  color: #6b5e4a;
+  margin: 0 0 10px;
+  letter-spacing: 0.02em;
+}
+
+.fn-quadrant {
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: #c06078;
+  margin: 0 0 16px;
+}
+
+/* Sticky notes row */
+.fn-stickies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.fn-sticky {
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 9px;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+  padding: 8px 10px;
+  color: #2c2416;
+  box-shadow: 1px 2px 6px rgba(44, 36, 22, 0.08);
+  transform: rotate(-1.5deg);
+}
+
+.fn-sticky-poster {
+  padding: 0;
+  width: 52px;
+  height: 72px;
+  overflow: hidden;
+  transform: rotate(1deg);
+  border: 1px solid #e0d8c8;
+  background: linear-gradient(145deg, #ece5d8, #e0a0c0);
+}
+
+.fn-sticky-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.fn-sticky-poster .fn-poster-fb {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Huiwen', serif;
+  font-size: 9px;
+  text-align: center;
+  padding: 4px;
+}
+
+.fn-sticky-note {
+  background: #ece5d8;
+  border: 1px solid #ddd4c4;
+  max-width: 120px;
+}
+
+.fn-sticky-note:nth-child(2) {
+  background: #f0e8ec;
+  border-color: #e8d0d8;
+  transform: rotate(1.2deg);
+}
+
+.fn-sticky-note:nth-child(3) {
+  background: #e8e4dc;
+  transform: rotate(-0.8deg);
+}
+
+.fn-sticky-label {
+  display: block;
+  font-size: 8px;
+  color: #9a9088;
+  margin-bottom: 2px;
+}
+
+.fn-sticky-val {
+  font-size: 11px;
+  color: #c06078;
+  font-weight: 700;
+}
+
+/* Douban link */
+.fn-btn {
+  display: inline-block;
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: #2c2416;
+  text-decoration: none;
+  padding: 8px 0;
+  border-bottom: 1px solid #2c2416;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.fn-btn:hover {
+  color: #c06078;
+  border-color: #c06078;
+}
+
+.fn-btn.disabled {
+  pointer-events: none;
+  opacity: 0.35;
+}
+
+@media (max-width: 860px) {
+  .quadrant-scatter-board {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .scatter-chart-col .scatter-canvas { height: 360px; }
+  .fn-spine { flex: 0 0 24px; }
+  .fn-spine span { font-size: 10px; }
+}

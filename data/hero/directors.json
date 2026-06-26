@@ -1,0 +1,85 @@
+[
+  {
+    "id": "xu",
+    "name": "许鞍华",
+    "fallback": "assets/directors/xu.svg",
+    "photo": "assets/directors/xu.jpg",
+    "urls": [
+      "https://upload.wikimedia.org/wikipedia/commons/2/2f/47th_HKFAA_Ann_Hui.jpg"
+    ]
+  },
+  {
+    "id": "zhang",
+    "name": "张艾嘉",
+    "fallback": "assets/directors/zhang.svg",
+    "photo": "assets/directors/zhang.jpg",
+    "urls": [
+      "https://upload.wikimedia.org/wikipedia/commons/9/9e/Sylvia_Chang_%28cropped%29.jpg"
+    ]
+  },
+  {
+    "id": "li",
+    "name": "李少红",
+    "fallback": "assets/directors/li.svg",
+    "photo": "assets/directors/li.jpg",
+    "urls": [
+      "https://upload.wikimedia.org/wikipedia/commons/4/4e/Li_Shaohong_2010.jpg"
+    ]
+  },
+  {
+    "id": "jia",
+    "name": "贾玲",
+    "fallback": "assets/directors/jia.svg",
+    "photo": "assets/directors/jia.jpg",
+    "urls": [
+      "https://upload.wikimedia.org/wikipedia/commons/0/0c/Jia_Ling_%28cropped%29.jpg"
+    ]
+  },
+  {
+    "id": "shao",
+    "name": "邵艺辉",
+    "fallback": "assets/directors/shao.svg",
+    "photo": "assets/directors/shao.jpg",
+    "urls": [
+      "https://img1.doubanio.com/view/celebrity/s_ratio_celebrity/public/p2914052305.jpg",
+      "https://img9.doubanio.com/view/celebrity/s_ratio_celebrity/public/p2914052305.webp"
+    ]
+  },
+  {
+    "id": "teng",
+    "name": "滕丛丛",
+    "fallback": "assets/directors/teng.svg",
+    "photo": "assets/directors/teng.jpg",
+    "urls": [
+      "https://img1.doubanio.com/view/celebrity/s_ratio_celebrity/public/p1566349281.jpg",
+      "https://img9.doubanio.com/view/celebrity/s_ratio_celebrity/public/p1566349281.jpg"
+    ]
+  },
+  {
+    "id": "yin",
+    "name": "殷若昕",
+    "fallback": "assets/directors/yin.svg",
+    "photo": "assets/directors/yin.jpg",
+    "urls": [
+      "https://img1.doubanio.com/view/celebrity/s_ratio_celebrity/public/p2545472802.jpg"
+    ]
+  },
+  {
+    "id": "chen",
+    "name": "陈翠梅",
+    "fallback": "assets/directors/chen.svg",
+    "photo": "assets/directors/chen.jpg",
+    "urls": [
+      "https://upload.wikimedia.org/wikipedia/commons/5/5a/Tan_Chuimui.jpg"
+    ]
+  },
+  {
+    "id": "zhao",
+    "name": "赵婷",
+    "fallback": "assets/directors/zhao.svg",
+    "photo": "assets/directors/zhao.jpg",
+    "urls": [
+      "https://upload.wikimedia.org/wikipedia/commons/1/1e/Chlo%C3%A9_Zhao_by_Gage_Skidmore.jpg"
+    ]
+  }
+]

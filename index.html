@@ -1,0 +1,1680 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<title>她执导 · She Directs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Special+Elite&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/charts.css">
+<link rel="stylesheet" href="css/narrative.css">
+<link rel="stylesheet" href="css/quadrant-scatter.css">
+<link rel="stylesheet" href="css/interaction.css">
+<link rel="stylesheet" href="css/chart-flipbook.css">
+<link rel="stylesheet" href="css/hero-gallery.css">
+<link rel="stylesheet" href="css/site-nav.css">
+<link rel="stylesheet" href="css/copy.css">
+<link rel="stylesheet" href="css/copy-hierarchy.css">
+<link rel="stylesheet" href="css/prologue-collage.css">
+<link rel="stylesheet" href="css/bgm-player.css">
+<link rel="stylesheet" href="css/center-layout.css">
+<style>
+/* ================================================================
+   RESET & FONTS
+   ================================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+@font-face {
+  font-family: 'Huiwen';
+  src: url('fonts/Huiwen.otf') format('opentype');
+  font-weight: normal; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Punk Typewriter';
+  src: url('fonts/PunkTypewriter.otf') format('opentype');
+  font-weight: normal; font-style: normal; font-display: swap;
+}
+
+/* ================================================================
+   DESIGN TOKENS
+   ================================================================ */
+:root {
+  --paper-canvas:  #f4efe4;
+  --paper-sticky:  #ece5d8;
+  --paper-archive: #e0d8c8;
+  --ink-charcoal:  #2c2416;
+  --ink-note:      #6b5e4a;
+  --ink-red:       #8c3a3a;
+  --rose-main:     #e080a0;
+  --rose-light:    #e0a0c0;
+  --rose-deep:     #c06078;
+  --white:         #ffffff;
+  --tape:          rgba(236,229,216,0.72);
+}
+
+html {
+  background: radial-gradient(ellipse at 50% 40%, #f5f0e6 0%, #efe8d8 60%, #e8dfcc 100%);
+}
+
+body {
+  font-family: 'Huiwen', 'Noto Serif SC', 'STSong', serif;
+  color: var(--ink-charcoal);
+  background: var(--paper-canvas);
+  line-height: 1.8;
+  cursor: none;
+}
+
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  z-index: 9999; pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  z-index: 9998; pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.04 0.18' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
+}
+
+/* ================================================================
+   CUSTOM CURSOR
+   ================================================================ */
+#cursorDot {
+  position: fixed; z-index: 10000; pointer-events: none;
+  width: 30px; height: 26px;
+  overflow: visible;
+  transform: translate(-50%, -50%);
+  opacity: 0.88;
+  transition: opacity 0.22s ease, transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+#cursorDot.hidden { opacity: 0; }
+#cursorDot .clap-stick {
+  transform-origin: 0 0;
+  transform: rotate(30deg);
+  transition: transform 0.13s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+#cursorDot.clapping .clap-stick {
+  transform: rotate(0deg);
+  transition: transform 0.07s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+#cursorDot.clapping {
+  transform: translate(-50%, -50%) scale(0.92);
+}
+
+#customCursor {
+  position: fixed; z-index: 10001; pointer-events: none;
+  opacity: 0;
+  font-family: 'Punk Typewriter', 'Special Elite', 'Courier New', monospace;
+  font-size: 11px; letter-spacing: 0.12em;
+  color: var(--paper-canvas);
+  background: rgba(44,36,22,0.88);
+  border: 1px solid var(--rose-main);
+  padding: 6px 14px; border-radius: 2px;
+  transform: translate(14px, 14px);
+  transition: opacity 0.18s ease;
+  white-space: nowrap;
+}
+#customCursor.visible { opacity: 1; }
+
+/* ================================================================
+   HERO
+   ================================================================ */
+.hero { position: relative; height: 350vh; }
+
+.hero-stage {
+  position: sticky; top: 0;
+  height: 100vh; overflow: hidden;
+}
+
+/* ---- 公共：absolute 元素 ---- */
+.hero-stage > .abs-layer {
+  position: absolute;
+  will-change: transform;
+}
+
+/* ================================================================
+   LAYER 0 — 背景大水印
+   ================================================================ */
+.bg-watermark {
+  z-index: 6;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: clamp(16px, 3.2vw, 52px);
+  width: min(98vw, 1280px);
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: clamp(130px, 19vw, 280px);
+  font-weight: 700;
+  line-height: 0.92;
+  color: rgba(196, 184, 162, 0.72);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  -webkit-text-stroke: 1.5px rgba(192, 96, 120, 0.22);
+  text-shadow:
+    0 0 48px rgba(244, 239, 228, 0.95),
+    0 0 16px rgba(244, 239, 228, 0.65);
+}
+
+.bg-watermark .wm-char {
+  display: inline-block;
+}
+
+/* 「执」下沉，与「她」「导」形成错落 */
+.bg-watermark .wm-char--zhi {
+  transform: translateY(clamp(36px, 5.5vh, 80px));
+  z-index: 1;
+}
+
+.bg-watermark .wm-char--ta,
+.bg-watermark .wm-char--dao {
+  transform: translateY(clamp(0px, 0.5vh, 12px));
+}
+
+/* 中心径向蒙版：压低海报色块干扰，让大水印可读 */
+.watermark-veil {
+  z-index: 3.5;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 58% 48% at 50% 46%,
+    rgba(244, 239, 228, 0.68) 0%,
+    rgba(244, 239, 228, 0.26) 48%,
+    transparent 72%
+  );
+}
+
+/* ================================================================
+   LAYER 3 — 四角画廊容器
+   仅含 左上/右上/左下/右下 四张图，中心图独立处理
+   ================================================================ */
+.gallery-container {
+  z-index: 3;
+  top: 50%; left: 50%;
+  width: min(94vw, 1480px);
+  height: min(80vh, 920px);
+  transform: translate(-50%, -42%) scale(0.94);
+  filter: blur(1.2px);
+}
+
+/* ---- 四角卡片公共 ---- */
+.project-card {
+  position: absolute;
+  display: block;
+  text-decoration: none; color: inherit;
+  overflow: hidden;
+  width: var(--w);
+  transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+              filter  0.5s ease;
+}
+.project-card:hover {
+  transform: rotate(0deg) scale(1.05) !important;
+  z-index: 20 !important;
+}
+
+/* ---- 四角定位 ---- */
+.project-card.card-tl {  /* 左上 · 出走的决心 */
+  --w: clamp(180px, 22vw, 340px);
+  top: 0%; left: 0%;
+  z-index: 2; transform: rotate(-1.8deg);
+}
+.project-card.card-tr {  /* 右上 · 桃姐 */
+  --w: clamp(160px, 20vw, 300px);
+  top: 1%; right: 0%;
+  z-index: 2; transform: rotate(1.5deg);
+}
+.project-card.card-bl {  /* 左下 · 热辣滚烫 */
+  --w: clamp(170px, 21vw, 320px);
+  bottom: 0%; left: 1%;
+  z-index: 3; transform: rotate(2.0deg);
+}
+.project-card.card-br {  /* 右下 · 过春天 */
+  --w: clamp(160px, 20vw, 300px);
+  bottom: 1%; right: 0%;
+  z-index: 3; transform: rotate(-1.3deg);
+}
+
+/* ---- 图片：保留原比例 ---- */
+.project-card .container-img,
+.center-card .container-img {
+  width: 100%; line-height: 0;
+}
+.project-card .container-img img,
+.center-card .container-img img {
+  width: 100%; height: auto; display: block;
+  filter: grayscale(0.25) sepia(0.18) contrast(0.92) brightness(0.88);
+  transition: filter 0.5s ease;
+}
+.project-card:hover .container-img img,
+.center-card:hover .container-img img {
+  filter: grayscale(0.05) sepia(0.05) contrast(1.0) brightness(0.95);
+}
+
+/* ---- 玫瑰叠加层 ---- */
+.project-card .tint-overlay,
+.center-card .tint-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(224,128,160,0.12) 0%, rgba(192,96,120,0.05) 100%);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+.project-card:hover .tint-overlay,
+.center-card:hover .tint-overlay { opacity: 0.25; }
+
+/* ---- Hover 浮层 ---- */
+.project-card .hover-reveal,
+.center-card .hover-reveal {
+  position: absolute; inset: 0;
+  background: rgba(44,36,22,0.52);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+.project-card:hover .hover-reveal,
+.center-card:hover .hover-reveal { opacity: 1; }
+
+.hover-reveal .reveal-label {
+  font-family: 'Punk Typewriter', 'Special Elite', 'Courier New', monospace;
+  font-size: clamp(12px, 1.2vw, 15px);
+  color: var(--paper-canvas); letter-spacing: 0.10em;
+  border: 1px solid rgba(244,239,228,0.45);
+  padding: 9px 24px; border-radius: 2px;
+  backdrop-filter: blur(2px);
+}
+
+/* ---- 胶片标签 ---- */
+.project-card .film-label,
+.center-card .film-label {
+  position: absolute; bottom: 10px; left: 10px;
+  font-family: 'Huiwen', serif;
+  font-size: clamp(11px, 0.9vw, 13px);
+  color: var(--paper-canvas); letter-spacing: 0.04em;
+  opacity: 0; transform: translateY(6px);
+  transition: all 0.35s ease;
+  pointer-events: none;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.55);
+  z-index: 2;
+}
+.project-card:hover .film-label,
+.center-card:hover .film-label {
+  opacity: 1; transform: translateY(0);
+}
+
+/* ---- 胶带 ---- */
+.project-card.card-tl::before,
+.project-card.card-bl::before,
+.center-card::before {
+  content: '';
+  position: absolute; top: -7px;
+  width: 44px; height: 14px;
+  background: var(--tape); border-radius: 1px;
+  z-index: 15; pointer-events: none;
+}
+.project-card.card-tl::before { left: 16px; transform: rotate(-3deg); }
+.project-card.card-bl::before { left: 20px; transform: rotate(-2.5deg); }
+.center-card::before { right: 16px; transform: rotate(4deg); }
+
+/* ================================================================
+   LAYER 5 — 中心卡片（好东西）
+   独立于四角画廊，z-index 在标题之下，使标题可覆盖它
+   滚动时逐渐上升，最终盖过标题
+   ================================================================ */
+.center-card {
+  position: absolute;
+  z-index: 5;  /* 低于标题(z:10)，高于四角(z:3) */
+  display: block;
+  text-decoration: none; color: inherit;
+  overflow: hidden;
+  top: 52%; left: 50%;
+  width: clamp(220px, 28vw, 440px);
+  transform: translate(-50%, -40%) scale(0.93);
+  filter: blur(2px);
+  transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+              filter  0.5s ease;
+}
+.center-card:hover {
+  z-index: 12 !important;
+}
+.center-card:hover .container-img img {
+  filter: grayscale(0.05) sepia(0.05) contrast(1.0) brightness(0.95);
+}
+
+/* ================================================================
+   LAYER 10 — 前景标题
+   白色 text-shadow 做蒙版，当标题覆盖在中心图上时可读
+   ================================================================ */
+.hero-title-group {
+  z-index: 10;
+  text-align: center; pointer-events: none;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  padding: clamp(18px, 2.5vw, 32px) clamp(28px, 4vw, 56px);
+  background: transparent;
+}
+.hero-title-group .title-zh {
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: clamp(64px, 10vw, 160px); font-weight: 700;
+  letter-spacing: 0.03em; line-height: 1; display: block;
+  text-shadow: none;
+}
+.hero-title-group .title-zh .she-pink { color: var(--rose-deep); }
+.hero-title-group .title-zh .highlight {
+  position: relative; display: inline-block;
+}
+.hero-title-group .title-en {
+  font-family: 'Punk Typewriter', 'Special Elite', 'Courier New', monospace;
+  font-size: clamp(18px, 2.5vw, 36px);
+  font-weight: 700;
+  color: var(--ink-charcoal); letter-spacing: 0.12em;
+  display: block; margin-top: 6px;
+}
+
+/* ================================================================
+   SCROLL INDICATOR
+   ================================================================ */
+.scroll-indicator {
+  z-index: 10;
+  bottom: clamp(24px, 5vh, 48px); left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 12px; color: var(--ink-note);
+  letter-spacing: 0.10em; pointer-events: none;
+  opacity: 0.7;
+  animation: scroll-pulse 2.4s ease-in-out infinite;
+}
+.scroll-indicator::after {
+  content: '';
+  display: block;
+  width: 1px; height: 28px;
+  background: var(--ink-note);
+  margin: 8px auto 0; opacity: 0.4;
+}
+@keyframes scroll-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.85; }
+}
+
+/* ================================================================
+   TRANSITION
+   ================================================================ */
+.transition-section {
+  position: relative; z-index: 1;
+  background: var(--paper-canvas);
+  padding: 80px 32px 100px;
+}
+.transition-section .container { max-width: none; width: 100%; margin: 0; text-align: left; }
+.transition-section .section-label {
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 12px; color: var(--ink-note);
+  letter-spacing: 0.10em; margin-bottom: 16px;
+}
+.transition-section h2 {
+  font-family: 'Huiwen', serif;
+  font-size: clamp(28px, 4vw, 42px); font-weight: 700;
+  margin-bottom: 20px; letter-spacing: 0.02em;
+}
+.transition-section p {
+  font-size: clamp(15px, 1.8vw, 18px);
+  color: var(--ink-charcoal);
+  line-height: 2;
+}
+
+.torn-separator {
+  position: relative; z-index: 1;
+  height: 24px; overflow: visible; margin-top: -1px;
+  background: var(--paper-canvas);
+}
+.torn-separator svg { width: 100%; height: 24px; display: block; }
+
+.color-strip {
+  display: flex; height: 5px; margin-top: 60px;
+  border-radius: 1px; overflow: hidden;
+}
+.color-strip span { flex: 1; }
+
+/* ================================================================
+   MOBILE
+   ================================================================ */
+@media (max-width: 768px) {
+  body { cursor: auto; }
+  #customCursor, #cursorDot { display: none; }
+
+  .hero { height: auto; }
+  .hero-stage {
+    position: relative; height: auto; min-height: 100vh;
+    padding: 40px 20px 50px;
+  }
+  .hero-stage > .abs-layer {
+    position: relative !important;
+    top: auto !important; left: auto !important;
+    transform: none !important;
+    will-change: auto !important;
+  }
+  .bg-watermark,
+  .watermark-veil { display: none; }
+
+  .gallery-container {
+    width: 100% !important; height: auto !important;
+    filter: none !important; transform: none !important;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px; padding: 0 8px;
+  }
+  .gallery-container .project-card {
+    position: relative !important;
+    top: auto !important; left: auto !important;
+    right: auto !important; bottom: auto !important;
+    width: 100% !important;
+    transform: rotate(0deg) !important;
+  }
+
+  .center-card {
+    position: relative !important;
+    top: auto !important; left: auto !important;
+    width: 90% !important; max-width: 380px;
+    margin: 0 auto;
+    transform: none !important; filter: none !important;
+  }
+
+  .project-card .container-img img,
+  .center-card .container-img img {
+    filter: grayscale(0.15) sepia(0.10) contrast(0.95) brightness(0.92);
+  }
+  .project-card .hover-reveal,
+  .center-card .hover-reveal { opacity: 0.2; }
+  .project-card .film-label,
+  .center-card .film-label {
+    opacity: 0.65; transform: translateY(0); font-size: 11px;
+  }
+  .project-card::before,
+  .center-card::before { display: none; }
+
+  .hero-title-group {
+    position: relative !important;
+    top: auto !important; left: auto !important;
+    transform: none !important; margin-bottom: 8px;
+    text-shadow: none;
+  }
+  .hero-title-group .title-zh { font-size: 52px; text-shadow: none; }
+  .hero-title-group .title-en { font-size: 16px; text-shadow: none; }
+
+  .scroll-indicator { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="read-progress" id="readProgress" aria-hidden="true"></div>
+
+<header class="top-nav-bar" id="topNav">
+  <div class="top-nav-inner">
+    <a class="top-nav-brand" href="#hero">
+      <span class="brand-zh"><em>她</em>执导</span>
+      <span class="brand-en">SHE DIRECTS</span>
+    </a>
+    <nav class="top-nav-menu" aria-label="章节目录">
+      <a href="#prologue" data-target="prologue">
+        <span class="nav-num">01</span>
+        <span class="nav-label">引言</span>
+      </a>
+      <a href="#chapter01" data-target="chapter01">
+        <span class="nav-num">02</span>
+        <span class="nav-label">在哪儿</span>
+      </a>
+      <a href="#chapter02" data-target="chapter02">
+        <span class="nav-num">03</span>
+        <span class="nav-label">她写她</span>
+      </a>
+      <a href="#chapter03" data-target="chapter03">
+        <span class="nav-num">04</span>
+        <span class="nav-label">触动了谁</span>
+      </a>
+      <a href="#chapter04" data-target="chapter04">
+        <span class="nav-num">05</span>
+        <span class="nav-label">能走多远</span>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<nav class="story-nav" aria-label="章节导航">
+  <a href="#prologue" data-target="prologue">引言</a>
+  <a href="#chapter01" data-target="chapter01">在哪儿</a>
+  <a href="#chapter02" data-target="chapter02">她写她</a>
+  <a href="#chapter03" data-target="chapter03">触动了谁</a>
+  <a href="#chapter04" data-target="chapter04">能走多远</a>
+  <a href="#hero" class="nav-top" data-target="hero">返回顶部 ↑</a>
+</nav>
+
+<button type="button" class="bgm-player is-paused" id="bgmPlayer" aria-label="播放背景音乐《给电影人的情书》" aria-pressed="false" title="背景音乐 · 给电影人的情书 · 点击播放">
+  <span class="bgm-disc" aria-hidden="true">
+    <span class="bgm-groove"></span>
+    <span class="bgm-groove bgm-groove--2"></span>
+    <span class="bgm-disc-inner"></span>
+    <span class="bgm-note" aria-hidden="true">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/>
+      </svg>
+    </span>
+  </span>
+  <span class="bgm-meta">
+    <span class="bgm-label">BGM</span>
+    <span class="bgm-track">给电影人的情书 · 蔡琴</span>
+  </span>
+</button>
+<audio id="bgmAudio" loop preload="none" aria-label="背景音乐"></audio>
+
+<!-- ===== 自定义光标 ===== -->
+<svg id="cursorDot" width="30" height="26" viewBox="0 0 40 34" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="boardTopClip">
+      <rect x="2" y="10" width="36" height="12"/>
+    </clipPath>
+  </defs>
+  <!-- 板体 -->
+  <rect x="2" y="10" width="36" height="22" rx="1.5" fill="#2c2416"/>
+  <!-- 斜纹（上白下黑） -->
+  <g clip-path="url(#boardTopClip)" stroke="#f4efe4" stroke-width="2.8">
+    <line x1="-2" y1="10" x2="10" y2="22"/>
+    <line x1="10" y1="10" x2="22" y2="22"/>
+    <line x1="22" y1="10" x2="34" y2="22"/>
+    <line x1="34" y1="10" x2="46" y2="22"/>
+  </g>
+  <line x1="2" y1="22" x2="38" y2="22" stroke="#2c2416" stroke-width="0.5"/>
+  <!-- 底部书写区 -->
+  <rect x="2" y="22" width="36" height="10" rx="1.5" fill="#f4efe4"/>
+  <!-- 合板条（可动）— 以铰链(0,0)为原点，条体向左延伸 -->
+  <g class="clap-stick-outer" transform="translate(38 10)">
+    <g class="clap-stick">
+      <rect x="-32" y="-9" width="32" height="7" rx="1.5" fill="#2c2416"/>
+      <rect x="-32" y="-9" width="32" height="2.5" rx="1" fill="#f4efe4"/>
+      <circle cx="0" cy="0" r="1.5" fill="#8c3a3a"/>
+    </g>
+  </g>
+</svg>
+<div id="customCursor">VIEW →</div>
+
+<!-- ================================================================
+     HERO
+     ================================================================ -->
+<section class="hero" id="hero">
+  <div class="hero-stage" id="heroStage">
+
+    <!-- LAYER 0: 背景大水印（三字分置，避免「执」被中心图挡住） -->
+    <div class="bg-watermark abs-layer" id="bgWatermark" aria-hidden="true">
+      <span class="wm-char wm-char--ta">她</span>
+      <span class="wm-char wm-char--zhi">执</span>
+      <span class="wm-char wm-char--dao">导</span>
+    </div>
+
+    <!-- LAYER 1: 背景（无海报漂浮，避免叙事区海报过多） -->
+    <div class="hero-floats abs-layer" id="heroFloats" aria-hidden="true"></div>
+
+    <!-- LAYER 3: 四角画廊 — 仅四张角图 -->
+    <div class="gallery-container abs-layer" id="gallery">
+
+      <!-- 左上 · 出走的决心 · 尹丽川 -->
+      <a href="#" data-film-id="chuzou" target="_blank" rel="noopener"
+         class="project-card card-tl" data-cursor="view">
+        <div class="container-img">
+          <img class="hero-poster" data-id="chuzou" src="assets/hero/chuzou.svg" alt="出走的决心" loading="eager">
+        </div>
+      <div class="tint-overlay"></div>
+      <div class="hover-reveal"><span class="reveal-label">详情 →</span></div>
+        <span class="film-label">出走的决心 · 尹丽川</span>
+      </a>
+
+      <!-- 右上 · 桃姐 · 许鞍华 -->
+      <a href="#" data-film-id="taojie" target="_blank" rel="noopener"
+         class="project-card card-tr" data-cursor="view">
+        <div class="container-img">
+          <img class="hero-poster" data-id="taojie" src="assets/hero/taojie.svg" alt="桃姐" loading="eager">
+        </div>
+      <div class="tint-overlay"></div>
+      <div class="hover-reveal"><span class="reveal-label">详情 →</span></div>
+        <span class="film-label">桃姐 · 许鞍华</span>
+      </a>
+
+      <!-- 左下 · 热辣滚烫 · 贾玲 -->
+      <a href="#" data-film-id="rela" target="_blank" rel="noopener"
+         class="project-card card-bl" data-cursor="view">
+        <div class="container-img">
+          <img class="hero-poster" data-id="rela" src="assets/hero/rela.svg" alt="热辣滚烫" loading="eager">
+        </div>
+      <div class="tint-overlay"></div>
+      <div class="hover-reveal"><span class="reveal-label">详情 →</span></div>
+        <span class="film-label">热辣滚烫 · 贾玲</span>
+      </a>
+
+      <!-- 右下 · 过春天 · 白雪 -->
+      <a href="#" data-film-id="guochuntian" target="_blank" rel="noopener"
+         class="project-card card-br" data-cursor="view">
+        <div class="container-img">
+          <img class="hero-poster" data-id="guochuntian" src="assets/hero/guochuntian.svg" alt="过春天" loading="eager">
+        </div>
+      <div class="tint-overlay"></div>
+      <div class="hover-reveal"><span class="reveal-label">详情 →</span></div>
+        <span class="film-label">过春天 · 白雪</span>
+      </a>
+
+    </div>
+
+    <!-- LAYER 4: 中心径向蒙版 — 统一水印区底色 -->
+    <div class="watermark-veil abs-layer" aria-hidden="true"></div>
+
+    <!-- LAYER 5: 中心卡片（好东西·邵艺辉）— 独立于四角，垫在标题底下 -->
+    <a href="#" data-film-id="haodongxi" target="_blank" rel="noopener"
+       class="center-card abs-layer" id="centerCard" data-cursor="view">
+      <div class="container-img">
+        <img class="hero-poster" data-id="haodongxi" src="assets/hero/haodongxi.svg" alt="好东西" loading="eager">
+      </div>
+      <div class="tint-overlay"></div>
+      <div class="hover-reveal"><span class="reveal-label">详情 →</span></div>
+      <span class="film-label">好东西 · 邵艺辉</span>
+    </a>
+
+    <!-- LAYER 10: 前景标题 — 白色蒙版覆盖中心图 -->
+    <div class="hero-title-group abs-layer" id="heroTitle">
+      <span class="title-zh">
+        <span class="she-pink">她</span><span class="highlight">执导</span>
+      </span>
+      <span class="title-en">She Directs</span>
+    </div>
+
+    <!-- SCROLL INDICATOR -->
+    <div class="scroll-indicator abs-layer" id="scrollHint">下滑探索</div>
+
+  </div>
+</section>
+
+<!-- ===== 撕边 ===== -->
+<div class="torn-separator">
+  <svg viewBox="0 0 700 24" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,22 Q12,8 28,14 Q44,22 58,10 Q70,0 84,14 Q100,24 114,12 Q128,2 142,16 Q158,26 172,10 Q186,0 200,14 Q214,24 228,12 Q242,2 256,16 Q270,26 284,10 Q298,0 312,14 Q326,24 340,12 Q354,2 368,16 Q382,26 396,10 Q410,0 424,14 Q438,24 452,12 Q466,2 480,16 Q494,26 508,10 Q522,0 536,14 Q550,24 564,12 Q578,2 592,16 Q606,26 620,10 Q634,0 648,14 Q662,24 676,10 Q690,0 700,12" fill="none" stroke="#d4cbb8" stroke-width="0.8"/>
+    <path d="M0,22 Q12,8 28,14 Q44,22 58,10 Q70,0 84,14 Q100,24 114,12 Q128,2 142,16 Q158,26 172,10 Q186,0 200,14 Q214,24 228,12 Q242,2 256,16 Q270,26 284,10 Q298,0 312,14 Q326,24 340,12 Q354,2 368,16 Q382,26 396,10 Q410,0 424,14 Q438,24 452,12 Q466,2 480,16 Q494,26 508,10 Q522,0 536,14 Q550,24 564,12 Q578,2 592,16 Q606,26 620,10 Q634,0 648,14 Q662,24 676,10 Q690,0 700,12 L700,24 L0,24 Z" fill="#f4efe4"/>
+  </svg>
+</div>
+
+<!-- ===== 开篇引子 ===== -->
+<section class="story-prologue" id="prologue">
+  <div class="prologue-inner body-copy copy-lines">
+    <div class="chapter-heading film-heading prologue-heading">
+      <h2 class="title-main">零 引言</h2>
+    </div>
+      <div class="prologue-media-block prologue-media-block--directors" aria-label="女导演照片拼贴">
+      <div class="mosaic-board mosaic-board--directors">
+        <div class="mosaic-cell" style="--mos-rot:-1deg"><figure><div class="mosaic-frame"><img src="assets/directors/xu.jpg" data-fallback="assets/directors/xu.svg" alt="许鞍华" loading="lazy" decoding="async"></div><figcaption>许鞍华</figcaption></figure></div>
+        <div class="mosaic-cell" style="--mos-rot:0.8deg"><figure><div class="mosaic-frame"><img src="assets/directors/zhang.jpg" data-fallback="assets/directors/zhang.svg" alt="张艾嘉" loading="lazy" decoding="async"></div><figcaption>张艾嘉</figcaption></figure></div>
+        <div class="mosaic-cell" style="--mos-rot:-0.6deg"><figure><div class="mosaic-frame"><img src="assets/directors/li.jpg" data-fallback="assets/directors/li.svg" alt="李少红" loading="lazy" decoding="async"></div><figcaption>李少红</figcaption></figure></div>
+        <div class="mosaic-cell" style="--mos-rot:0.5deg"><figure><div class="mosaic-frame"><img src="assets/directors/teng.jpg" data-fallback="assets/directors/teng.svg" alt="滕丛丛" loading="lazy" decoding="async"></div><figcaption>滕丛丛</figcaption></figure></div>
+        <div class="mosaic-cell" style="--mos-rot:-0.8deg"><figure><div class="mosaic-frame"><img src="assets/directors/chen.jpg" data-fallback="assets/directors/chen.svg" alt="陈翠梅" loading="lazy" decoding="async"></div><figcaption>陈翠梅</figcaption></figure></div>
+        <div class="mosaic-cell" style="--mos-rot:0.6deg"><figure><div class="mosaic-frame"><img src="assets/directors/zhao.jpg" data-fallback="assets/directors/zhao.svg" alt="赵婷" loading="lazy" decoding="async"></div><figcaption>赵婷</figcaption></figure></div>
+      </div>
+    </div>
+    <p class="copy-hook">你也许说不出她们的名字……</p>
+
+    <div class="prologue-media-block prologue-media-block--posters" aria-label="女导演电影海报拼贴">
+      <div class="mosaic-board mosaic-board--posters">
+        <div class="mosaic-cell" style="--mos-rot:-1.8deg"><figure><div class="mosaic-frame"><img src="assets/posters/chuzou.jpg" data-film-id="chuzou" data-fallback="assets/hero/chuzou.svg" alt="出走的决心" loading="lazy" decoding="async"></div><figcaption>出走的决心<small>尹丽川</small></figcaption></figure></div>
+      <div class="mosaic-cell" style="--mos-rot:1deg"><figure><div class="mosaic-frame"><img src="assets/posters/taojie.jpg" data-film-id="taojie" data-fallback="assets/hero/taojie.svg" alt="桃姐" loading="lazy" decoding="async"></div><figcaption>桃姐<small>许鞍华</small></figcaption></figure></div>
+      <div class="mosaic-cell" style="--mos-rot:-0.5deg"><figure><div class="mosaic-frame"><img src="assets/posters/rela.jpg" data-film-id="rela" data-fallback="assets/hero/rela.svg" alt="热辣滚烫" loading="lazy" decoding="async"></div><figcaption>热辣滚烫<small>贾玲</small></figcaption></figure></div>
+      <div class="mosaic-cell" style="--mos-rot:2.2deg"><figure><div class="mosaic-frame"><img src="assets/posters/guochuntian.jpg" data-film-id="guochuntian" data-fallback="assets/hero/guochuntian.svg" alt="过春天" loading="lazy" decoding="async"></div><figcaption>过春天<small>白雪</small></figcaption></figure></div>
+      <div class="mosaic-cell" style="--mos-rot:-1.2deg"><figure><div class="mosaic-frame"><img src="assets/posters/haodongxi.jpg" data-film-id="haodongxi" data-fallback="assets/hero/haodongxi.svg" alt="好东西" loading="lazy" decoding="async"></div><figcaption>好东西<small>邵艺辉</small></figcaption></figure></div>
+      <div class="mosaic-cell" style="--mos-rot:1.6deg"><figure><div class="mosaic-frame"><img src="assets/posters/nihao.jpg" data-film-id="nihao" data-fallback="assets/hero/nihao.svg" alt="你好，李焕英" loading="lazy" decoding="async"></div><figcaption>你好，李焕英<small>贾玲</small></figcaption></figure></div>
+      <div class="mosaic-cell" style="--mos-rot:-2deg"><figure><div class="mosaic-frame"><img src="assets/posters/chunchao.jpg" data-film-id="chunchao" data-fallback="assets/hero/chunchao.svg" alt="春潮" loading="lazy" decoding="async"></div><figcaption>春潮<small>杨荔钠</small></figcaption></figure></div>
+      <div class="mosaic-cell" style="--mos-rot:0.4deg"><figure><div class="mosaic-frame"><img src="assets/posters/guanyin.jpg" data-film-id="guanyin" data-fallback="assets/hero/guanyin.svg" alt="观音山" loading="lazy" decoding="async"></div><figcaption>观音山<small>李玉</small></figcaption></figure></div>
+      <div class="mosaic-cell" style="--mos-rot:-1.4deg"><figure><div class="mosaic-frame"><img src="assets/posters/houlai.jpg" data-film-id="houlai" data-fallback="assets/hero/houlai.svg" alt="后来的我们" loading="lazy" decoding="async"></div><figcaption>后来的我们<small>刘若英</small></figcaption></figure></div>
+      <div class="mosaic-cell" style="--mos-rot:1.8deg"><figure><div class="mosaic-frame"><img src="assets/posters/xuexiao.jpg" data-film-id="xuexiao" data-fallback="assets/hero/xuexiao.svg" alt="北京遇上西雅图" loading="lazy" decoding="async"></div><figcaption>北京遇上西雅图<small>薛晓路</small></figcaption></figure></div>
+      <div class="mosaic-cell" style="--mos-rot:-0.9deg"><figure><div class="mosaic-frame"><img src="assets/posters/yigeren.jpg" data-film-id="yigeren" data-fallback="assets/hero/yigeren.svg" alt="一个好女人" loading="lazy" decoding="async"></div><figcaption>一个好女人<small>宋慧玲</small></figcaption></figure></div>
+      <div class="mosaic-cell" style="--mos-rot:1.1deg"><figure><div class="mosaic-frame"><img src="assets/posters/chuzou.jpg" data-film-id="chuzou" data-fallback="assets/hero/chuzou.svg" alt="出走的决心" loading="lazy" decoding="async"></div><figcaption>出走的决心<small>尹丽川</small></figcaption></figure></div>
+      </div>
+    </div>
+    <p data-prologue-shift class="copy-hook">但也许看过她们的作品。</p>
+
+    <div class="copy-editorial prologue-narrative">
+      <p>许鞍华、张艾嘉、李少红、贾玲、邵艺辉、滕丛丛、殷若昕、陈翠梅、赵婷……当这些面孔从银幕后的暗处被一张一张拎出来，拼贴在同一个画框里时，一个被忽略三十年的问题才真正显形：</p>
+      <blockquote class="copy-pull-line">华语电影狂奔的三十年，女导演们，到底在哪里？</blockquote>
+      <p>我们收集了1996年到2026年30年间，111位华语女导演共计217部作品，使用情感分析、社会网络分析等方法，探寻她们的作品、她们的履历、她们被讨论的方式、她们被奖项加冕或被市场冷落的轨迹。</p>
+      <div class="copy-question-rail" aria-label="全文研究问题">
+        <p class="copy-question-rail__lead">我们用数据来回答大众的疑惑</p>
+        <ul class="copy-question-list">
+          <li>她们从哪儿来？</li>
+          <li>如何入行？</li>
+          <li>作品触动了谁？</li>
+          <li>又能走多远？</li>
+        </ul>
+      </div>
+    </div>
+
+    <nav class="prologue-chapter-route" aria-label="目录导览：在场→表达→回响→权力">
+      <a href="#chapter01" class="route-node">
+        <span class="route-label">在场</span>
+        <small>一、画外的女导演</small>
+      </a>
+      <span class="route-arrow" aria-hidden="true">→</span>
+      <a href="#chapter02" class="route-node">
+        <span class="route-label">表达</span>
+        <small>二、她写她，她拍她</small>
+      </a>
+      <span class="route-arrow" aria-hidden="true">→</span>
+      <a href="#chapter03" class="route-node">
+        <span class="route-label">回响</span>
+        <small>三、被听见的，与被要求的</small>
+      </a>
+      <span class="route-arrow" aria-hidden="true">→</span>
+      <a href="#chapter04" class="route-node">
+        <span class="route-label">权力</span>
+        <small>四、未完成的长镜头</small>
+      </a>
+    </nav>
+  </div>
+</section>
+
+<!-- ===== CHAPTER 01 INTRO ===== -->
+<section class="transition-section">
+  <div class="container body-copy copy-lines">
+    <div class="chapter-heading film-heading">
+      <h2 class="title-main">一、画外的女导演</h2>
+      <p class="title-sub"><span class="subtitle-clapper" aria-hidden="true"></span><span class="subtitle-text">她们在哪里？不是地理意义上的"在"，是存在意义上的"在"。</span></p>
+    </div>
+      <div class="slate-stack slate-stack--solo" aria-label="场记卡 · 访谈">
+      <article class="slate-card slate-card-quote slate-card-interactive slate-card--c" aria-label="场记板式卡片 · 访谈" role="button" tabindex="0">
+        <div class="tape"></div>
+      <div class="clapper"></div>
+      <div class="hinge"></div>
+      <div class="body">
+          <div class="slate-meta">
+            <span>SCENE 1</span>
+            <span>QUOTE</span>
+            <span>INTERVIEW</span>
+          </div>
+          <h4 class="slate-quote-text">"我拍电影的时候，投资方会说：你一个女的，能拍好吗？"</h4>
+          <p class="slate-quote-cite">——李玉，凤凰网《非常道》访谈</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="copy-editorial chapter-intro-body">
+      <div class="copy-editorial-grid">
+        <div class="copy-editorial-col copy-editorial-col--story">
+          <p>2019年，导演白雪带着她的处女作《过春天》亮相柏林电影节。媒体称赞"新锐女导演崛起"，但很少有人追问：白雪毕业于北京电影学院导演系，第一部作品拿了创投大奖，却依然花了整整十年才拍出这部长片。而同届的男同学，早已拍了三四部。</p>
+          <p>这不是个例，而是数据可以验证的普遍困境。我们在猫眼、灯塔影片数据库中检索1996年至2026年间上映的国产电影，共获得6598部影片，涉及活跃导演7205人次，从中整理出女导演人数、执导影片数、活跃率等数据，以回答一个最朴素的问题：</p>
+          <blockquote class="copy-pull-line">三十年来，华语女导演到底在哪里？她们的存在感真的变好了吗？</blockquote>
+        </div>
+        <aside class="copy-editorial-col copy-editorial-col--stats" aria-label="关键数据对照">
+          <div class="stat-compare">
+            <div class="stat-compare-card">
+              <span class="stat-compare-year">1996</span>
+              <span class="stat-compare-num">5%</span>
+              <p>年产65部，女导演执导3部；活跃导演80人，女性4人。</p>
+            </div>
+            <div class="stat-compare-arrow" aria-hidden="true">三十年 →</div>
+            <div class="stat-compare-card stat-compare-card--now">
+              <span class="stat-compare-year">2025</span>
+              <span class="stat-compare-num">10%</span>
+              <p>年产350部，女导演执导35部；活跃导演380人，女性38人。</p>
+            </div>
+          </div>
+          <p class="copy-emphasis copy-emphasis--aside">但10%，像一道看不见的天花板。</p>
+        </aside>
+      </div>
+      <div class="copy-editorial-footer">
+        <p>从1996年到2026年，女导演在年度活跃导演中的占比从未超过10%。最高值出现在2020年、2022年、2025年和2026年，均为10%。而更早的年份，长期在5%–7%之间徘徊。</p>
+        <p>女导演执导的影片比例同样长期低于10%。即便在2017–2021年间一度接近10%，也始终未能真正跨越。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CHAPTER 01 · 滚动叙事图表 ===== -->
+<section class="chapter-section" id="chapter01">
+<div class="chapter-inner scroll-step" data-step="ch1-step1">
+    <div class="chart-frame">
+      <div class="tape"></div>
+      <h4 class="chart-title">年度女导演占比双轴组合图</h4>
+      <div id="chart1" class="chart-canvas chart-tall"></div>
+      <div class="chart-mid-copy body-copy copy-lines">
+        <span class="copy-emphasis">这不是"没有人拍"，而是"没有被选择"。</span>
+      </div>
+      <div id="chart1-insight" class="chart-insight"></div>
+      <div id="chart1-source" class="chart-source"></div>
+    </div>
+  </div>
+      <div class="chapter-inner scroll-step scroll-step-gen" data-step="ch1-step2">
+    <div class="step-copy body-copy copy-lines">
+      <p>如果我们将导演按出生年代分组，会发现一个耐人寻味的现象：女性导演的代际占比在提高，但"留下来"的概率却始终低于男性。</p>
+    </div>
+      <div class="gen-scrolly" aria-label="代际解读 · 滚动划过图表">
+      <div class="gen-scrolly-sticky">
+        <div class="chart-frame">
+          <div class="tape"></div>
+      <h4 class="chart-title">各代际女导演占比及活跃度柱线组合图</h4>
+          <div id="chart2" class="chart-canvas chart-tall"></div>
+      <div class="chart-mid-copy body-copy copy-lines">
+            <span class="copy-emphasis">这意味着：近四成90后女导演在起步阶段就已"消失"，而同代男导演全部活跃。这不是代际更替的问题，而是结构性淘汰的结果。</span>
+          </div>
+      <div id="chart2-insight" class="chart-insight"></div>
+      <div id="chart2-source" class="chart-source"></div>
+        </div>
+      </div>
+      <div class="gen-scrolly-track">
+        <article class="gen-scrolly-step" data-gen-step="0">
+          <div class="gen-text">
+            <div class="gen-label">50后 · GENERATION</div>
+            <p>50后女导演：活跃率23.1%，略高于同代男导演（20%）。</p>
+          </div>
+        </article>
+        <article class="gen-scrolly-step" data-gen-step="1">
+          <div class="gen-text">
+            <div class="gen-label">60后 · GENERATION</div>
+            <p>60后女导演：近五年活跃率为0%。这一代曾经是"中坚力量"，如今已集体淡出。</p>
+          </div>
+        </article>
+        <article class="gen-scrolly-step" data-gen-step="2">
+          <div class="gen-text">
+            <div class="gen-label">70后 · GENERATION</div>
+            <p>70后女导演：活跃率37.9%，略高于同代男导演（33.3%），但绝对基数小。</p>
+          </div>
+        </article>
+        <article class="gen-scrolly-step" data-gen-step="3">
+          <div class="gen-text">
+            <div class="gen-label">80后 · GENERATION</div>
+            <p>80后女导演：活跃率62.1%，而男导演为80%。</p>
+          </div>
+        </article>
+        <article class="gen-scrolly-step" data-gen-step="4">
+          <div class="gen-text">
+            <div class="gen-label">90后 · GENERATION</div>
+            <p>90后女导演：活跃率60%，而男导演为100%。</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+      <div class="chapter-inner scroll-step" data-step="ch1-step3">
+    <div class="step-copy body-copy copy-lines">
+      <p>电影工业从不均匀分布在地图上。女导演的出生地，同样指向同一个答案：文化资源和产业中心，才是机会的起点。</p>
+      <p>根据统计，111位华语女导演中，大陆籍67位，台湾籍28位，香港籍16位，另有海外华裔9位（主要活跃于美国）。大陆女导演高度集中于北京（11位）、四川（7位）、浙江（6位）等省市，中西部地区、非省会城市出身的女导演极少。</p>
+    </div>
+      <div class="chart-frame">
+      <div class="tape"></div>
+      <h4 class="chart-title">女导演出生地分布地图</h4>
+      <div id="chart3" class="chart-canvas chart-map"></div>
+      <div id="chart3-insight" class="chart-insight"></div>
+      <div id="chart3-source" class="chart-source"></div>
+    </div>
+  </div>
+      <div class="chapter-inner scroll-step" data-step="ch1-step4">
+    <div class="step-copy body-copy copy-lines">
+      <p>而拍出第一部长片的女导演，有多少人能拍出第二部？第三部？</p>
+      <p>111位有首部作品的女导演中，仅46.8%拍出了第二部，25.7%拍出了第三部，到第五部时仅剩10.1%。超过一半的女导演在起步阶段就被淘汰。</p>
+    </div>
+      <div class="chart-frame">
+      <div class="tape"></div>
+      <h4 class="chart-title">华语女导演存活曲线图</h4>
+      <div id="chart4" class="chart-canvas"></div>
+      <div class="chart-mid-copy body-copy copy-lines">
+        <div class="survival-stats">
+          <p class="survival-stat"><span class="stat-big">1/2</span><span class="stat-label">每2位女导演中，只有1位能拍出第二部电影；</span></p>
+          <p class="survival-stat"><span class="stat-big">1/10</span><span class="stat-label">每10位中，才有1位能拍出第五部。</span></p>
+        </div>
+        <span class="copy-emphasis">第一部不是问题，第二部才是分水岭。</span>
+      </div>
+      <div id="chart4-callout" class="chart-callout"></div>
+      <div id="chart4-insight" class="chart-insight"></div>
+      <div id="chart4-source" class="chart-source"></div>
+    </div>
+  </div>
+      <div class="chapter-inner scroll-step" data-step="ch1-step5">
+    <div class="step-copy body-copy copy-lines">
+      <p>我们对50位代表性华语女导演的"教育背景—入行前职业—首作资金来源"进行编码，绘制成桑基图。可以发现，华语女导演的入行路径大多数狭窄、脆弱且高度依赖个人资源。</p>
+    </div>
+      <div class="chart-frame chart-frame--archive">
+      <div class="tape"></div>
+      <h4 class="chart-title">女导演入行路径桑基图</h4>
+      <div id="chart5" class="chart-canvas chart-tall"></div>
+      <div class="chart-mid-copy body-copy copy-lines">
+        <span class="copy-emphasis">华语女导演最宽的「主干道」：科班出身 → 编剧/演员 → 商业投资</span>
+        <span class="copy-emphasis">非科班 → 记者/作家/家庭主妇 → 独立制片或自筹资金</span>
+        <p>值得关注的是，有些常见路径对华语女导演而言却几乎不存在：</p>
+        <p>对于男导演最为常见的商业制片体系内部晋升路径，如从执行导演、第一副导演升为导演，样本中几乎为零。男性导演常见的"按部就班"升迁路径，对女性几乎不开放。</p>
+        <p>通过大型经纪公司或头部影视公司内部培养的路径同样缺失。女性导演首作大多来自独立制片、创投平台或政府扶持，而非大厂"订单"。</p>
+      </div>
+      <div id="chart5-insight" class="chart-insight"></div>
+      <div id="chart5-source" class="chart-source"></div>
+    </div>
+      <div class="step-copy body-copy copy-lines chapter-summary">
+      <p>三十年来，华语女导演从未消失，但也从未真正走进行业的中心。她们从进入行业的那一刻起，就面临更窄的入口、更陡的留存曲线、更脆弱的资金支持。她们的身影一直在，但行业从未真正为她们铺平道路。</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- ===== CHAPTER 02 INTRO ===== -->
+<section class="transition-section" id="chapter02">
+  <div class="container body-copy copy-lines">
+    <div class="chapter-heading film-heading">
+      <h2 class="title-main">二、她写她，她拍她</h2>
+      <p class="title-sub"><span class="subtitle-clapper" aria-hidden="true"></span><span class="subtitle-text">她们在拍什么？她们在讲述什么故事？</span></p>
+    </div>
+      <div class="slate-stack slate-stack--solo" aria-label="场记卡 · 访谈">
+      <article class="slate-card slate-card-quote slate-card-interactive slate-card--c" aria-label="场记板式卡片 · 访谈" role="button" tabindex="0">
+        <div class="tape"></div>
+      <div class="clapper"></div>
+      <div class="hinge"></div>
+      <div class="body">
+          <div class="slate-meta">
+            <span>SCENE 2</span>
+            <span>QUOTE</span>
+            <span>INTERVIEW</span>
+          </div>
+          <h4 class="slate-quote-text">"男性的凝视是看女人，女性的凝视是看人"</h4>
+          <p class="slate-quote-cite">——邵艺辉，《爱情神话》上映后接受《人物》访谈</p>
+        </div>
+      </article>
+    </div>
+
+    <p>当越来越多的导筒交到女性手上，我们发现镜头对准的方向变了。</p>
+    <p>我们分析了女导演与男导演的作品信息，在类型分布、番位设置、女主角年龄、结局流向等层面上进行对比。</p>
+    <p>类型标签是电影工业对观众许下的第一重承诺。在华语电影市场中，女导演的作品长期被简单归类为"爱情""家庭""文艺"，但数据告诉我们，事实并非如此。</p>
+  </div>
+</section>
+
+<!-- ===== CHAPTER 02 · 图表 ===== -->
+<section class="chapter-section" id="chapter02-charts">
+
+  <div class="chapter-inner scroll-step" data-step="ch2-step1">
+    <div class="chart-frame">
+      <div class="tape"></div>
+      <h4 class="chart-title">女导演作品类型图</h4>
+      <div id="chart2a" class="chart-canvas chart-tall"></div>
+      <div class="chart-mid-copy body-copy copy-lines">
+        <p>剧情片仍是主流，占比超过60%，但与此同时，喜剧、爱情、家庭、纪录片、悬疑、犯罪、同性、奇幻、运动、历史、战争、动画、短片……几乎所有主流类型中都能找到女导演的身影。</p>
+        <span class="copy-emphasis">她们的类型版图远比刻板印象中丰富。</span>
+      </div>
+      <div id="chart2a-insight" class="chart-insight"></div>
+      <div id="chart2a-source" class="chart-source"></div>
+    </div>
+      <div class="step-copy body-copy copy-lines">
+      <p>这引出了一个追问：当女导演进入同一片题材战场，她们的视角和男导演到底有什么不同？</p>
+    </div>
+  </div>
+      <div class="chapter-inner scroll-step" data-step="ch2-step2">
+    <div class="step-copy body-copy copy-lines">
+      <p>为回答这个问题，我们按照"同题材匹配"原则，为217部女导演作品逐一匹配了同类型、同时期的217部男导演作品作为对照组。当题材变量被控制，番位设置、女主角年龄、职业身份、故事结局上的差异，才真正指向导演性别的视角视野。</p>
+    </div>
+    <p class="copy-subtitle">番位对比：谁站在故事中心？</p>
+    <div class="chart-frame">
+      <div class="tape"></div>
+      <h4 class="chart-title">番位对比堆积条形图</h4>
+      <div id="chart2b" class="chart-canvas"></div>
+      <div class="chart-mid-copy body-copy copy-lines">
+        <p class="copy-design chart-scrolly-spec">女导演作品：近半数（49.3%）将女性置于第一番位，男性第一番位仅占26.7%，双主角/群像占24.0%。</p>
+        <p class="copy-design chart-scrolly-spec">男导演作品：超过半数（57.6%）将男性设为第一番位，女性第一番位骤降至7.4%，双主角/群像占35.0%。</p>
+        <p>值得注意的是，双主角/群像的差异中，男导演作品中的群像比例（35.0%）高于女导演（24.0%），但这并不意味着"更公平"，群像叙事往往以男性角色为核心展开，女性在其中仍多为配角或功能型角色。</p>
+        <p>女导演作品中女性担当第一主角的比例是男导演作品的6.7倍。而当男性掌镜时，女性站到故事中央的机会被压缩至不足十分之一。</p>
+        <span class="copy-emphasis">番位不是审美选择，是权力分配。</span>
+      </div>
+      <div id="chart2b-insight" class="chart-insight"></div>
+      <div id="chart2b-source" class="chart-source"></div>
+    </div>
+  </div>
+      <div class="chapter-inner scroll-step" data-step="ch2-step3">
+    <p class="copy-subtitle">合作网络：女导演与女演员的"创作共同体"</p>
+    <div class="step-copy body-copy copy-lines">
+      <p>在长期的行业边缘化处境中，女导演的合作圈层也更为紧缩。我们统计了女导演作品中的主演信息，筛选出与同一位女导演合作两次及以上的演员，绘制成导演-演员合作网络图。</p>
+    </div>
+      <div class="chart-frame">
+      <div class="tape"></div>
+      <h4 class="chart-title">导演—演员合作网络图</h4>
+      <div id="chart2d" class="chart-canvas chart-tall"></div>
+      <div class="chart-mid-copy body-copy copy-lines">
+        <p>女导演的合作网络规模较小，但连接强度高。许鞍华与鲍起静、张艾嘉与刘若英、贾玲与张小斐……这些长期的"导演-演员"搭档构成了稳定的创作共同体。相比之下，男导演的合作网络规模大但流动性强，鲜少与同一位女演员反复合作。当主流制作体系不愿为女性创作者提供足够资源时，华语女导演们便自己搭建舞台，通过反复合作积累默契、降低沟通成本、塑造稳定的银幕女性形象。</p>
+      </div>
+      <div id="chart2d-insight" class="chart-insight"></div>
+      <div id="chart2d-source" class="chart-source"></div>
+    </div>
+  </div>
+      <div class="chapter-inner scroll-step" data-step="ch2-step4">
+    <p class="copy-subtitle">年龄与职业：什么样的女性值得被看见？</p>
+    <div class="step-copy body-copy copy-lines">
+      <p>女导演与男导演的镜头，对"女性应该多大年纪站在故事中央"有着截然不同的回答。</p>
+      <p>女导演镜头下，40岁以上女性占主角的比例超过30%；而在男导演的同题材对照中，这一比例不足15%。50岁以上的女性主角在女导演作品中占14%，在男导演作品中几乎没有。</p>
+    </div>
+      <div class="chart-frame">
+      <div class="tape"></div>
+      <h4 class="chart-title">女主角年龄分布分面蝴蝶图</h4>
+      <div id="chart2c" class="chart-canvas"></div>
+      <div class="film-compare-grid" aria-label="同题材电影主角年龄对比">
+        <div class="film-compare-block">
+          <div class="film-compare-theme">对比一 ·「30+女性自我重启」题材</div>
+          <div class="film-compare-pair">
+            <div class="film-compare-side film-compare-side--female">
+              <span class="film-compare-label">女导演作品</span>
+              <div class="film-compare-card">
+                <img src="assets/posters/rela.jpg" data-film-id="rela" data-remote="https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2903995670.jpg" data-fallback="assets/hero/rela.svg" alt="热辣滚烫 海报" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                <strong>《热辣滚烫》· 贾玲 · 2024</strong>
+                <p>乐莹，32 岁。宅家多年后重新寻找自我，最终站上拳击台。</p>
+              </div>
+            </div>
+            <div class="film-compare-vs" aria-hidden="true"><span>VS</span></div>
+            <div class="film-compare-side film-compare-side--male">
+              <span class="film-compare-label">男导演对照</span>
+              <div class="film-compare-card">
+                <img src="assets/posters/shilian33tian.jpg" data-film-id="shilian33tian" data-remote="https://img9.doubanio.com/view/photo/l/public/p1252876266.webp" data-fallback="assets/hero/shilian33tian.svg" alt="失恋33天 海报" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                <strong>《失恋33天》· 滕华涛 · 2011</strong>
+                <p>黄小仙，27 岁。失恋后重新振作的都市白领，结局落在情感关系。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="film-compare-block">
+          <div class="film-compare-theme">对比二 ·「母女照护」题材</div>
+          <div class="film-compare-pair">
+            <div class="film-compare-side film-compare-side--female">
+              <span class="film-compare-label">女导演作品</span>
+              <div class="film-compare-card">
+                <img src="assets/posters/mama.jpg" data-film-id="mama" data-remote="https://img9.doubanio.com/view/photo/l/public/p2882058776.webp" data-fallback="assets/hero/mama.svg" alt="妈妈！ 海报" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                <strong>《妈妈！》· 杨荔钠 · 2022</strong>
+                <p>女儿 65 岁，母亲 85 岁。高龄女儿照护患阿尔茨海默症的母亲。</p>
+              </div>
+            </div>
+            <div class="film-compare-vs" aria-hidden="true"><span>VS</span></div>
+            <div class="film-compare-side film-compare-side--male">
+              <span class="film-compare-label">男导演对照</span>
+              <div class="film-compare-card">
+                <img src="assets/posters/zuoyou.jpg" data-film-id="zuoyou" data-remote="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p661597159.jpg" data-fallback="assets/hero/zuoyou.svg" alt="左右 海报" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                <strong>《左右》· 王小帅 · 2008</strong>
+                <p>枚竹，成年母亲。为救女儿卷入伦理困境，结局落在母职责任而非爱情归宿。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="chart-mid-copy body-copy copy-lines">
+        <span class="copy-emphasis">女导演愿意让40+、50+的女性成为故事的绝对中心，而男导演即使在同题材中，也更倾向于选择更年轻的身体承载叙事。</span>
+      </div>
+      <div id="chart2c-insight" class="chart-insight"></div>
+      <div id="chart2c-source" class="chart-source"></div>
+    </div>
+  </div>
+      <div class="chapter-inner scroll-step" data-step="ch2-step5">
+    <div class="step-copy body-copy copy-lines">
+      <p>年龄之外，职业身份是定义女性角色的另一重维度。</p>
+      <p>女导演作品中，女主角从事专业/创意职业（记者、医生、艺术家等）的比例达36%，而男导演同题材中仅占22%；男导演作品中的女性主角更多是学生或普通职业女性（合计54% vs 女导演38%）。女导演镜头下的女性，更常以有专业能力、有创作表达权的形象出现。</p>
+    </div>
+      <div class="chart-frame">
+      <div class="tape"></div>
+      <h4 class="chart-title">女主角职业分组堆积条形图</h4>
+      <div id="chart2e" class="chart-canvas"></div>
+      <div id="chart2e-insight" class="chart-insight"></div>
+      <div id="chart2e-source" class="chart-source"></div>
+    </div>
+  </div>
+      <div class="chapter-inner scroll-step" data-step="ch2-step6">
+    <p class="copy-subtitle">结局流向：女性角色的终点在哪里？</p>
+    <div class="step-copy body-copy copy-lines">
+      <p>故事如何结束，决定了角色最终被赋予的意义。</p>
+    </div>
+      <div class="chart-frame">
+      <div class="tape"></div>
+      <h4 class="chart-title">女主角结局流向冲积图</h4>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div id="chart2f" class="chart-canvas" style="min-height:320px;"></div>
+      <div id="chart2g" class="chart-canvas" style="min-height:320px;"></div>
+      </div>
+      <div class="chart-mid-copy body-copy copy-lines">
+        <p>女导演的流向图中，最宽的流线指向自我实现（28%）和开放式（22%），尤其集中在"青年女性"和"中青年女性"群体。即便是"中老年/老年女性"，也出现了清晰的自我实现流向，如《出走的决心》中50岁的李红开车上路，《无依之地》中60岁的弗恩在路上找到归属。</p>
+        <p>男导演的流向图中，最宽的流线指向获得爱情（24%）和回归家庭（28%）。"青年女性"和"少女/学生"几乎被爱情和家庭收编，自我实现的路径近乎消失。</p>
+        <span class="copy-emphasis">男导演为女性角色安排的终点高度集中在「获得爱情」和「回归家庭」；女导演的结局谱系更分散、更复杂，甚至更残酷，她们不承诺圆满，但提供了更多元的出口。</span>
+      </div>
+      <div id="chart2f-insight" class="chart-insight"></div>
+      <div id="chart2f-source" class="chart-source"></div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ===== 第二章 → 第三章 · 数据素描 ===== -->
+<section class="story-bridge story-bridge--sketch" aria-label="数据素描过渡">
+  <div class="story-bridge-inner">
+    <figure class="data-sketch-image">
+      <img
+        src="assets/03.png"
+        alt="女导演镜头下的女性形象：故事中心、年龄、职业身份与开放式结局"
+        loading="lazy"
+        decoding="async"
+      />
+    </figure>
+  </div>
+</section>
+
+<!-- ===== CHAPTER 03 · 票房×口碑 scrolly ===== -->
+<section class="story-chapter scrolly-chapter" id="chapter03">
+  <div class="chapter-gate body-copy copy-lines">
+    <div class="chapter-heading film-heading">
+      <h2 class="title-main">三、被听见的，与被要求的</h2>
+      <p class="title-sub"><span class="subtitle-clapper" aria-hidden="true"></span><span class="subtitle-text">她们的作品抵达了谁？观众用什么语言谈论她们？银幕上的故事，是否溢出了电影本身？</span></p>
+    </div>
+      <div class="slate-stack slate-stack--solo" aria-label="场记卡 · 访谈">
+      <article class="slate-card slate-card-quote slate-card-interactive slate-card--c" aria-label="场记板式卡片 · 访谈" role="button" tabindex="0">
+        <div class="tape"></div>
+      <div class="clapper"></div>
+      <div class="hinge"></div>
+      <div class="body">
+          <div class="slate-meta">
+            <span>SCENE 3</span>
+            <span>QUOTE</span>
+            <span>INTERVIEW</span>
+          </div>
+          <h4 class="slate-quote-text">"观众看完跟我说，电影里那个妈妈像我妈。我知道我拍对了。"</h4>
+          <p class="slate-quote-cite">——贾玲，《你好，李焕英》上映后采访</p>
+        </div>
+      </article>
+    </div>
+      <div class="douban-review-box">
+      <div class="douban-label">豆瓣短评 · 《出走的决心》</div>
+      <p>"看完《出走的决心》，我给我妈打了一个电话。没说别的，就问她还记不记得小时候带我去看菊展，回来时下大雨，她把外套全裹在我身上，自己淋了一路。"</p>
+      <cite>——《出走的决心》豆瓣短评</cite>
+    </div>
+
+    <p>在电影的评论区，类似的"私人记忆"俯拾即是，观众不是在评价电影，而是在电影里看见了自己母亲、姐姐、甚至自己的影子。当银幕上的女人开始出走、反抗、和解，银幕外的观众便开始诉说、争吵、流泪。</p>
+    <p>这一部分，我们将目光从银幕转向观众。通过票房数据、豆瓣短评和社交媒体讨论，我们试图回答问题：女导演的作品在市场上被如何定价？观众用什么样的语言谈论她们？她们的故事是否溢出了电影本身，成为社会议题的一部分？</p>
+    <p class="copy-subtitle">市场切片：口碑与票房的分裂</p>
+    <p>将217部女导演作品投射到<span class="copy-inline-em">"票房—评分"</span>坐标系中，结果清晰地揭示了群体内部的分化：口碑与票房之间，远非简单的正相关。</p>
+  </div>
+      <div class="scrolly-container scrolly-container--quadrant" id="quadrantScatterRoot">
+    <div class="scrolly-graphic-wrapper">
+      <div class="scrolly-graphic">
+        <div class="chart-frame chart-frame--quadrant-board">
+          <div class="tape"></div>
+      <h4 class="chart-title">票房—评分四象限散点图</h4>
+      <div id="quadrantScatter">
+            <div class="quadrant-scatter-board">
+              <div class="scatter-chart-col">
+                <div class="scatter-canvas" data-scatter-canvas></div>
+      <div class="scatter-footnote"></div>
+              </div>
+              <aside class="scatter-side-panel">
+                <div class="side-tag">CHART 01</div>
+                <h3 class="side-main-title">口碑与票房的<span class="title-accent">分裂</span></h3>
+                <p class="side-quadrant-tag" data-side-quadrant-tag hidden></p>
+                <p class="side-copy">
+                  将217部女导演作品投射到"票房—评分"坐标系中，女导演作品的平均豆瓣评分约6.7分（中位数6.8），平均票房约1.2亿元。向下滚动，逐一进入每个象限。
+                </p>
+                <div class="side-case-slot" aria-live="polite"></div>
+      <div class="scatter-notebook-slot" aria-label="FILM NOTEBOOK 档案卡"></div>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="scrolly-steps scrolly-steps--quadrant">
+      <article class="scrolly-step scroll-step body-copy" data-step="ch3-all" data-quadrant="all">
+        <div class="step-index">STEP 01 / OVERVIEW</div>
+        <h3>票房—评分四象限</h3>
+        <p>向下滚动或点击「翻页」，逐一进入每个象限，查看对应解读。</p>
+      </article>
+
+      <article class="scrolly-step scroll-step body-copy" data-step="ch3-tr" data-quadrant="tr">
+        <div class="step-index">STEP 02 / 右上象限</div>
+        <h3>高票房 · 高口碑</h3>
+        <p class="copy-design chart-scrolly-spec">高票房·高口碑作品数量占比不足5%。这是最稀有的象限，代表着市场与口碑的双重认可，但对于绝大多数女导演而言，这是一个难以企及的坐标。</p>
+        <div class="case-card" data-film-id="chuzou">
+          <div class="case-title">出走的决心 · 尹丽川</div>
+      <div class="case-meta" data-case-meta>加载中…</div>
+          <p>艺术表达与大众共鸣的罕见交汇——高分与高票房同时成立。</p>
+        </div>
+      </article>
+
+      <article class="scrolly-step scroll-step body-copy" data-step="ch3-br" data-quadrant="br" data-pin-film="后来的我们">
+        <div class="step-index">STEP 03 / 右下象限</div>
+        <h3>高票房 · 低口碑</h3>
+        <p class="copy-design chart-scrolly-spec">高票房·低口碑作品影片多为都市爱情或轻喜剧类型，女导演的"高票房"往往被锁定在这少数几个"安全类型"中，类型本身主导了票房，而非导演的创作表达。</p>
+        <div class="case-card" data-film-id="houlai">
+          <div class="case-title">后来的我们 · 刘若英</div>
+      <div class="case-meta" data-case-meta>加载中…</div>
+          <p>情感 IP + 档期红利推高了票房，口碑却未能同步跟进。</p>
+        </div>
+      </article>
+
+      <article class="scrolly-step scroll-step body-copy" data-step="ch3-tl" data-quadrant="tl">
+        <div class="step-index">STEP 04 / 左上象限</div>
+        <h3>低票房 · 高口碑</h3>
+        <p class="copy-design chart-scrolly-spec">低票房·高口碑是最拥挤的象限。"好口碑"并未自动兑换为"好票房"，排片、宣发资源、类型偏见的层层挤压，使得女导演的优质创作难以触达大众。</p>
+        <div class="case-card" data-douban-id="1421278">
+          <div class="case-title">面子 · 伍思薇</div>
+      <div class="case-meta" data-case-meta>加载中…</div>
+          <p>小成本、高口碑的典型——在主流市场边缘被记住的独立声音。</p>
+        </div>
+      </article>
+
+      <article class="scrolly-step scroll-step body-copy" data-step="ch3-bl" data-quadrant="bl">
+        <div class="step-index">STEP 05 / 左下象限</div>
+        <h3>低票房 · 低口碑</h3>
+        <p class="copy-design chart-scrolly-spec">低票房·低口碑多为早期独立电影或低成本类型片。</p>
+        <p>四个象限共同指向一个事实：女导演的创作质量与市场回报之间，横亘着排片、宣发和类型偏见构成的多重过滤网。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CHAPTER 03 · 词云 ===== -->
+<section class="chapter-section" id="chapter03-wordcloud">
+  <div class="chapter-inner scroll-step body-copy" data-step="ch3-wordcloud">
+    <p class="copy-subtitle">舆论切片：观众在谈论什么？</p>
+    <div class="step-copy body-copy copy-lines">
+      <p>语言是情感的密码。观众如何谈论一部电影，往往比电影本身更能折射社会对女性叙事的期待与规训。</p>
+      <p>我们选择217部华语女导演影片中评分前50的作品，爬取了每部作品前100条短评，经过分词、去停用词和词频统计，绘制成词云图。</p>
+    </div>
+      <div class="chart-frame">
+      <div class="tape"></div>
+      <h4 class="chart-title">评论词云图</h4>
+      <div class="wc-stage">
+        <div id="chart3-wordcloud" class="chart-canvas chart-tall" role="img" aria-label="豆瓣短评词云"></div>
+        <div id="chart3-wordcloud-detail" class="wc-detail-card" hidden aria-live="polite"></div>
+      </div>
+      <div class="chart-mid-copy body-copy copy-lines">
+        <p>数据显示：观众在谈论女导演作品时，高频词高度集中于情感卷入、生活细节和人物成长，而非视觉奇观或类型快感。</p>
+        <p>"喜欢"一词出现71次，排在第一位，"表演"一词出现53次，排在第二位。观众反复提到演员的演技是否自然、到位、有感染力，说明表演本身是女导演作品叙事可信度的重要支撑。"生活"（52次）和"成长"（18次）也频繁出现，远超"爱情"或"梦想"。观众更多在讨论日常关系、代际冲突、女性如何从困境中走出来，而不是浪漫爱情或成功逆袭。</p>
+        <p>这些词语构成了一幅观众情感的底色：</p>
+        <span class="copy-emphasis">她们的作品让人"喜欢"，是因为观众在表演中认出了"生活"，在故事中看见了自己的"成长"。</span>
+      </div>
+      <div id="chart3-wordcloud-insight" class="chart-insight"></div>
+      <div id="chart3-wordcloud-source" class="chart-source"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CHAPTER 03 · 议题网络 + 情感河流 ===== -->
+<section class="chapter-section" id="chapter03-extra">
+  <div class="chapter-inner scroll-step body-copy" data-step="ch3-issue">
+    <p class="copy-subtitle">议题溢出：从银幕到公共空间</p>
+    <div class="step-copy body-copy copy-lines">
+      <p>词云揭示的是情感倾向，而长评揭示的是思想纵深。我们进一步爬取分析了豆瓣长评内容，通过关键词提取和人工编码，将讨论归纳为8个主要社会议题。以影片为中心节点、议题为外围节点，绘制议题网络图。</p>
+    </div>
+      <div class="chart-frame">
+      <div class="tape"></div>
+      <h4 class="chart-title">女导演议题力导向网络图</h4>
+      <div id="chart3-issue" class="chart-canvas chart-tall"></div>
+      <div class="chart-mid-copy body-copy copy-lines">
+        <p>结果显示，女导演的电影不只是被观看和评分的对象，它们确实溢出了银幕，成为社会议题的触发器。</p>
+        <p>"母女关系"是最大节点。《你好，李焕英》《妈妈！》《春潮》三部影片贡献了半数以上讨论。观众的核心关切不是"电影好不好"，而是"我和妈妈的关系"。</p>
+        <p>"身体自主权"是近年新兴议题。《热辣滚烫》《送我上青云》《嘉年华》《春梦》分别从体重、疾病、性侵、欲望等角度切入，讨论带有鲜明的立场表达和情感宣泄，互动量显著高于其他议题。</p>
+        <p>一部影片可触发多个议题。如《我的姐姐》关联"原生家庭""母女关系""身体自主权"；《嘉年华》关联"身体自主权""原生家庭""职场性别歧视"。女导演的叙事往往是多重社会投影。</p>
+        <span class="copy-emphasis">总结而言，女导演的电影在公共空间中，不只是被评分和被观看的对象。它们确实引发了超出电影本身的社会议题讨论，而且这些议题高度集中于家庭关系和女性身体权利。</span>
+      </div>
+      <div id="chart3-issue-insight" class="chart-insight"></div>
+      <div id="chart3-issue-source" class="chart-source"></div>
+    </div>
+  </div>
+      <div class="chapter-inner scroll-step body-copy" data-step="ch3-river">
+    <p class="copy-subtitle">公共情感切片：两部电影的情感河流</p>
+    <div class="step-copy body-copy copy-lines">
+      <p>当一部女导演作品真正走入大众视野，它会激起怎样的情感潮汐？我们选取了两部现象级作品——《你好，李焕英》（2021）和《出走的决心》（2024），统计其上映前一周至上映后一年的每日豆瓣长评数量与情感倾向，绘制成情感河流图，观察公共情感如何随时间涨落。</p>
+    </div>
+      <div class="chart-frame">
+      <div class="tape"></div>
+      <h4 class="chart-title">情感河流时间轴</h4>
+      <div class="emotion-rivers-wrap">
+        <div id="chart3-river-board" class="chart-canvas er-board-host"></div>
+      </div>
+      <div class="chart-mid-copy body-copy copy-lines">
+        <p>当银幕上的母亲和女儿走向和解或走向出走，银幕外的情感河流便随之涌动——那是无数观众在自己的生活里，找到了表达的出口。</p>
+      </div>
+      <div id="chart3-river-insight" class="chart-insight"></div>
+      <div id="chart3-river-source" class="chart-source"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CHAPTER 04 INTRO ===== -->
+<section class="transition-section" id="chapter04">
+  <div class="container body-copy copy-lines">
+    <div class="chapter-heading film-heading">
+      <h2 class="title-main">四、未完成的长镜头</h2>
+      <p class="title-sub"><span class="subtitle-clapper" aria-hidden="true"></span><span class="subtitle-text">当一部女导演的作品完成之后，它能否被看见、被认可、被奖励？</span></p>
+    </div>
+
+    <p>2023年5月，导演耿子涵的长片处女作《小白船》入围戛纳电影节"一种关注"单元，成为当年唯一入围该单元的华语女导演作品。媒体报道称"95后女导演登上国际舞台"。然而，影片最终未获任何奖项，回国后，她为第二部长片寻找投资时，仍被反复问到同一个问题："你上一部片亏了没有？"</p>
+    <p>这不是个例。我们统计了1996年至2026年华语女导演的作品数量、入围国际电影节主竞赛单元的数量及获奖数量，并与同期男导演进行对比。结果印证了一个更隐蔽的"玻璃天花板"：即使女导演的作品站上了同一赛场，被提名和获奖的概率依然更低。而当我们将视线拉向全球，会发现这并非中国特有问题。</p>
+    <span class="copy-emphasis">创作的权力、被认可的权力、被投资的权力，这三重权力，三十年来，有没有真正向她们移动过？</span>
+  </div>
+</section>
+
+<section class="chapter-section" id="chapter04-charts">
+
+  <div class="chapter-inner scroll-step body-copy" data-step="ch4-timeline">
+    <div class="step-copy body-copy copy-lines">
+      <p>我们统计了截至2026年华语影片入围三大国际电影节（戛纳、威尼斯、柏林）主竞赛单元的情况，共计154部华语片入围，其中女导演作品仅13部，占比9.1%。从"作品"到"入围三大主竞赛"，女导演的转化率仅为男导演的1/8。</p>
+    </div>
+      <div class="chart-frame">
+      <div class="tape"></div>
+      <h4 class="chart-title">三大电影节入围时间轴</h4>
+      <div id="chart4-timeline" class="chart-canvas chart-tall"></div>
+      <div class="chart-mid-copy body-copy copy-lines">
+        <p>国际赛场如此，国内奖项的漏斗同样陡峭。女性占导演群体16.5%，但最佳导演奖的获奖比例仅为9.9%。将获奖数据绘制成人形漏斗，淘汰的过程一目了然。</p>
+      </div>
+      <div id="chart4-timeline-insight" class="chart-insight"></div>
+      <div id="chart4-timeline-source" class="chart-source"></div>
+    </div>
+  </div>
+      <div class="chapter-inner scroll-step body-copy" data-step="ch4-funnel">
+    <div class="chart-frame">
+      <div class="tape"></div>
+      <h4 class="chart-title">从作品到三金奖项的漏斗</h4>
+      <div id="chart4-funnel" class="chart-canvas chart-tall"></div>
+      <div class="chart-mid-copy body-copy copy-lines">
+        <p>每100位出发的女导演，最终站在领奖台上的不到3位。</p>
+      </div>
+      <div id="chart4-funnel-insight" class="chart-insight"></div>
+      <div id="chart4-funnel-source" class="chart-source"></div>
+    </div>
+  </div>
+      <div class="chapter-inner scroll-step body-copy" data-step="ch4-latitude">
+    <p class="copy-subtitle">全球镜像：谁让女性拿起导筒？</p>
+    <div class="step-copy body-copy copy-lines">
+      <p>这并非中国特有问题，而是全球电影工业的结构性困境。</p>
+    </div>
+      <div class="chart-frame">
+      <div class="tape"></div>
+      <h4 class="chart-title">全球女性导演占比纬线图</h4>
+      <div id="chart4-latitude" class="chart-canvas"></div>
+      <div class="chart-mid-copy body-copy copy-lines">
+        <p>欧洲和韩国的上升曲线已经证明，制度性干预确实能改变占比，问题并非无法缓解，前提是有意识的政策介入。华语电影行业，是否愿意给出这个前提？</p>
+      </div>
+      <div id="chart4-latitude-insight" class="chart-insight"></div>
+      <div id="chart4-latitude-source" class="chart-source"></div>
+    </div>
+  </div>
+      <div class="chapter-inner scroll-step body-copy" data-step="ch4-radar">
+    <p class="copy-subtitle">三重权力：它们同步移动了吗？</p>
+    <div class="step-copy body-copy copy-lines">
+      <p>为了更系统地衡量女性在电影行业中的话语权变化，我们构建了一个"女性电影话语权综合指数"，包含三个子维度：创作权（女导演占比+存活率）、认可权（获奖占比+获奖转化率）、资源权（投资规模代理变量+头部项目参与率）。用雷达图呈现年度变化，可以直观看到三重权力的位移是否同步。</p>
+    </div>
+      <div class="chart-frame">
+      <div class="tape"></div>
+      <h4 class="chart-title">女性电影话语权综合指数</h4>
+      <div id="chart4-radar" class="chart-canvas chart-tall"></div>
+      <div class="chart-mid-copy body-copy copy-lines">
+        <p>2000年至2020年，创作权、认可权、资源权三个指标都在上升，雷达图面积持续扩大。但2025年，认可权从35降至8，资源权从45降至13，创作权基本持平。</p>
+        <p>这意味着：更多女导演能拍到电影了，但她们的作品很难拿到奖项，也越来越难进入头部项目。奖项和资源的改善没有跟上创作端的增长，甚至出现了倒退。数据不指向"进步"或"倒退"的单一叙事，而是说明三个指标的变化并不同步。</p>
+        <span class="copy-emphasis">创作端的改善，并没有自动带来认可端和资源端的改善。</span>
+      </div>
+      <div id="chart4-radar-insight" class="chart-insight"></div>
+      <div id="chart4-radar-source" class="chart-source"></div>
+    </div>
+  </div>
+      <div class="chapter-inner scroll-step body-copy chapter-closing" data-step="ch4-closing">
+    <p class="copy-subtitle">未完成的长镜头</p>
+    <div class="step-copy body-copy copy-lines">
+      <p>但时间也记录下了另一种事实。</p>
+    </div>
+      <div class="milestones-timeline" aria-label="里程碑时间轴">
+        <div class="ms-axis" aria-hidden="true"></div>
+        <div class="ms-item">
+          <div class="ms-marker"><span class="ms-year">2010</span></div>
+          <div class="ms-card">
+            <span class="ms-tag">创投扶持</span>
+            <p>FIRST青年影展创投单元开始设立女性专项</p>
+          </div>
+        </div>
+        <div class="ms-item">
+          <div class="ms-marker"><span class="ms-year">2017</span></div>
+          <div class="ms-card">
+            <span class="ms-tag">影展生态</span>
+            <p>山一女性电影展诞生</p>
+          </div>
+        </div>
+        <div class="ms-item">
+          <div class="ms-marker"><span class="ms-year">2021</span></div>
+          <div class="ms-card">
+            <span class="ms-tag">票房纪录</span>
+            <p>贾玲成为全球票房最高的女导演</p>
+          </div>
+        </div>
+        <div class="ms-item ms-item--highlight">
+          <div class="ms-marker"><span class="ms-year">2024</span></div>
+          <div class="ms-card">
+            <span class="ms-tag">口碑市场</span>
+            <p>《好东西》以 9.0 的豆瓣评分和 7 亿票房证明</p>
+          </div>
+        </div>
+      </div>
+    <span class="copy-emphasis">轻盈的女性叙事同样可以抵达观众。</span>
+    <div class="step-copy body-copy copy-lines copy-lines--finale">
+      <p>越来越多女性拿起导筒，越来越多观众愿意为她们买单。</p>
+      <p>30年，占比翻了一倍。这个速度很慢，但方向是明确的。</p>
+      <p>每一张票、每一条评论、每一次争议、每一朵荆棘枝头的小花，都是推力。</p>
+      <p>改变不会来自某部爆款，而是来自持续的拍、持续的看、持续的说。</p>
+    </div>
+    <span class="copy-emphasis">她们的路，还很长。但路在脚下。</span>
+    <div class="slate-stack slate-stack--solo" aria-label="场记卡 · 访谈">
+      <article class="slate-card slate-card-quote slate-card-interactive slate-card--c" aria-label="场记板式卡片 · 访谈" role="button" tabindex="0">
+        <div class="tape"></div>
+      <div class="clapper"></div>
+      <div class="hinge"></div>
+      <div class="body">
+          <div class="slate-meta">
+            <span>SCENE 4</span>
+            <span>QUOTE</span>
+            <span>INTERVIEW</span>
+          </div>
+          <h4 class="slate-quote-text">"我还在拍。只要还在拍，就没有输。"</h4>
+          <p class="slate-quote-cite">——张艾嘉</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 页脚 ===== -->
+<footer class="story-footer">
+  <div class="footer-brand"><span>她</span>执导 · She Directs</div>
+      <div class="footer-meta">
+    数据新闻可视化专题 · 纸基设计系统<br>
+    数据来源：猫眼票房 · 豆瓣评分 · 北大法宝（参考）<br>
+    2026 © 数据新闻团队
+  </div>
+  <a href="#hero" class="footer-back">返回开屏 ↑</a>
+</footer>
+
+<!-- ================================================================
+     JS
+     ================================================================ -->
+<script>
+(function() {
+  var hero       = document.getElementById('hero');
+  var title      = document.getElementById('heroTitle');
+  var gallery    = document.getElementById('gallery');
+  var centerCard = document.getElementById('centerCard');
+  var watermark  = document.getElementById('bgWatermark');
+  var scrollHint = document.getElementById('scrollHint');
+  var cards      = document.querySelectorAll('.project-card, .center-card');
+
+  var cursorEl   = document.getElementById('customCursor');
+  var cursorDot  = document.getElementById('cursorDot');
+
+  var isMobile   = window.matchMedia('(max-width: 768px)').matches;
+  var ticking    = false;
+
+  /* ================================================================
+     CUSTOM CURSOR
+     ================================================================ */
+  document.addEventListener('mousemove', function(e) {
+    cursorDot.style.left = e.clientX + 'px';
+    cursorDot.style.top  = e.clientY + 'px';
+    cursorEl.style.left  = e.clientX + 'px';
+    cursorEl.style.top   = e.clientY + 'px';
+  });
+
+  document.addEventListener('mousedown', function() {
+    if (!isMobile) cursorDot.classList.add('clapping');
+  });
+  document.addEventListener('mouseup', function() {
+    cursorDot.classList.remove('clapping');
+  });
+
+  cards.forEach(function(card) {
+    card.addEventListener('mouseenter', function() {
+      if (isMobile) return;
+      cursorEl.classList.add('visible');
+      cursorDot.classList.add('hidden');
+    });
+    card.addEventListener('mouseleave', function() {
+      if (isMobile) return;
+      cursorEl.classList.remove('visible');
+      cursorDot.classList.remove('hidden');
+    });
+  });
+
+  if (isMobile) {
+    document.body.style.cursor = 'auto';
+    cursorDot.style.display = 'none';
+    cursorEl.style.display = 'none';
+  }
+
+  /* ================================================================
+     SCROLL ANIMATION
+     四层元素，四种速率：
+       - 水印：最慢（深度感）
+       - 四角画廊：中速
+       - 中心图：较快，垫在标题底下 → 逐渐上浮盖过标题
+       - 标题：最快向上移动 + 淡出，被中心图"覆盖"
+
+     z-index 关系：
+       标题(z:10) > 中心图(z:5) > 水印(z:4) > 蒙版(z:3.5) > 四角(z:3)
+       标题初始在中心图之上，白色 text-shadow 保证可读
+       滚动时中心图上浮、标题上移+淡出 → 视觉上中心图"覆盖"标题
+   ================================================================ */
+  function update() {
+    if (isMobile) return;
+
+    var heroH = hero.offsetHeight;
+    var vh    = window.innerHeight;
+    var top   = hero.getBoundingClientRect().top;
+
+    var scrollRange = heroH - vh;
+    if (scrollRange <= 0) return;
+    var raw = -top / scrollRange;
+    var progress = Math.max(0, Math.min(1, raw));
+
+    /* 标题：向上快跑 + 淡出 */
+    var titleY = -progress * 35;
+    title.style.transform = 'translate(-50%, ' + (-50 + titleY) + '%)';
+    title.style.opacity = Math.max(0, 1 - progress * 1.25);
+
+    /* 中心图：从下方上升，速率比标题稍慢 → 感觉标题被它"托起后盖过" */
+    var cTravel = progress * 25;
+    var cScale  = 0.93 + progress * 0.07;
+    var cBlur   = (1 - progress) * 4;
+
+    centerCard.style.transform =
+      'translate(-50%, ' + (-40 + cTravel) + '%) scale(' + cScale + ')';
+    centerCard.style.filter = 'blur(' + cBlur.toFixed(2) + 'px)';
+
+    /* 四角画廊：整体中速上升 */
+    var gTravel = progress * 22;
+    var gScale  = 0.94 + progress * 0.06;
+    var gBlur   = (1 - progress) * 3.5;
+
+    gallery.style.transform =
+      'translate(-50%, ' + (-42 + gTravel) + '%) scale(' + gScale + ')';
+    gallery.style.filter = 'blur(' + gBlur.toFixed(2) + 'px)';
+
+    /* 水印：最慢 */
+    var wmTravel = progress * 10;
+    watermark.style.transform =
+      'translate(-50%, ' + (-30 + wmTravel) + '%)';
+    watermark.style.opacity = Math.max(0, 1 - progress * 1.5);
+
+    /* 滚动提示 */
+    scrollHint.style.opacity = Math.max(0, 1 - progress * 4);
+
+    /* pointer-events */
+    var clickable = progress > 0.90;
+    cards.forEach(function(c) {
+      c.style.pointerEvents = clickable ? 'auto' : 'none';
+    });
+
+    ticking = false;
+  }
+
+  function onScroll() {
+    if (!ticking) {
+      requestAnimationFrame(update);
+      ticking = true;
+    }
+  }
+
+  function onResize() {
+    isMobile = window.matchMedia('(max-width: 768px)').matches;
+    if (isMobile) {
+      document.body.style.cursor = 'auto';
+      cursorDot.style.display = 'none';
+      cursorEl.style.display = 'none';
+      [title, gallery, centerCard, watermark, scrollHint].forEach(function(el) {
+        el.style.transform = '';
+        el.style.opacity = '';
+        el.style.filter = '';
+      });
+      cards.forEach(function(c) { c.style.pointerEvents = ''; });
+    } else {
+      document.body.style.cursor = 'none';
+      cursorDot.style.display = '';
+      cursorEl.style.display = '';
+    }
+    ticking = false;
+    update();
+  }
+
+  scrollHint.style.animation = 'none';
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onResize, { passive: true });
+  update();
+})();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/echarts-wordcloud@2.1.0/dist/echarts-wordcloud.min.js"></script>
+<script src="https://unpkg.com/scrollama@3.2.0/build/scrollama.min.js"></script>
+<script src="js/site-data.js"></script>
+<script src="js/data-store.js"></script>
+<script src="js/chart-theme.js"></script>
+<script src="js/scroll-narrative.js"></script>
+<script src="js/chapters/chapter01.js"></script>
+<script src="js/chapters/chapter02.js"></script>
+<script src="js/charts/quadrant-scatter.js"></script>
+<script src="js/chapters/chapter03-scrolly.js"></script>
+<script src="js/chapters/female-silhouette-mask-data.js"></script>
+<script src="js/wordcloud-mask-data.js"></script>
+<script src="js/chapters/chapter03-wordcloud.js"></script>
+<script src="js/charts/issue-atlas.js"></script>
+<script src="js/charts/emotion-rivers-board.js"></script>
+<script src="js/chapters/chapter03-extra.js"></script>
+<script src="js/slate-cards.js"></script>
+<script src="js/chapters/chapter04.js"></script>
+<script src="js/chart-flipbook.js"></script>
+<script src="js/generation-scrolly.js"></script>
+<script src="js/bgm-player.js"></script>
+<script src="js/site-nav.js"></script>
+<script src="js/interaction-hints.js"></script>
+<script src="js/prologue-collage.js"></script>
+<script src="js/hero-posters.js"></script>
+<script src="js/lazy-boot.js"></script>
+
+</body>
+</html>

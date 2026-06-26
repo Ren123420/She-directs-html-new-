@@ -1,0 +1,517 @@
+/* ================================================================
+   场记本翻页 · Chart Flipbook
+   ================================================================ */
+
+/* ---- 3D 翻面容器 ---- */
+.chart-flip-shell {
+  position: relative;
+  perspective: 1400px;
+  margin-top: 4px;
+}
+
+.chart-flip-inner {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.72s cubic-bezier(0.4, 0.15, 0.2, 1);
+}
+
+.chart-flip-shell.is-flipped .chart-flip-inner {
+  transform: rotateY(-180deg);
+}
+
+.chart-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.chart-face-front {
+  position: relative;
+  z-index: 2;
+}
+
+.chart-face-front .chart-frame {
+  margin-top: 0;
+}
+
+.chart-face-back {
+  position: absolute;
+  inset: 0;
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: stretch;
+}
+
+.chart-back-card {
+  flex: 1;
+  background: var(--paper-sticky);
+  padding: 24px 22px 20px;
+  transform: rotate(-0.3deg);
+  filter: drop-shadow(2px 4px 8px rgba(44, 36, 22, 0.08));
+  display: flex;
+  flex-direction: column;
+  min-height: 380px;
+}
+
+.chart-back-card .back-kicker {
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  color: var(--rose-deep);
+  margin-bottom: 8px;
+}
+
+.chart-back-card .back-title {
+  font-family: 'Huiwen', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink-charcoal);
+  margin-bottom: 14px;
+  line-height: 1.35;
+}
+
+.chart-back-card .back-body {
+  flex: 1;
+  font-size: 13px;
+  color: var(--ink-note);
+  line-height: 1.85;
+}
+
+/* 翻面按钮 */
+.chart-flip-btn {
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  z-index: 12;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid var(--rose-main);
+  background: rgba(244, 239, 228, 0.92);
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--rose-deep);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.chart-flip-btn:hover {
+  background: var(--paper-canvas);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(192, 96, 120, 0.2);
+}
+
+.chart-flip-shell.is-flipped .chart-flip-btn .flip-label-front { display: none; }
+.chart-flip-shell:not(.is-flipped) .chart-flip-btn .flip-label-back { display: none; }
+
+/* 图1 · 年代翻页 */
+.chart-era-pager {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 10px;
+  padding: 0 4px;
+}
+
+.chart-era-pager button {
+  flex: 1;
+  max-width: 120px;
+  padding: 8px 6px;
+  border: 1px dashed var(--paper-archive);
+  background: rgba(244, 239, 228, 0.6);
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--ink-note);
+  cursor: pointer;
+  transition: all 0.28s ease;
+}
+
+.chart-era-pager button:hover {
+  border-color: var(--rose-light);
+  color: var(--ink-charcoal);
+}
+
+.chart-era-pager button.is-active {
+  border-style: solid;
+  border-color: var(--rose-deep);
+  background: var(--rose-main);
+  color: var(--paper-canvas);
+  transform: scale(1.04);
+  box-shadow: 0 4px 14px rgba(192, 96, 120, 0.35);
+}
+
+/* 背面 · 数据便签网格 */
+.back-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.back-stat-cell {
+  padding: 12px 8px;
+  text-align: center;
+  background: rgba(244, 239, 228, 0.7);
+  border: 1px solid var(--paper-archive);
+  cursor: pointer;
+  transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+}
+
+.back-stat-cell:hover {
+  transform: translateY(-3px);
+  border-color: var(--rose-main);
+  box-shadow: 0 6px 16px rgba(192, 96, 120, 0.15);
+}
+
+.back-stat-cell .num {
+  display: block;
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--rose-deep);
+  line-height: 1.2;
+}
+
+.back-stat-cell .lbl {
+  display: block;
+  font-size: 10px;
+  color: var(--ink-note);
+  margin-top: 4px;
+  letter-spacing: 0.04em;
+}
+
+.back-bar-list {
+  margin-top: 12px;
+}
+
+.back-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  font-size: 11px;
+}
+
+.back-bar-row .name {
+  width: 52px;
+  flex-shrink: 0;
+  text-align: right;
+  color: var(--ink-charcoal);
+}
+
+.back-bar-row .track {
+  flex: 1;
+  height: 8px;
+  background: var(--paper-archive);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.back-bar-row .fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--rose-light), var(--rose-deep));
+  border-radius: 1px;
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.chart-flip-shell.is-flipped .back-bar-row .fill,
+.chart-flip-shell.is-flipped .back-milestone .fill-bar {
+  transform: scaleX(1);
+}
+
+.back-bar-row .val {
+  width: 28px;
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 10px;
+  color: var(--rose-deep);
+}
+
+.back-milestones {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.back-milestone {
+  padding: 10px 12px;
+  border-left: 3px solid var(--rose-main);
+  background: rgba(244, 239, 228, 0.55);
+}
+
+.back-milestone strong {
+  font-family: 'Huiwen', serif;
+  color: var(--ink-charcoal);
+}
+
+.back-milestone .fill-bar {
+  display: block;
+  height: 4px;
+  margin-top: 8px;
+  background: var(--paper-archive);
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.back-milestone .fill-bar i {
+  display: block;
+  height: 100%;
+  background: var(--rose-deep);
+}
+
+.back-path-list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+}
+
+.back-path-list li {
+  position: relative;
+  padding: 10px 0 10px 28px;
+  border-bottom: 1px dashed var(--paper-archive);
+  font-size: 12px;
+}
+
+.back-path-list li::before {
+  content: attr(data-n);
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 9px;
+  background: var(--rose-main);
+  color: var(--paper-canvas);
+  border-radius: 50%;
+}
+
+/* 步骤翻页动画 */
+.scroll-step.page-exit-up {
+  animation: pageExitUp 0.45s ease forwards;
+}
+
+.scroll-step.page-exit-down {
+  animation: pageExitDown 0.45s ease forwards;
+}
+
+.scroll-step.page-enter {
+  animation: pageEnter 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes pageExitUp {
+  to { opacity: 0; transform: translateY(-40px) rotateX(8deg); filter: blur(2px); }
+}
+
+@keyframes pageExitDown {
+  to { opacity: 0; transform: translateY(40px) rotateX(-8deg); filter: blur(2px); }
+}
+
+@keyframes pageEnter {
+  from { opacity: 0.3; transform: translateY(32px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ---- 底部胶片条 Dock ---- */
+.flipbook-dock {
+  position: fixed;
+  bottom: 72px;
+  left: 50%;
+  transform: translateX(-50%) translateY(120px);
+  z-index: 8600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: rgba(44, 36, 22, 0.94);
+  border: 1px solid rgba(224, 128, 160, 0.4);
+  box-shadow: 0 12px 40px rgba(44, 36, 22, 0.35);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s;
+  max-width: calc(100vw - 24px);
+}
+
+.flipbook-dock.is-visible {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.flipbook-nav {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border: 1px solid rgba(224, 128, 160, 0.5);
+  background: transparent;
+  color: var(--rose-light);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.15s;
+}
+
+.flipbook-nav:hover:not(:disabled) {
+  background: var(--rose-deep);
+  color: var(--paper-canvas);
+  transform: scale(1.08);
+}
+
+.flipbook-nav:disabled {
+  opacity: 0.25;
+  cursor: default;
+}
+
+.flipbook-reel {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 2px 0;
+}
+
+.flipbook-reel::-webkit-scrollbar { display: none; }
+
+.flipbook-frame {
+  flex-shrink: 0;
+  width: 52px;
+  padding: 6px 4px 8px;
+  border: 1px solid rgba(236, 229, 216, 0.25);
+  background: rgba(236, 229, 216, 0.08);
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.3s, border-color 0.3s, background 0.3s, box-shadow 0.3s;
+}
+
+.flipbook-frame:hover {
+  transform: translateY(-4px);
+  border-color: var(--rose-light);
+}
+
+.flipbook-frame.is-active {
+  border-color: var(--rose-main);
+  background: rgba(224, 128, 160, 0.2);
+  transform: translateY(-6px) scale(1.06);
+  box-shadow: 0 8px 20px rgba(192, 96, 120, 0.35);
+}
+
+.flipbook-frame .frame-num {
+  display: block;
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 8px;
+  color: var(--rose-light);
+  letter-spacing: 0.08em;
+}
+
+.flipbook-frame .frame-title {
+  display: block;
+  font-family: 'Huiwen', serif;
+  font-size: 11px;
+  color: rgba(244, 239, 228, 0.9);
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.flipbook-frame.is-active .frame-num { color: var(--rose-main); }
+
+.flipbook-counter {
+  flex-shrink: 0;
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--rose-light);
+  min-width: 48px;
+  text-align: center;
+}
+
+.flipbook-hint {
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  color: rgba(244, 239, 228, 0.55);
+}
+
+/* 象限翻页按钮（第三章散点图） */
+.quadrant-page-btn {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1px solid var(--rose-main);
+  background: rgba(244, 239, 228, 0.95);
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--rose-deep);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.quadrant-page-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(192, 96, 120, 0.25);
+}
+
+.quadrant-page-btn .qp-arrow {
+  display: inline-block;
+  animation: qpNudge 1.2s ease-in-out infinite;
+}
+
+@keyframes qpNudge {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
+}
+
+.scatter-chart-col.is-quadrant-turn {
+  animation: quadrantTurn 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes quadrantTurn {
+  0% { opacity: 1; transform: perspective(800px) rotateY(0); }
+  45% { opacity: 0.4; transform: perspective(800px) rotateY(-12deg); }
+  100% { opacity: 1; transform: perspective(800px) rotateY(0); }
+}
+
+@media (max-width: 768px) {
+  .flipbook-dock {
+    bottom: 64px;
+    padding: 8px 10px;
+    gap: 6px;
+  }
+
+  .flipbook-frame { width: 44px; }
+  .flipbook-hint { display: none; }
+  .chart-back-card { min-height: 280px; padding: 18px 14px; }
+  .back-stat-grid { grid-template-columns: 1fr; }
+  .chart-flip-btn { font-size: 8px; padding: 5px 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chart-flip-inner,
+  .scroll-step.page-exit-up,
+  .scroll-step.page-exit-down,
+  .scroll-step.page-enter,
+  .scatter-chart-col.is-quadrant-turn {
+    animation: none !important;
+    transition: none !important;
+  }
+}

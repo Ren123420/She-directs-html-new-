@@ -1,0 +1,235 @@
+/* ================================================================
+   引言 · 导演/海报拼贴 + 章节导览框
+   ================================================================ */
+
+.prologue-inner.body-copy.copy-lines {
+  width: var(--copy-width);
+  max-width: var(--copy-width);
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+.prologue-media-block,
+.prologue-chapter-route {
+  max-width: var(--chart-max);
+}
+
+.prologue-media-block {
+  width: 100%;
+  margin: 28px auto 32px;
+  position: relative;
+}
+
+.prologue-chapter-route {
+  width: 100%;
+}
+
+.mosaic-board {
+  position: relative;
+  display: grid;
+  gap: clamp(10px, 1.2vw, 16px);
+  padding: clamp(16px, 2vw, 24px);
+  background: rgba(236, 229, 216, 0.55);
+  border: 1px solid var(--paper-archive);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.45),
+              4px 10px 28px rgba(44, 36, 22, 0.08);
+  transform: rotate(-0.35deg);
+}
+
+.mosaic-board--directors {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.mosaic-board--posters {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.mosaic-cell {
+  position: relative;
+  transform: rotate(var(--mos-rot, -1deg));
+  transition: transform 0.35s ease, z-index 0s;
+}
+
+.mosaic-cell:hover {
+  transform: rotate(0deg) translateY(-6px) scale(1.04);
+  z-index: 5;
+}
+
+.mosaic-cell figure {
+  margin: 0;
+}
+
+.mosaic-cell .mosaic-frame {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--paper-archive);
+  background: #ece5d8;
+  box-shadow: 2px 5px 14px rgba(44, 36, 22, 0.1);
+}
+
+.mosaic-cell .mosaic-frame::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 34px;
+  height: 11px;
+  background: rgba(236, 229, 216, 0.82);
+  z-index: 2;
+}
+
+.mosaic-board--directors .mosaic-frame {
+  aspect-ratio: 4 / 5;
+}
+
+.mosaic-board--posters .mosaic-frame {
+  aspect-ratio: 5 / 7;
+}
+
+.mosaic-cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(0.15) sepia(0.08) contrast(0.96);
+  transition: filter 0.35s ease;
+}
+
+.mosaic-cell:hover img {
+  filter: grayscale(0) sepia(0.04) contrast(1);
+}
+
+.mosaic-board--directors .mosaic-cell img {
+  object-position: center 18%;
+}
+
+.mosaic-cell figcaption {
+  margin-top: 6px;
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: clamp(10px, 0.95vw, 12px);
+  text-align: center;
+  color: var(--ink-charcoal);
+  line-height: 1.3;
+}
+
+.mosaic-board--posters .mosaic-cell figcaption small {
+  display: block;
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 8px;
+  color: var(--ink-note);
+  letter-spacing: 0.06em;
+  margin-top: 2px;
+}
+
+/* 滚动时：导演拼贴淡出，海报拼贴更亮 */
+.prologue-media-block--posters .mosaic-board {
+  background: rgba(244, 239, 228, 0.82);
+}
+
+.prologue-media-block--posters.is-emphasis .mosaic-board {
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.55),
+              6px 14px 36px rgba(192, 96, 120, 0.14);
+}
+
+/* 章节导览框 */
+.prologue-chapter-route {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0;
+  margin: 36px auto 8px;
+  border: 2px solid var(--ink-charcoal);
+  background: var(--paper-sticky);
+  box-shadow: 3px 5px 0 rgba(44, 36, 22, 0.12);
+  overflow: hidden;
+}
+
+.prologue-chapter-route .route-node {
+  flex: 1 1 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-width: 0;
+  padding: 16px 12px;
+  text-decoration: none;
+  color: var(--ink-charcoal);
+  border-right: 1px solid var(--paper-archive);
+  transition: background 0.22s ease, color 0.22s ease;
+}
+
+.prologue-chapter-route .route-node:last-child {
+  border-right: none;
+}
+
+.prologue-chapter-route .route-node:hover {
+  background: rgba(224, 128, 160, 0.14);
+  color: var(--rose-deep);
+}
+
+.prologue-chapter-route .route-label {
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: clamp(18px, 1.8vw, 24px);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.prologue-chapter-route .route-node small {
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: var(--ink-note);
+  text-align: center;
+  line-height: 1.5;
+}
+
+.prologue-chapter-route .route-arrow {
+  display: flex;
+  align-items: center;
+  padding: 0 2px;
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 14px;
+  color: var(--rose-deep);
+  background: rgba(244, 239, 228, 0.9);
+  border-right: 1px solid var(--paper-archive);
+  flex-shrink: 0;
+}
+
+@media (max-width: 960px) {
+  .mosaic-board--directors {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .mosaic-board--posters {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .prologue-chapter-route {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .prologue-chapter-route .route-arrow {
+    justify-content: center;
+    padding: 6px;
+    border-right: none;
+    border-bottom: 1px dashed var(--paper-archive);
+    transform: rotate(90deg);
+  }
+
+  .prologue-chapter-route .route-node {
+    border-right: none;
+    border-bottom: 1px solid var(--paper-archive);
+  }
+}
+
+@media (max-width: 640px) {
+  .mosaic-board--directors,
+  .mosaic-board--posters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

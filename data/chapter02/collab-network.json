@@ -1,0 +1,103 @@
+{
+  "source": "数据来源：合作≥2次的女导演-女演员",
+  "sourceFile": "图表数据整理\\图表数据整理\\第二部分\\【二、图表1+图表3】华语女导演作品_补充主角人物属性.xlsx",
+  "nodes": [
+    {
+      "id": "李玉",
+      "name": "李玉",
+      "category": "director"
+    },
+    {
+      "id": "范冰冰",
+      "name": "范冰冰",
+      "category": "actress"
+    },
+    {
+      "id": "贾玲",
+      "name": "贾玲",
+      "category": "director"
+    },
+    {
+      "id": "张小斐",
+      "name": "张小斐",
+      "category": "actress"
+    },
+    {
+      "id": "薛晓路",
+      "name": "薛晓路",
+      "category": "director"
+    },
+    {
+      "id": "吴彦姝",
+      "name": "吴彦姝",
+      "category": "actress"
+    },
+    {
+      "id": "汤唯",
+      "name": "汤唯",
+      "category": "actress"
+    },
+    {
+      "id": "殷若昕",
+      "name": "殷若昕",
+      "category": "director"
+    },
+    {
+      "id": "张子枫",
+      "name": "张子枫",
+      "category": "actress"
+    },
+    {
+      "id": "黄真真",
+      "name": "黄真真",
+      "category": "director"
+    },
+    {
+      "id": "薛凯琪",
+      "name": "薛凯琪",
+      "category": "actress"
+    },
+    {
+      "id": "陈意涵",
+      "name": "陈意涵",
+      "category": "actress"
+    }
+  ],
+  "links": [
+    {
+      "source": "李玉",
+      "target": "范冰冰",
+      "value": 4
+    },
+    {
+      "source": "贾玲",
+      "target": "张小斐",
+      "value": 2
+    },
+    {
+      "source": "薛晓路",
+      "target": "吴彦姝",
+      "value": 2
+    },
+    {
+      "source": "薛晓路",
+      "target": "汤唯",
+      "value": 2
+    },
+    {
+      "source": "殷若昕",
+      "target": "张子枫",
+      "value": 2
+    },
+    {
+      "source": "黄真真",
+      "target": "薛凯琪",
+      "value": 2
+    },
+    {
+      "source": "黄真真",
+      "target": "陈意涵",
+      "value": 2
+    }
+  ]
+}

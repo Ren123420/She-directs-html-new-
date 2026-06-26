@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>女导演议题力导向网络图 · Issue Atlas</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  @font-face {
+    font-family: 'Huiwen';
+    src: url('../../../fonts/Huiwen.otf') format('opentype');
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Punk Typewriter';
+    src: url('../../../fonts/PunkTypewriter.otf') format('opentype');
+    font-display: swap;
+  }
+  :root {
+    --paper-canvas: #f4efe4;
+    --paper-sticky: #ece5d8;
+    --paper-archive: #e0d8c8;
+    --ink-charcoal: #2c2416;
+    --ink-note: #6b5e4a;
+    --ink-red: #8c3a3a;
+    --rose-main: #e080a0;
+    --rose-light: #e0a0c0;
+    --rose-deep: #c06078;
+    --green-deep: #075f55;
+    --green-soft: #6fa89c;
+    --gold: #c6a15f;
+    --white: #ffffff;
+    --tape: rgba(236,229,216,0.72);
+  }
+  html {
+    background: radial-gradient(ellipse at 50% 38%, #f8f2e8 0%, #efe8d8 58%, #e5dcc8 100%);
+    scroll-behavior: smooth;
+  }
+  body {
+    min-height: 100vh;
+    font-family: 'Huiwen', 'Noto Serif SC', 'STSong', serif;
+    color: var(--ink-charcoal);
+    background:
+      radial-gradient(circle at 14% 8%, rgba(224,128,160,.13), transparent 24%),
+      radial-gradient(circle at 88% 76%, rgba(7,95,85,.10), transparent 26%),
+      var(--paper-canvas);
+    line-height: 1.75;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    pointer-events: none;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.04 0.18' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
+  }
+  .page { position: relative; z-index: 2; }
+  .masthead {
+    width: min(1500px, calc(100vw - 48px));
+    margin: 0 auto;
+    padding: 28px 0 14px;
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    border-bottom: 1px solid rgba(44,36,22,.16);
+    font-family: 'Punk Typewriter', ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 11px;
+    letter-spacing: .08em;
+    color: var(--ink-note);
+    text-transform: uppercase;
+  }
+  .masthead b { color: var(--ink-charcoal); }
+  .hero {
+    width: min(1500px, calc(100vw - 48px));
+    margin: 0 auto;
+    min-height: 92vh;
+    display: grid;
+    grid-template-columns: minmax(320px, 430px) minmax(780px, 1fr);
+    gap: 28px;
+    align-items: stretch;
+    padding: 36px 0 44px;
+  }
+  .intro {
+    position: relative;
+    padding: 42px 0 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .kicker {
+    font-family: 'Punk Typewriter', ui-monospace, SFMono-Regular, Menlo, monospace;
+    color: var(--rose-deep);
+    font-size: 12px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  h1 {
+    font-size: clamp(52px, 5.45vw, 88px);
+    line-height: .92;
+    letter-spacing: 0;
+    color: var(--ink-charcoal);
+    margin-bottom: 22px;
+  }
+  .lead {
+    max-width: 35em;
+    color: var(--ink-note);
+    font-size: 17px;
+  }
+  .lead .mark {
+    color: var(--ink-charcoal);
+    background: linear-gradient(transparent 56%, rgba(224,128,160,.35) 0);
+  }
+  .stat-strip {
+    margin-top: 34px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .stat {
+    border-top: 2px solid var(--ink-charcoal);
+    padding: 10px 0 0;
+  }
+  .stat strong {
+    display: block;
+    font-size: 34px;
+    line-height: 1;
+  }
+  .stat span {
+    display: block;
+    margin-top: 8px;
+    color: var(--ink-note);
+    font-size: 12px;
+  }
+  .note-card {
+    margin-top: 40px;
+    background: rgba(236,229,216,.72);
+    border-left: 4px solid var(--rose-main);
+    padding: 16px 18px;
+    color: var(--ink-note);
+    font-size: 13px;
+  }
+  .chart-shell {
+    position: relative;
+    min-height: 760px;
+    border: 1px solid rgba(44,36,22,.15);
+    background:
+      linear-gradient(90deg, rgba(44,36,22,.035) 1px, transparent 1px),
+      linear-gradient(0deg, rgba(44,36,22,.025) 1px, transparent 1px),
+      radial-gradient(ellipse at 46% 48%, rgba(255,255,255,.42), transparent 40%),
+      var(--paper-canvas);
+    background-size: 30px 30px, 30px 30px, auto, auto;
+    overflow: hidden;
+    box-shadow: 0 28px 90px rgba(44,36,22,.09);
+  }
+  .chart-shell::before {
+    content: 'ISSUE ATLAS';
+    position: absolute;
+    right: 20px;
+    top: 22px;
+    color: rgba(44,36,22,.08);
+    font-size: clamp(64px, 9vw, 144px);
+    line-height: .85;
+    font-weight: 900;
+    letter-spacing: .02em;
+    pointer-events: none;
+  }
+  .chart-toolbar {
+    position: absolute;
+    left: 22px;
+    right: 22px;
+    top: 20px;
+    z-index: 20;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 18px;
+    align-items: start;
+  }
+  .toolbar-title {
+    font-family: 'Punk Typewriter', ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 11px;
+    color: var(--ink-note);
+    letter-spacing: .10em;
+    text-transform: uppercase;
+  }
+  .controls {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  button, select {
+    font: inherit;
+    color: var(--ink-charcoal);
+    background: rgba(244,239,228,.86);
+    border: 1px solid rgba(44,36,22,.22);
+    border-radius: 0;
+    min-height: 34px;
+  }
+  button {
+    padding: 6px 10px;
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease, border-color .2s ease;
+  }
+  button.active, button:hover {
+    background: var(--ink-charcoal);
+    color: var(--paper-canvas);
+    border-color: var(--ink-charcoal);
+  }
+  select {
+    width: 168px;
+    padding: 6px 9px;
+  }
+  .viz-wrap {
+    position: absolute;
+    inset: 74px 0 0;
+  }
+  svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  .orbit {
+    fill: none;
+    stroke: rgba(44,36,22,.14);
+    stroke-dasharray: 6 7;
+  }
+  .link {
+    fill: none;
+    stroke-linecap: round;
+    cursor: pointer;
+    transition: opacity .25s ease, stroke-width .25s ease;
+  }
+  .node circle {
+    stroke: rgba(44,36,22,.22);
+    stroke-width: 1.2;
+    transition: opacity .25s ease, filter .25s ease, stroke-width .25s ease;
+  }
+  .node text {
+    pointer-events: none;
+    fill: var(--ink-charcoal);
+    text-anchor: middle;
+    dominant-baseline: middle;
+    font-size: 12px;
+    paint-order: stroke;
+    stroke: rgba(244,239,228,.8);
+    stroke-width: 3px;
+    stroke-linejoin: round;
+  }
+  .node.issue text {
+    font-size: 15px;
+    font-weight: 700;
+  }
+  .node.dim, .link.dim, .label.dim { opacity: .12; }
+  .node.active circle {
+    stroke: var(--ink-charcoal);
+    stroke-width: 2.5;
+    filter: drop-shadow(0 8px 18px rgba(44,36,22,.24));
+  }
+  .link.active {
+    opacity: .95;
+    stroke-width: var(--active-width);
+  }
+  .core {
+    filter: drop-shadow(0 22px 42px rgba(44,36,22,.28));
+  }
+  .core text {
+    fill: var(--paper-canvas);
+    text-anchor: middle;
+  }
+  .detail-panel {
+    position: absolute;
+    right: 22px;
+    bottom: 22px;
+    z-index: 30;
+    width: min(360px, calc(100% - 44px));
+    background: rgba(44,36,22,.94);
+    color: var(--paper-canvas);
+    padding: 18px 20px;
+    box-shadow: 0 18px 50px rgba(44,36,22,.24);
+    transition: transform .25s ease, opacity .25s ease;
+  }
+  .detail-panel .tag {
+    font-family: 'Punk Typewriter', ui-monospace, SFMono-Regular, Menlo, monospace;
+    color: var(--rose-main);
+    font-size: 11px;
+    letter-spacing: .10em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .detail-panel h2 {
+    font-size: 20px;
+    line-height: 1.25;
+    margin-bottom: 10px;
+  }
+  .detail-panel p {
+    color: rgba(244,239,228,.78);
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  .detail-panel ul {
+    list-style: none;
+    margin-top: 10px;
+    display: grid;
+    gap: 5px;
+    color: rgba(244,239,228,.78);
+    font-size: 13px;
+  }
+  .legend {
+    position: absolute;
+    left: 22px;
+    bottom: 22px;
+    z-index: 25;
+    width: min(370px, calc(100% - 44px));
+    display: grid;
+    gap: 8px;
+    color: var(--ink-note);
+    font-size: 12px;
+  }
+  .legend-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(236,229,216,.72);
+    padding: 8px 10px;
+  }
+  .swatch {
+    width: 26px;
+    height: 8px;
+    border-radius: 999px;
+  }
+  .story {
+    width: min(1500px, calc(100vw - 48px));
+    margin: 0 auto;
+    padding: 32px 0 72px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  .beat {
+    min-height: 170px;
+    background: rgba(236,229,216,.66);
+    border: 1px solid rgba(44,36,22,.14);
+    padding: 18px;
+  }
+  .beat strong {
+    display: block;
+    color: var(--rose-deep);
+    font-family: 'Punk Typewriter', ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  .beat h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+  .beat p {
+    color: var(--ink-note);
+    font-size: 13px;
+  }
+  .footer-note {
+    width: min(1500px, calc(100vw - 48px));
+    margin: 0 auto 50px;
+    border-top: 1px solid rgba(44,36,22,.16);
+    padding-top: 14px;
+    color: var(--ink-note);
+    font-size: 12px;
+  }
+  @media (max-width: 1180px) {
+    .hero {
+      grid-template-columns: 1fr;
+    }
+    .chart-shell {
+      min-height: 720px;
+    }
+    .story {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 720px) {
+    .masthead, .hero, .story, .footer-note {
+      width: min(100vw - 28px, 1500px);
+    }
+    .masthead {
+      flex-direction: column;
+    }
+    .hero {
+      padding-top: 22px;
+    }
+    h1 {
+      font-size: 48px;
+    }
+    .stat-strip {
+      grid-template-columns: 1fr;
+    }
+    .chart-shell {
+      min-height: 760px;
+    }
+    .chart-toolbar {
+      grid-template-columns: 1fr;
+    }
+    .controls {
+      justify-content: flex-start;
+    }
+    .viz-wrap {
+      inset-top: 128px;
+      inset: 132px 0 0;
+    }
+    .story {
+      grid-template-columns: 1fr;
+    }
+    .legend {
+      display: none;
+    }
+  }
+</style>
+</head>
+<body>
+<main class="page">
+  <header class="masthead">
+    <b>她执导 · 图表3</b>
+    <span>DOUBAN LONG REVIEWS / MANUAL CODING / ISSUE ATLAS</span>
+  </header>
+
+  <section class="hero">
+    <aside class="intro">
+      <div>
+        <div class="kicker">FROM SENTIMENT TO DEPTH</div>
+        <h1>长评把电影<br>推向哪里？</h1>
+        <p class="lead">词云揭示的是<span class="mark">情感倾向</span>，而长评揭示的是<span class="mark">思想纵深</span>。我们进一步分析豆瓣长评内容，通过关键词提取与人工编码，将讨论归纳为主要社会议题，并绘制影片与议题之间的引力网络。</p>
+        <div class="stat-strip">
+          <div class="stat"><strong>38</strong><span>部有效关联影片</span></div>
+          <div class="stat"><strong>278</strong><span>条有效议题长评</span></div>
+          <div class="stat"><strong>86</strong><span>组影片-议题关系</span></div>
+        </div>
+        <div class="note-card">中心节点为影片，外围节点为议题。节点越大，说明相关长评越多；连线越粗，表示该影片-议题组合出现次数越高。</div>
+      </div>
+    </aside>
+
+    <section class="chart-shell" aria-label="女导演电影长评议题引力图">
+      <div class="chart-toolbar">
+        <div class="toolbar-title">Interactive Issue Atlas · hover nodes / click links</div>
+        <div class="controls">
+          <button type="button" class="threshold active" data-threshold="1">全部关系</button>
+          <button type="button" class="threshold" data-threshold="2">≥2</button>
+          <button type="button" class="threshold" data-threshold="3">≥3</button>
+          <button type="button" class="threshold" data-threshold="5">≥5</button>
+          <select id="filmSearch" aria-label="搜索影片">
+            <option value="">搜索/聚焦影片</option>
+          </select>
+          <button type="button" id="resetView">重置</button>
+        </div>
+      </div>
+      <div class="viz-wrap">
+        <svg id="atlas" viewBox="0 0 1200 760" role="img" aria-label="影片和社会议题的加权关系网络"></svg>
+      </div>
+      <div class="legend">
+        <div class="legend-row"><span class="swatch" style="background: var(--rose-main)"></span><span>玫瑰线：身体、自主与亲密关系讨论</span></div>
+        <div class="legend-row"><span class="swatch" style="background: var(--green-deep)"></span><span>墨绿线：母女、家庭与关系结构</span></div>
+        <div class="legend-row"><span class="swatch" style="background: var(--gold)"></span><span>旧金/深色线：低频但重要的结构性议题</span></div>
+      </div>
+      <aside class="detail-panel" id="detail">
+        <div class="tag">READING GUIDE</div>
+        <h2>从中心影片进入外围议题</h2>
+        <p>悬停影片查看其议题结构；悬停议题查看相关影片；点击任意连线，查看该影片-议题组合的长评数量和代表摘句。</p>
+      </aside>
+    </section>
+  </section>
+
+  <section class="story">
+    <article class="beat"><strong>01</strong><h3>情绪入口</h3><p>短评词云呈现观众情绪，但难以解释讨论为什么被激发。</p></article>
+    <article class="beat"><strong>02</strong><h3>长评编码</h3><p>排除“其他”后，278 条有效评论被转译为影片与社会议题的关系。</p></article>
+    <article class="beat"><strong>03</strong><h3>议题引力</h3><p>身体自主权、母女关系构成最强引力场，牵引多数影片的长评讨论。</p></article>
+    <article class="beat"><strong>04</strong><h3>文本证据</h3><p>点击连线可看到代表摘句，让“思想纵深”不止停留在数量层面。</p></article>
+  </section>
+
+  <p class="footer-note">数据说明：排除“其他”标注；“生育权利”“婚姻与性自主”合并入“身体自主权”，最终展示 8 类主要议题。图中节点面积和边宽均按有效议题长评数量映射。</p>
+</main>
+
+<script>
+const DATA = {"meta": {"source": "/Users/lirenchou/Documents/大数据可视化/图表数据整理/第三部分/【图表3】议题网络图/【图表3】议题分类结果.xlsx", "totalRecords": 800, "validReviews": 278, "filmCount": 38, "issueCount": 8, "linkCount": 86, "note": "排除“其他”；“生育权利”“婚姻与性自主”合并入“身体自主权”，保留“性别暴力”，最终显示 8 类主要议题。"}, "films": [{"id": "film::春潮", "name": "春潮", "type": "film", "count": 17, "primaryIssue": "母女关系", "topics": [{"issue": "母女关系", "count": 14}, {"issue": "身体自主权", "count": 2}, {"issue": "职场性别歧视", "count": 1}], "r": 27.0, "x": 499.63, "y": 384.94, "featured": true}, {"id": "film::我的姐姐", "name": "我的姐姐", "type": "film", "count": 15, "primaryIssue": "身体自主权", "topics": [{"issue": "身体自主权", "count": 8}, {"issue": "原生家庭", "count": 5}, {"issue": "母女关系", "count": 1}, {"issue": "自我认同与觉醒", "count": 1}], "r": 24.88, "x": 637.02, "y": 307.09, "featured": true}, {"id": "film::出走的决心", "name": "出走的决心", "type": "film", "count": 14, "primaryIssue": "母女关系", "topics": [{"issue": "母女关系", "count": 8}, {"issue": "身体自主权", "count": 5}, {"issue": "原生家庭", "count": 1}], "r": 23.81, "x": 488.87, "y": 351.15, "featured": true}, {"id": "film::春梦", "name": "春梦", "type": "film", "count": 14, "primaryIssue": "身体自主权", "topics": [{"issue": "身体自主权", "count": 10}, {"issue": "母女关系", "count": 2}, {"issue": "职场性别歧视", "count": 1}, {"issue": "自我认同与觉醒", "count": 1}], "r": 23.81, "x": 674.11, "y": 310.71, "featured": false}, {"id": "film::送我上青云", "name": "送我上青云", "type": "film", "count": 14, "primaryIssue": "身体自主权", "topics": [{"issue": "身体自主权", "count": 11}, {"issue": "母女关系", "count": 2}, {"issue": "职场性别歧视", "count": 1}], "r": 23.81, "x": 693.16, "y": 312.12, "featured": true}, {"id": "film::热辣滚烫", "name": "热辣滚烫", "type": "film", "count": 13, "primaryIssue": "身体自主权", "topics": [{"issue": "身体自主权", "count": 12}, {"issue": "原生家庭", "count": 1}], "r": 22.75, "x": 656.55, "y": 358.06, "featured": true}, {"id": "film::黑处有什么", "name": "黑处有什么", "type": "film", "count": 13, "primaryIssue": "身体自主权", "topics": [{"issue": "身体自主权", "count": 8}, {"issue": "自我认同与觉醒", "count": 4}, {"issue": "原生家庭", "count": 1}], "r": 22.75, "x": 675.6, "y": 359.47, "featured": false}, {"id": "film::你好，李焕英", "name": "你好，李焕英", "type": "film", "count": 11, "primaryIssue": "母女关系", "topics": [{"issue": "母女关系", "count": 11}], "r": 20.62, "x": 481.32, "y": 376.33, "featured": true}, {"id": "film::嘉年华", "name": "嘉年华", "type": "film", "count": 11, "primaryIssue": "身体自主权", "topics": [{"issue": "身体自主权", "count": 8}, {"issue": "原生家庭", "count": 1}, {"issue": "母女关系", "count": 1}, {"issue": "职场性别歧视", "count": 1}], "r": 20.62, "x": 654.84, "y": 292.83, "featured": false}, {"id": "film::妈妈！", "name": "妈妈！", "type": "film", "count": 11, "primaryIssue": "母女关系", "topics": [{"issue": "母女关系", "count": 9}, {"issue": "身体自主权", "count": 2}], "r": 20.62, "x": 467.05, "y": 340.88, "featured": true}, {"id": "film::小小的我", "name": "小小的我", "type": "film", "count": 11, "primaryIssue": "身体自主权", "topics": [{"issue": "身体自主权", "count": 5}, {"issue": "母女关系", "count": 4}, {"issue": "职场性别歧视", "count": 2}], "r": 20.62, "x": 638.28, "y": 339.37, "featured": false}, {"id": "film::好东西", "name": "好东西", "type": "film", "count": 10, "primaryIssue": "身体自主权", "topics": [{"issue": "身体自主权", "count": 5}, {"issue": "母女关系", "count": 3}, {"issue": "原生家庭", "count": 1}, {"issue": "职场性别歧视", "count": 1}], "r": 19.56, "x": 656.33, "y": 341.59, "featured": false}, {"id": "film::水印街", "name": "水印街", "type": "film", "count": 10, "primaryIssue": "身体自主权", "topics": [{"issue": "身体自主权", "count": 6}, {"issue": "社会结构性压迫", "count": 3}, {"issue": "自我认同与觉醒", "count": 1}], "r": 19.56, "x": 675.38, "y": 342.99, "featured": false}, {"id": "film::爱情神话", "name": "爱情神话", "type": "film", "count": 10, "primaryIssue": "身体自主权", "topics": [{"issue": "身体自主权", "count": 7}, {"issue": "中年女性困境", "count": 3}], "r": 19.56, "x": 694.43, "y": 344.4, "featured": false}, {"id": "film::过春天", "name": "过春天", "type": "film", "count": 9, "primaryIssue": "身体自主权", "topics": [{"issue": "身体自主权", "count": 3}, {"issue": "原生家庭", "count": 2}, {"issue": "母女关系", "count": 2}, {"issue": "自我认同与觉醒", "count": 2}], "r": 18.5, "x": 655.63, "y": 275.55, "featured": false}, {"id": "film::今年夏天", "name": "今年夏天", "type": "film", "count": 8, "primaryIssue": "身体自主权", "topics": [{"issue": "身体自主权", "count": 7}, {"issue": "职场性别歧视", "count": 1}], "r": 17.44, "x": 619.01, "y": 321.5, "featured": false}, {"id": "film::笨鸟", "name": "笨鸟", "type": "film", "count": 8, "primaryIssue": "自我认同与觉醒", "topics": [{"issue": "自我认同与觉醒", "count": 4}, {"issue": "性别暴力", "count": 2}, {"issue": "身体自主权", "count": 2}], "r": 17.44, "x": 524.5, "y": 433.46, "featured": false}, {"id": "film::鸡蛋和石头", "name": "鸡蛋和石头", "type": "film", "count": 8, "primaryIssue": "身体自主权", "topics": [{"issue": "身体自主权", "count": 7}, {"issue": "职场性别歧视", "count": 1}], "r": 17.44, "x": 657.12, "y": 324.31, "featured": false}, {"id": "film::北京爱上西雅图", "name": "北京爱上西雅图", "type": "film", "count": 7, "primaryIssue": "身体自主权", "topics": [{"issue": "身体自主权", "count": 3}, {"issue": "职场性别歧视", "count": 2}, {"issue": "母女关系", "count": 1}, {"issue": "自我认同与觉醒", "count": 1}], "r": 16.38, "x": 675.16, "y": 326.52, "featured": false}, {"id": "film::红颜", "name": "红颜", "type": "film", "count": 7, "primaryIssue": "母女关系", "topics": [{"issue": "母女关系", "count": 4}, {"issue": "身体自主权", "count": 3}], "r": 16.38, "x": 488.33, "y": 307.79, "featured": false}, {"id": "film::不虚此行", "name": "不虚此行", "type": "film", "count": 6, "primaryIssue": "身体自主权", "topics": [{"issue": "身体自主权", "count": 3}, {"issue": "职场性别歧视", "count": 2}, {"issue": "母女关系", "count": 1}], "r": 15.31, "x": 657.59, "y": 373.87, "featured": false}, {"id": "film::世界上最疼我的那个人去了", "name": "世界上最疼我的那个人去了", "type": "film", "count": 6, "primaryIssue": "母女关系", "topics": [{"issue": "母女关系", "count": 6}], "r": 15.31, "x": 499.84, "y": 385.04, "featured": false}, {"id": "film::牛郎织女", "name": "牛郎织女", "type": "film", "count": 6, "primaryIssue": "身体自主权", "topics": [{"issue": "身体自主权", "count": 6}], "r": 15.31, "x": 638.85, "y": 305.62, "featured": false}, {"id": "film::阳光劫匪", "name": "阳光劫匪", "type": "film", "count": 6, "primaryIssue": "身体自主权", "topics": [{"issue": "身体自主权", "count": 3}, {"issue": "母女关系", "count": 2}, {"issue": "自我认同与觉醒", "count": 1}], "r": 15.31, "x": 657.91, "y": 307.03, "featured": false}, {"id": "film::二次曝光", "name": "二次曝光", "type": "film", "count": 4, "primaryIssue": "身体自主权", "topics": [{"issue": "身体自主权", "count": 3}, {"issue": "自我认同与觉醒", "count": 1}], "r": 13.19, "x": 674.94, "y": 310.05, "featured": false}, {"id": "film::致我们终将逝去的青春", "name": "致我们终将逝去的青春", "type": "film", "count": 4, "primaryIssue": "身体自主权", "topics": [{"issue": "身体自主权", "count": 4}], "r": 13.19, "x": 639.33, "y": 355.18, "featured": false}, {"id": "film::再见，少年", "name": "再见，少年", "type": "film", "count": 3, "primaryIssue": "身体自主权", "topics": [{"issue": "身体自主权", "count": 2}, {"issue": "自我认同与觉醒", "count": 1}], "r": 12.12, "x": 657.37, "y": 357.4, "featured": false}, {"id": "film::牛皮", "name": "牛皮", "type": "film", "count": 3, "primaryIssue": "身体自主权", "topics": [{"issue": "身体自主权", "count": 2}, {"issue": "原生家庭", "count": 1}], "r": 12.12, "x": 676.43, "y": 358.8, "featured": false}, {"id": "film::穿过寒冬拥抱你", "name": "穿过寒冬拥抱你", "type": "film", "count": 3, "primaryIssue": "原生家庭", "topics": [{"issue": "原生家庭", "count": 1}, {"issue": "社会结构性压迫", "count": 1}, {"issue": "身体自主权", "count": 1}], "r": 12.12, "x": 692.1, "y": 387.14, "featured": false}, {"id": "film::苹果", "name": "苹果", "type": "film", "count": 3, "primaryIssue": "身体自主权", "topics": [{"issue": "身体自主权", "count": 3}], "r": 12.12, "x": 657.69, "y": 290.56, "featured": false}, {"id": "film::观音山", "name": "观音山", "type": "film", "count": 3, "primaryIssue": "身体自主权", "topics": [{"issue": "身体自主权", "count": 3}], "r": 12.12, "x": 622.08, "y": 335.69, "featured": false}, {"id": "film::海洋天堂", "name": "海洋天堂", "type": "film", "count": 2, "primaryIssue": "原生家庭", "topics": [{"issue": "原生家庭", "count": 1}, {"issue": "母女关系", "count": 1}], "r": 11.06, "x": 649.45, "y": 410.8, "featured": false}, {"id": "film::海洋深处", "name": "海洋深处", "type": "film", "count": 2, "primaryIssue": "身体自主权", "topics": [{"issue": "身体自主权", "count": 2}], "r": 11.06, "x": 659.17, "y": 339.31, "featured": false}, {"id": "film::野孩子", "name": "野孩子", "type": "film", "count": 2, "primaryIssue": "母女关系", "topics": [{"issue": "母女关系", "count": 2}], "r": 11.06, "x": 506.86, "y": 316.51, "featured": false}, {"id": "film::万物生长", "name": "万物生长", "type": "film", "count": 1, "primaryIssue": "身体自主权", "topics": [{"issue": "身体自主权", "count": 1}], "r": 10.0, "x": 696.27, "y": 342.93, "featured": false}, {"id": "film::与时尚同居", "name": "与时尚同居", "type": "film", "count": 1, "primaryIssue": "身体自主权", "topics": [{"issue": "身体自主权", "count": 1}], "r": 10.0, "x": 603.81, "y": 317.0, "featured": false}, {"id": "film::北京爱上西雅图之不二情书", "name": "北京爱上西雅图之不二情书", "type": "film", "count": 1, "primaryIssue": "身体自主权", "topics": [{"issue": "身体自主权", "count": 1}], "r": 10.0, "x": 622.87, "y": 318.41, "featured": false}, {"id": "film::我们俩", "name": "我们俩", "type": "film", "count": 1, "primaryIssue": "母女关系", "topics": [{"issue": "母女关系", "count": 1}], "r": 10.0, "x": 504.1, "y": 358.31, "featured": false}], "issues": [{"id": "issue::身体自主权", "name": "身体自主权", "type": "issue", "count": 149, "share": 53.6, "r": 88.0, "x": 875, "y": 150, "color": "#e080a0", "topFilms": [{"film": "热辣滚烫", "count": 12}, {"film": "送我上青云", "count": 11}, {"film": "春梦", "count": 10}, {"film": "嘉年华", "count": 8}, {"film": "我的姐姐", "count": 8}, {"film": "黑处有什么", "count": 8}, {"film": "今年夏天", "count": 7}, {"film": "爱情神话", "count": 7}]}, {"id": "issue::母女关系", "name": "母女关系", "type": "issue", "count": 75, "share": 27.0, "r": 57.29, "x": 230, "y": 215, "color": "#075f55", "topFilms": [{"film": "春潮", "count": 14}, {"film": "你好，李焕英", "count": 11}, {"film": "妈妈！", "count": 9}, {"film": "出走的决心", "count": 8}, {"film": "世界上最疼我的那个人去了", "count": 6}, {"film": "小小的我", "count": 4}, {"film": "红颜", "count": 4}, {"film": "好东西", "count": 3}]}, {"id": "issue::自我认同与觉醒", "name": "自我认同与觉醒", "type": "issue", "count": 17, "share": 6.1, "r": 33.22, "x": 230, "y": 595, "color": "#c6a15f", "topFilms": [{"film": "笨鸟", "count": 4}, {"film": "黑处有什么", "count": 4}, {"film": "过春天", "count": 2}, {"film": "二次曝光", "count": 1}, {"film": "再见，少年", "count": 1}, {"film": "北京爱上西雅图", "count": 1}, {"film": "我的姐姐", "count": 1}, {"film": "春梦", "count": 1}]}, {"id": "issue::原生家庭", "name": "原生家庭", "type": "issue", "count": 15, "share": 5.4, "r": 32.39, "x": 905, "y": 525, "color": "#6fa89c", "topFilms": [{"film": "我的姐姐", "count": 5}, {"film": "过春天", "count": 2}, {"film": "出走的决心", "count": 1}, {"film": "嘉年华", "count": 1}, {"film": "好东西", "count": 1}, {"film": "海洋天堂", "count": 1}, {"film": "热辣滚烫", "count": 1}, {"film": "牛皮", "count": 1}]}, {"id": "issue::职场性别歧视", "name": "职场性别歧视", "type": "issue", "count": 13, "share": 4.7, "r": 31.56, "x": 615, "y": 645, "color": "#c06078", "topFilms": [{"film": "不虚此行", "count": 2}, {"film": "北京爱上西雅图", "count": 2}, {"film": "小小的我", "count": 2}, {"film": "今年夏天", "count": 1}, {"film": "嘉年华", "count": 1}, {"film": "好东西", "count": 1}, {"film": "春梦", "count": 1}, {"film": "春潮", "count": 1}]}, {"id": "issue::社会结构性压迫", "name": "社会结构性压迫", "type": "issue", "count": 4, "share": 1.4, "r": 27.83, "x": 1015, "y": 345, "color": "#8c3a3a", "topFilms": [{"film": "水印街", "count": 3}, {"film": "穿过寒冬拥抱你", "count": 1}]}, {"id": "issue::中年女性困境", "name": "中年女性困境", "type": "issue", "count": 3, "share": 1.1, "r": 27.41, "x": 505, "y": 110, "color": "#e0a0c0", "topFilms": [{"film": "爱情神话", "count": 3}]}, {"id": "issue::性别暴力", "name": "性别暴力", "type": "issue", "count": 2, "share": 0.7, "r": 27.0, "x": 1040, "y": 635, "color": "#2c2416", "topFilms": [{"film": "笨鸟", "count": 2}]}], "links": [{"id": "春潮__母女关系", "source": "film::春潮", "target": "issue::母女关系", "film": "春潮", "issue": "母女关系", "count": 14, "width": 13.5, "comment": "当我的母亲再也无法歌唱祖国，我去和台湾男孩亲昵，我的孩子才可以奔浪而去。", "color": "#075f55"}, {"id": "热辣滚烫__身体自主权", "source": "film::热辣滚烫", "target": "issue::身体自主权", "film": "热辣滚烫", "issue": "身体自主权", "count": 12, "width": 11.61, "comment": "大家对女性导演真的充满了恶意，减肥这个事情阿米尔汗没有宣传过没有上过热搜吗？独独对贾玲这么刻薄。真可悲。", "color": "#e080a0"}, {"id": "你好，李焕英__母女关系", "source": "film::你好，李焕英", "target": "issue::母女关系", "film": "你好，李焕英", "issue": "母女关系", "count": 11, "width": 10.66, "comment": "我要强烈批评影片最后刻画母亲买票又退票在大雪天中一个人走回去的镜头，我不接受，母爱不是因为牺牲才伟大，爱与关怀本身就是伟大。", "color": "#075f55"}, {"id": "送我上青云__身体自主权", "source": "film::送我上青云", "target": "issue::身体自主权", "film": "送我上青云", "issue": "身体自主权", "count": 11, "width": 10.66, "comment": "电影从我想和你做爱那里开始有点意思??", "color": "#e080a0"}, {"id": "春梦__身体自主权", "source": "film::春梦", "target": "issue::身体自主权", "film": "春梦", "issue": "身体自主权", "count": 10, "width": 9.72, "comment": "不觉得是一种割裂，女/性从传统男女关系（经典儒家观）逃离投奔佛教（众生平等），这样的设置本就契合一种近代“中国式宗教改革”中女性的形象源流。", "color": "#e080a0"}, {"id": "妈妈！__母女关系", "source": "film::妈妈！", "target": "issue::母女关系", "film": "妈妈！", "issue": "母女关系", "count": 9, "width": 8.77, "comment": "文淇这个角色的意义在哪里？都说久病床前无孝子，但久病床前永远有慈母，因为每个妈妈都是一只母狼，护崽已经刻进了天性里面。", "color": "#075f55"}, {"id": "出走的决心__母女关系", "source": "film::出走的决心", "target": "issue::母女关系", "film": "出走的决心", "issue": "母女关系", "count": 8, "width": 7.82, "comment": "妈妈看完后说：“我觉得她也没有多惨，怎么就抑郁了。”那一刻，我突然懂了这部电影需要被拍出来的意义。", "color": "#075f55"}, {"id": "嘉年华__身体自主权", "source": "film::嘉年华", "target": "issue::身体自主权", "film": "嘉年华", "issue": "身体自主权", "count": 8, "width": 7.82, "comment": "电影聚焦着赤裸裸的痛点，却又无处呐喊，无处宣泄，或许这就是现实。2017媲美《相爱相亲》的华语佳作，就像耿乐说的，这样的电影能公映已经很欣慰了…", "color": "#e080a0"}, {"id": "我的姐姐__身体自主权", "source": "film::我的姐姐", "target": "issue::身体自主权", "film": "我的姐姐", "issue": "身体自主权", "count": 8, "width": 7.82, "comment": "我其实不喜欢这个结局，如果在签字的地方就留白，可能会更好吧。这个故事没有解决实际性的问题，人物也不能算跟自己和解了，很难受，让我想起地久天长的那种难……", "color": "#e080a0"}, {"id": "黑处有什么__身体自主权", "source": "film::黑处有什么", "target": "issue::身体自主权", "film": "黑处有什么", "issue": "身体自主权", "count": 8, "width": 7.82, "comment": "三星半。同样是借鉴了『杀人回忆』。虽以案件做串联，却更多去讲女主角的成长，少女性的萌动与爱的萌动。而回忆的元素也很多，很多年代符号，相信很多人也能找……", "color": "#e080a0"}, {"id": "今年夏天__身体自主权", "source": "film::今年夏天", "target": "issue::身体自主权", "film": "今年夏天", "issue": "身体自主权", "count": 7, "width": 6.88, "comment": "社会人间，有贫富有贵贱，有男尊，有厌女，有恐同，背离上帝和宇宙。同性恋也许不是金子，但肯定是这个时代黑白美丑的试金石。", "color": "#e080a0"}, {"id": "爱情神话__身体自主权", "source": "film::爱情神话", "target": "issue::身体自主权", "film": "爱情神话", "issue": "身体自主权", "count": 7, "width": 6.88, "comment": "上海，对于离婚和不婚的女性是天堂，对于想要结婚的女性是地狱。", "color": "#e080a0"}, {"id": "鸡蛋和石头__身体自主权", "source": "film::鸡蛋和石头", "target": "issue::身体自主权", "film": "鸡蛋和石头", "issue": "身体自主权", "count": 7, "width": 6.88, "comment": "时隔多年，《人鬼情》后中国最优秀的女性电影，终结了近二十年的空白，为黄骥姐和大冢感到骄傲。", "color": "#e080a0"}, {"id": "世界上最疼我的那个人去了__母女关系", "source": "film::世界上最疼我的那个人去了", "target": "issue::母女关系", "film": "世界上最疼我的那个人去了", "issue": "母女关系", "count": 6, "width": 5.93, "comment": "虽说久病床前无孝子，但唯有女儿才是妈妈的小棉袄；子欲养而亲不待，珍惜父母赐我们世上一遭；老太太很可爱，斯琴大妈表演太真实到位了。", "color": "#075f55"}, {"id": "水印街__身体自主权", "source": "film::水印街", "target": "issue::身体自主权", "film": "水印街", "issue": "身体自主权", "count": 6, "width": 5.93, "comment": "中国现实主义电影的悲剧是国外观众只关注其中敏感话题忽略其艺术性，国内就直接禁播。", "color": "#e080a0"}, {"id": "牛郎织女__身体自主权", "source": "film::牛郎织女", "target": "issue::身体自主权", "film": "牛郎织女", "issue": "身体自主权", "count": 6, "width": 5.93, "comment": "-我的腿断了，站不起来 -两条都断了？ -左边能动 -那就先用一条腿站起来嘛 女性就是这样坚韧向上的", "color": "#e080a0"}, {"id": "出走的决心__身体自主权", "source": "film::出走的决心", "target": "issue::身体自主权", "film": "出走的决心", "issue": "身体自主权", "count": 5, "width": 4.98, "comment": "女性不仅是一种性别，更是一种处境。身为女性，不论你身处什么年代背景，你的经历终究会将你推向女性主义者", "color": "#e080a0"}, {"id": "好东西__身体自主权", "source": "film::好东西", "target": "issue::身体自主权", "film": "好东西", "issue": "身体自主权", "count": 5, "width": 4.98, "comment": "硬刚尾随男、怒怼随地小便男、正视自身需求拒绝不合理不礼貌的性行为……在一秒24帧率的大银幕上，以光明正大的“女性凝视”，且视他人凝目如鬼火，去回应去……", "color": "#e080a0"}, {"id": "小小的我__身体自主权", "source": "film::小小的我", "target": "issue::身体自主权", "film": "小小的我", "issue": "身体自主权", "count": 5, "width": 4.98, "comment": "今年最佳！开幕的第一个镜头就震撼到我了！眼泪不自觉的流下，看着春和扭曲的身体，颤颤巍巍的一步步走上台阶，再用他扭曲的手指奋力在纸上写下那行字，不需要……", "color": "#e080a0"}, {"id": "我的姐姐__原生家庭", "source": "film::我的姐姐", "target": "issue::原生家庭", "film": "我的姐姐", "issue": "原生家庭", "count": 5, "width": 4.98, "comment": "姐姐天生就是没有底座的套娃，是没有残障的瘸子，是挖掉了西瓜瓤的瓜皮，是装进了保温杯的咖啡。生育证明像与生俱来的一纸符咒，经文是女孩要被迫独立和牺牲……", "color": "#6fa89c"}, {"id": "小小的我__母女关系", "source": "film::小小的我", "target": "issue::母女关系", "film": "小小的我", "issue": "母女关系", "count": 4, "width": 4.04, "comment": "咖啡店店长其实不是为了减税才聘用刘春和的，因为他妈没有给他办残疾证", "color": "#075f55"}, {"id": "笨鸟__自我认同与觉醒", "source": "film::笨鸟", "target": "issue::自我认同与觉醒", "film": "笨鸟", "issue": "自我认同与觉醒", "count": 4, "width": 4.04, "comment": "只有独立电影在深入地处理社会现实，或者说只要认真说点现实，电影就必然被当局拒绝", "color": "#c6a15f"}, {"id": "红颜__母女关系", "source": "film::红颜", "target": "issue::母女关系", "film": "红颜", "issue": "母女关系", "count": 4, "width": 4.04, "comment": "最让人动容的无非是小云母亲在影片最后那悲恸的侧脸...孤独的人生走近了死胡同，再也没有出口。", "color": "#075f55"}, {"id": "致我们终将逝去的青春__身体自主权", "source": "film::致我们终将逝去的青春", "target": "issue::身体自主权", "film": "致我们终将逝去的青春", "issue": "身体自主权", "count": 4, "width": 4.04, "comment": "我最困惑的是，刚看完这部电影，我就死活回忆不起来本片是怎么结束的……这个结尾真是缺乏存在感啊。另外某男演员在本片中的存在感好弱啊，我觉得直接用背影来……", "color": "#e080a0"}, {"id": "黑处有什么__自我认同与觉醒", "source": "film::黑处有什么", "target": "issue::自我认同与觉醒", "film": "黑处有什么", "issue": "自我认同与觉醒", "count": 4, "width": 4.04, "comment": "从女孩视角出发，对整个时代笼罩的压抑氛围作出展示，然而情感并未找到一个立足点，对主角成长的表述也过分暧昧模糊。", "color": "#c6a15f"}, {"id": "不虚此行__身体自主权", "source": "film::不虚此行", "target": "issue::身体自主权", "film": "不虚此行", "issue": "身体自主权", "count": 3, "width": 3.09, "comment": "文学性蛮强的，像一束不错的短篇集。齐溪的那个故事还是有些泪点的。只是这个时代的事情啊它们整体都太轻了，再怎么把笔狠狠按下去，也不过如此了。", "color": "#e080a0"}, {"id": "二次曝光__身体自主权", "source": "film::二次曝光", "target": "issue::身体自主权", "film": "二次曝光", "issue": "身体自主权", "count": 3, "width": 3.09, "comment": "一部出乎意料的迷幻风自慰片，观影过程中不难联想到X片、X片、X片、X片还有X片（一说片名就剧透），但是也只局限在这里，看不到更好的发挥，而且越到后面……", "color": "#e080a0"}, {"id": "北京爱上西雅图__身体自主权", "source": "film::北京爱上西雅图", "target": "issue::身体自主权", "film": "北京爱上西雅图", "issue": "身体自主权", "count": 3, "width": 3.09, "comment": "6分 角色性格设置不适合汤唯，人物背景设置浮空，在扭捏过程中最终倒向了最为俗套的圆梦式结局。观众在婴儿面前配备的原始泪点挖掘充分，最讽刺的在于隐匿金……", "color": "#e080a0"}, {"id": "好东西__母女关系", "source": "film::好东西", "target": "issue::母女关系", "film": "好东西", "issue": "母女关系", "count": 3, "width": 3.09, "comment": "戴新拳套打旧靶子，拿旧球拍磕新声音。母亲的煎蛋锅能制造暴雨，晾衣绳引发打雷，吸尘器刮起龙卷风。榨汁机能锯断木头，购物袋引发泥石流。砂锅粥爆发岩浆，遥……", "color": "#075f55"}, {"id": "水印街__社会结构性压迫", "source": "film::水印街", "target": "issue::社会结构性压迫", "film": "水印街", "issue": "社会结构性压迫", "count": 3, "width": 3.09, "comment": "何文超饰演的女人在剧中缺席了30分钟。这段缺席是值得玩味的，它与权力的步调一致，因而最后女人的眼睛变成了监控镜头，它通过镜子凝视着男人。", "color": "#8c3a3a"}, {"id": "爱情神话__中年女性困境", "source": "film::爱情神话", "target": "issue::中年女性困境", "film": "爱情神话", "issue": "中年女性困境", "count": 3, "width": 3.09, "comment": "对徐峥刮目相看(更多是导演的功劳)，终于演了一部严肃的电影，每个人物都很立体。私房菜变大锅饭，野猫吃剩饭，文化人讲话就是不一样。这给中年男人的耳光打……", "color": "#e0a0c0"}, {"id": "红颜__身体自主权", "source": "film::红颜", "target": "issue::身体自主权", "film": "红颜", "issue": "身体自主权", "count": 3, "width": 3.09, "comment": "中国女性电影之杰作啊杰作啊杰作^ 整个05年最好的中国电影", "color": "#e080a0"}, {"id": "苹果__身体自主权", "source": "film::苹果", "target": "issue::身体自主权", "film": "苹果", "issue": "身体自主权", "count": 3, "width": 3.09, "comment": "使用一线演员讲述社会底层问题的作品最大问题，就是那些自带属性与「人设」的明星严重干扰到观众对于故事的接受，越是现实题材越是需要非专业演员，本质上电影……", "color": "#e080a0"}, {"id": "观音山__身体自主权", "source": "film::观音山", "target": "issue::身体自主权", "film": "观音山", "issue": "身体自主权", "count": 3, "width": 3.09, "comment": "演得都很好，个性太鲜明了，但是人物底子是空的：没有细节，没有纵深，只有粗线条叙事和风里乱飘的文艺腔。", "color": "#e080a0"}, {"id": "过春天__身体自主权", "source": "film::过春天", "target": "issue::身体自主权", "film": "过春天", "issue": "身体自主权", "count": 3, "width": 3.09, "comment": "这几年青春片中非常亮眼的一部，导演将青春片的情节与情绪，置于犯罪片类型当中，将青春的躁动类比于犯罪的刺激。摄影、剪辑、配乐各环节都很突出，几个年轻演……", "color": "#e080a0"}, {"id": "阳光劫匪__身体自主权", "source": "film::阳光劫匪", "target": "issue::身体自主权", "film": "阳光劫匪", "issue": "身体自主权", "count": 3, "width": 3.09, "comment": "一幕接一幕造价高昂的视觉污染，韦斯·安德森看了要吐血。故事逻辑稀碎，表演体系混乱，说教气息浓烈，硬贴女性互助实属鸡贼。既然是拍老虎，可以理解人人都有……", "color": "#e080a0"}, {"id": "不虚此行__职场性别歧视", "source": "film::不虚此行", "target": "issue::职场性别歧视", "film": "不虚此行", "issue": "职场性别歧视", "count": 2, "width": 2.15, "comment": "其实是一部关于创作的电影，所谓悼词，也可以理解为采风与人物创作。所以，影片几乎没有让任何悼词的主角露面，即便露脸，也是糊的（那个创业公司老板）。但是……", "color": "#c06078"}, {"id": "再见，少年__身体自主权", "source": "film::再见，少年", "target": "issue::身体自主权", "film": "再见，少年", "issue": "身体自主权", "count": 2, "width": 2.15, "comment": "看完再见少年，放映画幅出了些问题，不过新导演的第一部作品还是经受住了检验。女性导演的细腻敏感内敛让人印象深刻，很多人觉得没有爱情不成立，但少年们为什……", "color": "#e080a0"}, {"id": "北京爱上西雅图__职场性别歧视", "source": "film::北京爱上西雅图", "target": "issue::职场性别歧视", "film": "北京爱上西雅图", "issue": "职场性别歧视", "count": 2, "width": 2.15, "comment": "这种类型片唯一的悬念就是“这么别扭的俩人怎么能走到一起？”影片解决得还不错，三观不正的开局硬扭出了一个自力更生的结尾。可惜反映生活不够厚，当作童话又……", "color": "#c06078"}, {"id": "妈妈！__身体自主权", "source": "film::妈妈！", "target": "issue::身体自主权", "film": "妈妈！", "issue": "身体自主权", "count": 2, "width": 2.15, "comment": "全程难以代入，主要在于，选择女性知识分子的家庭，会跟普通观众还是有点距离的，就会让人觉得，谁家母女会这么说话啊……但这个人物背景，又是为了带出更深的……", "color": "#e080a0"}, {"id": "小小的我__职场性别歧视", "source": "film::小小的我", "target": "issue::职场性别歧视", "film": "小小的我", "issue": "职场性别歧视", "count": 2, "width": 2.15, "comment": "睡进行李箱，那是保护自己的蝉茧。抱着骨骼架，那是自我重生的蜕壳。习惯了各样的目光，尚不能对爱的目光免疫。割开了吞咽的气管，尚不能让心头的伤口愈合。投……", "color": "#c06078"}, {"id": "春梦__母女关系", "source": "film::春梦", "target": "issue::母女关系", "film": "春梦", "issue": "母女关系", "count": 2, "width": 2.15, "comment": "前面一切都很好 父权是最大的鬼 压抑了东亚女性的性 导致她们没办法正视自身情欲 甚至还觉得是疾病 困扰 自我羞愧和折磨 荡妇羞辱 被剥夺成为“母亲”……", "color": "#075f55"}, {"id": "春潮__身体自主权", "source": "film::春潮", "target": "issue::身体自主权", "film": "春潮", "issue": "身体自主权", "count": 2, "width": 2.15, "comment": "在隐喻尤其是政治隐喻的意义上（女性与今天的权力实在是太互文了），我越来越能理解那些被许多人认为极端的创作者。并且倾向于把他们在具体手法上的省略与过度……", "color": "#e080a0"}, {"id": "海洋深处__身体自主权", "source": "film::海洋深处", "target": "issue::身体自主权", "film": "海洋深处", "issue": "身体自主权", "count": 2, "width": 2.15, "comment": "前半段完全错误的拍摄和剪辑策略，镜头那么碎，视效都白做了；后半段基本是叙事流水账，本可以展开的人性思考是0。", "color": "#e080a0"}, {"id": "牛皮__身体自主权", "source": "film::牛皮", "target": "issue::身体自主权", "film": "牛皮", "issue": "身体自主权", "count": 2, "width": 2.15, "comment": "始终埋藏着裂隙的情境不断破裂/新生，局限的视域非但没有使影像沦为僵硬封闭的表意机器，反而持续显示着在场事物的材质性。", "color": "#e080a0"}, {"id": "笨鸟__性别暴力", "source": "film::笨鸟", "target": "issue::性别暴力", "film": "笨鸟", "issue": "性别暴力", "count": 2, "width": 2.15, "comment": "聚焦边缘个体而且是少女的的心理生理状态。对外界因素的呈现和批判是非常具体的，无论是家庭关系里父母的缺位，校园霸凌的压制，成人社会的强奸，无一例外都是……", "color": "#2c2416"}, {"id": "笨鸟__身体自主权", "source": "film::笨鸟", "target": "issue::身体自主权", "film": "笨鸟", "issue": "身体自主权", "count": 2, "width": 2.15, "comment": "黄骥导演真厉害啊。性、性骚扰、精神压抑，都来自于自己残酷的体验，然后又把她拍出来。有人问黄骥，为什么会设计那个在网吧自慰的情节，黄骥说，人在很无助迷……", "color": "#e080a0"}, {"id": "过春天__原生家庭", "source": "film::过春天", "target": "issue::原生家庭", "film": "过春天", "issue": "原生家庭", "count": 2, "width": 2.15, "comment": "新鲜、明快又洋气，别的国产青春片在这个片面前只能被称作北姑青春片了！男主角单看长相不算特别帅气，但绝对能令每个少女都回想起自己青春期曾爱慕过的坏男孩……", "color": "#6fa89c"}, {"id": "过春天__母女关系", "source": "film::过春天", "target": "issue::母女关系", "film": "过春天", "issue": "母女关系", "count": 2, "width": 2.15, "comment": "带货少女成长史。台词、镜头、色彩，各个技术层面都挺扎实，老实本分用小切口讲小格局的故事，作为处女作，放在所谓的“内地青春片”大背景下，挺不错的，但也……", "color": "#075f55"}, {"id": "过春天__自我认同与觉醒", "source": "film::过春天", "target": "issue::自我认同与觉醒", "film": "过春天", "issue": "自我认同与觉醒", "count": 2, "width": 2.15, "comment": "好看又好哭，高铁直插西九龙时代全新的陆港电影。砸碎青春所剩无几的念想，走出陆港双重身份困境，迎向独立新生的自我。陆港再无黑社会，镰刀斧头镇华强北也镇……", "color": "#c6a15f"}, {"id": "送我上青云__母女关系", "source": "film::送我上青云", "target": "issue::母女关系", "film": "送我上青云", "issue": "母女关系", "count": 2, "width": 2.15, "comment": "丧礼上穿粉西服的色盲不是毛病，渴望成功才是绝症；聚会中背圆周率的表演不算笑柄，等人鞠躬才是做梦。山顶纵火的傻子还在等宇宙飞船，丰唇未消的母亲还想听汝……", "color": "#075f55"}, {"id": "野孩子__母女关系", "source": "film::野孩子", "target": "issue::母女关系", "film": "野孩子", "issue": "母女关系", "count": 2, "width": 2.15, "comment": "女主角很漂亮，英国男很内敛，哈哈。当父亲找到女儿在曲棍球场上的身影时，与记忆中的恋人重叠了起来，画面是不断地近父亲的脸，哭了TAT...", "color": "#075f55"}, {"id": "阳光劫匪__母女关系", "source": "film::阳光劫匪", "target": "issue::母女关系", "film": "阳光劫匪", "issue": "母女关系", "count": 2, "width": 2.15, "comment": "救命！人生在电影院看过的最难看的电影之一！妈妈很喜欢开心麻花，因此看到马丽是主演就选了这部片子。太无聊了吧！逻辑乱七八糟，镜头让人头晕，全片都是鸡汤……", "color": "#075f55"}, {"id": "万物生长__身体自主权", "source": "film::万物生长", "target": "issue::身体自主权", "film": "万物生长", "issue": "身体自主权", "count": 1, "width": 1.2, "comment": "能让我有兴趣买票，李玉就已经赢了。女导演拍这么一个杰克苏的直男癌故事，也是想票房想疯了，关键是片子没有那股子雄性荷尔蒙气息，明明就是肾虚，却硬要装出……", "color": "#e080a0"}, {"id": "不虚此行__母女关系", "source": "film::不虚此行", "target": "issue::母女关系", "film": "不虚此行", "issue": "母女关系", "count": 1, "width": 1.2, "comment": "25th SIFF 01＃ 画面干净，观感挺舒服的。写悼词的人和编剧一样，都是故事的书写者。影片中人物很多，但大多没有好好描绘，走马观花一般，小尹这……", "color": "#075f55"}, {"id": "与时尚同居__身体自主权", "source": "film::与时尚同居", "target": "issue::身体自主权", "film": "与时尚同居", "issue": "身体自主权", "count": 1, "width": 1.2, "comment": "你先把气喘匀了，把故事讲顺了，把人物性格写立体了，再谈批判，再谈理想。否则只能是个笑柄。据说导演是个诗人，真没看出来。跟弱智时尚剧没啥区别", "color": "#e080a0"}, {"id": "二次曝光__自我认同与觉醒", "source": "film::二次曝光", "target": "issue::自我认同与觉醒", "film": "二次曝光", "issue": "自我认同与觉醒", "count": 1, "width": 1.2, "comment": "心理悬疑片的类型外壳，艺术电影的内核。由幻想切入到现实的故事，郁结了中国人沉重自虐的心理世界，这来自于被扭曲的成长史及现实挤压下的焦虑挣扎，影片有力……", "color": "#c6a15f"}, {"id": "今年夏天__职场性别歧视", "source": "film::今年夏天", "target": "issue::职场性别歧视", "film": "今年夏天", "issue": "职场性别歧视", "count": 1, "width": 1.2, "comment": "枪版竟然都看下来了，故事平淡却不闷。非职业演员却真实感浓厚。时代感十足。", "color": "#c06078"}, {"id": "再见，少年__自我认同与觉醒", "source": "film::再见，少年", "target": "issue::自我认同与觉醒", "film": "再见，少年", "issue": "自我认同与觉醒", "count": 1, "width": 1.2, "comment": "海南被取消了场次，又出故障没能看成，现在补上。相同导演、相同主演电影在不到半年里完成上映，算不算什么惊人的记录（：这种成长互相救赎的故事逐渐量产，不……", "color": "#c6a15f"}, {"id": "出走的决心__原生家庭", "source": "film::出走的决心", "target": "issue::原生家庭", "film": "出走的决心", "issue": "原生家庭", "count": 1, "width": 1.2, "comment": "可恨的是，孙大勇这样的男人，不吃喝嫖赌，不重男轻女，不家暴，也没有出轨，就能在婚恋市场被包装成老实可靠，让你度过苦难的半生。", "color": "#6fa89c"}, {"id": "北京爱上西雅图__母女关系", "source": "film::北京爱上西雅图", "target": "issue::母女关系", "film": "北京爱上西雅图", "issue": "母女关系", "count": 1, "width": 1.2, "comment": "两星半，电视水准，主角是美国神经喜剧的路数，叙事流俗于Melodrama情节剧（等同于国产电视剧拍法）的温吞，穿插了对《绿卡》《西雅图不眠夜》与美国……", "color": "#075f55"}, {"id": "北京爱上西雅图__自我认同与觉醒", "source": "film::北京爱上西雅图", "target": "issue::自我认同与觉醒", "film": "北京爱上西雅图", "issue": "自我认同与觉醒", "count": 1, "width": 1.2, "comment": "不抖机灵，不耍贫嘴，让人物说人话办人事，认真做故事，认真做结构，认真做桥段。我希望这部电影成功，因为它的成功会比《失恋33天》之类的成功意义大得多……", "color": "#c6a15f"}, {"id": "北京爱上西雅图之不二情书__身体自主权", "source": "film::北京爱上西雅图之不二情书", "target": "issue::身体自主权", "film": "北京爱上西雅图之不二情书", "issue": "身体自主权", "count": 1, "width": 1.2, "comment": "还不错，国产爱情片要是都能有这水准，那就很让人欣慰了。男神女神的搭配还是那么舒服和谐，波叔有味道，汤唯知性美，配一脸。", "color": "#e080a0"}, {"id": "嘉年华__原生家庭", "source": "film::嘉年华", "target": "issue::原生家庭", "film": "嘉年华", "issue": "原生家庭", "count": 1, "width": 1.2, "comment": "上映当口正巧赶上现实中三色幼儿园的事件，让人五味杂陈，现实的悲剧和焦虑映射进故事，交织成一种难以名状的情绪。这故事里的众多指向都点到为止，权势的勾结……", "color": "#6fa89c"}, {"id": "嘉年华__母女关系", "source": "film::嘉年华", "target": "issue::母女关系", "film": "嘉年华", "issue": "母女关系", "count": 1, "width": 1.2, "comment": "少女性侵案，同情很容易，手撕罪犯也不难，但除此以外呢？片中两位母亲的做法，恐怕正好解释了悲剧不是随机并无意发生的。相比不可饶恕的恶，不自知其过的罪更……", "color": "#075f55"}, {"id": "嘉年华__职场性别歧视", "source": "film::嘉年华", "target": "issue::职场性别歧视", "film": "嘉年华", "issue": "职场性别歧视", "count": 1, "width": 1.2, "comment": "【B】最后电视里传来“和谐之声”，而我后排的一个女人泣不成声，她老公在一旁怎么安慰也不好，字幕放完，影院工作人员催促他们才慢慢站起。我才看到，她怀孕……", "color": "#c06078"}, {"id": "好东西__原生家庭", "source": "film::好东西", "target": "issue::原生家庭", "film": "好东西", "issue": "原生家庭", "count": 1, "width": 1.2, "comment": "一扫阴霾，抚慰人心，走出影院的时刻心情无比灿烂。几乎是每一个在都市缝隙中风尘仆仆的你我的写照，被原生家庭、性别困境、身份标签裹挟，被迫训练出与琐碎……", "color": "#6fa89c"}, {"id": "好东西__职场性别歧视", "source": "film::好东西", "target": "issue::职场性别歧视", "film": "好东西", "issue": "职场性别歧视", "count": 1, "width": 1.2, "comment": "比《爱情神话》更落地，宋佳前调查记者的职业部分很真，尤其跟章宇一起和面时的对话，一方诚挚地说我看过你全部的报道，你为什么不继续做记者了？另一方已经既……", "color": "#c06078"}, {"id": "我们俩__母女关系", "source": "film::我们俩", "target": "issue::母女关系", "film": "我们俩", "issue": "母女关系", "count": 1, "width": 1.2, "comment": "多好的本子，有观察、有良心、台词写得接地气，却拍成了学生作业水平，尤其末尾一段，简直看不下去。这么生人勿近、不好相与的老太太，算计、抠门、又事儿妈……", "color": "#075f55"}, {"id": "我的姐姐__母女关系", "source": "film::我的姐姐", "target": "issue::母女关系", "film": "我的姐姐", "issue": "母女关系", "count": 1, "width": 1.2, "comment": "姑妈那条线 就是两代人的悲哀", "color": "#075f55"}, {"id": "我的姐姐__自我认同与觉醒", "source": "film::我的姐姐", "target": "issue::自我认同与觉醒", "film": "我的姐姐", "issue": "自我认同与觉醒", "count": 1, "width": 1.2, "comment": "《感动中国》好歹还能做到——主题明确、态度明朗；本片，并不。从独立到奴隶，这是不敢动。", "color": "#c6a15f"}, {"id": "春梦__职场性别歧视", "source": "film::春梦", "target": "issue::职场性别歧视", "film": "春梦", "issue": "职场性别歧视", "count": 1, "width": 1.2, "comment": "（多年前工作关系看的，故无资源）中国的中产阶级风花雪月太太比起六十年代的法国昼颜还是保守和苦闷得多的", "color": "#c06078"}, {"id": "春梦__自我认同与觉醒", "source": "film::春梦", "target": "issue::自我认同与觉醒", "film": "春梦", "issue": "自我认同与觉醒", "count": 1, "width": 1.2, "comment": "有一半是内地独立剧情片的滥觞，软色情、粉红格调的中产家庭幻梦（在中国这难道不就是一个梦？那个玩IPAD切西瓜的平头男丈夫）。另一边是比较出彩的写实纪……", "color": "#c6a15f"}, {"id": "春潮__职场性别歧视", "source": "film::春潮", "target": "issue::职场性别歧视", "film": "春潮", "issue": "职场性别歧视", "count": 1, "width": 1.2, "comment": "开篇误以为是个嘉年华式的现实主义女性叙事，但显然杨荔娜另辟蹊径书写了另一种既当下更历史，既现实又隐喻，堪称决绝的勇气之作。如此才华、立场、聪慧兼具的……", "color": "#c06078"}, {"id": "水印街__自我认同与觉醒", "source": "film::水印街", "target": "issue::自我认同与觉醒", "film": "水印街", "issue": "自我认同与觉醒", "count": 1, "width": 1.2, "comment": "前后两段撕裂感突兀地存在，明显是剧本的问题。依然摆脱不了大陆独立电影在国外电影节上的姿态：政治主题先行，其他一切逻辑忽略不计。对南京这座城市的刻画是……", "color": "#c6a15f"}, {"id": "海洋天堂__原生家庭", "source": "film::海洋天堂", "target": "issue::原生家庭", "film": "海洋天堂", "issue": "原生家庭", "count": 1, "width": 1.2, "comment": "父爱如山此话不假。李大哥弃武从文演起剧情片来，演技也是扛扛滴。", "color": "#6fa89c"}, {"id": "海洋天堂__母女关系", "source": "film::海洋天堂", "target": "issue::母女关系", "film": "海洋天堂", "issue": "母女关系", "count": 1, "width": 1.2, "comment": "我宁愿花钱看这种电影。向平凡的父母亲致敬！李连杰的文戏多好啊！7.6", "color": "#075f55"}, {"id": "热辣滚烫__原生家庭", "source": "film::热辣滚烫", "target": "issue::原生家庭", "film": "热辣滚烫", "issue": "原生家庭", "count": 1, "width": 1.2, "comment": "“在一切结束之后，乐莹没有迎接父母妹妹，没有拥抱闺蜜，也没有和男人和好，亲缘友缘性缘前尘皆散，尽数被抛诸脑后，她独自一个人在黑夜里向前奔跑。 一个强……", "color": "#6fa89c"}, {"id": "牛皮__原生家庭", "source": "film::牛皮", "target": "issue::原生家庭", "film": "牛皮", "issue": "原生家庭", "count": 1, "width": 1.2, "comment": "这浓郁的京味真是绝了//原来全程固定镜头卡死景别可以这么有趣 观众被丢在完全偷窥角度的位置//极简洁的画面信息量和极宽广的画外空间 两个空间在可见与……", "color": "#6fa89c"}, {"id": "穿过寒冬拥抱你__原生家庭", "source": "film::穿过寒冬拥抱你", "target": "issue::原生家庭", "film": "穿过寒冬拥抱你", "issue": "原生家庭", "count": 1, "width": 1.2, "comment": "拍的跟个官方宣传片一样，人物从里往外都透着努力演的味道。黄渤人设完美的没有任何私心杂念，只能仰望无法共情。只有小黄鸭像个生活里活生生的小妹妹，最大的……", "color": "#6fa89c"}, {"id": "穿过寒冬拥抱你__社会结构性压迫", "source": "film::穿过寒冬拥抱你", "target": "issue::社会结构性压迫", "film": "穿过寒冬拥抱你", "issue": "社会结构性压迫", "count": 1, "width": 1.2, "comment": "感人的是真实，不是片子。导演不太会煽情，倒是压迫感很会拍，开头看得我头皮发麻", "color": "#8c3a3a"}, {"id": "穿过寒冬拥抱你__身体自主权", "source": "film::穿过寒冬拥抱你", "target": "issue::身体自主权", "film": "穿过寒冬拥抱你", "issue": "身体自主权", "count": 1, "width": 1.2, "comment": "浪费时间 ，如坐针毡，选这么一个跨年的时间来消费疫情，拍的什么七拼八凑的电影。为了煽情而煽情，为了狗血而狗血，高龄产妇生孩子，态度大反转，大方捐赠物……", "color": "#e080a0"}, {"id": "送我上青云__职场性别歧视", "source": "film::送我上青云", "target": "issue::职场性别歧视", "film": "送我上青云", "issue": "职场性别歧视", "count": 1, "width": 1.2, "comment": "像不像每个人一团混乱的生活，盛男像极了每个人的缩影，只不过她比大多数人更加的不幸，经历了特殊混乱的家庭，一份不是想象中的工作，甚至还疾病缠身，有几幕……", "color": "#c06078"}, {"id": "阳光劫匪__自我认同与觉醒", "source": "film::阳光劫匪", "target": "issue::自我认同与觉醒", "film": "阳光劫匪", "issue": "自我认同与觉醒", "count": 1, "width": 1.2, "comment": "这还是那个为了百鸟朝凤下跪的方制片嘛！这部电影的每一个部门都在努力干自己最不擅长的事情，李玉最会拍文艺女主，但在这个类童话的故事里，不文艺不商业，精……", "color": "#c6a15f"}, {"id": "鸡蛋和石头__职场性别歧视", "source": "film::鸡蛋和石头", "target": "issue::职场性别歧视", "film": "鸡蛋和石头", "issue": "职场性别歧视", "count": 1, "width": 1.2, "comment": "全非职业演员，能有这样的呈现真是太了不起了！几乎没有戏剧化因素，甚至也很少有情绪的流露。一些评论中屡次提到导演之“勇敢”，反过来说，这也要求观众足够……", "color": "#c06078"}, {"id": "黑处有什么__原生家庭", "source": "film::黑处有什么", "target": "issue::原生家庭", "film": "黑处有什么", "issue": "原生家庭", "count": 1, "width": 1.2, "comment": "一部由《杀人回忆》所引发的电影，但后来走向却是中国青春片。少女的黑夜，“强奸犯”是周围所有人。来自父母、师长和学校的束缚压迫摧残，生死未卜下落不明的……", "color": "#6fa89c"}]};
+const svg = document.getElementById('atlas');
+const detail = document.getElementById('detail');
+const filmSearch = document.getElementById('filmSearch');
+let threshold = 1;
+let locked = null;
+
+const nodeById = new Map();
+DATA.films.concat(DATA.issues).forEach(node => nodeById.set(node.id, node));
+
+function el(name, attrs = {}, parent = svg) {
+  const node = document.createElementNS('http://www.w3.org/2000/svg', name);
+  Object.entries(attrs).forEach(([key, value]) => node.setAttribute(key, value));
+  parent.appendChild(node);
+  return node;
+}
+
+function curvePath(source, target) {
+  const dx = target.x - source.x;
+  const dy = target.y - source.y;
+  const mx = source.x + dx * 0.5;
+  const my = source.y + dy * 0.5;
+  const curve = Math.min(130, Math.max(42, Math.hypot(dx, dy) * 0.18));
+  const nx = -dy / (Math.hypot(dx, dy) || 1);
+  const ny = dx / (Math.hypot(dx, dy) || 1);
+  const c1x = source.x + dx * 0.35 + nx * curve;
+  const c1y = source.y + dy * 0.35 + ny * curve;
+  const c2x = target.x - dx * 0.35 + nx * curve;
+  const c2y = target.y - dy * 0.35 + ny * curve;
+  return `M${source.x},${source.y} C${c1x},${c1y} ${c2x},${c2y} ${target.x},${target.y}`;
+}
+
+function wrapLines(text, maxChars) {
+  if (text.length <= maxChars) return [text];
+  const lines = [];
+  let current = '';
+  for (const char of text) {
+    current += char;
+    if (current.length >= maxChars) {
+      lines.push(current);
+      current = '';
+    }
+  }
+  if (current) lines.push(current);
+  return lines.slice(0, 3);
+}
+
+function render() {
+  svg.innerHTML = '';
+  el('circle', { cx: 585, cy: 382, r: 180, class: 'orbit' });
+  el('circle', { cx: 585, cy: 382, r: 285, class: 'orbit' });
+  el('circle', { cx: 585, cy: 382, r: 385, class: 'orbit' });
+
+  const linksGroup = el('g', { id: 'links' });
+  const nodesGroup = el('g', { id: 'nodes' });
+  const core = el('g', { class: 'core' }, nodesGroup);
+  el('circle', { cx: 585, cy: 382, r: 72, fill: '#2c2416' }, core);
+  el('circle', { cx: 585, cy: 382, r: 88, fill: 'none', stroke: 'rgba(224,128,160,.30)', 'stroke-width': 18 }, core);
+  const coreText = el('text', { x: 585, y: 372 }, core);
+  coreText.innerHTML = '<tspan x="585" dy="0">长评</tspan><tspan x="585" dy="28">档案核</tspan><tspan x="585" dy="30" style="font-size:11px;letter-spacing:.08em;fill:rgba(244,239,228,.65)">278 VALID CODES</tspan>';
+
+  DATA.links.forEach(link => {
+    const source = nodeById.get(link.source);
+    const target = nodeById.get(link.target);
+    const path = el('path', {
+      d: curvePath(source, target),
+      class: 'link',
+      id: 'link-' + CSS.escape(link.id),
+      stroke: link.color,
+      'stroke-width': link.width,
+      'data-source': link.source,
+      'data-target': link.target,
+      'data-count': link.count,
+      'data-id': link.id,
+      style: `opacity:${link.count >= threshold ? 0.46 : 0};--active-width:${Math.max(link.width + 4, 7)}px`
+    }, linksGroup);
+    path.addEventListener('mouseenter', () => focusLink(link));
+    path.addEventListener('click', () => {
+      locked = link;
+      focusLink(link, true);
+    });
+  });
+
+  DATA.issues.forEach(issue => drawNode(issue, nodesGroup));
+  DATA.films.forEach(film => drawNode(film, nodesGroup));
+}
+
+function drawNode(node, parent) {
+  const group = el('g', {
+    class: 'node ' + node.type,
+    id: 'node-' + CSS.escape(node.id),
+    transform: `translate(${node.x},${node.y})`,
+    'data-id': node.id
+  }, parent);
+  const fill = node.type === 'issue' ? node.color : 'rgba(244,239,228,.92)';
+  const stroke = node.type === 'issue' ? 'rgba(44,36,22,.24)' : nodeById.get('issue::' + node.primaryIssue)?.color || '#e080a0';
+  el('circle', {
+    r: node.r,
+    fill,
+    stroke,
+    'stroke-width': node.type === 'film' ? 2 : 1.2
+  }, group);
+  const label = el('text', { y: node.type === 'film' ? 0 : -4 }, group);
+  const shouldLabel = node.type === 'issue' || node.featured;
+  if (shouldLabel) {
+    const maxChars = node.type === 'issue' ? 4 : 6;
+    wrapLines(node.name, maxChars).forEach((line, i) => {
+      const tspan = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
+      tspan.setAttribute('x', 0);
+      tspan.setAttribute('dy', i === 0 ? 0 : 15);
+      tspan.textContent = line;
+      label.appendChild(tspan);
+    });
+    if (node.type === 'issue') {
+      const count = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
+      count.setAttribute('x', 0);
+      count.setAttribute('dy', 17);
+      count.setAttribute('style', 'font-size:10px;font-weight:400;fill:#6b5e4a;stroke-width:2px');
+      count.textContent = node.count;
+      label.appendChild(count);
+    }
+  }
+  group.addEventListener('mouseenter', () => focusNode(node));
+  group.addEventListener('click', () => {
+    locked = node;
+    focusNode(node, true);
+  });
+}
+
+function relatedLink(link, id) {
+  return link.source === id || link.target === id;
+}
+
+function setClasses(activeNodeIds, activeLinkIds) {
+  document.querySelectorAll('.node').forEach(node => {
+    const id = node.dataset.id;
+    node.classList.toggle('dim', activeNodeIds && !activeNodeIds.has(id));
+    node.classList.toggle('active', activeNodeIds && activeNodeIds.has(id));
+  });
+  document.querySelectorAll('.link').forEach(path => {
+    const id = path.dataset.id;
+    const visible = Number(path.dataset.count) >= threshold;
+    const active = activeLinkIds && activeLinkIds.has(id);
+    path.classList.toggle('dim', activeLinkIds && !active);
+    path.classList.toggle('active', active);
+    path.style.opacity = visible ? (active ? 0.96 : (activeLinkIds ? 0.12 : 0.46)) : 0;
+    path.style.pointerEvents = visible ? 'auto' : 'none';
+  });
+}
+
+function focusNode(node) {
+  const activeNodeIds = new Set([node.id]);
+  const activeLinkIds = new Set();
+  DATA.links.forEach(link => {
+    if (link.count >= threshold && relatedLink(link, node.id)) {
+      activeLinkIds.add(link.id);
+      activeNodeIds.add(link.source);
+      activeNodeIds.add(link.target);
+    }
+  });
+  setClasses(activeNodeIds, activeLinkIds);
+  if (node.type === 'film') showFilmDetail(node);
+  else showIssueDetail(node);
+}
+
+function focusLink(link) {
+  setClasses(new Set([link.source, link.target]), new Set([link.id]));
+  showLinkDetail(link);
+}
+
+function resetFocus() {
+  locked = null;
+  setClasses(null, null);
+  showGuide();
+  filmSearch.value = '';
+}
+
+function showGuide() {
+  detail.innerHTML = '<div class="tag">READING GUIDE</div><h2>从中心影片进入外围议题</h2><p>悬停影片查看其议题结构；悬停议题查看相关影片；点击任意连线，查看该影片-议题组合的长评数量和代表摘句。</p>';
+}
+
+function showFilmDetail(film) {
+  const items = film.topics.map(item => `<li>${item.issue}：${item.count} 条</li>`).join('');
+  detail.innerHTML = `<div class="tag">FILM NODE</div><h2>${film.name}</h2><p>有效议题长评 <b>${film.count}</b> 条。主要议题为“${film.primaryIssue}”。</p><ul>${items}</ul>`;
+}
+
+function showIssueDetail(issue) {
+  const items = issue.topFilms.slice(0, 6).map(item => `<li>${item.film}：${item.count} 条</li>`).join('');
+  detail.innerHTML = `<div class="tag">ISSUE NODE</div><h2>${issue.name}</h2><p>共 <b>${issue.count}</b> 条，占有效议题长评 <b>${issue.share}%</b>。</p><ul>${items}</ul>`;
+}
+
+function showLinkDetail(link) {
+  detail.innerHTML = `<div class="tag">EDGE DETAIL</div><h2>${link.film} → ${link.issue}</h2><p>该影片-议题组合出现 <b>${link.count}</b> 条长评。</p><p style="margin-top:10px">“${link.comment}”</p>`;
+}
+
+document.querySelectorAll('.threshold').forEach(button => {
+  button.addEventListener('click', () => {
+    document.querySelectorAll('.threshold').forEach(item => item.classList.remove('active'));
+    button.classList.add('active');
+    threshold = Number(button.dataset.threshold);
+    if (locked) {
+      if (locked.source) focusLink(locked);
+      else focusNode(locked);
+    } else {
+      setClasses(null, null);
+    }
+  });
+});
+
+DATA.films.forEach(film => {
+  const option = document.createElement('option');
+  option.value = film.id;
+  option.textContent = film.name;
+  filmSearch.appendChild(option);
+});
+filmSearch.addEventListener('change', () => {
+  const film = nodeById.get(filmSearch.value);
+  if (film) {
+    locked = film;
+    focusNode(film);
+  }
+});
+
+document.getElementById('resetView').addEventListener('click', resetFocus);
+svg.addEventListener('mouseleave', () => {
+  if (!locked) {
+    setClasses(null, null);
+    showGuide();
+  }
+});
+
+render();
+</script>
+</body>
+</html>

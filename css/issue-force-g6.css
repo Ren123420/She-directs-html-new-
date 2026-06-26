@@ -1,0 +1,198 @@
+/* 女导演议题力导向网络图 · G6 暗色科技风 */
+.issue-force-host {
+  height: auto !important;
+  min-height: 540px;
+  padding: 0;
+  background: transparent;
+}
+
+.ifg-board {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 148px;
+  gap: 0;
+  min-height: 540px;
+  background: linear-gradient(145deg, #070b14 0%, #0c1220 48%, #0a101c 100%);
+  border: 1px solid rgba(56, 189, 248, 0.18);
+  border-radius: 4px;
+  box-shadow:
+    0 0 0 1px rgba(34, 211, 238, 0.06) inset,
+    0 18px 40px rgba(0, 0, 0, 0.45),
+    0 0 48px rgba(34, 211, 238, 0.06);
+  overflow: hidden;
+}
+
+.ifg-graph-wrap {
+  position: relative;
+  min-height: 540px;
+}
+
+.ifg-graph-canvas {
+  width: 100%;
+  height: 540px;
+}
+
+.ifg-controls {
+  padding: 16px 12px;
+  border-left: 1px solid rgba(56, 189, 248, 0.12);
+  background: rgba(4, 8, 16, 0.72);
+}
+
+.ifg-controls-title {
+  margin: 0 0 8px;
+  font-family: 'Punk Typewriter', 'Courier New', monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  color: #38bdf8;
+  text-transform: uppercase;
+}
+
+.ifg-controls-title + .ifg-controls-title {
+  margin-top: 18px;
+}
+
+.ifg-thresholds {
+  display: grid;
+  gap: 6px;
+}
+
+.ifg-threshold-btn {
+  padding: 7px 10px;
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  background: rgba(15, 23, 42, 0.8);
+  color: #cbd5e1;
+  font-family: 'Punk Typewriter', 'Courier New', monospace;
+  font-size: 11px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.2s, border-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.ifg-threshold-btn:hover {
+  border-color: rgba(34, 211, 238, 0.55);
+  color: #e0f2fe;
+}
+
+.ifg-threshold-btn.is-active {
+  background: linear-gradient(90deg, rgba(29, 78, 216, 0.55), rgba(34, 211, 238, 0.25));
+  border-color: #22d3ee;
+  color: #f0f9ff;
+  box-shadow: 0 0 14px rgba(34, 211, 238, 0.25);
+}
+
+.ifg-focus-select {
+  width: 100%;
+  padding: 7px 8px;
+  border: 1px solid rgba(251, 146, 60, 0.35);
+  background: rgba(15, 23, 42, 0.9);
+  color: #ffedd5;
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: 11px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.ifg-focus-select option {
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+.ifg-detail {
+  position: absolute;
+  right: 160px;
+  bottom: 14px;
+  z-index: 5;
+  width: min(270px, calc(100% - 180px));
+  padding: 14px 14px 12px;
+  background: rgba(6, 10, 18, 0.94);
+  border: 1px solid rgba(34, 211, 238, 0.22);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5), 0 0 20px rgba(34, 211, 238, 0.08);
+  border-radius: 3px;
+  color: #e2e8f0;
+}
+
+.ifg-detail-kicker {
+  margin: 0 0 6px;
+  font-family: 'Punk Typewriter', 'Courier New', monospace;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  color: #22d3ee;
+}
+
+.ifg-detail h3 {
+  margin: 0 0 8px;
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: 16px;
+  color: #f8fafc;
+  font-weight: 600;
+}
+
+.ifg-detail-meta {
+  margin: 0 0 10px;
+  font-size: 11px;
+  line-height: 1.6;
+  color: #94a3b8;
+}
+
+.ifg-detail-meta strong {
+  color: #38bdf8;
+}
+
+.ifg-detail ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ifg-detail-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 5px 0;
+  border-top: 1px solid rgba(148, 163, 184, 0.12);
+  font-size: 11px;
+}
+
+.ifg-detail-list em {
+  font-style: normal;
+  font-family: 'Punk Typewriter', 'Courier New', monospace;
+  color: #fb923c;
+  white-space: nowrap;
+}
+
+.ifg-error {
+  padding: 24px;
+  color: #f87171;
+  font-size: 13px;
+}
+
+@media (max-width: 760px) {
+  .ifg-board {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .ifg-controls {
+    border-left: none;
+    border-top: 1px solid rgba(56, 189, 248, 0.12);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    align-items: start;
+  }
+
+  .ifg-thresholds {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ifg-detail {
+    right: 10px;
+    bottom: auto;
+    top: 10px;
+    width: min(260px, calc(100% - 20px));
+  }
+
+  .ifg-graph-canvas {
+    height: 420px;
+  }
+}

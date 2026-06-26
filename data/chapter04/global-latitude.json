@@ -1,0 +1,37 @@
+{
+  "source": "数据来源：全球女性导演占比 · 欧洲/德国/好莱坞/日本公开统计",
+  "sourceFile": "6.11【初版】文案+图表要求.docx",
+  "title": "谁让女性拿起导筒？",
+  "regions": [
+    {
+      "name": "欧洲",
+      "lat": 55,
+      "pct": 27.0,
+      "missing": false
+    },
+    {
+      "name": "德国",
+      "lat": 48,
+      "pct": 18.7,
+      "missing": false
+    },
+    {
+      "name": "华语电影",
+      "lat": 35,
+      "pct": null,
+      "missing": true
+    },
+    {
+      "name": "好莱坞",
+      "lat": 28,
+      "pct": 8.1,
+      "missing": false
+    },
+    {
+      "name": "日本",
+      "lat": 12,
+      "pct": 4.7,
+      "missing": false
+    }
+  ]
+}

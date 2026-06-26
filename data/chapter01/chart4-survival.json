@@ -1,0 +1,83 @@
+{
+  "source": "数据来源：Kaplan-Meier 存活曲线",
+  "sourceFile": "图表数据整理\\图表数据整理\\第一部分\\【一、图表四】女导演存活曲线数据.xlsx",
+  "totalDirectors": 109,
+  "survival": [
+    {
+      "filmOrder": 1,
+      "label": "第1部",
+      "count": 109,
+      "pct": 100.0
+    },
+    {
+      "filmOrder": 2,
+      "label": "第2部",
+      "count": 51,
+      "pct": 46.8
+    },
+    {
+      "filmOrder": 3,
+      "label": "第3部",
+      "count": 28,
+      "pct": 54.9
+    },
+    {
+      "filmOrder": 4,
+      "label": "第4部",
+      "count": 21,
+      "pct": 75.0
+    },
+    {
+      "filmOrder": 5,
+      "label": "第5部",
+      "count": 11,
+      "pct": 52.4
+    },
+    {
+      "filmOrder": 6,
+      "label": "第6部",
+      "count": 7,
+      "pct": 63.6
+    },
+    {
+      "filmOrder": 7,
+      "label": "第7部",
+      "count": 3,
+      "pct": 42.9
+    },
+    {
+      "filmOrder": 8,
+      "label": "第8部",
+      "count": 3,
+      "pct": 100.0
+    },
+    {
+      "filmOrder": 9,
+      "label": "第9部",
+      "count": 2,
+      "pct": 66.7
+    },
+    {
+      "filmOrder": 10,
+      "label": "第10部",
+      "count": 2,
+      "pct": 100.0
+    },
+    {
+      "filmOrder": 11,
+      "label": "第11部",
+      "count": 1,
+      "pct": 50.0
+    },
+    {
+      "filmOrder": 12,
+      "label": "第12部",
+      "count": 1,
+      "pct": 100.0
+    }
+  ],
+  "annotations": {
+    "film2": "每 2 位女导演中，只有 1 位拍出第二部",
+    "film5": "每 10 位中，不到 1 位拍出第五部"
+  }
+}

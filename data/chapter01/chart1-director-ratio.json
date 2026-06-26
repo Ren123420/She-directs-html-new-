@@ -1,0 +1,276 @@
+{
+  "source": "数据来源：历年女导演占比",
+  "sourceFile": "图表数据整理\\图表数据整理\\第一部分\\【一、图表一】年度女导演占比.xlsx",
+  "series": [
+    {
+      "year": 2000,
+      "filmsTotal": 65,
+      "femaleDirectedFilms": 3,
+      "femaleDirectedPct": 5.0,
+      "femaleDirectors": 4,
+      "maleDirectors": 76,
+      "activeTotal": 80,
+      "femaleDirectorPct": 5.0
+    },
+    {
+      "year": 2001,
+      "filmsTotal": 68,
+      "femaleDirectedFilms": 3,
+      "femaleDirectedPct": 4.8,
+      "femaleDirectors": 4,
+      "maleDirectors": 81,
+      "activeTotal": 85,
+      "femaleDirectorPct": 4.7
+    },
+    {
+      "year": 2002,
+      "filmsTotal": 75,
+      "femaleDirectedFilms": 4,
+      "femaleDirectedPct": 5.0,
+      "femaleDirectors": 5,
+      "maleDirectors": 90,
+      "activeTotal": 95,
+      "femaleDirectorPct": 5.3
+    },
+    {
+      "year": 2003,
+      "filmsTotal": 80,
+      "femaleDirectedFilms": 4,
+      "femaleDirectedPct": 4.8,
+      "femaleDirectors": 5,
+      "maleDirectors": 95,
+      "activeTotal": 100,
+      "femaleDirectorPct": 5.0
+    },
+    {
+      "year": 2004,
+      "filmsTotal": 100,
+      "femaleDirectedFilms": 6,
+      "femaleDirectedPct": 5.5,
+      "femaleDirectors": 7,
+      "maleDirectors": 113,
+      "activeTotal": 120,
+      "femaleDirectorPct": 5.8
+    },
+    {
+      "year": 2005,
+      "filmsTotal": 115,
+      "femaleDirectedFilms": 7,
+      "femaleDirectedPct": 6.0,
+      "femaleDirectors": 8,
+      "maleDirectors": 132,
+      "activeTotal": 140,
+      "femaleDirectorPct": 5.7
+    },
+    {
+      "year": 2006,
+      "filmsTotal": 125,
+      "femaleDirectedFilms": 7,
+      "femaleDirectedPct": 5.5,
+      "femaleDirectors": 8,
+      "maleDirectors": 142,
+      "activeTotal": 150,
+      "femaleDirectorPct": 5.3
+    },
+    {
+      "year": 2007,
+      "filmsTotal": 135,
+      "femaleDirectedFilms": 8,
+      "femaleDirectedPct": 6.0,
+      "femaleDirectors": 10,
+      "maleDirectors": 150,
+      "activeTotal": 160,
+      "femaleDirectorPct": 6.2
+    },
+    {
+      "year": 2008,
+      "filmsTotal": 155,
+      "femaleDirectedFilms": 10,
+      "femaleDirectedPct": 6.5,
+      "femaleDirectors": 12,
+      "maleDirectors": 168,
+      "activeTotal": 180,
+      "femaleDirectorPct": 6.7
+    },
+    {
+      "year": 2009,
+      "filmsTotal": 170,
+      "femaleDirectedFilms": 10,
+      "femaleDirectedPct": 6.0,
+      "femaleDirectors": 12,
+      "maleDirectors": 183,
+      "activeTotal": 195,
+      "femaleDirectorPct": 6.2
+    },
+    {
+      "year": 2010,
+      "filmsTotal": 195,
+      "femaleDirectedFilms": 13,
+      "femaleDirectedPct": 6.5,
+      "femaleDirectors": 14,
+      "maleDirectors": 206,
+      "activeTotal": 220,
+      "femaleDirectorPct": 6.4
+    },
+    {
+      "year": 2011,
+      "filmsTotal": 215,
+      "femaleDirectedFilms": 15,
+      "femaleDirectedPct": 7.0,
+      "femaleDirectors": 17,
+      "maleDirectors": 223,
+      "activeTotal": 240,
+      "femaleDirectorPct": 7.1
+    },
+    {
+      "year": 2012,
+      "filmsTotal": 230,
+      "femaleDirectedFilms": 16,
+      "femaleDirectedPct": 6.8,
+      "femaleDirectors": 17,
+      "maleDirectors": 238,
+      "activeTotal": 255,
+      "femaleDirectorPct": 6.7
+    },
+    {
+      "year": 2013,
+      "filmsTotal": 240,
+      "femaleDirectedFilms": 16,
+      "femaleDirectedPct": 6.5,
+      "femaleDirectors": 17,
+      "maleDirectors": 248,
+      "activeTotal": 265,
+      "femaleDirectorPct": 6.4
+    },
+    {
+      "year": 2014,
+      "filmsTotal": 290,
+      "femaleDirectedFilms": 20,
+      "femaleDirectedPct": 6.8,
+      "femaleDirectors": 21,
+      "maleDirectors": 289,
+      "activeTotal": 310,
+      "femaleDirectorPct": 6.8
+    },
+    {
+      "year": 2015,
+      "filmsTotal": 335,
+      "femaleDirectedFilms": 24,
+      "femaleDirectedPct": 7.2,
+      "femaleDirectors": 25,
+      "maleDirectors": 325,
+      "activeTotal": 350,
+      "femaleDirectorPct": 7.1
+    },
+    {
+      "year": 2016,
+      "filmsTotal": 355,
+      "femaleDirectedFilms": 25,
+      "femaleDirectedPct": 7.0,
+      "femaleDirectors": 26,
+      "maleDirectors": 344,
+      "activeTotal": 370,
+      "femaleDirectorPct": 7.0
+    },
+    {
+      "year": 2017,
+      "filmsTotal": 380,
+      "femaleDirectedFilms": 37,
+      "femaleDirectedPct": 9.8,
+      "femaleDirectors": 39,
+      "maleDirectors": 361,
+      "activeTotal": 400,
+      "femaleDirectorPct": 9.8
+    },
+    {
+      "year": 2018,
+      "filmsTotal": 425,
+      "femaleDirectedFilms": 40,
+      "femaleDirectedPct": 9.5,
+      "femaleDirectors": 43,
+      "maleDirectors": 407,
+      "activeTotal": 450,
+      "femaleDirectorPct": 9.6
+    },
+    {
+      "year": 2019,
+      "filmsTotal": 465,
+      "femaleDirectedFilms": 46,
+      "femaleDirectedPct": 9.8,
+      "femaleDirectors": 48,
+      "maleDirectors": 442,
+      "activeTotal": 490,
+      "femaleDirectorPct": 9.8
+    },
+    {
+      "year": 2020,
+      "filmsTotal": 295,
+      "femaleDirectedFilms": 30,
+      "femaleDirectedPct": 10.0,
+      "femaleDirectors": 32,
+      "maleDirectors": 288,
+      "activeTotal": 320,
+      "femaleDirectorPct": 10.0
+    },
+    {
+      "year": 2021,
+      "filmsTotal": 520,
+      "femaleDirectedFilms": 51,
+      "femaleDirectedPct": 9.8,
+      "femaleDirectors": 54,
+      "maleDirectors": 496,
+      "activeTotal": 550,
+      "femaleDirectorPct": 9.8
+    },
+    {
+      "year": 2022,
+      "filmsTotal": 270,
+      "femaleDirectedFilms": 27,
+      "femaleDirectedPct": 10.0,
+      "femaleDirectors": 29,
+      "maleDirectors": 261,
+      "activeTotal": 290,
+      "femaleDirectorPct": 10.0
+    },
+    {
+      "year": 2023,
+      "filmsTotal": 440,
+      "femaleDirectedFilms": 37,
+      "femaleDirectedPct": 8.5,
+      "femaleDirectors": 40,
+      "maleDirectors": 430,
+      "activeTotal": 470,
+      "femaleDirectorPct": 8.5
+    },
+    {
+      "year": 2024,
+      "filmsTotal": 425,
+      "femaleDirectedFilms": 42,
+      "femaleDirectedPct": 9.8,
+      "femaleDirectors": 44,
+      "maleDirectors": 406,
+      "activeTotal": 450,
+      "femaleDirectorPct": 9.8
+    },
+    {
+      "year": 2025,
+      "filmsTotal": 350,
+      "femaleDirectedFilms": 35,
+      "femaleDirectedPct": 10.0,
+      "femaleDirectors": 38,
+      "maleDirectors": 342,
+      "activeTotal": 380,
+      "femaleDirectorPct": 10.0
+    },
+    {
+      "year": 2026,
+      "filmsTotal": 80,
+      "femaleDirectedFilms": 8,
+      "femaleDirectedPct": 10.0,
+      "femaleDirectors": 9,
+      "maleDirectors": 81,
+      "activeTotal": 90,
+      "femaleDirectorPct": 10.0
+    }
+  ]
+}

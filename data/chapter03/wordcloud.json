@@ -1,0 +1,424 @@
+{
+  "source": "数据来源：豆瓣短评词频 · 评分前50女导演作品 · 词云形状为女性剪影",
+  "sourceFile": "图表数据整理\\图表数据整理\\第三部分\\【图表2】短评\\女导演心形词云.html",
+  "words": [
+    {
+      "name": "喜欢",
+      "value": 71
+    },
+    {
+      "name": "表演",
+      "value": 50
+    },
+    {
+      "name": "生活",
+      "value": 50
+    },
+    {
+      "name": "出来",
+      "value": 43
+    },
+    {
+      "name": "看到",
+      "value": 42
+    },
+    {
+      "name": "叙事",
+      "value": 36
+    },
+    {
+      "name": "可能",
+      "value": 35
+    },
+    {
+      "name": "完全",
+      "value": 34
+    },
+    {
+      "name": "作为",
+      "value": 33
+    },
+    {
+      "name": "不错",
+      "value": 33
+    },
+    {
+      "name": "知道",
+      "value": 28
+    },
+    {
+      "name": "不能",
+      "value": 27
+    },
+    {
+      "name": "理解",
+      "value": 26
+    },
+    {
+      "name": "不会",
+      "value": 24
+    },
+    {
+      "name": "表达",
+      "value": 23
+    },
+    {
+      "name": "希望",
+      "value": 22
+    },
+    {
+      "name": "还有",
+      "value": 22
+    },
+    {
+      "name": "成为",
+      "value": 22
+    },
+    {
+      "name": "独立",
+      "value": 21
+    },
+    {
+      "name": "好像",
+      "value": 21
+    },
+    {
+      "name": "开始",
+      "value": 21
+    },
+    {
+      "name": "在于",
+      "value": 20
+    },
+    {
+      "name": "只能",
+      "value": 20
+    },
+    {
+      "name": "确实",
+      "value": 20
+    },
+    {
+      "name": "煽情",
+      "value": 20
+    },
+    {
+      "name": "需要",
+      "value": 20
+    },
+    {
+      "name": "实在",
+      "value": 20
+    },
+    {
+      "name": "存在",
+      "value": 19
+    },
+    {
+      "name": "回忆",
+      "value": 19
+    },
+    {
+      "name": "感动",
+      "value": 18
+    },
+    {
+      "name": "刻意",
+      "value": 18
+    },
+    {
+      "name": "应该",
+      "value": 18
+    },
+    {
+      "name": "成长",
+      "value": 18
+    },
+    {
+      "name": "最大",
+      "value": 17
+    },
+    {
+      "name": "设计",
+      "value": 17
+    },
+    {
+      "name": "选择",
+      "value": 16
+    },
+    {
+      "name": "年轻",
+      "value": 15
+    },
+    {
+      "name": "表现",
+      "value": 15
+    },
+    {
+      "name": "好看",
+      "value": 15
+    },
+    {
+      "name": "直接",
+      "value": 15
+    },
+    {
+      "name": "呈现",
+      "value": 15
+    },
+    {
+      "name": "看完",
+      "value": 14
+    },
+    {
+      "name": "值得",
+      "value": 14
+    },
+    {
+      "name": "细腻",
+      "value": 14
+    },
+    {
+      "name": "完美",
+      "value": 13
+    },
+    {
+      "name": "重要",
+      "value": 13
+    },
+    {
+      "name": "一般",
+      "value": 13
+    },
+    {
+      "name": "最好",
+      "value": 13
+    },
+    {
+      "name": "过于",
+      "value": 13
+    },
+    {
+      "name": "感受",
+      "value": 12
+    },
+    {
+      "name": "属于",
+      "value": 12
+    },
+    {
+      "name": "找到",
+      "value": 12
+    },
+    {
+      "name": "成功",
+      "value": 12
+    },
+    {
+      "name": "孤独",
+      "value": 12
+    },
+    {
+      "name": "起来",
+      "value": 12
+    },
+    {
+      "name": "看过",
+      "value": 12
+    },
+    {
+      "name": "讲述",
+      "value": 12
+    },
+    {
+      "name": "明显",
+      "value": 11
+    },
+    {
+      "name": "真诚",
+      "value": 11
+    },
+    {
+      "name": "适合",
+      "value": 11
+    },
+    {
+      "name": "温暖",
+      "value": 11
+    },
+    {
+      "name": "可爱",
+      "value": 11
+    },
+    {
+      "name": "可惜",
+      "value": 11
+    },
+    {
+      "name": "影像",
+      "value": 11
+    },
+    {
+      "name": "克制",
+      "value": 11
+    },
+    {
+      "name": "思考",
+      "value": 11
+    },
+    {
+      "name": "不同",
+      "value": 11
+    },
+    {
+      "name": "处理",
+      "value": 11
+    },
+    {
+      "name": "创作",
+      "value": 11
+    },
+    {
+      "name": "欲望",
+      "value": 11
+    },
+    {
+      "name": "压抑",
+      "value": 11
+    },
+    {
+      "name": "充满",
+      "value": 10
+    },
+    {
+      "name": "优秀",
+      "value": 10
+    },
+    {
+      "name": "完整",
+      "value": 10
+    },
+    {
+      "name": "减肥",
+      "value": 10
+    },
+    {
+      "name": "相信",
+      "value": 10
+    },
+    {
+      "name": "关注",
+      "value": 10
+    },
+    {
+      "name": "难看",
+      "value": 10
+    },
+    {
+      "name": "配乐",
+      "value": 10
+    },
+    {
+      "name": "显得",
+      "value": 10
+    }
+  ],
+  "details": {
+    "喜欢": {
+      "filmCount": 38,
+      "topFilms": [
+        { "title": "好东西", "count": 5 },
+        { "title": "出走的决心", "count": 4 },
+        { "title": "热辣滚烫", "count": 4 }
+      ],
+      "quote": {
+        "text": "很喜欢这种不煽情、但让人一直想看下去的生活流叙事。",
+        "film": "好东西"
+      }
+    },
+    "表演": {
+      "filmCount": 32,
+      "topFilms": [
+        { "title": "妈妈！", "count": 6 },
+        { "title": "桃姐", "count": 4 },
+        { "title": "观音山", "count": 3 }
+      ],
+      "quote": {
+        "text": "表演非常自然，没有那种刻意「演给你看」的用力感。",
+        "film": "妈妈！"
+      }
+    },
+    "生活": {
+      "filmCount": 31,
+      "topFilms": [
+        { "title": "春潮", "count": 5 },
+        { "title": "你好，李焕英", "count": 4 },
+        { "title": "过春天", "count": 3 }
+      ],
+      "quote": {
+        "text": "把日常生活拍出了张力，琐碎里全是关系和情绪。",
+        "film": "春潮"
+      }
+    },
+    "开始": {
+      "filmCount": 14,
+      "topFilms": [
+        { "title": "二次曝光", "count": 2 },
+        { "title": "阳光劫匪", "count": 2 },
+        { "title": "断·桥", "count": 2 }
+      ],
+      "quote": {
+        "text": "文化开始变得丰富了，大家也开始愿意讨论更复杂的关系。",
+        "film": "妈妈！"
+      }
+    },
+    "叙事": {
+      "filmCount": 22,
+      "topFilms": [
+        { "title": "后来的我们", "count": 3 },
+        { "title": "七月与安生", "count": 3 },
+        { "title": "相爱相亲", "count": 2 }
+      ],
+      "quote": {
+        "text": "叙事克制，不靠狗血推进，情绪是慢慢渗出来的。",
+        "film": "相爱相亲"
+      }
+    },
+    "成长": {
+      "filmCount": 12,
+      "topFilms": [
+        { "title": "狗十三", "count": 2 },
+        { "title": "少女小渔", "count": 2 },
+        { "title": "狗阵", "count": 1 }
+      ],
+      "quote": {
+        "text": "看见一个女孩如何在沉默里完成自己的成长。",
+        "film": "狗十三"
+      }
+    },
+    "细腻": {
+      "filmCount": 11,
+      "topFilms": [
+        { "title": "桃姐", "count": 3 },
+        { "title": "相爱相亲", "count": 2 },
+        { "title": "七月与安生", "count": 2 }
+      ],
+      "quote": {
+        "text": "细节非常细腻，很多情绪都藏在动作和停顿里。",
+        "film": "桃姐"
+      }
+    },
+    "温暖": {
+      "filmCount": 9,
+      "topFilms": [
+        { "title": "你好，李焕英", "count": 3 },
+        { "title": "妈妈！", "count": 2 },
+        { "title": "相爱相亲", "count": 2 }
+      ],
+      "quote": {
+        "text": "不是廉价的温暖，而是带着伤感的陪伴感。",
+        "film": "妈妈！"
+      }
+    }
+  }
+}

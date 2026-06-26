@@ -1,0 +1,410 @@
+/* ================================================================
+   Hero posters + prologue film wall
+   ================================================================ */
+
+.project-card .container-img,
+.center-card .container-img {
+  box-shadow: 4px 10px 28px rgba(44, 36, 22, 0.14);
+  border: 3px solid rgba(244, 239, 228, 0.92);
+  background: #ece5d8;
+}
+
+.hero-poster {
+  width: 100%;
+  height: auto;
+  display: block;
+  min-height: 120px;
+  background: linear-gradient(145deg, #ece5d8, #e0a0c0);
+  object-fit: cover;
+  aspect-ratio: 5 / 7;
+}
+
+/* Floating background posters in hero */
+.hero-floats {
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero-float {
+  position: absolute;
+  width: clamp(56px, 7vw, 88px);
+  border: 2px solid rgba(244, 239, 228, 0.85);
+  box-shadow: 2px 6px 16px rgba(44, 36, 22, 0.12);
+  opacity: 0.35;
+  transform: rotate(var(--rot, 0deg));
+  animation: heroFloatDrift 18s ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+.hero-float img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 5/7;
+  object-fit: cover;
+  filter: grayscale(0.4) sepia(0.15);
+}
+
+@keyframes heroFloatDrift {
+  0%, 100% { transform: rotate(var(--rot, 0deg)) translateY(0); }
+  50% { transform: rotate(calc(var(--rot, 0deg) + 3deg)) translateY(-12px); }
+}
+
+/* Softer initial blur - posters readable */
+.gallery-container {
+  filter: blur(1.2px);
+}
+
+.center-card {
+  filter: blur(2px);
+}
+
+/* ---- Prologue film wall ---- */
+.film-wall {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px dashed var(--paper-archive);
+}
+
+.film-wall-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.film-wall-label {
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--rose-deep);
+  margin: 0;
+}
+
+.film-wall-hint {
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: var(--ink-note);
+  margin: 0;
+}
+
+.film-wall-scroll {
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.film-wall-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  animation: filmWallScroll 45s linear infinite;
+  padding: 8px 0 16px;
+}
+
+.film-wall-scroll:hover .film-wall-track {
+  animation-play-state: paused;
+}
+
+@keyframes filmWallScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.film-wall-item {
+  flex: 0 0 auto;
+  width: clamp(100px, 12vw, 130px);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.film-wall-item:hover {
+  transform: translateY(-8px) rotate(0deg) scale(1.04);
+  z-index: 2;
+}
+
+.film-wall-item .fw-poster {
+  position: relative;
+  border: 1px solid var(--paper-archive);
+  box-shadow: 3px 6px 16px rgba(44, 36, 22, 0.1);
+  overflow: hidden;
+  background: linear-gradient(145deg, #ece5d8, #e0a0c0);
+  transform: rotate(var(--fw-rot, -1deg));
+  transition: transform 0.35s ease;
+}
+
+.film-wall-item:hover .fw-poster {
+  transform: rotate(0deg);
+  box-shadow: 4px 10px 24px rgba(192, 96, 120, 0.2);
+}
+
+.film-wall-item .fw-poster::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 36px;
+  height: 12px;
+  background: rgba(236, 229, 216, 0.7);
+  z-index: 2;
+}
+
+.film-wall-item img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 5/7;
+  object-fit: cover;
+}
+
+.film-wall-item .fw-caption {
+  margin-top: 8px;
+  font-family: 'Huiwen', serif;
+  font-size: 11px;
+  line-height: 1.4;
+  color: var(--ink-charcoal);
+  text-align: center;
+}
+
+.film-wall-item .fw-caption small {
+  display: block;
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 8px;
+  color: var(--ink-note);
+  letter-spacing: 0.06em;
+  margin-top: 2px;
+}
+
+/* Polaroid strip in chapter gate */
+.director-spotlight {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: clamp(14px, 1.5vw, 22px);
+  max-width: min(900px, calc(100vw - 10vw));
+  margin: 32px auto 0;
+}
+
+.director-spotlight .spot-item {
+  text-align: center;
+}
+
+.director-spotlight .spot-item .spot-poster {
+  position: relative;
+  border: 1px solid var(--paper-archive);
+  box-shadow: 3px 6px 18px rgba(44, 36, 22, 0.1);
+  overflow: hidden;
+  background: linear-gradient(145deg, #ece5d8, #e0a0c0);
+  transform: rotate(var(--spot-rot, -1deg));
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.director-spotlight .spot-item:hover .spot-poster {
+  transform: rotate(0deg) translateY(-4px);
+  box-shadow: 4px 12px 28px rgba(192, 96, 120, 0.2);
+}
+
+.director-spotlight .spot-item .spot-poster::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 32px;
+  height: 11px;
+  background: rgba(236, 229, 216, 0.75);
+  z-index: 2;
+}
+
+.director-spotlight .spot-item img {
+  width: 100%;
+  aspect-ratio: 5/7;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+}
+
+.director-spotlight .spot-item span {
+  display: block;
+  margin-top: 8px;
+  font-family: 'Huiwen', serif;
+  font-size: 11px;
+  color: var(--ink-charcoal);
+}
+
+.director-spotlight .spot-item small {
+  display: block;
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 8px;
+  color: var(--ink-note);
+  letter-spacing: 0.06em;
+  margin-top: 2px;
+}
+
+/* ---- Featured 6-grid (prologue) ---- */
+.featured-poster-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(clamp(120px, 11vw, 168px), 1fr));
+  gap: clamp(16px, 2vw, 28px);
+  width: 100%;
+  max-width: none;
+  margin: 0 auto 40px;
+}
+
+.featured-poster-grid .feat-item {
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.35s ease;
+}
+
+.featured-poster-grid .feat-item:hover {
+  transform: translateY(-6px) scale(1.03);
+}
+
+.featured-poster-grid .feat-poster {
+  position: relative;
+  border: 1px solid var(--paper-archive);
+  box-shadow: 3px 8px 20px rgba(44, 36, 22, 0.1);
+  overflow: hidden;
+  background: linear-gradient(145deg, #ece5d8, #e0a0c0);
+  transform: rotate(var(--feat-rot, -1deg));
+}
+
+.featured-poster-grid .feat-poster::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 12px;
+  background: rgba(236, 229, 216, 0.72);
+  z-index: 2;
+}
+
+.featured-poster-grid img {
+  width: 100%;
+  aspect-ratio: 5/7;
+  object-fit: cover;
+  display: block;
+}
+
+.featured-poster-grid .feat-caption {
+  margin-top: 8px;
+  font-family: 'Huiwen', serif;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.featured-poster-grid .feat-caption small {
+  display: block;
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 8px;
+  color: var(--ink-note);
+  margin-top: 2px;
+}
+
+.featured-grid-label {
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--rose-deep);
+  margin-bottom: 20px;
+}
+
+/* ---- Chapter poster strip ---- */
+.chapter-poster-strip,
+.step-poster-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(14px, 1.5vw, 22px);
+  margin: 40px auto 0;
+  max-width: none;
+  width: 100%;
+  padding: 0 var(--page-pad, 40px);
+  box-sizing: border-box;
+}
+
+.chapter-poster-strip {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px dashed var(--paper-archive);
+}
+
+.strip-label {
+  width: 100%;
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--rose-deep);
+  margin-bottom: 4px;
+}
+
+.strip-item,
+.mosaic-item {
+  flex: 0 0 auto;
+  width: clamp(80px, 8vw, 120px);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease;
+}
+
+.strip-item:hover,
+.mosaic-item:hover {
+  transform: translateY(-5px) rotate(0deg) !important;
+}
+
+.strip-item .strip-poster,
+.mosaic-item .mosaic-poster {
+  border: 1px solid var(--paper-archive);
+  box-shadow: 2px 5px 14px rgba(44, 36, 22, 0.08);
+  overflow: hidden;
+  background: #ece5d8;
+  transform: rotate(var(--strip-rot, -1deg));
+}
+
+.strip-item img,
+.mosaic-item img {
+  width: 100%;
+  aspect-ratio: 5/7;
+  object-fit: cover;
+  display: block;
+}
+
+/* ---- Case card（无海报，仅文案） ---- */
+.case-card .case-poster {
+  display: none;
+}
+
+.case-card .case-poster img {
+  display: none;
+}
+
+/* ---- Mini poster under scroll steps（已禁用） ---- */
+.scroll-step .step-mini-posters,
+.featured-poster-grid,
+.chapter-poster-strip,
+.step-poster-row,
+.film-wall {
+  display: none !important;
+}
+
+@media (max-width: 960px) {
+  .director-spotlight { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .hero-floats { display: none; }
+  .director-spotlight { grid-template-columns: repeat(2, 1fr); max-width: 320px; }
+  .featured-poster-grid { grid-template-columns: repeat(2, 1fr); }
+}

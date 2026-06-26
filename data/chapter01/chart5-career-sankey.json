@@ -1,0 +1,218 @@
+{
+  "source": "数据来源：50位女导演入行路径",
+  "sourceFile": "图表数据整理/图表数据整理/第一部分/【一、图表五】50位女导演入行路径数据.xlsx",
+  "nodes": [
+    {
+      "name": "个人/海外"
+    },
+    {
+      "name": "其他行业"
+    },
+    {
+      "name": "创投/众筹"
+    },
+    {
+      "name": "商业投资"
+    },
+    {
+      "name": "学生/实习"
+    },
+    {
+      "name": "家庭/其他"
+    },
+    {
+      "name": "政府/机构资助"
+    },
+    {
+      "name": "演员/表演"
+    },
+    {
+      "name": "独立/自筹"
+    },
+    {
+      "name": "直接出道"
+    },
+    {
+      "name": "科班"
+    },
+    {
+      "name": "编剧/文字"
+    },
+    {
+      "name": "行业内部过渡"
+    },
+    {
+      "name": "记者/媒体"
+    },
+    {
+      "name": "非科班"
+    }
+  ],
+  "links": [
+    {
+      "source": 10,
+      "target": 11,
+      "value": 15
+    },
+    {
+      "source": 11,
+      "target": 3,
+      "value": 11
+    },
+    {
+      "source": 14,
+      "target": 7,
+      "value": 2
+    },
+    {
+      "source": 7,
+      "target": 3,
+      "value": 5
+    },
+    {
+      "source": 10,
+      "target": 9,
+      "value": 2
+    },
+    {
+      "source": 9,
+      "target": 6,
+      "value": 2
+    },
+    {
+      "source": 10,
+      "target": 12,
+      "value": 5
+    },
+    {
+      "source": 12,
+      "target": 3,
+      "value": 4
+    },
+    {
+      "source": 10,
+      "target": 7,
+      "value": 9
+    },
+    {
+      "source": 7,
+      "target": 6,
+      "value": 2
+    },
+    {
+      "source": 11,
+      "target": 6,
+      "value": 3
+    },
+    {
+      "source": 12,
+      "target": 8,
+      "value": 2
+    },
+    {
+      "source": 7,
+      "target": 8,
+      "value": 4
+    },
+    {
+      "source": 10,
+      "target": 1,
+      "value": 5
+    },
+    {
+      "source": 1,
+      "target": 8,
+      "value": 4
+    },
+    {
+      "source": 14,
+      "target": 13,
+      "value": 3
+    },
+    {
+      "source": 13,
+      "target": 6,
+      "value": 2
+    },
+    {
+      "source": 13,
+      "target": 8,
+      "value": 1
+    },
+    {
+      "source": 11,
+      "target": 8,
+      "value": 2
+    },
+    {
+      "source": 14,
+      "target": 11,
+      "value": 2
+    },
+    {
+      "source": 14,
+      "target": 1,
+      "value": 2
+    },
+    {
+      "source": 1,
+      "target": 0,
+      "value": 1
+    },
+    {
+      "source": 11,
+      "target": 2,
+      "value": 1
+    },
+    {
+      "source": 10,
+      "target": 5,
+      "value": 1
+    },
+    {
+      "source": 5,
+      "target": 6,
+      "value": 1
+    },
+    {
+      "source": 14,
+      "target": 5,
+      "value": 1
+    },
+    {
+      "source": 5,
+      "target": 8,
+      "value": 1
+    },
+    {
+      "source": 14,
+      "target": 12,
+      "value": 1
+    },
+    {
+      "source": 1,
+      "target": 3,
+      "value": 1
+    },
+    {
+      "source": 1,
+      "target": 6,
+      "value": 1
+    },
+    {
+      "source": 10,
+      "target": 4,
+      "value": 2
+    },
+    {
+      "source": 4,
+      "target": 3,
+      "value": 1
+    },
+    {
+      "source": 4,
+      "target": 8,
+      "value": 1
+    }
+  ]
+}

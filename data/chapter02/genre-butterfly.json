@@ -1,0 +1,269 @@
+{
+  "source": "数据来源：豆瓣/猫眼类型标签 · 多标签拆分 · 女 217 部 / 男 217 部",
+  "sourceFile": "图表数据整理\\图表数据整理\\第二部分\\【二、图表1】华语女导演作品_补充电影类型(1).xlsx",
+  "femaleTotalFilms": 217,
+  "maleTotalFilms": 217,
+  "herfindahl": {
+    "female": 0.2165,
+    "male": 0.1184,
+    "note": "赫芬达尔指数 · 取值 0–1 · 越高表示类型越集中"
+  },
+  "rows": [
+    {
+      "genre": "剧情",
+      "femaleCount": 161,
+      "maleCount": 146,
+      "femalePct": 74.2,
+      "malePct": 67.3,
+      "genderRatio": 1.1,
+      "femaleRep": {
+        "director": "许鞍华",
+        "debut": "男人四十"
+      },
+      "maleRep": {
+        "director": "张艺谋",
+        "debut": "幸福时光"
+      }
+    },
+    {
+      "genre": "爱情",
+      "femaleCount": 70,
+      "maleCount": 34,
+      "femalePct": 32.3,
+      "malePct": 15.7,
+      "genderRatio": 2.06,
+      "femaleRep": {
+        "director": "徐静蕾",
+        "debut": "一个陌生女人的来信"
+      },
+      "maleRep": {
+        "director": "娄烨",
+        "debut": "苏州河"
+      }
+    },
+    {
+      "genre": "喜剧",
+      "femaleCount": 35,
+      "maleCount": 41,
+      "femalePct": 16.1,
+      "malePct": 18.9,
+      "genderRatio": 0.85,
+      "femaleRep": {
+        "director": "黄真真",
+        "debut": "六楼后座"
+      },
+      "maleRep": {
+        "director": "周星驰",
+        "debut": "少林足球"
+      }
+    },
+    {
+      "genre": "动作",
+      "femaleCount": 3,
+      "maleCount": 60,
+      "femalePct": 1.4,
+      "malePct": 27.6,
+      "genderRatio": 0.05,
+      "femaleRep": {
+        "director": "罗卓瑶",
+        "debut": "诱僧"
+      },
+      "maleRep": {
+        "director": "叶伟信",
+        "debut": "杀破狼"
+      }
+    },
+    {
+      "genre": "犯罪",
+      "femaleCount": 8,
+      "maleCount": 48,
+      "femalePct": 3.7,
+      "malePct": 22.1,
+      "genderRatio": 0.17,
+      "femaleRep": {
+        "director": "李玉",
+        "debut": "断·桥"
+      },
+      "maleRep": {
+        "director": "杜琪峰",
+        "debut": "PTU"
+      }
+    },
+    {
+      "genre": "家庭",
+      "femaleCount": 27,
+      "maleCount": 9,
+      "femalePct": 12.4,
+      "malePct": 4.1,
+      "genderRatio": 3.02,
+      "femaleRep": {
+        "director": "张艾嘉",
+        "debut": "念念"
+      },
+      "maleRep": {
+        "director": "王小帅",
+        "debut": "左右"
+      }
+    },
+    {
+      "genre": "历史",
+      "femaleCount": 5,
+      "maleCount": 31,
+      "femalePct": 2.3,
+      "malePct": 14.3,
+      "genderRatio": 0.16,
+      "femaleRep": {
+        "director": "胡玫",
+        "debut": "孔子"
+      },
+      "maleRep": {
+        "director": "张艺谋",
+        "debut": "英雄"
+      }
+    },
+    {
+      "genre": "悬疑",
+      "femaleCount": 7,
+      "maleCount": 28,
+      "femalePct": 3.2,
+      "malePct": 12.9,
+      "genderRatio": 0.25,
+      "femaleRep": {
+        "director": "李玉",
+        "debut": "二次曝光"
+      },
+      "maleRep": {
+        "director": "陈思诚",
+        "debut": "唐人街探案"
+      }
+    },
+    {
+      "genre": "奇幻",
+      "femaleCount": 15,
+      "maleCount": 16,
+      "femalePct": 6.9,
+      "malePct": 7.4,
+      "genderRatio": 0.93,
+      "femaleRep": {
+        "director": "苏伦",
+        "debut": "超时空同居"
+      },
+      "maleRep": {
+        "director": "陈凯歌",
+        "debut": "无极"
+      }
+    },
+    {
+      "genre": "纪录片",
+      "femaleCount": 20,
+      "maleCount": 0,
+      "femalePct": 9.2,
+      "malePct": 0.0,
+      "genderRatio": null,
+      "femaleRep": {
+        "director": "魏时煜",
+        "debut": "金门银光梦"
+      },
+      "maleRep": {
+        "director": "",
+        "debut": ""
+      }
+    },
+    {
+      "genre": "战争",
+      "femaleCount": 1,
+      "maleCount": 17,
+      "femalePct": 0.5,
+      "malePct": 7.8,
+      "genderRatio": 0.06,
+      "femaleRep": {
+        "director": "许鞍华",
+        "debut": "明月几时有"
+      },
+      "maleRep": {
+        "director": "管虎",
+        "debut": "斗牛"
+      }
+    },
+    {
+      "genre": "古装",
+      "femaleCount": 6,
+      "maleCount": 10,
+      "femalePct": 2.8,
+      "malePct": 4.6,
+      "genderRatio": 0.61,
+      "femaleRep": {
+        "director": "胡玫",
+        "debut": "孔子"
+      },
+      "maleRep": {
+        "director": "张艺谋",
+        "debut": "满城尽带黄金甲"
+      }
+    },
+    {
+      "genre": "惊悚",
+      "femaleCount": 2,
+      "maleCount": 14,
+      "femalePct": 0.9,
+      "malePct": 6.5,
+      "genderRatio": 0.14,
+      "femaleRep": {
+        "director": "李少红",
+        "debut": "门"
+      },
+      "maleRep": {
+        "director": "麦兆辉",
+        "debut": "无间道"
+      }
+    },
+    {
+      "genre": "同性",
+      "femaleCount": 10,
+      "maleCount": 2,
+      "femalePct": 4.6,
+      "malePct": 0.9,
+      "genderRatio": 5.11,
+      "femaleRep": {
+        "director": "周美玲",
+        "debut": "艳光四射歌舞团"
+      },
+      "maleRep": {
+        "director": "娄烨",
+        "debut": "春风沉醉的夜晚"
+      }
+    },
+    {
+      "genre": "冒险",
+      "femaleCount": 4,
+      "maleCount": 8,
+      "femalePct": 1.8,
+      "malePct": 3.7,
+      "genderRatio": 0.49,
+      "femaleRep": {
+        "director": "薛晓路",
+        "debut": "海洋深处"
+      },
+      "maleRep": {
+        "director": "陆川",
+        "debut": "可可西里"
+      }
+    },
+    {
+      "genre": "传记",
+      "femaleCount": 3,
+      "maleCount": 9,
+      "femalePct": 1.4,
+      "malePct": 4.1,
+      "genderRatio": 0.34,
+      "femaleRep": {
+        "director": "胡玫",
+        "debut": "孔子"
+      },
+      "maleRep": {
+        "director": "叶伟信",
+        "debut": "叶问"
+      }
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>女导演作品情感词云</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts-wordcloud@2.1.0/dist/echarts-wordcloud.min.js"></script>
+    <style>
+        body { font-family: 'Microsoft YaHei', sans-serif; margin: 0; background: linear-gradient(145deg, #fff5f7 0%, #fce4ec 100%); min-height: 100vh; display: flex; justify-content: center; align-items: center; }
+        .container { max-width: 1000px; width: 90%; background: white; border-radius: 32px; box-shadow: 0 20px 35px rgba(0,0,0,0.1); padding: 30px 20px 20px 20px; margin: 40px auto; }
+        h1 { text-align: center; color: #c2185b; font-size: 2rem; margin: 0 0 5px 0; }
+        .sub { text-align: center; color: #e91e63; margin-bottom: 30px; font-size: 0.95rem; }
+        .chart-container { height: 600px; width: 100%; }
+        .footer { text-align: center; margin-top: 25px; color: #ad1457; font-size: 0.8rem; border-top: 1px solid #f8bbd0; padding-top: 15px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>🌸 女导演作品高频情感词云</h1>
+    <div class="sub">心形布局 | 鼠标悬停显示词频 | 可拖拽缩放</div>
+    <div id="wordcloud" class="chart-container"></div>
+    <div class="footer">数据来源：豆瓣短评 | 词频越高字号越大 | 形状：心形 (cardioid)</div>
+</div>
+<script>
+    var data = [{"name": "喜欢", "value": 71}, {"name": "表演", "value": 50}, {"name": "生活", "value": 50}, {"name": "出来", "value": 43}, {"name": "看到", "value": 42}, {"name": "叙事", "value": 36}, {"name": "可能", "value": 35}, {"name": "完全", "value": 34}, {"name": "作为", "value": 33}, {"name": "不错", "value": 33}, {"name": "知道", "value": 28}, {"name": "不能", "value": 27}, {"name": "理解", "value": 26}, {"name": "不会", "value": 24}, {"name": "表达", "value": 23}, {"name": "希望", "value": 22}, {"name": "还有", "value": 22}, {"name": "成为", "value": 22}, {"name": "独立", "value": 21}, {"name": "好像", "value": 21}, {"name": "开始", "value": 21}, {"name": "在于", "value": 20}, {"name": "只能", "value": 20}, {"name": "确实", "value": 20}, {"name": "煽情", "value": 20}, {"name": "需要", "value": 20}, {"name": "实在", "value": 20}, {"name": "存在", "value": 19}, {"name": "回忆", "value": 19}, {"name": "感动", "value": 18}, {"name": "刻意", "value": 18}, {"name": "应该", "value": 18}, {"name": "成长", "value": 18}, {"name": "最大", "value": 17}, {"name": "设计", "value": 17}, {"name": "选择", "value": 16}, {"name": "年轻", "value": 15}, {"name": "表现", "value": 15}, {"name": "好看", "value": 15}, {"name": "直接", "value": 15}, {"name": "呈现", "value": 15}, {"name": "看完", "value": 14}, {"name": "值得", "value": 14}, {"name": "细腻", "value": 14}, {"name": "完美", "value": 13}, {"name": "重要", "value": 13}, {"name": "一般", "value": 13}, {"name": "最好", "value": 13}, {"name": "过于", "value": 13}, {"name": "感受", "value": 12}, {"name": "属于", "value": 12}, {"name": "找到", "value": 12}, {"name": "成功", "value": 12}, {"name": "孤独", "value": 12}, {"name": "起来", "value": 12}, {"name": "看过", "value": 12}, {"name": "讲述", "value": 12}, {"name": "明显", "value": 11}, {"name": "真诚", "value": 11}, {"name": "适合", "value": 11}, {"name": "温暖", "value": 11}, {"name": "可爱", "value": 11}, {"name": "可惜", "value": 11}, {"name": "影像", "value": 11}, {"name": "克制", "value": 11}, {"name": "思考", "value": 11}, {"name": "不同", "value": 11}, {"name": "处理", "value": 11}, {"name": "创作", "value": 11}, {"name": "欲望", "value": 11}, {"name": "压抑", "value": 11}, {"name": "充满", "value": 10}, {"name": "优秀", "value": 10}, {"name": "完整", "value": 10}, {"name": "减肥", "value": 10}, {"name": "相信", "value": 10}, {"name": "关注", "value": 10}, {"name": "难看", "value": 10}, {"name": "配乐", "value": 10}, {"name": "显得", "value": 10}];
+    var chart = echarts.init(document.getElementById('wordcloud'));
+    var option = {
+        series: [{
+            type: 'wordCloud',
+            shape: 'cardioid',
+            width: '100%',
+            height: '100%',
+            sizeRange: [14, 60],
+            rotationRange: [-30, 30],
+            rotationStep: 10,
+            gridSize: 10,
+            drawOutOfBound: false,
+            textStyle: {
+                fontFamily: 'Microsoft YaHei, sans-serif',
+                fontWeight: 'normal',
+                color: function () {
+                    var colors = ['#e91e63', '#f06292', '#f48fb1', '#f8bbd0', '#c2185b', '#d81b60'];
+                    return colors[Math.floor(Math.random() * colors.length)];
+                }
+            },
+            emphasis: {
+                focus: 'self',
+                textStyle: { fontWeight: 'bold', color: '#333' }
+            },
+            data: data
+        }]
+    };
+    chart.setOption(option);
+    window.addEventListener('resize', function() { chart.resize(); });
+</script>
+</body>
+</html>

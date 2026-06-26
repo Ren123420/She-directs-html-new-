@@ -1,0 +1,265 @@
+/* ================================================================
+   Interaction layer - scroll cues, step progress, chart hints
+   ================================================================ */
+
+/* ---- Floating coach bar (bottom) ---- */
+.ix-coach-bar {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(0);
+  z-index: 8500;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 18px 10px 14px;
+  background: rgba(44, 36, 22, 0.88);
+  border: 1px solid rgba(224, 128, 160, 0.35);
+  box-shadow: 0 8px 32px rgba(44, 36, 22, 0.22);
+  backdrop-filter: blur(8px);
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: rgba(244, 239, 228, 0.92);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  pointer-events: none;
+  max-width: calc(100vw - 48px);
+}
+
+.ix-coach-bar.is-hidden {
+  transform: translateX(-50%) translateY(80px);
+  opacity: 0;
+}
+
+.ix-coach-bar .ix-coach-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--rose-main);
+  flex-shrink: 0;
+  animation: ixPulse 1.6s ease-in-out infinite;
+}
+
+.ix-coach-bar .ix-coach-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ix-coach-bar .ix-coach-step {
+  flex-shrink: 0;
+  padding: 3px 8px;
+  background: rgba(224, 128, 160, 0.25);
+  border: 1px solid rgba(224, 128, 160, 0.45);
+  color: var(--rose-light);
+  font-size: 9px;
+}
+
+@keyframes ixPulse {
+  0%, 100% { transform: scale(1); opacity: 1; box-shadow: 0 0 0 0 rgba(224,128,160,0.5); }
+  50% { transform: scale(1.2); opacity: 0.85; box-shadow: 0 0 0 6px rgba(224,128,160,0); }
+}
+
+/* ---- Scroll nudge arrow (side) ---- */
+.ix-scroll-nudge {
+  position: fixed;
+  right: 72px;
+  bottom: 88px;
+  z-index: 8400;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: var(--rose-deep);
+  opacity: 0.85;
+  pointer-events: none;
+  transition: opacity 0.4s;
+}
+
+.ix-scroll-nudge.is-hidden { opacity: 0; }
+
+.ix-scroll-nudge .ix-nudge-arrow {
+  font-size: 18px;
+  line-height: 1;
+  animation: ixBounce 1.8s ease-in-out infinite;
+}
+
+@keyframes ixBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+/* ---- Active step highlight (badge removed) ---- */
+.scrolly-step.is-active {
+  border-left: 3px solid var(--rose-main);
+  padding-left: 20px;
+  margin-left: -23px;
+}
+
+.scroll-step.is-active {
+  border-left: 3px solid var(--rose-main);
+  padding-left: 20px;
+  margin-left: 0;
+}
+
+@media (max-width: 960px) {
+  .scrolly-step.is-active,
+  .scroll-step.is-active {
+    margin-left: 0;
+    padding-left: 16px;
+  }
+}
+
+/* Stronger inactive fade */
+.scroll-step:not(.is-active),
+.scrolly-step:not(.is-active) {
+  opacity: 0.22;
+  filter: grayscale(0.15);
+}
+
+.scroll-step.is-active,
+.scrolly-step.is-active {
+  opacity: 1;
+  filter: none;
+}
+
+/* ---- Chart interaction badge ---- */
+.chart-frame {
+  position: relative;
+}
+
+.ix-chart-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  color: var(--rose-deep);
+  background: rgba(244, 239, 228, 0.92);
+  border: 1px solid var(--rose-light);
+  pointer-events: none;
+  animation: ixBadgeGlow 2.5s ease-in-out infinite;
+}
+
+.ix-chart-badge .ix-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--rose-main);
+  animation: ixPulse 1.6s ease-in-out infinite;
+}
+
+@keyframes ixBadgeGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(224,128,160,0.2); }
+  50% { box-shadow: 0 0 12px rgba(224,128,160,0.35); }
+}
+
+.ix-chart-badge.is-dismissed {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+/* ---- Scatter plot overlay hint ---- */
+.scatter-chart-col {
+  position: relative;
+  cursor: crosshair;
+}
+
+.ix-scatter-hint {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: rgba(244, 239, 228, 0.55);
+  border: 1px dashed var(--rose-main);
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+}
+
+.ix-scatter-hint.is-gone {
+  opacity: 0;
+}
+
+.ix-scatter-hint .ix-hint-hand {
+  font-size: 28px;
+  animation: ixTap 1.2s ease-in-out infinite;
+}
+
+.ix-scatter-hint .ix-hint-text {
+  font-family: 'Huiwen', serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink-charcoal);
+}
+
+.ix-scatter-hint .ix-hint-sub {
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--rose-deep);
+}
+
+@keyframes ixTap {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-4px) scale(1.08); }
+}
+
+/* ---- Notebook idle pulse ---- */
+.film-notebook:not(.is-open) .fn-page {
+  animation: ixNotebookIdle 3s ease-in-out infinite;
+}
+
+.film-notebook.is-open .fn-page {
+  animation: none;
+}
+
+@keyframes ixNotebookIdle {
+  0%, 100% { box-shadow: inset 0 0 0 0 rgba(192,96,120,0); }
+  50% { box-shadow: inset -3px 0 12px rgba(192,96,120,0.08); }
+}
+
+.film-notebook:not(.is-open) .fn-invite {
+  position: relative;
+}
+
+.film-notebook:not(.is-open) .fn-invite::after {
+  content: ' ?';
+  color: var(--rose-deep);
+  animation: ixBounce 1.8s ease-in-out infinite;
+  display: inline-block;
+}
+
+/* ---- Scrolly graphic sync flash ---- */
+.scrolly-graphic.is-updating .chart-frame {
+  animation: ixChartFlash 0.6s ease;
+}
+
+@keyframes ixChartFlash {
+  0% { box-shadow: 4px 8px 32px rgba(44,36,22,0.06); }
+  40% { box-shadow: 0 0 0 3px rgba(224,128,160,0.35), 4px 8px 32px rgba(192,96,120,0.12); }
+  100% { box-shadow: 4px 8px 32px rgba(44,36,22,0.06); }
+}
+
+@media (max-width: 960px) {
+  .ix-scroll-nudge { display: none; }
+  .ix-coach-bar .ix-coach-text { white-space: normal; font-size: 9px; }
+  .scrolly-step.is-active,
+  .scroll-step.is-active { margin-left: 0; padding-left: 16px; }
+}
+
+@media (max-width: 768px) {
+  .ix-coach-bar { bottom: 12px; padding: 8px 12px; }
+}

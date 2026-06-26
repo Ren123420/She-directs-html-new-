@@ -1,0 +1,496 @@
+{
+  "source": "数据来源：长评议题编码 · Top20 影片 × 8 议题",
+  "sourceFile": "图表数据整理\\图表数据整理\\第三部分\\【图表3】议题网络图\\【图表3】议题分类结果.xlsx",
+  "nodes": [
+    {
+      "id": "你好，李焕英",
+      "name": "你好，李焕英",
+      "category": "film",
+      "value": 20
+    },
+    {
+      "id": "热辣滚烫",
+      "name": "热辣滚烫",
+      "category": "film",
+      "value": 20
+    },
+    {
+      "id": "海洋天堂",
+      "name": "海洋天堂",
+      "category": "film",
+      "value": 20
+    },
+    {
+      "id": "北京爱上西雅图",
+      "name": "北京爱上西雅图",
+      "category": "film",
+      "value": 20
+    },
+    {
+      "id": "北京爱上西雅图之不二情书",
+      "name": "北京爱上西雅图之不二情书",
+      "category": "film",
+      "value": 20
+    },
+    {
+      "id": "海洋深处",
+      "name": "海洋深处",
+      "category": "film",
+      "value": 20
+    },
+    {
+      "id": "穿过寒冬拥抱你",
+      "name": "穿过寒冬拥抱你",
+      "category": "film",
+      "value": 20
+    },
+    {
+      "id": "再见，少年",
+      "name": "再见，少年",
+      "category": "film",
+      "value": 20
+    },
+    {
+      "id": "我的姐姐",
+      "name": "我的姐姐",
+      "category": "film",
+      "value": 20
+    },
+    {
+      "id": "野孩子",
+      "name": "野孩子",
+      "category": "film",
+      "value": 20
+    },
+    {
+      "id": "爱情神话",
+      "name": "爱情神话",
+      "category": "film",
+      "value": 20
+    },
+    {
+      "id": "好东西",
+      "name": "好东西",
+      "category": "film",
+      "value": 20
+    },
+    {
+      "id": "春梦",
+      "name": "春梦",
+      "category": "film",
+      "value": 20
+    },
+    {
+      "id": "春潮",
+      "name": "春潮",
+      "category": "film",
+      "value": 20
+    },
+    {
+      "id": "妈妈！",
+      "name": "妈妈！",
+      "category": "film",
+      "value": 20
+    },
+    {
+      "id": "小小的我",
+      "name": "小小的我",
+      "category": "film",
+      "value": 20
+    },
+    {
+      "id": "致我们终将逝去的青春",
+      "name": "致我们终将逝去的青春",
+      "category": "film",
+      "value": 20
+    },
+    {
+      "id": "今年夏天",
+      "name": "今年夏天",
+      "category": "film",
+      "value": 20
+    },
+    {
+      "id": "红颜",
+      "name": "红颜",
+      "category": "film",
+      "value": 20
+    },
+    {
+      "id": "苹果",
+      "name": "苹果",
+      "category": "film",
+      "value": 20
+    },
+    {
+      "id": "其他",
+      "name": "其他",
+      "category": "issue",
+      "value": 522
+    },
+    {
+      "id": "身体自主权",
+      "name": "身体自主权",
+      "category": "issue",
+      "value": 145
+    },
+    {
+      "id": "母女关系",
+      "name": "母女关系",
+      "category": "issue",
+      "value": 75
+    },
+    {
+      "id": "自我认同与觉醒",
+      "name": "自我认同与觉醒",
+      "category": "issue",
+      "value": 17
+    },
+    {
+      "id": "原生家庭",
+      "name": "原生家庭",
+      "category": "issue",
+      "value": 15
+    },
+    {
+      "id": "职场性别歧视",
+      "name": "职场性别歧视",
+      "category": "issue",
+      "value": 13
+    },
+    {
+      "id": "社会结构性压迫",
+      "name": "社会结构性压迫",
+      "category": "issue",
+      "value": 4
+    },
+    {
+      "id": "中年女性困境",
+      "name": "中年女性困境",
+      "category": "issue",
+      "value": 3
+    }
+  ],
+  "links": [
+    {
+      "source": "你好，李焕英",
+      "target": "其他",
+      "value": 9
+    },
+    {
+      "source": "你好，李焕英",
+      "target": "母女关系",
+      "value": 11
+    },
+    {
+      "source": "热辣滚烫",
+      "target": "身体自主权",
+      "value": 12
+    },
+    {
+      "source": "热辣滚烫",
+      "target": "其他",
+      "value": 7
+    },
+    {
+      "source": "热辣滚烫",
+      "target": "原生家庭",
+      "value": 1
+    },
+    {
+      "source": "海洋天堂",
+      "target": "其他",
+      "value": 18
+    },
+    {
+      "source": "海洋天堂",
+      "target": "原生家庭",
+      "value": 1
+    },
+    {
+      "source": "海洋天堂",
+      "target": "母女关系",
+      "value": 1
+    },
+    {
+      "source": "北京爱上西雅图",
+      "target": "其他",
+      "value": 13
+    },
+    {
+      "source": "北京爱上西雅图",
+      "target": "身体自主权",
+      "value": 3
+    },
+    {
+      "source": "北京爱上西雅图",
+      "target": "自我认同与觉醒",
+      "value": 1
+    },
+    {
+      "source": "北京爱上西雅图",
+      "target": "母女关系",
+      "value": 1
+    },
+    {
+      "source": "北京爱上西雅图",
+      "target": "职场性别歧视",
+      "value": 2
+    },
+    {
+      "source": "北京爱上西雅图之不二情书",
+      "target": "其他",
+      "value": 19
+    },
+    {
+      "source": "北京爱上西雅图之不二情书",
+      "target": "身体自主权",
+      "value": 1
+    },
+    {
+      "source": "海洋深处",
+      "target": "其他",
+      "value": 18
+    },
+    {
+      "source": "海洋深处",
+      "target": "身体自主权",
+      "value": 2
+    },
+    {
+      "source": "穿过寒冬拥抱你",
+      "target": "其他",
+      "value": 17
+    },
+    {
+      "source": "穿过寒冬拥抱你",
+      "target": "社会结构性压迫",
+      "value": 1
+    },
+    {
+      "source": "穿过寒冬拥抱你",
+      "target": "原生家庭",
+      "value": 1
+    },
+    {
+      "source": "再见，少年",
+      "target": "其他",
+      "value": 17
+    },
+    {
+      "source": "再见，少年",
+      "target": "身体自主权",
+      "value": 2
+    },
+    {
+      "source": "再见，少年",
+      "target": "自我认同与觉醒",
+      "value": 1
+    },
+    {
+      "source": "我的姐姐",
+      "target": "原生家庭",
+      "value": 5
+    },
+    {
+      "source": "我的姐姐",
+      "target": "其他",
+      "value": 5
+    },
+    {
+      "source": "我的姐姐",
+      "target": "身体自主权",
+      "value": 8
+    },
+    {
+      "source": "我的姐姐",
+      "target": "母女关系",
+      "value": 1
+    },
+    {
+      "source": "我的姐姐",
+      "target": "自我认同与觉醒",
+      "value": 1
+    },
+    {
+      "source": "野孩子",
+      "target": "其他",
+      "value": 18
+    },
+    {
+      "source": "野孩子",
+      "target": "母女关系",
+      "value": 2
+    },
+    {
+      "source": "爱情神话",
+      "target": "中年女性困境",
+      "value": 3
+    },
+    {
+      "source": "爱情神话",
+      "target": "身体自主权",
+      "value": 7
+    },
+    {
+      "source": "爱情神话",
+      "target": "其他",
+      "value": 10
+    },
+    {
+      "source": "好东西",
+      "target": "其他",
+      "value": 10
+    },
+    {
+      "source": "好东西",
+      "target": "母女关系",
+      "value": 3
+    },
+    {
+      "source": "好东西",
+      "target": "身体自主权",
+      "value": 5
+    },
+    {
+      "source": "好东西",
+      "target": "原生家庭",
+      "value": 1
+    },
+    {
+      "source": "好东西",
+      "target": "职场性别歧视",
+      "value": 1
+    },
+    {
+      "source": "春梦",
+      "target": "身体自主权",
+      "value": 10
+    },
+    {
+      "source": "春梦",
+      "target": "其他",
+      "value": 6
+    },
+    {
+      "source": "春梦",
+      "target": "母女关系",
+      "value": 2
+    },
+    {
+      "source": "春梦",
+      "target": "自我认同与觉醒",
+      "value": 1
+    },
+    {
+      "source": "春梦",
+      "target": "职场性别歧视",
+      "value": 1
+    },
+    {
+      "source": "春潮",
+      "target": "母女关系",
+      "value": 14
+    },
+    {
+      "source": "春潮",
+      "target": "身体自主权",
+      "value": 2
+    },
+    {
+      "source": "春潮",
+      "target": "其他",
+      "value": 3
+    },
+    {
+      "source": "春潮",
+      "target": "职场性别歧视",
+      "value": 1
+    },
+    {
+      "source": "妈妈！",
+      "target": "其他",
+      "value": 9
+    },
+    {
+      "source": "妈妈！",
+      "target": "母女关系",
+      "value": 9
+    },
+    {
+      "source": "妈妈！",
+      "target": "身体自主权",
+      "value": 2
+    },
+    {
+      "source": "小小的我",
+      "target": "其他",
+      "value": 9
+    },
+    {
+      "source": "小小的我",
+      "target": "身体自主权",
+      "value": 5
+    },
+    {
+      "source": "小小的我",
+      "target": "职场性别歧视",
+      "value": 2
+    },
+    {
+      "source": "小小的我",
+      "target": "母女关系",
+      "value": 4
+    },
+    {
+      "source": "致我们终将逝去的青春",
+      "target": "其他",
+      "value": 16
+    },
+    {
+      "source": "致我们终将逝去的青春",
+      "target": "身体自主权",
+      "value": 4
+    },
+    {
+      "source": "今年夏天",
+      "target": "身体自主权",
+      "value": 7
+    },
+    {
+      "source": "今年夏天",
+      "target": "其他",
+      "value": 12
+    },
+    {
+      "source": "今年夏天",
+      "target": "职场性别歧视",
+      "value": 1
+    },
+    {
+      "source": "红颜",
+      "target": "身体自主权",
+      "value": 3
+    },
+    {
+      "source": "红颜",
+      "target": "其他",
+      "value": 13
+    },
+    {
+      "source": "红颜",
+      "target": "母女关系",
+      "value": 4
+    },
+    {
+      "source": "苹果",
+      "target": "其他",
+      "value": 17
+    },
+    {
+      "source": "苹果",
+      "target": "身体自主权",
+      "value": 3
+    }
+  ]
+}

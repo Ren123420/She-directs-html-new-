@@ -1,0 +1,202 @@
+{
+  "source": "数据来源：50 组同题材对照",
+  "sourceFile": "图表数据整理\\图表数据整理\\第二部分\\【二、图表5】女导演50部与男导演同题材对照_结局流向.csv",
+  "groups": {
+    "女导演作品": {
+      "identityOrder": [
+        "少女/学生",
+        "青年女性",
+        "中青年女性",
+        "中老年/老年女性"
+      ],
+      "endingOrder": [
+        "自我实现",
+        "开放式",
+        "获得爱情",
+        "回归家庭",
+        "陷于困境",
+        "死亡"
+      ],
+      "links": [
+        {
+          "source": "青年女性",
+          "target": "死亡",
+          "value": 3
+        },
+        {
+          "source": "中青年女性",
+          "target": "自我实现",
+          "value": 2
+        },
+        {
+          "source": "青年女性",
+          "target": "回归家庭",
+          "value": 6
+        },
+        {
+          "source": "少女/学生",
+          "target": "开放式",
+          "value": 3
+        },
+        {
+          "source": "少女/学生",
+          "target": "陷于困境",
+          "value": 4
+        },
+        {
+          "source": "青年女性",
+          "target": "陷于困境",
+          "value": 1
+        },
+        {
+          "source": "青年女性",
+          "target": "开放式",
+          "value": 3
+        },
+        {
+          "source": "少女/学生",
+          "target": "自我实现",
+          "value": 3
+        },
+        {
+          "source": "少女/学生",
+          "target": "死亡",
+          "value": 2
+        },
+        {
+          "source": "少女/学生",
+          "target": "获得爱情",
+          "value": 1
+        },
+        {
+          "source": "少女/学生",
+          "target": "回归家庭",
+          "value": 3
+        },
+        {
+          "source": "青年女性",
+          "target": "获得爱情",
+          "value": 3
+        },
+        {
+          "source": "青年女性",
+          "target": "自我实现",
+          "value": 10
+        },
+        {
+          "source": "中老年/老年女性",
+          "target": "死亡",
+          "value": 1
+        },
+        {
+          "source": "中青年女性",
+          "target": "开放式",
+          "value": 1
+        },
+        {
+          "source": "中老年/老年女性",
+          "target": "自我实现",
+          "value": 2
+        },
+        {
+          "source": "中青年女性",
+          "target": "回归家庭",
+          "value": 1
+        }
+      ]
+    },
+    "男导演对照": {
+      "identityOrder": [
+        "少女/学生",
+        "青年女性",
+        "中青年女性",
+        "中老年/老年女性"
+      ],
+      "endingOrder": [
+        "自我实现",
+        "开放式",
+        "获得爱情",
+        "回归家庭",
+        "陷于困境",
+        "死亡"
+      ],
+      "links": [
+        {
+          "source": "青年女性",
+          "target": "回归家庭",
+          "value": 6
+        },
+        {
+          "source": "青年女性",
+          "target": "获得爱情",
+          "value": 4
+        },
+        {
+          "source": "少女/学生",
+          "target": "陷于困境",
+          "value": 3
+        },
+        {
+          "source": "少女/学生",
+          "target": "开放式",
+          "value": 5
+        },
+        {
+          "source": "少女/学生",
+          "target": "死亡",
+          "value": 3
+        },
+        {
+          "source": "青年女性",
+          "target": "死亡",
+          "value": 6
+        },
+        {
+          "source": "少女/学生",
+          "target": "自我实现",
+          "value": 2
+        },
+        {
+          "source": "青年女性",
+          "target": "陷于困境",
+          "value": 4
+        },
+        {
+          "source": "中青年女性",
+          "target": "自我实现",
+          "value": 1
+        },
+        {
+          "source": "中青年女性",
+          "target": "死亡",
+          "value": 2
+        },
+        {
+          "source": "中青年女性",
+          "target": "获得爱情",
+          "value": 1
+        },
+        {
+          "source": "少女/学生",
+          "target": "回归家庭",
+          "value": 2
+        },
+        {
+          "source": "青年女性",
+          "target": "开放式",
+          "value": 5
+        },
+        {
+          "source": "青年女性",
+          "target": "自我实现",
+          "value": 2
+        },
+        {
+          "source": "中青年女性",
+          "target": "回归家庭",
+          "value": 1
+        }
+      ]
+    }
+  }
+}

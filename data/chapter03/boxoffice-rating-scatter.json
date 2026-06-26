@@ -1,0 +1,1966 @@
+{
+  "source": "数据来源：217 部女导演院线片",
+  "sourceFile": "图表数据整理\\图表数据整理\\第三部分\\【图表1】【含票房】华语女导演数据汇总表(1).xlsx",
+  "totalSample": 217,
+  "thresholds": {
+    "rating": 6.8,
+    "ratingMean": 6.62,
+    "boxOfficeWan": 1824.3,
+    "boxOfficeYi": 0.18
+  },
+  "films": [
+    {
+      "title": "海洋深处",
+      "year": 2019,
+      "director": "薛晓路",
+      "rating": 5.3,
+      "boxOfficeWan": 9300.0,
+      "doubanId": "3582181",
+      "url": "https://movie.douban.com/subject/3582181/"
+    },
+    {
+      "title": "怒江",
+      "year": 2024,
+      "director": "刘娟",
+      "rating": 3.6,
+      "boxOfficeWan": 0.0,
+      "doubanId": "35700000",
+      "url": "https://movie.douban.com/subject/35700000/"
+    },
+    {
+      "title": "最遗憾是错过你",
+      "year": 2021,
+      "director": "詹馥华",
+      "rating": 4.7,
+      "boxOfficeWan": 0.0,
+      "doubanId": "35632944",
+      "url": "https://movie.douban.com/subject/35632944/"
+    },
+    {
+      "title": "巨额交易",
+      "year": 2011,
+      "director": "马俪文",
+      "rating": 4.8,
+      "boxOfficeWan": 0.0,
+      "doubanId": "5382887",
+      "url": "https://movie.douban.com/subject/5382887/"
+    },
+    {
+      "title": "非分熟女",
+      "year": 2018,
+      "director": "曾翠珊",
+      "rating": 5.0,
+      "boxOfficeWan": 0.0,
+      "doubanId": "26752558",
+      "url": "https://movie.douban.com/subject/26752558/"
+    },
+    {
+      "title": "二十四味",
+      "year": 2024,
+      "director": "黄绮玲",
+      "rating": 5.2,
+      "boxOfficeWan": 0.0,
+      "doubanId": "33412900",
+      "url": "https://movie.douban.com/subject/33412900/"
+    },
+    {
+      "title": "失落的天使",
+      "year": 2009,
+      "director": "黄儒香",
+      "rating": 5.4,
+      "boxOfficeWan": 0.0,
+      "doubanId": "4835408",
+      "url": "https://movie.douban.com/subject/4835408/"
+    },
+    {
+      "title": "国士无双",
+      "year": 2006,
+      "director": "陈映蓉",
+      "rating": 5.8,
+      "boxOfficeWan": 0.0,
+      "doubanId": "",
+      "url": ""
+    },
+    {
+      "title": "今天的鱼怎么样？",
+      "year": 2007,
+      "director": "郭小橹",
+      "rating": 5.9,
+      "boxOfficeWan": 0.0,
+      "doubanId": "1890582",
+      "url": "https://movie.douban.com/subject/1890582/"
+    },
+    {
+      "title": "河口上的圣诞",
+      "year": 2013,
+      "director": "刘苗苗",
+      "rating": 6.0,
+      "boxOfficeWan": 0.0,
+      "doubanId": "25807392",
+      "url": "https://movie.douban.com/subject/25807392/"
+    },
+    {
+      "title": "她眼中的UFO",
+      "year": 2012,
+      "director": "郭小橹",
+      "rating": 6.0,
+      "boxOfficeWan": 0.0,
+      "doubanId": "",
+      "url": ""
+    },
+    {
+      "title": "牛皮2",
+      "year": 2009,
+      "director": "刘伽茵",
+      "rating": 6.3,
+      "boxOfficeWan": 0.0,
+      "doubanId": "3707094",
+      "url": "https://movie.douban.com/subject/3707094/"
+    },
+    {
+      "title": "爱的替身",
+      "year": 2012,
+      "director": "唐晓白",
+      "rating": 6.3,
+      "boxOfficeWan": 0.0,
+      "doubanId": "4086764",
+      "url": "https://movie.douban.com/subject/4086764/"
+    },
+    {
+      "title": "大蓝湖",
+      "year": 2011,
+      "director": "曾翠珊",
+      "rating": 6.3,
+      "boxOfficeWan": 0.0,
+      "doubanId": "6861627",
+      "url": "https://movie.douban.com/subject/6861627/"
+    },
+    {
+      "title": "上海伦巴",
+      "year": 2005,
+      "director": "彭小莲",
+      "rating": 6.4,
+      "boxOfficeWan": 0.0,
+      "doubanId": "1873751",
+      "url": "https://movie.douban.com/subject/1873751/"
+    },
+    {
+      "title": "今年夏天",
+      "year": 2000,
+      "director": "李玉",
+      "rating": 6.5,
+      "boxOfficeWan": 0.0,
+      "doubanId": "1440888",
+      "url": "https://movie.douban.com/subject/1440888/"
+    },
+    {
+      "title": "水印街",
+      "year": 2013,
+      "director": "文晏",
+      "rating": 6.5,
+      "boxOfficeWan": 0.0,
+      "doubanId": "25707491",
+      "url": "https://movie.douban.com/subject/25707491/"
+    },
+    {
+      "title": "完美生活",
+      "year": 2008,
+      "director": "唐晓白",
+      "rating": 6.5,
+      "boxOfficeWan": 0.0,
+      "doubanId": "3197788",
+      "url": "https://movie.douban.com/subject/3197788/"
+    },
+    {
+      "title": "烈日当空",
+      "year": 2008,
+      "director": "麦曦茵",
+      "rating": 6.5,
+      "boxOfficeWan": 0.0,
+      "doubanId": "",
+      "url": ""
+    },
+    {
+      "title": "我叫阿铭啦",
+      "year": 2001,
+      "director": "陈芯宜",
+      "rating": 6.5,
+      "boxOfficeWan": 0.0,
+      "doubanId": "2132910",
+      "url": "https://movie.douban.com/subject/2132910/"
+    },
+    {
+      "title": "一匹白马的热梦",
+      "year": 2024,
+      "director": "姜晓萱",
+      "rating": 6.5,
+      "boxOfficeWan": 0.0,
+      "doubanId": "36424506",
+      "url": "https://movie.douban.com/subject/36424506/"
+    },
+    {
+      "title": "侘寂",
+      "year": 2019,
+      "director": "黄莎莎",
+      "rating": 6.5,
+      "boxOfficeWan": 0.0,
+      "doubanId": "",
+      "url": ""
+    },
+    {
+      "title": "加害者，被害人",
+      "year": 2020,
+      "director": "季竹青",
+      "rating": 6.5,
+      "boxOfficeWan": 0.0,
+      "doubanId": "34953787",
+      "url": "https://movie.douban.com/subject/34953787/"
+    },
+    {
+      "title": "四月",
+      "year": 2019,
+      "director": "周小琳",
+      "rating": 6.5,
+      "boxOfficeWan": 0.0,
+      "doubanId": "1292371",
+      "url": "https://movie.douban.com/subject/1292371/"
+    },
+    {
+      "title": "白色的马",
+      "year": 2019,
+      "director": "徐雨洁",
+      "rating": 6.5,
+      "boxOfficeWan": 0.0,
+      "doubanId": "",
+      "url": ""
+    },
+    {
+      "title": "优点是便宜",
+      "year": 2006,
+      "director": "虞琳敏",
+      "rating": 6.5,
+      "boxOfficeWan": 0.0,
+      "doubanId": "",
+      "url": ""
+    },
+    {
+      "title": "公园",
+      "year": 2007,
+      "director": "尹丽川",
+      "rating": 6.7,
+      "boxOfficeWan": 0.0,
+      "doubanId": "2079710",
+      "url": "https://movie.douban.com/subject/2079710/"
+    },
+    {
+      "title": "身后事",
+      "year": 2014,
+      "director": "王子逸",
+      "rating": 6.7,
+      "boxOfficeWan": 0.0,
+      "doubanId": "1986567",
+      "url": "https://movie.douban.com/subject/1986567/"
+    },
+    {
+      "title": "笨鸟",
+      "year": 2017,
+      "director": "黄骥",
+      "rating": 6.8,
+      "boxOfficeWan": 0.0,
+      "doubanId": "26969821",
+      "url": "https://movie.douban.com/subject/26969821/"
+    },
+    {
+      "title": "女儿的女儿",
+      "year": 2024,
+      "director": "张艾嘉",
+      "rating": 6.8,
+      "boxOfficeWan": 0.0,
+      "doubanId": "30334963",
+      "url": "https://movie.douban.com/subject/30334963/"
+    },
+    {
+      "title": "漂浪青春",
+      "year": 2008,
+      "director": "周美玲",
+      "rating": 6.8,
+      "boxOfficeWan": 0.0,
+      "doubanId": "",
+      "url": ""
+    },
+    {
+      "title": "春梦",
+      "year": 2013,
+      "director": "杨荔钠",
+      "rating": 7.0,
+      "boxOfficeWan": 0.0,
+      "doubanId": "20507024",
+      "url": "https://movie.douban.com/subject/20507024/"
+    },
+    {
+      "title": "春潮",
+      "year": 2019,
+      "director": "杨荔钠",
+      "rating": 7.0,
+      "boxOfficeWan": 0.0,
+      "doubanId": "27186348",
+      "url": "https://movie.douban.com/subject/27186348/"
+    },
+    {
+      "title": "我坚强的小船",
+      "year": 2008,
+      "director": "彭小莲",
+      "rating": 7.0,
+      "boxOfficeWan": 0.0,
+      "doubanId": "3271442",
+      "url": "https://movie.douban.com/subject/3271442/"
+    },
+    {
+      "title": "动词变位",
+      "year": 2002,
+      "director": "唐晓白",
+      "rating": 7.0,
+      "boxOfficeWan": 0.0,
+      "doubanId": "2079710",
+      "url": "https://movie.douban.com/subject/2079710/"
+    },
+    {
+      "title": "哥哥教我唱的歌",
+      "year": 2015,
+      "director": "赵婷",
+      "rating": 7.0,
+      "boxOfficeWan": 0.0,
+      "doubanId": "26276362",
+      "url": "https://movie.douban.com/subject/26276362/"
+    },
+    {
+      "title": "同为幸存者",
+      "year": 2000,
+      "director": "崔明慧",
+      "rating": 7.0,
+      "boxOfficeWan": 0.0,
+      "doubanId": "",
+      "url": ""
+    },
+    {
+      "title": "日本残留妇女在中国",
+      "year": 2005,
+      "director": "季丹",
+      "rating": 7.0,
+      "boxOfficeWan": 0.0,
+      "doubanId": "",
+      "url": ""
+    },
+    {
+      "title": "硬币",
+      "year": 2019,
+      "director": "宋思琪",
+      "rating": 7.0,
+      "boxOfficeWan": 0.0,
+      "doubanId": "34804371",
+      "url": "https://movie.douban.com/subject/34804371/"
+    },
+    {
+      "title": "鸡蛋和石头",
+      "year": 2012,
+      "director": "黄骥",
+      "rating": 7.2,
+      "boxOfficeWan": 0.0,
+      "doubanId": "6989751",
+      "url": "https://movie.douban.com/subject/6989751/"
+    },
+    {
+      "title": "北京乐与路",
+      "year": 2001,
+      "director": "张婉婷",
+      "rating": 7.2,
+      "boxOfficeWan": 0.0,
+      "doubanId": "1298213",
+      "url": "https://movie.douban.com/subject/1298213/"
+    },
+    {
+      "title": "20 30 40",
+      "year": 2004,
+      "director": "张艾嘉",
+      "rating": 7.2,
+      "boxOfficeWan": 0.0,
+      "doubanId": "",
+      "url": ""
+    },
+    {
+      "title": "自画像和三个女人",
+      "year": 2010,
+      "director": "章梦奇",
+      "rating": 7.2,
+      "boxOfficeWan": 0.0,
+      "doubanId": "",
+      "url": ""
+    },
+    {
+      "title": "家庭式",
+      "year": 2019,
+      "director": "游珈瑄",
+      "rating": 7.2,
+      "boxOfficeWan": 0.0,
+      "doubanId": "35069511",
+      "url": "https://movie.douban.com/subject/35069511/"
+    },
+    {
+      "title": "我和爸爸",
+      "year": 2003,
+      "director": "徐静蕾",
+      "rating": 7.3,
+      "boxOfficeWan": 0.0,
+      "doubanId": "1303871",
+      "url": "https://movie.douban.com/subject/1303871/"
+    },
+    {
+      "title": "夏日暖洋洋",
+      "year": 2001,
+      "director": "宁瀛",
+      "rating": 7.4,
+      "boxOfficeWan": 0.0,
+      "doubanId": "1308264",
+      "url": "https://movie.douban.com/subject/1308264/"
+    },
+    {
+      "title": "家丑",
+      "year": 1994,
+      "director": "刘苗苗",
+      "rating": 7.5,
+      "boxOfficeWan": 0.0,
+      "doubanId": "1901769",
+      "url": "https://movie.douban.com/subject/1901769/"
+    },
+    {
+      "title": "长江之梦",
+      "year": 1997,
+      "director": "冯艳",
+      "rating": 7.5,
+      "boxOfficeWan": 0.0,
+      "doubanId": "",
+      "url": ""
+    },
+    {
+      "title": "京生",
+      "year": 2011,
+      "director": "马莉",
+      "rating": 7.5,
+      "boxOfficeWan": 0.0,
+      "doubanId": "6798389",
+      "url": "https://movie.douban.com/subject/6798389/"
+    },
+    {
+      "title": "哈勇家",
+      "year": 2022,
+      "director": "陈洁瑶",
+      "rating": 7.5,
+      "boxOfficeWan": 0.0,
+      "doubanId": "35922669",
+      "url": "https://movie.douban.com/subject/35922669/"
+    },
+    {
+      "title": "梦的背后",
+      "year": 2018,
+      "director": "马英力",
+      "rating": 7.5,
+      "boxOfficeWan": 0.0,
+      "doubanId": "30226702",
+      "url": "https://movie.douban.com/subject/30226702/"
+    },
+    {
+      "title": "假装没感觉",
+      "year": 2002,
+      "director": "彭小莲",
+      "rating": 7.7,
+      "boxOfficeWan": 0.0,
+      "doubanId": "1434313",
+      "url": "https://movie.douban.com/subject/1434313/"
+    },
+    {
+      "title": "到阜阳六百里",
+      "year": 2011,
+      "director": "秦海璐",
+      "rating": 7.7,
+      "boxOfficeWan": 0.0,
+      "doubanId": "4291275",
+      "url": "https://movie.douban.com/subject/4291275/"
+    },
+    {
+      "title": "龙的深处：失落的拼图",
+      "year": 2003,
+      "director": "张婉婷",
+      "rating": 7.7,
+      "boxOfficeWan": 0.0,
+      "doubanId": "1308060",
+      "url": "https://movie.douban.com/subject/1308060/"
+    },
+    {
+      "title": "牛郎织女",
+      "year": 2008,
+      "director": "尹丽川",
+      "rating": 7.8,
+      "boxOfficeWan": 0.0,
+      "doubanId": "3060559",
+      "url": "https://movie.douban.com/subject/3060559/"
+    },
+    {
+      "title": "包宝宝",
+      "year": 2018,
+      "director": "石之予",
+      "rating": 7.8,
+      "boxOfficeWan": 0.0,
+      "doubanId": "27621829",
+      "url": "https://movie.douban.com/subject/27621829/"
+    },
+    {
+      "title": "牛皮",
+      "year": 2005,
+      "director": "刘伽茵",
+      "rating": 7.9,
+      "boxOfficeWan": 0.0,
+      "doubanId": "1762478",
+      "url": "https://movie.douban.com/subject/1762478/"
+    },
+    {
+      "title": "生死劫",
+      "year": 2005,
+      "director": "李少红",
+      "rating": 7.9,
+      "boxOfficeWan": 0.0,
+      "doubanId": "1401487",
+      "url": "https://movie.douban.com/subject/1401487/"
+    },
+    {
+      "title": "小留学生",
+      "year": 2005,
+      "director": "张丽玲",
+      "rating": 7.9,
+      "boxOfficeWan": 0.0,
+      "doubanId": "3041556",
+      "url": "https://movie.douban.com/subject/3041556/"
+    },
+    {
+      "title": "活着一分钟，快乐六十秒",
+      "year": 2006,
+      "director": "王芬",
+      "rating": 7.9,
+      "boxOfficeWan": 0.0,
+      "doubanId": "3018483",
+      "url": "https://movie.douban.com/subject/3018483/"
+    },
+    {
+      "title": "诗",
+      "year": 2023,
+      "director": "许鞍华",
+      "rating": 8.0,
+      "boxOfficeWan": 0.0,
+      "doubanId": "35604644",
+      "url": "https://movie.douban.com/subject/35604644/"
+    },
+    {
+      "title": "回到凤凰桥",
+      "year": 1997,
+      "director": "李红",
+      "rating": 8.2,
+      "boxOfficeWan": 0.0,
+      "doubanId": "2294116",
+      "url": "https://movie.douban.com/subject/2294116/"
+    },
+    {
+      "title": "马冢",
+      "year": 2022,
+      "director": "姜晓萱",
+      "rating": 0.0,
+      "boxOfficeWan": 0.0,
+      "doubanId": "35956176",
+      "url": "https://movie.douban.com/subject/35956176/"
+    },
+    {
+      "title": "美人依旧",
+      "year": 2005,
+      "director": "胡安",
+      "rating": 6.1,
+      "boxOfficeWan": 0.0,
+      "doubanId": "1329938",
+      "url": "https://movie.douban.com/subject/1329938/"
+    },
+    {
+      "title": "跳墙",
+      "year": 2008,
+      "director": "姜秀琼",
+      "rating": 6.8,
+      "boxOfficeWan": 0.0,
+      "doubanId": "1295674",
+      "url": "https://movie.douban.com/subject/1295674/"
+    },
+    {
+      "title": "像我这样的爱情",
+      "year": 2025,
+      "director": "谭惠贞",
+      "rating": 7.1,
+      "boxOfficeWan": 0.0,
+      "doubanId": "36219411",
+      "url": "https://movie.douban.com/subject/36219411/"
+    },
+    {
+      "title": "真心半解",
+      "year": 2020,
+      "director": "伍思薇",
+      "rating": 8.0,
+      "boxOfficeWan": 0.0,
+      "doubanId": "33420285",
+      "url": "https://movie.douban.com/subject/33420285/"
+    },
+    {
+      "title": "古巴花旦",
+      "year": 2018,
+      "director": "魏时煜",
+      "rating": 8.1,
+      "boxOfficeWan": 0.0,
+      "doubanId": "30223493",
+      "url": "https://movie.douban.com/subject/30223493/"
+    },
+    {
+      "title": "金门银光梦",
+      "year": 2014,
+      "director": "魏时煜",
+      "rating": 8.2,
+      "boxOfficeWan": 0.0,
+      "doubanId": "21359627",
+      "url": "https://movie.douban.com/subject/21359627/"
+    },
+    {
+      "title": "秉爱",
+      "year": 2007,
+      "director": "冯艳",
+      "rating": 8.2,
+      "boxOfficeWan": 0.0,
+      "doubanId": "3036460",
+      "url": "https://movie.douban.com/subject/3036460/"
+    },
+    {
+      "title": "闺蜜2",
+      "year": 2018,
+      "director": "黄真真",
+      "rating": 3.5,
+      "boxOfficeWan": 10200.0,
+      "doubanId": "",
+      "url": ""
+    },
+    {
+      "title": "十八洞村",
+      "year": 2017,
+      "director": "苗月",
+      "rating": 6.8,
+      "boxOfficeWan": 10600.0,
+      "doubanId": "27113517",
+      "url": "https://movie.douban.com/subject/27113517/"
+    },
+    {
+      "title": "亲密敌人",
+      "year": 2011,
+      "director": "徐静蕾",
+      "rating": 5.6,
+      "boxOfficeWan": 11039.0,
+      "doubanId": "6062731",
+      "url": "https://movie.douban.com/subject/6062731/"
+    },
+    {
+      "title": "二次曝光",
+      "year": 2012,
+      "director": "李玉",
+      "rating": 6.1,
+      "boxOfficeWan": 11500.0,
+      "doubanId": "6878446",
+      "url": "https://movie.douban.com/subject/6878446/"
+    },
+    {
+      "title": "杜拉拉升职记",
+      "year": 2010,
+      "director": "徐静蕾",
+      "rating": 5.6,
+      "boxOfficeWan": 12400.0,
+      "doubanId": "3820191",
+      "url": "https://movie.douban.com/subject/3820191/"
+    },
+    {
+      "title": "出走的决心",
+      "year": 2024,
+      "director": "尹丽川",
+      "rating": 8.8,
+      "boxOfficeWan": 12400.0,
+      "doubanId": "36587974",
+      "url": "https://movie.douban.com/subject/36587974/"
+    },
+    {
+      "title": "28岁未成年",
+      "year": 2016,
+      "director": "张末",
+      "rating": 5.7,
+      "boxOfficeWan": 13600.0,
+      "doubanId": "26658568",
+      "url": "https://movie.douban.com/subject/26658568/"
+    },
+    {
+      "title": "别告诉她",
+      "year": 2019,
+      "director": "王子逸",
+      "rating": 7.2,
+      "boxOfficeWan": 14100.0,
+      "doubanId": "30390144",
+      "url": "https://movie.douban.com/subject/30390144/"
+    },
+    {
+      "title": "万物生长",
+      "year": 2015,
+      "director": "李玉",
+      "rating": 5.7,
+      "boxOfficeWan": 14800.0,
+      "doubanId": "25872931",
+      "url": "https://movie.douban.com/subject/25872931/"
+    },
+    {
+      "title": "青春变形记",
+      "year": 2022,
+      "director": "石之予",
+      "rating": 8.0,
+      "boxOfficeWan": 15700.0,
+      "doubanId": "35284168",
+      "url": "https://movie.douban.com/subject/35284168/"
+    },
+    {
+      "title": "我经过风暴",
+      "year": 2023,
+      "director": "秦海燕",
+      "rating": 6.5,
+      "boxOfficeWan": 18000.0,
+      "doubanId": "36107332",
+      "url": "https://movie.douban.com/subject/36107332/"
+    },
+    {
+      "title": "我经过风暴",
+      "year": 2023,
+      "director": "秦海燕",
+      "rating": 6.5,
+      "boxOfficeWan": 18000.0,
+      "doubanId": "36107332",
+      "url": "https://movie.douban.com/subject/36107332/"
+    },
+    {
+      "title": "谁的青春不迷茫",
+      "year": 2016,
+      "director": "姚婷婷",
+      "rating": 6.7,
+      "boxOfficeWan": 18000.0,
+      "doubanId": "26310353",
+      "url": "https://movie.douban.com/subject/26310353/"
+    },
+    {
+      "title": "世界上最疼我的那个人去了",
+      "year": 2002,
+      "director": "马俪文",
+      "rating": 8.4,
+      "boxOfficeWan": 10.0,
+      "doubanId": "1316565",
+      "url": "https://movie.douban.com/subject/1316565/"
+    },
+    {
+      "title": "人鱼朵朵",
+      "year": 2005,
+      "director": "李芸婵",
+      "rating": 6.9,
+      "boxOfficeWan": 100.0,
+      "doubanId": "1718162",
+      "url": "https://movie.douban.com/subject/1718162/"
+    },
+    {
+      "title": "我的世界没有我",
+      "year": 2025,
+      "director": "田海蓉",
+      "rating": 3.4,
+      "boxOfficeWan": 1000.0,
+      "doubanId": "37473361",
+      "url": "https://movie.douban.com/subject/37473361/"
+    },
+    {
+      "title": "真爱营业",
+      "year": 2025,
+      "director": "吴雅文",
+      "rating": 5.1,
+      "boxOfficeWan": 1000.0,
+      "doubanId": "37096787",
+      "url": "https://movie.douban.com/subject/37096787/"
+    },
+    {
+      "title": "过春天",
+      "year": 2018,
+      "director": "白雪",
+      "rating": 7.7,
+      "boxOfficeWan": 1030.0,
+      "doubanId": "27191431",
+      "url": "https://movie.douban.com/subject/27191431/"
+    },
+    {
+      "title": "三城记",
+      "year": 2015,
+      "director": "张婉婷",
+      "rating": 6.2,
+      "boxOfficeWan": 1115.0,
+      "doubanId": "24751764",
+      "url": "https://movie.douban.com/subject/24751764/"
+    },
+    {
+      "title": "天水围的夜与雾",
+      "year": 2009,
+      "director": "许鞍华",
+      "rating": 7.6,
+      "boxOfficeWan": 112.0,
+      "doubanId": "3718424",
+      "url": "https://movie.douban.com/subject/3718424/"
+    },
+    {
+      "title": "心动",
+      "year": 1999,
+      "director": "张艾嘉",
+      "rating": 8.1,
+      "boxOfficeWan": 1148.0,
+      "doubanId": "1292289",
+      "url": "https://movie.douban.com/subject/1292289/"
+    },
+    {
+      "title": "请你记住我",
+      "year": 2018,
+      "director": "彭小莲",
+      "rating": 5.6,
+      "boxOfficeWan": 12.1,
+      "doubanId": "27121890",
+      "url": "https://movie.douban.com/subject/27121890/"
+    },
+    {
+      "title": "无穷动",
+      "year": 2005,
+      "director": "宁瀛",
+      "rating": 6.8,
+      "boxOfficeWan": 120.0,
+      "doubanId": "1438708",
+      "url": "https://movie.douban.com/subject/1438708/"
+    },
+    {
+      "title": "后来的我们",
+      "year": 2018,
+      "director": "刘若英",
+      "rating": 5.9,
+      "boxOfficeWan": 136100.0,
+      "doubanId": "",
+      "url": ""
+    },
+    {
+      "title": "相爱相亲",
+      "year": 2017,
+      "director": "张艾嘉",
+      "rating": 8.3,
+      "boxOfficeWan": 136100.0,
+      "doubanId": "26773744",
+      "url": "https://movie.douban.com/subject/26773744/"
+    },
+    {
+      "title": "我们永远是我们",
+      "year": 2024,
+      "director": "夏孟",
+      "rating": 0.0,
+      "boxOfficeWan": 13.8,
+      "doubanId": "35300103",
+      "url": "https://movie.douban.com/subject/35300103/"
+    },
+    {
+      "title": "失恋急让",
+      "year": 2014,
+      "director": "卓韵芝",
+      "rating": 6.0,
+      "boxOfficeWan": 1329.0,
+      "doubanId": "",
+      "url": ""
+    },
+    {
+      "title": "念念",
+      "year": 2015,
+      "director": "张艾嘉",
+      "rating": 7.1,
+      "boxOfficeWan": 1370.1,
+      "doubanId": "25718082",
+      "url": "https://movie.douban.com/subject/25718082/"
+    },
+    {
+      "title": "安娜与安娜",
+      "year": 2007,
+      "director": "林爱华",
+      "rating": 6.0,
+      "boxOfficeWan": 13.0,
+      "doubanId": "2334073",
+      "url": "https://movie.douban.com/subject/2334073/"
+    },
+    {
+      "title": "我和我的父辈(诗)",
+      "year": 2021,
+      "director": "章子怡",
+      "rating": 6.7,
+      "boxOfficeWan": 147800.0,
+      "doubanId": "35284168",
+      "url": "https://movie.douban.com/subject/35284168/"
+    },
+    {
+      "title": "海洋天堂",
+      "year": 2010,
+      "director": "薛晓路",
+      "rating": 7.9,
+      "boxOfficeWan": 1413.4,
+      "doubanId": "4004731",
+      "url": "https://movie.douban.com/subject/4004731/"
+    },
+    {
+      "title": "过界男女",
+      "year": 2013,
+      "director": "刘韵文",
+      "rating": 4.8,
+      "boxOfficeWan": 1420.5,
+      "doubanId": "3258862",
+      "url": "https://movie.douban.com/subject/3258862/"
+    },
+    {
+      "title": "进京城",
+      "year": 2018,
+      "director": "胡玫",
+      "rating": 6.5,
+      "boxOfficeWan": 1468.8,
+      "doubanId": "30164448",
+      "url": "https://movie.douban.com/subject/30164448/"
+    },
+    {
+      "title": "29+1",
+      "year": 2017,
+      "director": "彭秀慧",
+      "rating": 7.1,
+      "boxOfficeWan": 151.9,
+      "doubanId": "26877237",
+      "url": "https://movie.douban.com/subject/26877237/"
+    },
+    {
+      "title": "谁先爱上他的",
+      "year": 2018,
+      "director": "徐誉庭",
+      "rating": 8.6,
+      "boxOfficeWan": 1527.0,
+      "doubanId": "27119586",
+      "url": "https://movie.douban.com/subject/27119586/"
+    },
+    {
+      "title": "我叫刘跃进",
+      "year": 2008,
+      "director": "马俪文",
+      "rating": 6.4,
+      "boxOfficeWan": 1600.0,
+      "doubanId": "2978951",
+      "url": "https://movie.douban.com/subject/2978951/"
+    },
+    {
+      "title": "女人世界",
+      "year": 2008,
+      "director": "唐丹鸿",
+      "rating": 6.5,
+      "boxOfficeWan": 164.8,
+      "doubanId": "35183325",
+      "url": "https://movie.douban.com/subject/35183325/"
+    },
+    {
+      "title": "花椒之味",
+      "year": 2019,
+      "director": "麦曦茵",
+      "rating": 7.1,
+      "boxOfficeWan": 170.9,
+      "doubanId": "",
+      "url": ""
+    },
+    {
+      "title": "月满轩尼诗",
+      "year": 2010,
+      "director": "岸西",
+      "rating": 6.8,
+      "boxOfficeWan": 1700.7,
+      "doubanId": "3777800",
+      "url": "https://movie.douban.com/subject/3777800/"
+    },
+    {
+      "title": "女人那话儿",
+      "year": 2000,
+      "director": "黄真真",
+      "rating": 7.2,
+      "boxOfficeWan": 17.0,
+      "doubanId": "",
+      "url": ""
+    },
+    {
+      "title": "相爱相亲",
+      "year": 2017,
+      "director": "游晓颖",
+      "rating": 8.3,
+      "boxOfficeWan": 1824.3,
+      "doubanId": "27038183",
+      "url": "https://movie.douban.com/subject/27038183/"
+    },
+    {
+      "title": "沦落人",
+      "year": 2018,
+      "director": "陈小娟",
+      "rating": 8.2,
+      "boxOfficeWan": 1972.0,
+      "doubanId": "30140231",
+      "url": "https://movie.douban.com/subject/30140231/"
+    },
+    {
+      "title": "闺蜜",
+      "year": 2014,
+      "director": "黄真真",
+      "rating": 5.2,
+      "boxOfficeWan": 20500.0,
+      "doubanId": "",
+      "url": ""
+    },
+    {
+      "title": "断·桥",
+      "year": 2022,
+      "director": "李玉",
+      "rating": 5.8,
+      "boxOfficeWan": 23200.0,
+      "doubanId": "35235365",
+      "url": "https://movie.douban.com/subject/35235365/"
+    },
+    {
+      "title": "喜福会",
+      "year": 1993,
+      "director": "王颖",
+      "rating": 8.0,
+      "boxOfficeWan": 23700.0,
+      "doubanId": "1297983",
+      "url": "https://movie.douban.com/subject/1297983/"
+    },
+    {
+      "title": "野孩子",
+      "year": 2024,
+      "director": "殷若昕",
+      "rating": 7.4,
+      "boxOfficeWan": 24100.0,
+      "doubanId": "2251924",
+      "url": "https://movie.douban.com/subject/2251924/"
+    },
+    {
+      "title": "爱情神话",
+      "year": 2021,
+      "director": "邵艺辉",
+      "rating": 8.1,
+      "boxOfficeWan": 26000.0,
+      "doubanId": "35376457",
+      "url": "https://movie.douban.com/subject/35376457/"
+    },
+    {
+      "title": "有一个地方只有我们知道",
+      "year": 2015,
+      "director": "徐静蕾",
+      "rating": 4.5,
+      "boxOfficeWan": 28000.0,
+      "doubanId": "25864078",
+      "url": "https://movie.douban.com/subject/25864078/"
+    },
+    {
+      "title": "无依之地",
+      "year": 2020,
+      "director": "赵婷",
+      "rating": 8.1,
+      "boxOfficeWan": 28400.0,
+      "doubanId": "30458949",
+      "url": "https://movie.douban.com/subject/30458949/"
+    },
+    {
+      "title": "芬妮的微笑",
+      "year": 2002,
+      "director": "胡玫",
+      "rating": 5.5,
+      "boxOfficeWan": 200.0,
+      "doubanId": "1464622",
+      "url": "https://movie.douban.com/subject/1464622/"
+    },
+    {
+      "title": "西洋镜",
+      "year": 2000,
+      "director": "胡安",
+      "rating": 7.6,
+      "boxOfficeWan": 200.0,
+      "doubanId": "1304489",
+      "url": "https://movie.douban.com/subject/1304489/"
+    },
+    {
+      "title": "再见，少年",
+      "year": 2020,
+      "director": "殷若昕",
+      "rating": 4.2,
+      "boxOfficeWan": 2025.4,
+      "doubanId": "30292581",
+      "url": "https://movie.douban.com/subject/30292581/"
+    },
+    {
+      "title": "囚",
+      "year": 2017,
+      "director": "马莉",
+      "rating": 8.5,
+      "boxOfficeWan": 208.2,
+      "doubanId": "27072953",
+      "url": "https://movie.douban.com/subject/27072953/"
+    },
+    {
+      "title": "女孩",
+      "year": 2025,
+      "director": "舒淇",
+      "rating": 7.2,
+      "boxOfficeWan": 208.0,
+      "doubanId": "36986482",
+      "url": "https://movie.douban.com/subject/36986482/"
+    },
+    {
+      "title": "花漾",
+      "year": 2012,
+      "director": "周美玲",
+      "rating": 7.0,
+      "boxOfficeWan": 217.7,
+      "doubanId": "35183324",
+      "url": "https://movie.douban.com/subject/35183324/"
+    },
+    {
+      "title": "嘉年华",
+      "year": 2017,
+      "director": "文晏",
+      "rating": 8.2,
+      "boxOfficeWan": 2262.6,
+      "doubanId": "27019527",
+      "url": "https://movie.douban.com/subject/27019527/"
+    },
+    {
+      "title": "无声",
+      "year": 2020,
+      "director": "柯贞年",
+      "rating": 7.8,
+      "boxOfficeWan": 2355.0,
+      "doubanId": "34850561",
+      "url": "https://movie.douban.com/subject/34850561/"
+    },
+    {
+      "title": "骑士",
+      "year": 2017,
+      "director": "赵婷",
+      "rating": 7.6,
+      "boxOfficeWan": 2465.0,
+      "doubanId": "27012772",
+      "url": "https://movie.douban.com/subject/27012772/"
+    },
+    {
+      "title": "17岁的天空",
+      "year": 2004,
+      "director": "陈映蓉",
+      "rating": 6.5,
+      "boxOfficeWan": 248.0,
+      "doubanId": "",
+      "url": ""
+    },
+    {
+      "title": "我会好好的",
+      "year": 2025,
+      "director": "董宏杰",
+      "rating": 5.8,
+      "boxOfficeWan": 2491.2,
+      "doubanId": "36166566",
+      "url": "https://movie.douban.com/subject/36166566/"
+    },
+    {
+      "title": "门",
+      "year": 2007,
+      "director": "李少红",
+      "rating": 6.4,
+      "boxOfficeWan": 2500.0,
+      "doubanId": "6724853",
+      "url": "https://movie.douban.com/subject/6724853/"
+    },
+    {
+      "title": "不虚此行",
+      "year": 2023,
+      "director": "刘伽茵",
+      "rating": 7.0,
+      "boxOfficeWan": 2740.6,
+      "doubanId": "35432345",
+      "url": "https://movie.douban.com/subject/35432345/"
+    },
+    {
+      "title": "永恒族",
+      "year": 2021,
+      "director": "赵婷",
+      "rating": 5.8,
+      "boxOfficeWan": 289400.0,
+      "doubanId": "30223888",
+      "url": "https://movie.douban.com/subject/30223888/"
+    },
+    {
+      "title": "拥抱大白熊",
+      "year": 2004,
+      "director": "王小棣",
+      "rating": 7.6,
+      "boxOfficeWan": 28.0,
+      "doubanId": "1473923",
+      "url": "https://movie.douban.com/subject/1473923/"
+    },
+    {
+      "title": "送我上青云",
+      "year": 2019,
+      "director": "滕丛丛",
+      "rating": 7.0,
+      "boxOfficeWan": 2954.0,
+      "doubanId": "27180759",
+      "url": "https://movie.douban.com/subject/27180759/"
+    },
+    {
+      "title": "美丽上海",
+      "year": 2004,
+      "director": "彭小莲",
+      "rating": 7.6,
+      "boxOfficeWan": 2.0,
+      "doubanId": "1422040",
+      "url": "https://movie.douban.com/subject/1422040/"
+    },
+    {
+      "title": "边缘",
+      "year": 1993,
+      "director": "刘晓津",
+      "rating": 7.3,
+      "boxOfficeWan": 31200.0,
+      "doubanId": "30198955",
+      "url": "https://movie.douban.com/subject/30198955/"
+    },
+    {
+      "title": "悲伤逆流成河",
+      "year": 2018,
+      "director": "落落",
+      "rating": 5.9,
+      "boxOfficeWan": 35700.0,
+      "doubanId": "27119156",
+      "url": "https://movie.douban.com/subject/27119156/"
+    },
+    {
+      "title": "天水围的日与夜",
+      "year": 2008,
+      "director": "许鞍华",
+      "rating": 8.7,
+      "boxOfficeWan": 3.6,
+      "doubanId": "3077668",
+      "url": "https://movie.douban.com/subject/3077668/"
+    },
+    {
+      "title": "快把我哥带走",
+      "year": 2018,
+      "director": "郑芬芬",
+      "rating": 6.8,
+      "boxOfficeWan": 37500.0,
+      "doubanId": "30122633",
+      "url": "https://movie.douban.com/subject/30122633/"
+    },
+    {
+      "title": "交换人生",
+      "year": 2023,
+      "director": "苏伦",
+      "rating": 5.0,
+      "boxOfficeWan": 39300.0,
+      "doubanId": "3537275",
+      "url": "https://movie.douban.com/subject/3537275/"
+    },
+    {
+      "title": "我们俩",
+      "year": 2005,
+      "director": "马俪文",
+      "rating": 8.8,
+      "boxOfficeWan": 30.0,
+      "doubanId": "1756073",
+      "url": "https://movie.douban.com/subject/1756073/"
+    },
+    {
+      "title": "六楼后座",
+      "year": 2003,
+      "director": "黄真真",
+      "rating": 7.0,
+      "boxOfficeWan": 300.0,
+      "doubanId": "",
+      "url": ""
+    },
+    {
+      "title": "沙漏",
+      "year": 2024,
+      "director": "温婧",
+      "rating": 5.2,
+      "boxOfficeWan": 3005.5,
+      "doubanId": "26290372",
+      "url": "https://movie.douban.com/subject/26290372/"
+    },
+    {
+      "title": "2哥来了怎么办",
+      "year": 2021,
+      "director": "郑芬芬",
+      "rating": 5.8,
+      "boxOfficeWan": 3051.1,
+      "doubanId": "",
+      "url": ""
+    },
+    {
+      "title": "我和我的祖国(回归单元)",
+      "year": 2019,
+      "director": "薛晓路",
+      "rating": 7.6,
+      "boxOfficeWan": 317000.0,
+      "doubanId": "32659890",
+      "url": "https://movie.douban.com/subject/32659890/"
+    },
+    {
+      "title": "山河旧话",
+      "year": 1995,
+      "director": "胡安",
+      "rating": 0.0,
+      "boxOfficeWan": 3237.8,
+      "doubanId": "",
+      "url": ""
+    },
+    {
+      "title": "刺青",
+      "year": 2007,
+      "director": "周美玲",
+      "rating": 6.1,
+      "boxOfficeWan": 329.0,
+      "doubanId": "1938312",
+      "url": "https://movie.douban.com/subject/1938312/"
+    },
+    {
+      "title": "流浪神狗人",
+      "year": 2007,
+      "director": "陈芯宜",
+      "rating": 6.9,
+      "boxOfficeWan": 32.0,
+      "doubanId": "2132907",
+      "url": "https://movie.douban.com/subject/2132907/"
+    },
+    {
+      "title": "得闲炒饭",
+      "year": 2010,
+      "director": "许鞍华",
+      "rating": 7.1,
+      "boxOfficeWan": 334.0,
+      "doubanId": "4196423",
+      "url": "https://movie.douban.com/subject/4196423/"
+    },
+    {
+      "title": "热辣滚烫",
+      "year": 2024,
+      "director": "贾玲",
+      "rating": 7.5,
+      "boxOfficeWan": 341700.0,
+      "doubanId": "36081094",
+      "url": "https://movie.douban.com/subject/36081094/"
+    },
+    {
+      "title": "本日公休",
+      "year": 2023,
+      "director": "傅天余",
+      "rating": 8.2,
+      "boxOfficeWan": 345.0,
+      "doubanId": "34850550",
+      "url": "https://movie.douban.com/subject/34850550/"
+    },
+    {
+      "title": "她的小梨涡",
+      "year": 2026,
+      "director": "蔡聪",
+      "rating": 0.0,
+      "boxOfficeWan": 35.8,
+      "doubanId": "35000618",
+      "url": "https://movie.douban.com/subject/35000618/"
+    },
+    {
+      "title": "岁月神偷",
+      "year": 2010,
+      "director": "张婉婷",
+      "rating": 8.7,
+      "boxOfficeWan": 3801.0,
+      "doubanId": "3792799",
+      "url": "https://movie.douban.com/subject/3792799/"
+    },
+    {
+      "title": "鹦鹉杀",
+      "year": 2023,
+      "director": "麻赢心",
+      "rating": 5.4,
+      "boxOfficeWan": 3939.4,
+      "doubanId": "35496265",
+      "url": "https://movie.douban.com/subject/35496265/"
+    },
+    {
+      "title": "我的少女时代",
+      "year": 2015,
+      "director": "陈玉珊",
+      "rating": 7.8,
+      "boxOfficeWan": 40200.0,
+      "doubanId": "26366465",
+      "url": "https://movie.douban.com/subject/26366465/"
+    },
+    {
+      "title": "我在时间尽头等你",
+      "year": 2020,
+      "director": "姚婷婷",
+      "rating": 5.3,
+      "boxOfficeWan": 43200.0,
+      "doubanId": "33437204",
+      "url": "https://movie.douban.com/subject/33437204/"
+    },
+    {
+      "title": "亲密",
+      "year": 2008,
+      "director": "岸西",
+      "rating": 7.3,
+      "boxOfficeWan": 400.6,
+      "doubanId": "",
+      "url": ""
+    },
+    {
+      "title": "7天",
+      "year": 2025,
+      "director": "邱玉洁",
+      "rating": 6.0,
+      "boxOfficeWan": 4000.0,
+      "doubanId": "36208089",
+      "url": "https://movie.douban.com/subject/36208089/"
+    },
+    {
+      "title": "华丽之后",
+      "year": 2012,
+      "director": "麦曦茵",
+      "rating": 6.0,
+      "boxOfficeWan": 400.0,
+      "doubanId": "",
+      "url": ""
+    },
+    {
+      "title": "十二夜",
+      "year": 2000,
+      "director": "林爱华",
+      "rating": 8.3,
+      "boxOfficeWan": 408.0,
+      "doubanId": "1302109",
+      "url": "https://movie.douban.com/subject/1302109/"
+    },
+    {
+      "title": "阳光劫匪",
+      "year": 2021,
+      "director": "李玉",
+      "rating": 3.6,
+      "boxOfficeWan": 4374.1,
+      "doubanId": "26933158",
+      "url": "https://movie.douban.com/subject/26933158/"
+    },
+    {
+      "title": "阿妈有咗第二个",
+      "year": 2022,
+      "director": "彭秀慧",
+      "rating": 6.5,
+      "boxOfficeWan": 4399.0,
+      "doubanId": "",
+      "url": ""
+    },
+    {
+      "title": "诱僧",
+      "year": 1993,
+      "director": "罗卓瑶",
+      "rating": 6.8,
+      "boxOfficeWan": 451.3,
+      "doubanId": "",
+      "url": ""
+    },
+    {
+      "title": "红颜",
+      "year": 2005,
+      "director": "李玉",
+      "rating": 8.0,
+      "boxOfficeWan": 46.0,
+      "doubanId": "1424582",
+      "url": "https://movie.douban.com/subject/1424582/"
+    },
+    {
+      "title": "洋子的困惑",
+      "year": 2023,
+      "director": "李珏",
+      "rating": 6.8,
+      "boxOfficeWan": 48.5,
+      "doubanId": "36070463",
+      "url": "https://movie.douban.com/subject/36070463/"
+    },
+    {
+      "title": "金都",
+      "year": 2019,
+      "director": "黄绮琳",
+      "rating": 7.7,
+      "boxOfficeWan": 482.0,
+      "doubanId": "30159567",
+      "url": "https://movie.douban.com/subject/30159567/"
+    },
+    {
+      "title": "三贵情史",
+      "year": 2023,
+      "director": "刘斯逸",
+      "rating": 5.5,
+      "boxOfficeWan": 484.9,
+      "doubanId": "34923510",
+      "url": "https://movie.douban.com/subject/34923510/"
+    },
+    {
+      "title": "男人四十",
+      "year": 2002,
+      "director": "许鞍华",
+      "rating": 8.0,
+      "boxOfficeWan": 487.0,
+      "doubanId": "1301753",
+      "url": "https://movie.douban.com/subject/1301753/"
+    },
+    {
+      "title": "但愿人长久",
+      "year": 2023,
+      "director": "祝紫嫣",
+      "rating": 7.6,
+      "boxOfficeWan": 48.0,
+      "doubanId": "35211513",
+      "url": "https://movie.douban.com/subject/35211513/"
+    },
+    {
+      "title": "北京遇上西雅图",
+      "year": 2013,
+      "director": "薛晓路",
+      "rating": 7.3,
+      "boxOfficeWan": 52000.0,
+      "doubanId": "10574468",
+      "url": "https://movie.douban.com/subject/10574468/"
+    },
+    {
+      "title": "小城季风",
+      "year": 2025,
+      "director": "金向怡",
+      "rating": 0.0,
+      "boxOfficeWan": 5.4,
+      "doubanId": "33437204",
+      "url": "https://movie.douban.com/subject/33437204/"
+    },
+    {
+      "title": "拯救嫌疑人",
+      "year": 2023,
+      "director": "张末",
+      "rating": 5.8,
+      "boxOfficeWan": 57000.0,
+      "doubanId": "35875180",
+      "url": "https://movie.douban.com/subject/35875180/"
+    },
+    {
+      "title": "姨妈的后现代生活",
+      "year": 2006,
+      "director": "许鞍华",
+      "rating": 7.3,
+      "boxOfficeWan": 510.0,
+      "doubanId": "1763907",
+      "url": "https://movie.douban.com/subject/1763907/"
+    },
+    {
+      "title": "妈阁是座城",
+      "year": 2018,
+      "director": "李少红",
+      "rating": 5.8,
+      "boxOfficeWan": 5345.0,
+      "doubanId": "26304201",
+      "url": "https://movie.douban.com/subject/26304201/"
+    },
+    {
+      "title": "沉睡的青春",
+      "year": 2007,
+      "director": "郑芬芬",
+      "rating": 7.0,
+      "boxOfficeWan": 53.0,
+      "doubanId": "2326215",
+      "url": "https://movie.douban.com/subject/2326215/"
+    },
+    {
+      "title": "你好，李焕英",
+      "year": 2021,
+      "director": "贾玲",
+      "rating": 7.7,
+      "boxOfficeWan": 541300.0,
+      "doubanId": "34841067",
+      "url": "https://movie.douban.com/subject/34841067/"
+    },
+    {
+      "title": "红楼梦之金玉良缘",
+      "year": 2024,
+      "director": "胡玫",
+      "rating": 3.1,
+      "boxOfficeWan": 552.9,
+      "doubanId": "26924522",
+      "url": "https://movie.douban.com/subject/26924522/"
+    },
+    {
+      "title": "填词L",
+      "year": 2023,
+      "director": "黄绮琳",
+      "rating": 7.3,
+      "boxOfficeWan": 554.0,
+      "doubanId": "35986833",
+      "url": "https://movie.douban.com/subject/35986833/"
+    },
+    {
+      "title": "与时尚同居",
+      "year": 2011,
+      "director": "尹丽川",
+      "rating": 5.6,
+      "boxOfficeWan": 567.5,
+      "doubanId": "6101834",
+      "url": "https://movie.douban.com/subject/6101834/"
+    },
+    {
+      "title": "纽约的秋天",
+      "year": 2000,
+      "director": "陈冲",
+      "rating": 6.3,
+      "boxOfficeWan": 65300.0,
+      "doubanId": "1299824",
+      "url": "https://movie.douban.com/subject/1299824/"
+    },
+    {
+      "title": "红楼梦",
+      "year": 2010,
+      "director": "李少红",
+      "rating": 6.0,
+      "boxOfficeWan": 601.0,
+      "doubanId": "1864810",
+      "url": "https://movie.douban.com/subject/1864810/"
+    },
+    {
+      "title": "黄金时代",
+      "year": 2014,
+      "director": "许鞍华",
+      "rating": 7.4,
+      "boxOfficeWan": 6140.0,
+      "doubanId": "10545939",
+      "url": "https://movie.douban.com/subject/10545939/"
+    },
+    {
+      "title": "剩者为王",
+      "year": 2015,
+      "director": "落落",
+      "rating": 5.9,
+      "boxOfficeWan": 6141.0,
+      "doubanId": "26279433",
+      "url": "https://movie.douban.com/subject/26279433/"
+    },
+    {
+      "title": "明月几时有",
+      "year": 2017,
+      "director": "许鞍华",
+      "rating": 6.8,
+      "boxOfficeWan": 6348.8,
+      "doubanId": "26754831",
+      "url": "https://movie.douban.com/subject/26754831/"
+    },
+    {
+      "title": "第一炉香",
+      "year": 2021,
+      "director": "许鞍华",
+      "rating": 5.0,
+      "boxOfficeWan": 6421.7,
+      "doubanId": "26796664",
+      "url": "https://movie.douban.com/subject/26796664/"
+    },
+    {
+      "title": "花这样红",
+      "year": 2020,
+      "director": "周洲",
+      "rating": 6.8,
+      "boxOfficeWan": 691.1,
+      "doubanId": "34939037",
+      "url": "https://movie.douban.com/subject/34939037/"
+    },
+    {
+      "title": "听说",
+      "year": 2009,
+      "director": "郑芬芬",
+      "rating": 8.1,
+      "boxOfficeWan": 691.0,
+      "doubanId": "3824672",
+      "url": "https://movie.douban.com/subject/3824672/"
+    },
+    {
+      "title": "桃姐",
+      "year": 2011,
+      "director": "许鞍华",
+      "rating": 8.4,
+      "boxOfficeWan": 6933.0,
+      "doubanId": "10484097",
+      "url": "https://movie.douban.com/subject/10484097/"
+    },
+    {
+      "title": "艳光四射歌舞团",
+      "year": 2004,
+      "director": "周美玲",
+      "rating": 6.9,
+      "boxOfficeWan": 6.0,
+      "doubanId": "1416896",
+      "url": "https://movie.douban.com/subject/1416896/"
+    },
+    {
+      "title": "致我们终将逝去的青春",
+      "year": 2013,
+      "director": "赵薇",
+      "rating": 6.5,
+      "boxOfficeWan": 72000.0,
+      "doubanId": "6973376",
+      "url": "https://movie.douban.com/subject/6973376/"
+    },
+    {
+      "title": "毕业生",
+      "year": 2006,
+      "director": "柴颖娜",
+      "rating": 6.0,
+      "boxOfficeWan": 75600.0,
+      "doubanId": "",
+      "url": ""
+    },
+    {
+      "title": "小小的我",
+      "year": 2024,
+      "director": "杨荔钠",
+      "rating": 7.1,
+      "boxOfficeWan": 76500.0,
+      "doubanId": "36498717",
+      "url": "https://movie.douban.com/subject/36498717/"
+    },
+    {
+      "title": "末路狂花钱",
+      "year": 2024,
+      "director": "乌日娜",
+      "rating": 5.3,
+      "boxOfficeWan": 78200.0,
+      "doubanId": "36430322",
+      "url": "https://movie.douban.com/subject/36430322/"
+    },
+    {
+      "title": "北京遇上西雅图之不二情书",
+      "year": 2016,
+      "director": "薛晓路",
+      "rating": 6.4,
+      "boxOfficeWan": 78600.0,
+      "doubanId": "26322792",
+      "url": "https://movie.douban.com/subject/26322792/"
+    },
+    {
+      "title": "妈妈！",
+      "year": 2022,
+      "director": "杨荔钠",
+      "rating": 7.5,
+      "boxOfficeWan": 7000.0,
+      "doubanId": "34954093",
+      "url": "https://movie.douban.com/subject/34954093/"
+    },
+    {
+      "title": "天浴",
+      "year": 1998,
+      "director": "陈冲",
+      "rating": 8.4,
+      "boxOfficeWan": 733.0,
+      "doubanId": "",
+      "url": ""
+    },
+    {
+      "title": "前度",
+      "year": 2010,
+      "director": "麦曦茵",
+      "rating": 7.0,
+      "boxOfficeWan": 747.0,
+      "doubanId": "",
+      "url": ""
+    },
+    {
+      "title": "黑处有什么",
+      "year": 2015,
+      "director": "王一淳",
+      "rating": 6.5,
+      "boxOfficeWan": 760.0,
+      "doubanId": "26433966",
+      "url": "https://movie.douban.com/subject/26433966/"
+    },
+    {
+      "title": "少女佳禾",
+      "year": 2020,
+      "director": "周笋",
+      "rating": 6.2,
+      "boxOfficeWan": 788.0,
+      "doubanId": "34939037",
+      "url": "https://movie.douban.com/subject/34939037/"
+    },
+    {
+      "title": "双镯",
+      "year": 1989,
+      "director": "黄玉珊",
+      "rating": 7.9,
+      "boxOfficeWan": 79.0,
+      "doubanId": "1401212",
+      "url": "https://movie.douban.com/subject/1401212/"
+    },
+    {
+      "title": "好东西",
+      "year": 2024,
+      "director": "邵艺辉",
+      "rating": 9.0,
+      "boxOfficeWan": 70000.0,
+      "doubanId": "36154853",
+      "url": "https://movie.douban.com/subject/36154853/"
+    },
+    {
+      "title": "我的姐姐",
+      "year": 2021,
+      "director": "殷若昕",
+      "rating": 6.9,
+      "boxOfficeWan": 86000.0,
+      "doubanId": "35158160",
+      "url": "https://movie.douban.com/subject/35158160/"
+    },
+    {
+      "title": "一个陌生女人的来信",
+      "year": 2004,
+      "director": "徐静蕾",
+      "rating": 7.5,
+      "boxOfficeWan": 800.4,
+      "doubanId": "1308799",
+      "url": "https://movie.douban.com/subject/1308799/"
+    },
+    {
+      "title": "观音山",
+      "year": 2010,
+      "director": "李玉",
+      "rating": 7.1,
+      "boxOfficeWan": 8000.0,
+      "doubanId": "4059245",
+      "url": "https://movie.douban.com/subject/4059245/"
+    },
+    {
+      "title": "玉观音",
+      "year": 2003,
+      "director": "许鞍华",
+      "rating": 5.8,
+      "boxOfficeWan": 800.0,
+      "doubanId": "2248526",
+      "url": "https://movie.douban.com/subject/2248526/"
+    },
+    {
+      "title": "我们天上见",
+      "year": 2009,
+      "director": "蒋雯丽",
+      "rating": 8.3,
+      "boxOfficeWan": 80.0,
+      "doubanId": "3626561",
+      "url": "https://movie.douban.com/subject/3626561/"
+    },
+    {
+      "title": "如梦",
+      "year": 2010,
+      "director": "罗卓瑶",
+      "rating": 6.2,
+      "boxOfficeWan": 87.3,
+      "doubanId": "3114200",
+      "url": "https://movie.douban.com/subject/3114200/"
+    },
+    {
+      "title": "面子",
+      "year": 2004,
+      "director": "伍思薇",
+      "rating": 8.8,
+      "boxOfficeWan": 886.0,
+      "doubanId": "1421278",
+      "url": "https://movie.douban.com/subject/1421278/"
+    },
+    {
+      "title": "幽灵人间",
+      "year": 2001,
+      "director": "许鞍华",
+      "rating": 6.2,
+      "boxOfficeWan": 887.0,
+      "doubanId": "1308740",
+      "url": "https://movie.douban.com/subject/1308740/"
+    },
+    {
+      "title": "苹果",
+      "year": 2007,
+      "director": "李玉",
+      "rating": 6.8,
+      "boxOfficeWan": 896.0,
+      "doubanId": "1966464",
+      "url": "https://movie.douban.com/subject/1966464/"
+    },
+    {
+      "title": "超时空同居",
+      "year": 2018,
+      "director": "苏伦",
+      "rating": 6.9,
+      "boxOfficeWan": 90300.0,
+      "doubanId": "27663919",
+      "url": "https://movie.douban.com/subject/27663919/"
+    },
+    {
+      "title": "穿过寒冬拥抱你",
+      "year": 2021,
+      "director": "薛晓路",
+      "rating": 5.5,
+      "boxOfficeWan": 93600.0,
+      "doubanId": "35307456",
+      "url": "https://movie.douban.com/subject/35307456/"
+    },
+    {
+      "title": "看不见的朋友",
+      "year": 2023,
+      "director": "谢沛如",
+      "rating": 6.9,
+      "boxOfficeWan": 930.8,
+      "doubanId": "35954480",
+      "url": "https://movie.douban.com/subject/35954480/"
+    },
+    {
+      "title": "孔子",
+      "year": 2010,
+      "director": "胡玫",
+      "rating": 5.5,
+      "boxOfficeWan": 9946.0,
+      "doubanId": "1275999",
+      "url": "https://movie.douban.com/subject/1275999/"
+    },
+    {
+      "title": "如果声音不记得",
+      "year": 2020,
+      "director": "落落",
+      "rating": 4.8,
+      "boxOfficeWan": 0.0,
+      "doubanId": "34825541",
+      "url": "https://movie.douban.com/subject/34825541/"
+    },
+    {
+      "title": "梦想照进现实",
+      "year": 2006,
+      "director": "徐静蕾",
+      "rating": 6.5,
+      "boxOfficeWan": 0.0,
+      "doubanId": "1875313",
+      "url": "https://movie.douban.com/subject/1875313/"
+    }
+  ]
+}

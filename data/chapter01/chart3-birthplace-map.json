@@ -1,0 +1,1425 @@
+{
+  "source": "数据来源：华语女导演111位 · 出生地",
+  "sourceFile": "图表数据整理\\图表数据整理\\【整体数据】华语女导演数据.xlsx",
+  "provinces": [
+    {
+      "name": "台湾",
+      "value": 12
+    },
+    {
+      "name": "北京",
+      "value": 10
+    },
+    {
+      "name": "浙江",
+      "value": 6
+    },
+    {
+      "name": "四川",
+      "value": 5
+    },
+    {
+      "name": "香港",
+      "value": 5
+    },
+    {
+      "name": "安徽",
+      "value": 4
+    },
+    {
+      "name": "陕西",
+      "value": 4
+    },
+    {
+      "name": "辽宁",
+      "value": 4
+    },
+    {
+      "name": "重庆",
+      "value": 3
+    },
+    {
+      "name": "湖南",
+      "value": 3
+    },
+    {
+      "name": "上海",
+      "value": 3
+    },
+    {
+      "name": "湖北",
+      "value": 2
+    },
+    {
+      "name": "山东",
+      "value": 2
+    },
+    {
+      "name": "河南",
+      "value": 2
+    },
+    {
+      "name": "江西",
+      "value": 2
+    },
+    {
+      "name": "宁夏",
+      "value": 2
+    },
+    {
+      "name": "内蒙古",
+      "value": 2
+    },
+    {
+      "name": "广东",
+      "value": 2
+    },
+    {
+      "name": "山西",
+      "value": 1
+    },
+    {
+      "name": "吉林",
+      "value": 1
+    },
+    {
+      "name": "江苏",
+      "value": 1
+    },
+    {
+      "name": "东北",
+      "value": 1
+    },
+    {
+      "name": "云南",
+      "value": 1
+    },
+    {
+      "name": "澳门",
+      "value": 1
+    },
+    {
+      "name": "海外",
+      "value": 1
+    },
+    {
+      "name": "天津",
+      "value": 1
+    },
+    {
+      "name": "黑龙江",
+      "value": 1
+    },
+    {
+      "name": "广西",
+      "value": 1
+    },
+    {
+      "name": "待查",
+      "value": 28
+    }
+  ],
+  "cities": [
+    {
+      "name": "待查",
+      "value": 26
+    },
+    {
+      "name": "北京市",
+      "value": 10
+    },
+    {
+      "name": "香港",
+      "value": 5
+    },
+    {
+      "name": "台湾",
+      "value": 4
+    },
+    {
+      "name": "四川成都",
+      "value": 3
+    },
+    {
+      "name": "台湾台北",
+      "value": 3
+    },
+    {
+      "name": "河南",
+      "value": 2
+    },
+    {
+      "name": "江西",
+      "value": 2
+    },
+    {
+      "name": "陕西",
+      "value": 2
+    },
+    {
+      "name": "四川",
+      "value": 2
+    },
+    {
+      "name": "辽宁沈阳",
+      "value": 2
+    },
+    {
+      "name": "上海",
+      "value": 2
+    },
+    {
+      "name": "湖北襄阳",
+      "value": 1
+    },
+    {
+      "name": "安徽铜陵",
+      "value": 1
+    },
+    {
+      "name": "山西太原",
+      "value": 1
+    },
+    {
+      "name": "吉林长春",
+      "value": 1
+    },
+    {
+      "name": "安徽芜湖",
+      "value": 1
+    },
+    {
+      "name": "山东威海",
+      "value": 1
+    },
+    {
+      "name": "重庆市彭水县",
+      "value": 1
+    },
+    {
+      "name": "山东淄博",
+      "value": 1
+    },
+    {
+      "name": "中国西北",
+      "value": 1
+    },
+    {
+      "name": "湖南益阳",
+      "value": 1
+    },
+    {
+      "name": "湖南茶陵",
+      "value": 1
+    },
+    {
+      "name": "江苏苏州",
+      "value": 1
+    },
+    {
+      "name": "陕西西安",
+      "value": 1
+    },
+    {
+      "name": "安徽蚌埠",
+      "value": 1
+    },
+    {
+      "name": "辽宁营口",
+      "value": 1
+    },
+    {
+      "name": "宁夏银川",
+      "value": 1
+    },
+    {
+      "name": "内蒙古锡林郭勒",
+      "value": 1
+    },
+    {
+      "name": "东北",
+      "value": 1
+    },
+    {
+      "name": "云南",
+      "value": 1
+    },
+    {
+      "name": "待查（湖南湘乡籍）",
+      "value": 1
+    },
+    {
+      "name": "广东深圳",
+      "value": 1
+    },
+    {
+      "name": "浙江温州乐清",
+      "value": 1
+    },
+    {
+      "name": "重庆",
+      "value": 1
+    },
+    {
+      "name": "安徽安庆",
+      "value": 1
+    },
+    {
+      "name": "宁夏固原",
+      "value": 1
+    },
+    {
+      "name": "待查（广东籍）",
+      "value": 1
+    },
+    {
+      "name": "内蒙古锡林郭勒盟",
+      "value": 1
+    },
+    {
+      "name": "上海徐汇区",
+      "value": 1
+    },
+    {
+      "name": "浙江宁波",
+      "value": 1
+    },
+    {
+      "name": "辽宁鞍山",
+      "value": 1
+    },
+    {
+      "name": "广东普宁",
+      "value": 1
+    },
+    {
+      "name": "澳门",
+      "value": 1
+    },
+    {
+      "name": "台湾新北",
+      "value": 1
+    },
+    {
+      "name": "台湾基隆",
+      "value": 1
+    },
+    {
+      "name": "台湾高雄",
+      "value": 1
+    },
+    {
+      "name": "美国加利福尼亚圣何塞",
+      "value": 1
+    },
+    {
+      "name": "浙江台州",
+      "value": 1
+    },
+    {
+      "name": "天津市",
+      "value": 1
+    },
+    {
+      "name": "黑龙江伊春",
+      "value": 1
+    },
+    {
+      "name": "浙江诸暨",
+      "value": 1
+    },
+    {
+      "name": "湖北随州",
+      "value": 1
+    },
+    {
+      "name": "浙江温州",
+      "value": 1
+    },
+    {
+      "name": "湖南岳阳",
+      "value": 1
+    },
+    {
+      "name": "广西桂林",
+      "value": 1
+    },
+    {
+      "name": "台湾桃园",
+      "value": 1
+    },
+    {
+      "name": "台湾花莲",
+      "value": 1
+    },
+    {
+      "name": "重庆市",
+      "value": 1
+    },
+    {
+      "name": "浙江云和",
+      "value": 1
+    }
+  ],
+  "directors": [
+    {
+      "name": "贾玲",
+      "birthplace": "湖北襄阳",
+      "province": "湖北"
+    },
+    {
+      "name": "薛晓路",
+      "birthplace": "北京市",
+      "province": "北京"
+    },
+    {
+      "name": "殷若昕",
+      "birthplace": "安徽铜陵",
+      "province": "安徽"
+    },
+    {
+      "name": "邵艺辉",
+      "birthplace": "山西太原",
+      "province": "山西"
+    },
+    {
+      "name": "杨荔钠",
+      "birthplace": "吉林长春",
+      "province": "吉林"
+    },
+    {
+      "name": "赵薇",
+      "birthplace": "安徽芜湖",
+      "province": "安徽"
+    },
+    {
+      "name": "李玉",
+      "birthplace": "山东威海",
+      "province": "山东"
+    },
+    {
+      "name": "尹丽川",
+      "birthplace": "重庆市彭水县",
+      "province": "重庆"
+    },
+    {
+      "name": "文晏",
+      "birthplace": "北京市",
+      "province": "北京"
+    },
+    {
+      "name": "滕丛丛",
+      "birthplace": "山东淄博",
+      "province": "山东"
+    },
+    {
+      "name": "白雪",
+      "birthplace": "中国西北",
+      "province": "陕西"
+    },
+    {
+      "name": "黄骥",
+      "birthplace": "湖南益阳",
+      "province": "湖南"
+    },
+    {
+      "name": "王一淳",
+      "birthplace": "河南",
+      "province": "河南"
+    },
+    {
+      "name": "刘伽茵",
+      "birthplace": "北京市",
+      "province": "北京"
+    },
+    {
+      "name": "马俪文",
+      "birthplace": "江西",
+      "province": "江西"
+    },
+    {
+      "name": "宁瀛",
+      "birthplace": "陕西",
+      "province": "陕西"
+    },
+    {
+      "name": "彭小莲",
+      "birthplace": "湖南茶陵",
+      "province": "湖南"
+    },
+    {
+      "name": "李少红",
+      "birthplace": "江苏苏州",
+      "province": "江苏"
+    },
+    {
+      "name": "张末",
+      "birthplace": "陕西西安",
+      "province": "陕西"
+    },
+    {
+      "name": "胡玫",
+      "birthplace": "北京市",
+      "province": "北京"
+    },
+    {
+      "name": "徐静蕾",
+      "birthplace": "北京市",
+      "province": "北京"
+    },
+    {
+      "name": "蒋雯丽",
+      "birthplace": "安徽蚌埠",
+      "province": "安徽"
+    },
+    {
+      "name": "秦海璐",
+      "birthplace": "辽宁营口",
+      "province": "辽宁"
+    },
+    {
+      "name": "章子怡",
+      "birthplace": "北京市",
+      "province": "北京"
+    },
+    {
+      "name": "唐晓白",
+      "birthplace": "四川",
+      "province": "四川"
+    },
+    {
+      "name": "刘苗苗",
+      "birthplace": "宁夏银川",
+      "province": "宁夏"
+    },
+    {
+      "name": "乌日娜",
+      "birthplace": "内蒙古锡林郭勒",
+      "province": "内蒙古"
+    },
+    {
+      "name": "温婧",
+      "birthplace": "待查",
+      "province": "待查"
+    },
+    {
+      "name": "麻赢心",
+      "birthplace": "东北",
+      "province": "东北"
+    },
+    {
+      "name": "刘斯逸",
+      "birthplace": "四川",
+      "province": "四川"
+    },
+    {
+      "name": "李珏",
+      "birthplace": "云南",
+      "province": "云南"
+    },
+    {
+      "name": "苗月",
+      "birthplace": "待查（湖南湘乡籍）",
+      "province": "待查"
+    },
+    {
+      "name": "董宏杰",
+      "birthplace": "待查",
+      "province": "待查"
+    },
+    {
+      "name": "吴雅文",
+      "birthplace": "广东深圳",
+      "province": "广东"
+    },
+    {
+      "name": "金向怡",
+      "birthplace": "浙江温州乐清",
+      "province": "浙江"
+    },
+    {
+      "name": "刘娟",
+      "birthplace": "重庆",
+      "province": "重庆"
+    },
+    {
+      "name": "田海蓉",
+      "birthplace": "安徽安庆",
+      "province": "安徽"
+    },
+    {
+      "name": "蔡聪",
+      "birthplace": "陕西",
+      "province": "陕西"
+    },
+    {
+      "name": "夏孟",
+      "birthplace": "待查",
+      "province": "待查"
+    },
+    {
+      "name": "邱玉洁",
+      "birthplace": "宁夏固原",
+      "province": "宁夏"
+    },
+    {
+      "name": "黄绮玲",
+      "birthplace": "待查（广东籍）",
+      "province": "待查"
+    },
+    {
+      "name": "游晓颖",
+      "birthplace": "四川成都",
+      "province": "四川"
+    },
+    {
+      "name": "苏伦",
+      "birthplace": "内蒙古锡林郭勒盟",
+      "province": "内蒙古"
+    },
+    {
+      "name": "姚婷婷",
+      "birthplace": "辽宁沈阳",
+      "province": "辽宁"
+    },
+    {
+      "name": "落落",
+      "birthplace": "上海徐汇区",
+      "province": "上海"
+    },
+    {
+      "name": "秦海燕",
+      "birthplace": "浙江宁波",
+      "province": "浙江"
+    },
+    {
+      "name": "许鞍华",
+      "birthplace": "辽宁鞍山",
+      "province": "辽宁"
+    },
+    {
+      "name": "黄真真",
+      "birthplace": "香港",
+      "province": "香港"
+    },
+    {
+      "name": "麦曦茵",
+      "birthplace": "待查",
+      "province": "待查"
+    },
+    {
+      "name": "彭秀慧",
+      "birthplace": "香港",
+      "province": "香港"
+    },
+    {
+      "name": "黄绮琳",
+      "birthplace": "香港",
+      "province": "香港"
+    },
+    {
+      "name": "张婉婷",
+      "birthplace": "广东普宁",
+      "province": "广东"
+    },
+    {
+      "name": "罗卓瑶",
+      "birthplace": "澳门",
+      "province": "澳门"
+    },
+    {
+      "name": "曾翠珊",
+      "birthplace": "待查",
+      "province": "待查"
+    },
+    {
+      "name": "陈小娟",
+      "birthplace": "香港",
+      "province": "香港"
+    },
+    {
+      "name": "祝紫嫣",
+      "birthplace": "待查",
+      "province": "待查"
+    },
+    {
+      "name": "谭惠贞",
+      "birthplace": "待查",
+      "province": "待查"
+    },
+    {
+      "name": "卓韵芝",
+      "birthplace": "待查",
+      "province": "待查"
+    },
+    {
+      "name": "魏时煜",
+      "birthplace": "待查",
+      "province": "待查"
+    },
+    {
+      "name": "林爱华",
+      "birthplace": "待查",
+      "province": "待查"
+    },
+    {
+      "name": "岸西",
+      "birthplace": "待查",
+      "province": "待查"
+    },
+    {
+      "name": "张艾嘉",
+      "birthplace": "台湾台北",
+      "province": "台湾"
+    },
+    {
+      "name": "刘若英",
+      "birthplace": "台湾台北",
+      "province": "台湾"
+    },
+    {
+      "name": "舒淇",
+      "birthplace": "台湾新北",
+      "province": "台湾"
+    },
+    {
+      "name": "周美玲",
+      "birthplace": "台湾基隆",
+      "province": "台湾"
+    },
+    {
+      "name": "陈映蓉",
+      "birthplace": "待查",
+      "province": "待查"
+    },
+    {
+      "name": "郑芬芬",
+      "birthplace": "台湾",
+      "province": "台湾"
+    },
+    {
+      "name": "傅天余",
+      "birthplace": "台湾",
+      "province": "台湾"
+    },
+    {
+      "name": "陈芯宜",
+      "birthplace": "待查",
+      "province": "待查"
+    },
+    {
+      "name": "徐誉庭",
+      "birthplace": "台湾高雄",
+      "province": "台湾"
+    },
+    {
+      "name": "王小棣",
+      "birthplace": "台湾台北",
+      "province": "台湾"
+    },
+    {
+      "name": "黄玉珊",
+      "birthplace": "待查",
+      "province": "待查"
+    },
+    {
+      "name": "陈玉珊",
+      "birthplace": "台湾",
+      "province": "台湾"
+    },
+    {
+      "name": "李芸婵",
+      "birthplace": "待查",
+      "province": "待查"
+    },
+    {
+      "name": "姜秀琼",
+      "birthplace": "台湾",
+      "province": "台湾"
+    },
+    {
+      "name": "谢沛如",
+      "birthplace": "待查",
+      "province": "待查"
+    },
+    {
+      "name": "詹馥华",
+      "birthplace": "待查",
+      "province": "待查"
+    },
+    {
+      "name": "赵婷",
+      "birthplace": "北京市",
+      "province": "北京"
+    },
+    {
+      "name": "王子逸",
+      "birthplace": "北京市",
+      "province": "北京"
+    },
+    {
+      "name": "伍思薇",
+      "birthplace": "美国加利福尼亚圣何塞",
+      "province": "海外"
+    },
+    {
+      "name": "陈冲",
+      "birthplace": "上海",
+      "province": "上海"
+    },
+    {
+      "name": "郭小橹",
+      "birthplace": "浙江台州",
+      "province": "浙江"
+    },
+    {
+      "name": "刘韵文",
+      "birthplace": "待查",
+      "province": "待查"
+    },
+    {
+      "name": "崔明慧",
+      "birthplace": "上海",
+      "province": "上海"
+    },
+    {
+      "name": "胡安",
+      "birthplace": "北京市",
+      "province": "北京"
+    },
+    {
+      "name": "姜晓萱",
+      "birthplace": "待查",
+      "province": "待查"
+    },
+    {
+      "name": "周笋",
+      "birthplace": "江西",
+      "province": "江西"
+    },
+    {
+      "name": "冯艳",
+      "birthplace": "天津市",
+      "province": "天津"
+    },
+    {
+      "name": "季丹",
+      "birthplace": "黑龙江伊春",
+      "province": "黑龙江"
+    },
+    {
+      "name": "马莉",
+      "birthplace": "浙江诸暨",
+      "province": "浙江"
+    },
+    {
+      "name": "李红",
+      "birthplace": "北京市",
+      "province": "北京"
+    },
+    {
+      "name": "章梦奇",
+      "birthplace": "湖北随州",
+      "province": "湖北"
+    },
+    {
+      "name": "黄莎莎",
+      "birthplace": "浙江温州",
+      "province": "浙江"
+    },
+    {
+      "name": "周洲",
+      "birthplace": "待查",
+      "province": "待查"
+    },
+    {
+      "name": "季竹青",
+      "birthplace": "辽宁沈阳",
+      "province": "辽宁"
+    },
+    {
+      "name": "宋思琪",
+      "birthplace": "河南",
+      "province": "河南"
+    },
+    {
+      "name": "周小琳",
+      "birthplace": "湖南岳阳",
+      "province": "湖南"
+    },
+    {
+      "name": "徐雨洁",
+      "birthplace": "广西桂林",
+      "province": "广西"
+    },
+    {
+      "name": "游珈瑄",
+      "birthplace": "台湾桃园",
+      "province": "台湾"
+    },
+    {
+      "name": "陈洁瑶",
+      "birthplace": "台湾花莲",
+      "province": "台湾"
+    },
+    {
+      "name": "石之予",
+      "birthplace": "重庆市",
+      "province": "重庆"
+    },
+    {
+      "name": "张丽玲",
+      "birthplace": "浙江云和",
+      "province": "浙江"
+    },
+    {
+      "name": "王芬",
+      "birthplace": "待查",
+      "province": "待查"
+    },
+    {
+      "name": "黄儒香",
+      "birthplace": "四川成都",
+      "province": "四川"
+    },
+    {
+      "name": "唐丹鸿",
+      "birthplace": "四川成都",
+      "province": "四川"
+    },
+    {
+      "name": "刘晓津",
+      "birthplace": "待查",
+      "province": "待查"
+    },
+    {
+      "name": "柴颖娜",
+      "birthplace": "待查",
+      "province": "待查"
+    },
+    {
+      "name": "马英力",
+      "birthplace": "待查",
+      "province": "待查"
+    },
+    {
+      "name": "柯贞年",
+      "birthplace": "待查",
+      "province": "待查"
+    },
+    {
+      "name": "王颖",
+      "birthplace": "香港",
+      "province": "香港"
+    },
+    {
+      "name": "虞琳敏",
+      "birthplace": "待查",
+      "province": "待查"
+    }
+  ],
+  "regionDirectors": {
+    "湖北": [
+      {
+        "name": "贾玲",
+        "birthplace": "湖北襄阳"
+      },
+      {
+        "name": "章梦奇",
+        "birthplace": "湖北随州"
+      }
+    ],
+    "北京": [
+      {
+        "name": "薛晓路",
+        "birthplace": "北京市"
+      },
+      {
+        "name": "文晏",
+        "birthplace": "北京市"
+      },
+      {
+        "name": "刘伽茵",
+        "birthplace": "北京市"
+      },
+      {
+        "name": "胡玫",
+        "birthplace": "北京市"
+      },
+      {
+        "name": "徐静蕾",
+        "birthplace": "北京市"
+      },
+      {
+        "name": "章子怡",
+        "birthplace": "北京市"
+      },
+      {
+        "name": "赵婷",
+        "birthplace": "北京市"
+      },
+      {
+        "name": "王子逸",
+        "birthplace": "北京市"
+      },
+      {
+        "name": "胡安",
+        "birthplace": "北京市"
+      },
+      {
+        "name": "李红",
+        "birthplace": "北京市"
+      }
+    ],
+    "安徽": [
+      {
+        "name": "殷若昕",
+        "birthplace": "安徽铜陵"
+      },
+      {
+        "name": "赵薇",
+        "birthplace": "安徽芜湖"
+      },
+      {
+        "name": "蒋雯丽",
+        "birthplace": "安徽蚌埠"
+      },
+      {
+        "name": "田海蓉",
+        "birthplace": "安徽安庆"
+      }
+    ],
+    "山西": [
+      {
+        "name": "邵艺辉",
+        "birthplace": "山西太原"
+      }
+    ],
+    "吉林": [
+      {
+        "name": "杨荔钠",
+        "birthplace": "吉林长春"
+      }
+    ],
+    "山东": [
+      {
+        "name": "李玉",
+        "birthplace": "山东威海"
+      },
+      {
+        "name": "滕丛丛",
+        "birthplace": "山东淄博"
+      }
+    ],
+    "重庆": [
+      {
+        "name": "尹丽川",
+        "birthplace": "重庆市彭水县"
+      },
+      {
+        "name": "刘娟",
+        "birthplace": "重庆"
+      },
+      {
+        "name": "石之予",
+        "birthplace": "重庆市"
+      }
+    ],
+    "陕西": [
+      {
+        "name": "白雪",
+        "birthplace": "中国西北"
+      },
+      {
+        "name": "宁瀛",
+        "birthplace": "陕西"
+      },
+      {
+        "name": "张末",
+        "birthplace": "陕西西安"
+      },
+      {
+        "name": "蔡聪",
+        "birthplace": "陕西"
+      }
+    ],
+    "湖南": [
+      {
+        "name": "黄骥",
+        "birthplace": "湖南益阳"
+      },
+      {
+        "name": "彭小莲",
+        "birthplace": "湖南茶陵"
+      },
+      {
+        "name": "周小琳",
+        "birthplace": "湖南岳阳"
+      }
+    ],
+    "河南": [
+      {
+        "name": "王一淳",
+        "birthplace": "河南"
+      },
+      {
+        "name": "宋思琪",
+        "birthplace": "河南"
+      }
+    ],
+    "江西": [
+      {
+        "name": "马俪文",
+        "birthplace": "江西"
+      },
+      {
+        "name": "周笋",
+        "birthplace": "江西"
+      }
+    ],
+    "江苏": [
+      {
+        "name": "李少红",
+        "birthplace": "江苏苏州"
+      }
+    ],
+    "辽宁": [
+      {
+        "name": "秦海璐",
+        "birthplace": "辽宁营口"
+      },
+      {
+        "name": "姚婷婷",
+        "birthplace": "辽宁沈阳"
+      },
+      {
+        "name": "许鞍华",
+        "birthplace": "辽宁鞍山"
+      },
+      {
+        "name": "季竹青",
+        "birthplace": "辽宁沈阳"
+      }
+    ],
+    "四川": [
+      {
+        "name": "唐晓白",
+        "birthplace": "四川"
+      },
+      {
+        "name": "刘斯逸",
+        "birthplace": "四川"
+      },
+      {
+        "name": "游晓颖",
+        "birthplace": "四川成都"
+      },
+      {
+        "name": "黄儒香",
+        "birthplace": "四川成都"
+      },
+      {
+        "name": "唐丹鸿",
+        "birthplace": "四川成都"
+      }
+    ],
+    "宁夏": [
+      {
+        "name": "刘苗苗",
+        "birthplace": "宁夏银川"
+      },
+      {
+        "name": "邱玉洁",
+        "birthplace": "宁夏固原"
+      }
+    ],
+    "内蒙古": [
+      {
+        "name": "乌日娜",
+        "birthplace": "内蒙古锡林郭勒"
+      },
+      {
+        "name": "苏伦",
+        "birthplace": "内蒙古锡林郭勒盟"
+      }
+    ],
+    "待查": [
+      {
+        "name": "温婧",
+        "birthplace": "待查"
+      },
+      {
+        "name": "苗月",
+        "birthplace": "待查（湖南湘乡籍）"
+      },
+      {
+        "name": "董宏杰",
+        "birthplace": "待查"
+      },
+      {
+        "name": "夏孟",
+        "birthplace": "待查"
+      },
+      {
+        "name": "黄绮玲",
+        "birthplace": "待查（广东籍）"
+      },
+      {
+        "name": "麦曦茵",
+        "birthplace": "待查"
+      },
+      {
+        "name": "曾翠珊",
+        "birthplace": "待查"
+      },
+      {
+        "name": "祝紫嫣",
+        "birthplace": "待查"
+      },
+      {
+        "name": "谭惠贞",
+        "birthplace": "待查"
+      },
+      {
+        "name": "卓韵芝",
+        "birthplace": "待查"
+      },
+      {
+        "name": "魏时煜",
+        "birthplace": "待查"
+      },
+      {
+        "name": "林爱华",
+        "birthplace": "待查"
+      },
+      {
+        "name": "岸西",
+        "birthplace": "待查"
+      },
+      {
+        "name": "陈映蓉",
+        "birthplace": "待查"
+      },
+      {
+        "name": "陈芯宜",
+        "birthplace": "待查"
+      },
+      {
+        "name": "黄玉珊",
+        "birthplace": "待查"
+      },
+      {
+        "name": "李芸婵",
+        "birthplace": "待查"
+      },
+      {
+        "name": "谢沛如",
+        "birthplace": "待查"
+      },
+      {
+        "name": "詹馥华",
+        "birthplace": "待查"
+      },
+      {
+        "name": "刘韵文",
+        "birthplace": "待查"
+      },
+      {
+        "name": "姜晓萱",
+        "birthplace": "待查"
+      },
+      {
+        "name": "周洲",
+        "birthplace": "待查"
+      },
+      {
+        "name": "王芬",
+        "birthplace": "待查"
+      },
+      {
+        "name": "刘晓津",
+        "birthplace": "待查"
+      },
+      {
+        "name": "柴颖娜",
+        "birthplace": "待查"
+      },
+      {
+        "name": "马英力",
+        "birthplace": "待查"
+      },
+      {
+        "name": "柯贞年",
+        "birthplace": "待查"
+      },
+      {
+        "name": "虞琳敏",
+        "birthplace": "待查"
+      }
+    ],
+    "东北": [
+      {
+        "name": "麻赢心",
+        "birthplace": "东北"
+      }
+    ],
+    "云南": [
+      {
+        "name": "李珏",
+        "birthplace": "云南"
+      }
+    ],
+    "广东": [
+      {
+        "name": "吴雅文",
+        "birthplace": "广东深圳"
+      },
+      {
+        "name": "张婉婷",
+        "birthplace": "广东普宁"
+      }
+    ],
+    "浙江": [
+      {
+        "name": "金向怡",
+        "birthplace": "浙江温州乐清"
+      },
+      {
+        "name": "秦海燕",
+        "birthplace": "浙江宁波"
+      },
+      {
+        "name": "郭小橹",
+        "birthplace": "浙江台州"
+      },
+      {
+        "name": "马莉",
+        "birthplace": "浙江诸暨"
+      },
+      {
+        "name": "黄莎莎",
+        "birthplace": "浙江温州"
+      },
+      {
+        "name": "张丽玲",
+        "birthplace": "浙江云和"
+      }
+    ],
+    "上海": [
+      {
+        "name": "落落",
+        "birthplace": "上海徐汇区"
+      },
+      {
+        "name": "陈冲",
+        "birthplace": "上海"
+      },
+      {
+        "name": "崔明慧",
+        "birthplace": "上海"
+      }
+    ],
+    "香港": [
+      {
+        "name": "黄真真",
+        "birthplace": "香港"
+      },
+      {
+        "name": "彭秀慧",
+        "birthplace": "香港"
+      },
+      {
+        "name": "黄绮琳",
+        "birthplace": "香港"
+      },
+      {
+        "name": "陈小娟",
+        "birthplace": "香港"
+      },
+      {
+        "name": "王颖",
+        "birthplace": "香港"
+      }
+    ],
+    "澳门": [
+      {
+        "name": "罗卓瑶",
+        "birthplace": "澳门"
+      }
+    ],
+    "台湾": [
+      {
+        "name": "张艾嘉",
+        "birthplace": "台湾台北"
+      },
+      {
+        "name": "刘若英",
+        "birthplace": "台湾台北"
+      },
+      {
+        "name": "舒淇",
+        "birthplace": "台湾新北"
+      },
+      {
+        "name": "周美玲",
+        "birthplace": "台湾基隆"
+      },
+      {
+        "name": "郑芬芬",
+        "birthplace": "台湾"
+      },
+      {
+        "name": "傅天余",
+        "birthplace": "台湾"
+      },
+      {
+        "name": "徐誉庭",
+        "birthplace": "台湾高雄"
+      },
+      {
+        "name": "王小棣",
+        "birthplace": "台湾台北"
+      },
+      {
+        "name": "陈玉珊",
+        "birthplace": "台湾"
+      },
+      {
+        "name": "姜秀琼",
+        "birthplace": "台湾"
+      },
+      {
+        "name": "游珈瑄",
+        "birthplace": "台湾桃园"
+      },
+      {
+        "name": "陈洁瑶",
+        "birthplace": "台湾花莲"
+      }
+    ],
+    "海外": [
+      {
+        "name": "伍思薇",
+        "birthplace": "美国加利福尼亚圣何塞"
+      }
+    ],
+    "天津": [
+      {
+        "name": "冯艳",
+        "birthplace": "天津市"
+      }
+    ],
+    "黑龙江": [
+      {
+        "name": "季丹",
+        "birthplace": "黑龙江伊春"
+      }
+    ],
+    "广西": [
+      {
+        "name": "徐雨洁",
+        "birthplace": "广西桂林"
+      }
+    ]
+  }
+}

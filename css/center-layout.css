@@ -1,0 +1,840 @@
+/* ================================================================
+   电脑整屏布局 · 宽屏优先（≥1024px 全宽分栏）
+   ================================================================ */
+
+:root {
+  --page-pad: clamp(20px, 2.5vw, 40px);
+  --page-pad-sm: clamp(16px, 3vw, 24px);
+  --layout-gutter: 0;
+  --copy-width: min(calc(100vw * 3 / 4), calc(100vw - var(--page-pad) * 2));
+  --copy-measure: var(--copy-width);
+  --chart-width: min(calc(100vw * 2 / 3), calc(100vw - var(--page-pad) * 2));
+  --chart-max: var(--chart-width);
+  --quadrant-width: var(--chart-width);
+}
+
+@media (min-width: 1024px) {
+  :root {
+    /* 正文 3/4 · 图表 2/3 · 均居中（正文略宽于图表） */
+    --layout-gutter: 0;
+    --copy-width: calc(100vw * 3 / 4);
+    --copy-measure: var(--copy-width);
+    --chart-width: calc(100vw * 2 / 3);
+    --chart-max: var(--chart-width);
+    --quadrant-width: var(--chart-width);
+  }
+}
+
+/* ---- 全宽容器 ---- */
+.prologue-inner,
+.transition-section .container,
+.chapter-section .chapter-inner,
+.chapter-header,
+.chapter-gate,
+.story-footer .footer-meta {
+  max-width: none;
+  width: 100%;
+  padding-left: var(--page-pad);
+  padding-right: var(--page-pad);
+  box-sizing: border-box;
+}
+
+.transition-section .container {
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  text-align: left;
+}
+
+.prologue-inner {
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  text-align: center;
+}
+
+.chapter-header {
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  text-align: left;
+  padding-top: 72px;
+  padding-bottom: 48px;
+}
+
+.chapter-gate {
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  text-align: center;
+}
+
+.chapter-gate .gate-lead {
+  max-width: var(--copy-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---- 第一章：文字在上 · 图表在下居中 ---- */
+.chapter-section .chapter-inner {
+  padding-left: var(--page-pad);
+  padding-right: var(--page-pad);
+}
+
+/* ---- 各章图表：文字在上 · 图表在下居中 ---- */
+.chapter-section .scroll-step {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: clamp(28px, 4vh, 48px);
+  min-height: 92vh;
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: clamp(48px, 6vh, 80px) var(--page-pad);
+  box-sizing: border-box;
+}
+
+.chapter-section .scroll-step .step-copy {
+  order: 1;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding-top: 0;
+  text-align: left;
+}
+
+.chapter-section .scroll-step .chart-frame {
+  order: 2;
+  position: relative;
+  top: auto;
+  width: var(--chart-width);
+  max-width: min(var(--chart-width), calc(100vw - var(--page-pad) * 2));
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+  /* ---- 编辑版式：正文与图表均为 2/3 宽 · 居中 ---- */
+  .chapter-section .scroll-step,
+  .chapter-section .scroll-step.scroll-step-gen {
+    padding-left: var(--page-pad);
+    padding-right: var(--page-pad);
+  }
+
+  .chapter-section .scroll-step > .copy-subtitle,
+  .chapter-section .scroll-step .step-copy,
+  .chapter-section .scroll-step-gen > .gen-intro {
+    width: var(--copy-width);
+    max-width: min(var(--copy-width), calc(100vw - var(--page-pad) * 2));
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+  }
+
+  .chapter-section .scroll-step .chart-frame,
+  .chapter-section .scroll-step > .data-sketch,
+  .story-bridge-inner,
+  .story-bridge--sketch .data-sketch-image {
+    width: var(--chart-width);
+    max-width: var(--chart-width);
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+  }
+
+  /* 图表框内正文说明 · 与图表同宽 */
+  .chapter-section .scroll-step .chart-frame .chart-mid-copy,
+  .chapter-section .scroll-step .chart-frame .chart-insight,
+  .chapter-section .scroll-step .chart-frame .chart-source {
+    width: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    box-sizing: border-box;
+  }
+
+  .chapter-section .scroll-step-gen .gen-scrolly,
+  .chapter-section .scroll-step[data-step="ch1-step3"] > .chart-frame,
+  .transition-section .container.body-copy .chart-frame,
+  .transition-section .container.body-copy .slate-stack:not(.slate-stack--solo) {
+    width: var(--chart-width);
+    max-width: var(--chart-width);
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+  }
+
+  .scrolly-container--quadrant {
+    width: var(--quadrant-width);
+    max-width: min(var(--quadrant-width), calc(100vw - var(--page-pad) * 2));
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+  }
+
+  .transition-section .container.body-copy > p,
+  .transition-section .container.body-copy > .copy-emphasis,
+  .transition-section .container.body-copy > .copy-subtitle,
+  .transition-section .container.body-copy > .survival-stats,
+  .transition-section .container.body-copy > .chapter-heading,
+  .transition-section .container.body-copy > .chart-frame--spec-only,
+  .prologue-inner.copy-lines > p,
+  .prologue-inner .prologue-lead,
+  .prologue-inner .pull-quote,
+  .scrolly-step.body-copy > p,
+  .scrolly-step .case-card > p {
+    width: var(--copy-width);
+    max-width: var(--copy-width);
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+  }
+
+  .transition-section .container.body-copy > .data-sketch {
+    width: var(--chart-width);
+    max-width: var(--chart-width);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .chapter-gate.body-copy,
+  .transition-section .container.body-copy {
+    width: var(--copy-width);
+    max-width: min(var(--copy-width), calc(100vw - var(--page-pad) * 2));
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .chapter-gate.body-copy > .chapter-heading,
+  .chapter-gate.body-copy > p,
+  .chapter-gate.body-copy > .gate-lead,
+  .chapter-gate.body-copy > .copy-subtitle,
+  .chapter-gate.body-copy > .gate-num,
+  .chapter-gate.body-copy > .section-label,
+  .chapter-gate.body-copy .slate-stack--solo,
+  .chapter-gate.body-copy > .douban-review-box,
+  .transition-section .container.body-copy > .chapter-heading,
+  .transition-section .container.body-copy > p,
+  .transition-section .container.body-copy > .copy-emphasis,
+  .transition-section .container.body-copy > .copy-subtitle,
+  .transition-section .container.body-copy > .survival-stats,
+  .transition-section .container.body-copy > .chart-frame--spec-only {
+    width: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+  }
+
+  .chapter-gate.body-copy > .slate-stack:not(.slate-stack--solo),
+  .transition-section .container.body-copy > .slate-stack:not(.slate-stack--solo) {
+    width: var(--chart-width);
+    max-width: var(--chart-width);
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+  }
+
+  .chapter-gate.body-copy > .douban-review-box,
+  .transition-section .container.body-copy > .douban-review-box {
+    max-width: min(440px, 100%);
+  }
+
+  .chapter-gate.body-copy .slate-stack--solo,
+  .transition-section .container.body-copy .slate-stack--solo {
+    width: 100%;
+    max-width: 100%;
+    min-height: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .chapter-gate.body-copy .slate-stack--solo .slate-card,
+  .transition-section .container.body-copy .slate-stack--solo .slate-card {
+    position: relative;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .chapter-section .scroll-step .chart-frame .chart-subtitle,
+  .chapter-section .scroll-step .chart-frame .chart-source,
+  .chapter-section .scroll-step .chart-frame .chart-insight,
+  .chapter-section .scroll-step .chart-frame .slate-bar,
+  .chapter-section .scroll-step-gen .gen-scrolly-sticky .chart-frame .chart-subtitle,
+  .chapter-section .scroll-step-gen .gen-scrolly-sticky .chart-frame .chart-insight,
+  .chapter-section .scroll-step-gen .gen-scrolly-sticky .chart-frame .chart-source {
+    text-align: left;
+  }
+
+  .chapter-section .scroll-step .chart-frame .chart-title,
+  .chapter-section .scroll-step-gen .gen-scrolly-sticky .chart-frame .chart-title,
+  .transition-section .container.body-copy .chart-frame .chart-title {
+    text-align: center;
+  }
+
+  .chapter-section .scroll-step .chart-frame .slate-bar {
+    justify-content: flex-start;
+  }
+
+  .chapter-section .scroll-step .chart-frame .chart-canvas,
+  .chapter-section .scroll-step .chart-frame .chart-canvas canvas {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .chapter-section .scroll-step-gen .gen-scrolly-sticky .chart-frame {
+    text-align: left;
+  }
+
+  .scatter-footnote {
+    text-align: left;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1280px) {
+  .quadrant-scatter-board {
+    grid-template-columns: 1fr;
+  }
+}
+
+.chapter-section .scroll-step .chart-frame .chart-title,
+.chapter-section .scroll-step .chart-frame .chart-subtitle,
+.chapter-section .scroll-step .chart-frame .chart-source,
+.chapter-section .scroll-step .chart-frame .chart-insight {
+  text-align: center;
+}
+
+.chapter-section .scroll-step .chart-frame .slate-bar {
+  justify-content: center;
+}
+
+.chapter-section .scroll-step .chart-frame .chart-canvas,
+.chapter-section .scroll-step .chart-frame .chart-canvas canvas {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 代际图 · 场记板同 chart3 · 文案便签随滚动上移放大 */
+.chapter-section .scroll-step.scroll-step-gen {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: clamp(28px, 4vh, 48px);
+  padding: clamp(48px, 6vh, 80px) var(--page-pad);
+  min-height: auto;
+}
+
+.chapter-section .scroll-step-gen .gen-intro {
+  order: 1;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.chapter-section .scroll-step-gen .gen-scrolly {
+  order: 2;
+  position: relative;
+  width: 100%;
+  max-width: var(--chart-max);
+  margin: 0 auto;
+  --gen-sticky-h: 620px;
+}
+
+.chapter-section .scroll-step-gen .gen-scrolly-sticky {
+  position: sticky;
+  top: calc(var(--nav-top-h, 62px) + 12px);
+  z-index: 1;
+  width: 100%;
+}
+
+.chapter-section .scroll-step-gen .gen-scrolly-sticky .chart-frame {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  transform: rotate(-0.5deg);
+  filter: drop-shadow(2px 4px 8px rgba(44, 36, 22, 0.08));
+  text-align: center;
+}
+
+.chapter-section .scroll-step-gen .gen-scrolly-sticky .chart-frame .chart-title,
+.chapter-section .scroll-step-gen .gen-scrolly-sticky .chart-frame .chart-subtitle,
+.chapter-section .scroll-step-gen .gen-scrolly-sticky .chart-frame .chart-insight,
+.chapter-section .scroll-step-gen .gen-scrolly-sticky .chart-frame .chart-source {
+  text-align: center;
+}
+
+.chapter-section .scroll-step-gen .gen-scrolly-sticky .chart-canvas.chart-tall {
+  height: clamp(360px, 40vh, 500px);
+}
+
+.chapter-section .scroll-step-gen .gen-scrolly-sticky .chart-mid-copy {
+  position: relative;
+  z-index: 0;
+  max-width: min(52em, 96%);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.chapter-section .scroll-step-gen .gen-scrolly-track {
+  position: relative;
+  z-index: 2;
+  margin-top: calc(-1 * var(--gen-sticky-h));
+  pointer-events: none;
+}
+
+.gen-scrolly-step {
+  min-height: var(--gen-sticky-h);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.gen-scrolly-step .gen-text {
+  max-width: min(38em, 92%);
+  width: 100%;
+  margin: 0 auto;
+  padding: 16px 20px;
+  background: rgba(244, 239, 228, 0.94);
+  border-left: 3px solid var(--rose-main);
+  border-radius: 0;
+  box-shadow: 0 6px 28px rgba(44, 36, 22, 0.12);
+  pointer-events: auto;
+  opacity: 0;
+  transform: translateY(48px) scale(0.82);
+  transform-origin: center center;
+  will-change: transform, opacity;
+  transition: opacity 0.45s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  backdrop-filter: blur(4px);
+}
+
+.gen-scrolly-step.is-driven .gen-text {
+  transition: opacity 0.35s ease;
+}
+
+.gen-scrolly-step.is-active .gen-text {
+  opacity: 1;
+}
+
+.gen-scrolly-step.is-active:not(.is-driven) .gen-text {
+  transform: translateY(0) scale(1);
+}
+
+.gen-scrolly-step.is-past .gen-text {
+  opacity: 0;
+  transform: translateY(-80px) scale(1.15);
+}
+
+.gen-scrolly-step .gen-text p {
+  text-indent: 2em;
+  text-align: justify;
+  text-justify: inter-ideograph;
+  margin: 0;
+  font-size: 15px;
+  line-height: 2;
+  color: var(--ink-charcoal);
+}
+
+.gen-scrolly-step .gen-label {
+  font-family: 'Punk Typewriter', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--rose-deep);
+  margin-bottom: 8px;
+  text-transform: none;
+}
+
+/* 一、图表3 · 与图表2 同宽（桌面版式见 @media 1024） */
+.chapter-section .scroll-step[data-step="ch1-step3"] > .chart-frame {
+  width: 100%;
+  max-width: var(--chart-max);
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+@media (max-width: 960px) {
+  .chapter-section .scroll-step-gen {
+    padding: 40px var(--page-pad-sm);
+    gap: 24px;
+  }
+
+  .chapter-section .scroll-step-gen .gen-scrolly {
+    width: var(--chart-width);
+    max-width: min(var(--chart-width), calc(100vw - var(--page-pad-sm) * 2));
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .gen-scrolly-step .gen-text {
+    padding: 14px 16px;
+    opacity: 1;
+    transform: none;
+  }
+
+  .gen-scrolly-step.is-past .gen-text {
+    opacity: 0.35;
+    transform: translateY(-20px) scale(1.05);
+  }
+}
+
+.scrolly-container {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+  gap: clamp(36px, 4vw, 80px);
+  align-items: start;
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 0 var(--page-pad) 80px;
+  box-sizing: border-box;
+  min-height: calc(100vh - var(--nav-top-h, 62px));
+}
+
+.scrolly-graphic {
+  position: sticky;
+  top: calc(var(--nav-top-h, 62px) + 12px);
+  padding: 0 0 24px;
+}
+
+.scrolly-graphic .chart-frame {
+  max-width: none;
+  width: 100%;
+}
+
+.scrolly-step {
+  min-height: 75vh;
+  align-items: flex-start;
+  text-align: left;
+  max-width: none;
+  width: 100%;
+  padding: clamp(36px, 5vh, 56px) 0;
+}
+
+.scrolly-step .case-card {
+  text-align: left;
+  max-width: none;
+  margin-left: 0;
+}
+
+/* ---- 四象限：2/3 宽 · 页面居中 ---- */
+.scrolly-container--quadrant {
+  display: block;
+  width: var(--quadrant-width);
+  max-width: min(var(--quadrant-width), calc(100vw - var(--page-pad) * 2));
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 0 48px;
+  min-height: 0;
+  box-sizing: border-box;
+}
+
+#chapter03 .scrolly-container--quadrant {
+  width: var(--quadrant-width);
+  max-width: min(var(--quadrant-width), calc(100vw - var(--page-pad) * 2));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.scrolly-container--quadrant .scrolly-graphic-wrapper {
+  width: 100%;
+}
+
+.scrolly-container--quadrant .scrolly-graphic {
+  position: relative;
+  top: auto;
+  padding: 0 0 16px;
+}
+
+.chart-frame--quadrant-board {
+  padding-bottom: 8px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* 滚动步骤仅保留数据，不占版面 */
+.scrolly-steps--quadrant {
+  display: none !important;
+}
+
+.quadrant-scatter-board {
+  grid-template-columns: minmax(0, 1.48fr) minmax(300px, 0.52fr);
+  gap: clamp(28px, 3.5vw, 48px);
+  max-width: none;
+  width: 100%;
+  margin: 0;
+}
+
+.scatter-chart-col {
+  max-width: none !important;
+  width: 100%;
+}
+
+.scrolly-graphic-wrapper {
+  order: 1;
+}
+
+.scrolly-steps {
+  order: 2;
+  padding: 0 0 100px;
+}
+
+.scatter-head-panel .side-title,
+.scatter-head-panel .side-copy,
+.scatter-head-panel .side-tag,
+.scatter-side-panel .side-title,
+.scatter-side-panel .side-copy,
+.scatter-side-panel .side-tag,
+.scatter-side-panel .side-main-title,
+.scatter-side-panel .side-quadrant-label {
+  text-align: left;
+}
+
+.scatter-footnote {
+  text-align: center;
+}
+
+.film-file-card {
+  display: flex;
+  justify-content: stretch;
+  width: 100%;
+}
+
+.film-wall {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+/* ---- 引子区：整屏宽 ---- */
+.featured-poster-grid {
+  max-width: var(--chart-max);
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.director-spotlight {
+  max-width: var(--chart-max);
+  width: 100%;
+}
+
+.pull-quote {
+  max-width: min(960px, var(--chart-max));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.color-strip {
+  max-width: min(720px, var(--chart-max));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---- 图表尺寸（电脑大屏 · 整屏） ---- */
+@media (min-width: 1024px) {
+  .chart-canvas {
+    height: clamp(480px, 52vh, 680px);
+  }
+
+  .chart-canvas.chart-tall {
+    height: clamp(540px, 58vh, 760px);
+  }
+
+  .chart-canvas.chart-map {
+    height: clamp(520px, 56vh, 720px);
+  }
+
+  #chapter03-wordcloud .copy-subtitle,
+  #chapter03-wordcloud .step-copy {
+    width: min(var(--copy-width), calc(100vw - var(--page-pad) * 2));
+  }
+
+  #chapter03-wordcloud .chart-frame {
+    width: var(--chart-width);
+    max-width: var(--chart-width);
+  }
+
+  #chart3-wordcloud.chart-canvas {
+    width: 100%;
+    height: 100%;
+    max-width: var(--wc-chart-w, min(var(--chart-width), 320px));
+  }
+
+  #chapter03-wordcloud .wc-stage {
+    width: min(var(--wc-chart-w), 100%);
+    max-height: min(var(--wc-chart-h), 80vh);
+  }
+
+  .scatter-chart-col .scatter-canvas {
+    height: clamp(640px, 72vh, 880px);
+  }
+
+  .scrolly-container--quadrant {
+    max-width: var(--quadrant-width);
+    width: var(--quadrant-width);
+  }
+
+  .quadrant-scatter-board {
+    grid-template-columns: minmax(0, 1.52fr) minmax(320px, 0.48fr);
+  }
+
+  .scatter-side-panel .side-main-title {
+    font-size: clamp(28px, 2.6vw, 40px);
+  }
+
+  .chapter-section .scroll-step .chart-frame,
+  .gen-scrolly-sticky .chart-frame,
+  .scrolly-graphic .chart-frame:not(.chart-frame--quadrant-board) {
+    max-width: var(--chart-max);
+    width: var(--chart-width);
+  }
+
+  .scrolly-container--quadrant .chart-frame,
+  .chart-frame--quadrant-board {
+    width: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .transition-section .slate-stack {
+    max-width: var(--chart-width);
+    width: var(--chart-width);
+  }
+
+  .chart-frame .chart-title {
+    font-size: clamp(16px, 1.4vw, 20px);
+  }
+
+  .step-copy h3,
+  .scrolly-step h3 {
+    font-size: clamp(24px, 2.2vw, 36px);
+  }
+
+  .prologue-lead {
+    font-size: clamp(18px, 1.6vw, 22px);
+  }
+
+  .stat-block .num {
+    font-size: clamp(44px, 4vw, 64px);
+  }
+}
+
+/* ---- 手机窄屏（次要） ---- */
+@media (max-width: 960px) {
+  .chapter-section .scroll-step {
+    padding: 40px var(--page-pad-sm);
+    gap: 24px;
+  }
+
+  .chapter-section .scroll-step .step-copy {
+    max-width: var(--copy-measure, 42em);
+  }
+
+  .chapter-section .scroll-step .chart-frame {
+    width: var(--chart-width);
+    max-width: min(var(--chart-width), calc(100vw - var(--page-pad-sm) * 2));
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .scrolly-container {
+    grid-template-columns: 1fr;
+    padding: 0 var(--page-pad-sm) 60px;
+  }
+
+  .scrolly-graphic {
+    position: relative;
+    top: auto;
+  }
+
+  .scrolly-step {
+    min-height: auto;
+    align-items: flex-start;
+    text-align: left;
+    opacity: 1;
+    transform: none;
+  }
+
+  .scrolly-container--quadrant {
+    width: var(--quadrant-width);
+    max-width: min(var(--quadrant-width), calc(100vw - var(--page-pad) * 2));
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 0 40px;
+  }
+
+  .quadrant-scatter-board {
+    gap: 20px;
+  }
+
+  .scatter-head-panel .side-title,
+  .scatter-head-panel .side-copy,
+  .scatter-head-panel .side-tag,
+  .scatter-side-panel .side-title,
+  .scatter-side-panel .side-copy,
+  .scatter-side-panel .side-tag,
+  .scatter-side-panel .side-main-title,
+  .scatter-side-panel .side-quadrant-label {
+    text-align: left;
+  }
+
+  .film-file-card {
+    justify-content: center;
+  }
+}
+
+/* 桌面版式：内容区居中，块内文字左对齐 */
+@media (min-width: 1024px) {
+  .chapter-section .scroll-step .chart-frame .chart-subtitle,
+  .chapter-section .scroll-step .chart-frame .chart-source,
+  .chapter-section .scroll-step .chart-frame .chart-insight,
+  .transition-section .container.body-copy .chart-frame .chart-subtitle,
+  .transition-section .container.body-copy .chart-frame .chart-source,
+  .transition-section .container.body-copy .chart-frame .chart-insight {
+    text-align: left;
+  }
+
+  .chapter-section .scroll-step .chart-frame .chart-title,
+  .transition-section .container.body-copy .chart-frame .chart-title {
+    text-align: center;
+  }
+
+  .chapter-section .scroll-step .chart-frame .slate-bar,
+  .transition-section .container.body-copy .chart-frame .slate-bar {
+    justify-content: flex-start;
+  }
+
+  .chapter-section .scroll-step .chart-frame .chart-canvas,
+  .chapter-section .scroll-step .chart-frame .chart-canvas canvas,
+  .transition-section .container.body-copy .chart-frame .chart-canvas,
+  .transition-section .container.body-copy .chart-frame .chart-canvas canvas {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .transition-section .container.copy-lines > .copy-emphasis,
+  .chapter-closing > .copy-emphasis,
+  .chapter-closing > .copy-subtitle,
+  .chapter-closing .step-copy {
+    width: var(--copy-width);
+    max-width: var(--copy-width);
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
