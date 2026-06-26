@@ -357,7 +357,7 @@
 
 .survival-stat .stat-big {
   display: block;
-  font-family: 'Punk Typewriter', monospace;
+  font-family: 'Special Elite', 'Punk Typewriter', monospace;
   font-size: clamp(36px, 5vw, 56px);
   font-weight: 700;
   color: var(--copy-title);
@@ -450,7 +450,7 @@
 }
 
 .film-compare-vs span {
-  font-family: 'Punk Typewriter', monospace;
+  font-family: 'Special Elite', 'Punk Typewriter', monospace;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.08em;
