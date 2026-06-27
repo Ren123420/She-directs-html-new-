@@ -236,10 +236,15 @@
   text-align: center;
 }
 
-#chapter03 > .chapter-gate.body-copy > p,
-#chapter03 > .chapter-gate.body-copy > .copy-subtitle {
-  text-align: center;
+#chapter03 > .chapter-gate.body-copy > p {
+  text-align: left;
   text-indent: 0;
+}
+
+#chapter03 > .chapter-gate.body-copy > .copy-subtitle {
+  text-align: left;
+  text-indent: 0;
+  margin-top: 2.4em;
 }
 
 .scrolly-chapter#chapter03 {
