@@ -790,7 +790,12 @@
   }
 
   .quadrant-scatter-board {
+    grid-template-columns: 1fr;
     gap: 20px;
+  }
+
+  .scatter-chart-col .scatter-canvas {
+    height: 320px;
   }
 
   .scatter-head-panel .side-title,
