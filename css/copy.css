@@ -50,7 +50,7 @@
   text-justify: inter-ideograph;
   text-indent: 2em;
   line-height: 2;
-  font-size: 15px;
+  font-size: 16px;
   color: var(--ink-charcoal);
 }
 
@@ -80,13 +80,13 @@
   margin-top: 0.75em;
 }
 
-/* ---- 正文字号统一 15px ---- */
+/* ---- 正文字号统一 16px ---- */
 .step-copy p,
 .body-copy p,
 .copy-editorial p,
 .copy-editorial-col p,
 .copy-editorial-footer p {
-  font-size: 15px;
+  font-size: 16px;
 }
 
 /* ---- 正文栏宽度：页面再宽，字块也不拉长 ---- */
@@ -646,6 +646,7 @@
   margin-left: auto;
   margin-right: auto;
   box-sizing: border-box;
+  padding: 0;
 }
 
 .transition-section .container.body-copy .chapter-heading,
@@ -696,7 +697,6 @@
   }
 }
 
-.transition-section .container.body-copy > p,
 .chapter-gate .gate-lead,
 .chapter-gate > p {
   font-size: clamp(15px, 1.5vw, 17px);
