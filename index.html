@@ -189,7 +189,7 @@ body {
   top: 50%; left: 50%;
   width: min(94vw, 1480px);
   height: min(80vh, 920px);
-  transform: translate(-50%, -42%) scale(0.94);
+  transform: translate(-50%, -44%) scale(0.94);
   filter: blur(1.2px);
 }
 
@@ -675,13 +675,6 @@ body {
   </div>
 </section>
 
-<!-- ===== 撕边 ===== -->
-<div class="torn-separator">
-  <svg viewBox="0 0 700 24" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,22 Q12,8 28,14 Q44,22 58,10 Q70,0 84,14 Q100,24 114,12 Q128,2 142,16 Q158,26 172,10 Q186,0 200,14 Q214,24 228,12 Q242,2 256,16 Q270,26 284,10 Q298,0 312,14 Q326,24 340,12 Q354,2 368,16 Q382,26 396,10 Q410,0 424,14 Q438,24 452,12 Q466,2 480,16 Q494,26 508,10 Q522,0 536,14 Q550,24 564,12 Q578,2 592,16 Q606,26 620,10 Q634,0 648,14 Q662,24 676,10 Q690,0 700,12" fill="none" stroke="#d4cbb8" stroke-width="0.8"/>
-    <path d="M0,22 Q12,8 28,14 Q44,22 58,10 Q70,0 84,14 Q100,24 114,12 Q128,2 142,16 Q158,26 172,10 Q186,0 200,14 Q214,24 228,12 Q242,2 256,16 Q270,26 284,10 Q298,0 312,14 Q326,24 340,12 Q354,2 368,16 Q382,26 396,10 Q410,0 424,14 Q438,24 452,12 Q466,2 480,16 Q494,26 508,10 Q522,0 536,14 Q550,24 564,12 Q578,2 592,16 Q606,26 620,10 Q634,0 648,14 Q662,24 676,10 Q690,0 700,12 L700,24 L0,24 Z" fill="#f4efe4"/>
-  </svg>
-</div>
 
 <!-- ===== 开篇引子 ===== -->
 <section class="story-prologue" id="prologue">
@@ -1506,11 +1499,9 @@ body {
 
 <!-- ===== 页脚 ===== -->
 <footer class="story-footer">
-  <div class="footer-brand"><span>她</span>执导 · She Directs</div>
+  <div class="footer-brand"><span>她</span>执导 · <span>She</span> Directs</div>
       <div class="footer-meta">
-    数据新闻可视化专题 · 纸基设计系统<br>
-    数据来源：猫眼票房 · 豆瓣评分 · 北大法宝（参考）<br>
-    2026 © 数据新闻团队
+    小组成员：刘芮辰 陈怡雯 张杨 余佳恒
   </div>
   <a href="#hero" class="footer-back">返回开屏 ↑</a>
 </footer>
@@ -1610,12 +1601,12 @@ body {
     centerCard.style.filter = 'blur(' + cBlur.toFixed(2) + 'px)';
 
     /* 四角画廊：整体中速上升 */
-    var gTravel = progress * 22;
+    var gTravel = progress * 4;
     var gScale  = 0.94 + progress * 0.06;
     var gBlur   = (1 - progress) * 3.5;
 
     gallery.style.transform =
-      'translate(-50%, ' + (-42 + gTravel) + '%) scale(' + gScale + ')';
+      'translate(-50%, ' + (-44 + gTravel) + '%) scale(' + gScale + ')';
     gallery.style.filter = 'blur(' + gBlur.toFixed(2) + 'px)';
 
     /* 水印：最慢 */

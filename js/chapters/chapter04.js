@@ -477,9 +477,22 @@
       );
     }).join('');
 
-    var earthSize = globe.r * 2.15;
-    var earthX = globe.cx - earthSize / 2;
-    var earthY = globe.cy - earthSize * 0.62;
+    var wfColor = 'rgba(107,94,74,0.22)';
+    var wfLatLines = [-60, -30, 0, 30, 60].map(function (deg) {
+      var rad = deg * Math.PI / 180;
+      var y = globe.cy - globe.r * Math.sin(rad);
+      var rx = globe.r * Math.cos(rad);
+      var ry = rx * 0.2;
+      if (rx < 2) return '';
+      var sw = deg === 0 ? '1.3' : '0.85';
+      return '<ellipse cx="' + globe.cx + '" cy="' + y.toFixed(1) + '" rx="' + rx.toFixed(1) + '" ry="' + ry.toFixed(1) + '" fill="none" stroke="' + wfColor + '" stroke-width="' + sw + '"/>';
+    }).join('');
+    var wfLonLines = [0, 30, 60].map(function (deg) {
+      var rad = deg * Math.PI / 180;
+      var rx = globe.r * Math.sin(rad);
+      if (deg === 0) return '<line x1="' + globe.cx + '" y1="' + (globe.cy - globe.r).toFixed(1) + '" x2="' + globe.cx + '" y2="' + (globe.cy + globe.r).toFixed(1) + '" stroke="' + wfColor + '" stroke-width="0.85"/>';
+      return '<ellipse cx="' + globe.cx + '" cy="' + globe.cy + '" rx="' + rx.toFixed(1) + '" ry="' + globe.r + '" fill="none" stroke="' + wfColor + '" stroke-width="0.85"/>';
+    }).join('');
     var scaleMarks = [];
     [0, 10, 20, 30].forEach(function (pct) {
       var y = pctToGlobeY(pct, globe);
@@ -513,9 +526,8 @@
           '<g class="globe-latitude-sphere">' +
             '<circle class="globe-latitude-outline" cx="' + globe.cx + '" cy="' + globe.cy + '" r="' + globe.r + '"/>' +
             '<g clip-path="url(#globe-clip)">' +
-              '<image class="globe-latitude-earth" href="assets/charts/earth-globe.jpg" xlink:href="assets/charts/earth-globe.jpg"' +
-                ' x="' + earthX + '" y="' + earthY + '" width="' + earthSize + '" height="' + earthSize + '"' +
-                ' preserveAspectRatio="xMidYMid slice"/>' +
+              '<circle cx="' + globe.cx + '" cy="' + globe.cy + '" r="' + globe.r + '" fill="rgba(250,247,240,0.85)"/>' +
+              wfLatLines + wfLonLines +
             '</g>' +
             '<circle cx="' + globe.cx + '" cy="' + globe.cy + '" r="' + globe.r + '" fill="url(#globe-shade)" pointer-events="none"/>' +
           '</g>' +
