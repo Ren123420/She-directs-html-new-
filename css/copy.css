@@ -80,6 +80,15 @@
   margin-top: 0.75em;
 }
 
+/* ---- 正文字号统一 15px ---- */
+.step-copy p,
+.body-copy p,
+.copy-editorial p,
+.copy-editorial-col p,
+.copy-editorial-footer p {
+  font-size: 15px;
+}
+
 /* ---- 正文栏宽度：页面再宽，字块也不拉长 ---- */
 .prologue-lead,
 .transition-section .container.body-copy,
@@ -211,7 +220,7 @@
 
 .chapter-heading .title-main {
   font-family: 'Huiwen', 'Noto Serif SC', serif;
-  font-size: clamp(17px, 1.12vw, 19px);
+  font-size: clamp(26px, 2.8vw, 36px);
   font-weight: 700;
   line-height: 1.55;
   color: var(--ink-charcoal);
