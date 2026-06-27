@@ -124,7 +124,7 @@
 .prologue-inner.copy-lines > p,
 .copy-body {
   text-indent: 0;
-  margin: 0.42em 0;
+  margin: 0.75em 0;
   line-height: 1.95;
   color: var(--ink-charcoal);
   background: none;
@@ -1000,7 +1000,7 @@
   max-width: min(var(--copy-width), calc(100vw - var(--page-pad, 40px) * 2));
   margin: clamp(20px, 3vh, 32px) auto 0;
   padding: 0 0 0 14px;
-  border-left: 3px solid var(--rose-main);
+  border-left: 3px solid var(--rose-deep);
   text-align: left;
   text-indent: 0;
   font-size: clamp(16px, 1.45vw, 18px);
@@ -1033,9 +1033,10 @@
   line-height: 1.75;
   letter-spacing: 0.03em;
   color: var(--ink-charcoal);
-  background: rgba(236, 229, 216, 0.55);
+  background: rgba(236, 229, 216, 0.88);
   border-left: 4px solid var(--rose-deep);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.45);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.45),
+              2px 4px 16px rgba(44, 36, 22, 0.05);
 }
 
 .copy-question-rail {
@@ -1114,6 +1115,7 @@
 
 .stat-compare-card--now {
   border-left: 3px solid var(--rose-deep);
+  background: rgba(192, 96, 120, 0.04);
 }
 
 .stat-compare-year {

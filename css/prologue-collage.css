@@ -117,7 +117,7 @@
 .mosaic-board--posters .mosaic-cell figcaption small {
   display: block;
   font-family: 'Punk Typewriter', monospace;
-  font-size: 8px;
+  font-size: 9px;
   color: var(--ink-note);
   letter-spacing: 0.06em;
   margin-top: 2px;
