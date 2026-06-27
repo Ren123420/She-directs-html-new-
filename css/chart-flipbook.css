@@ -120,8 +120,8 @@
   padding: 8px 6px;
   border: 1px dashed var(--paper-archive);
   background: rgba(244, 239, 228, 0.6);
-  font-family: 'Punk Typewriter', monospace;
-  font-size: 10px;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
   letter-spacing: 0.06em;
   color: var(--ink-note);
   cursor: pointer;

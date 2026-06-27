@@ -1118,8 +1118,8 @@
 
 .stat-compare-year {
   display: block;
-  font-family: 'Punk Typewriter', monospace;
-  font-size: 9px;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
   letter-spacing: 0.16em;
   color: var(--ink-note);
   margin-bottom: 4px;

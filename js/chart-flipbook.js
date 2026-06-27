@@ -134,9 +134,9 @@
     var pager = document.createElement('div');
     pager.className = 'chart-era-pager';
     pager.innerHTML =
-      '<button type="button" data-era="2000s">2000–09</button>' +
-      '<button type="button" data-era="2010s">2010–19</button>' +
-      '<button type="button" data-era="2020s" class="is-active">2020–26</button>';
+      '<button type="button" data-era="2000s">2000</button>' +
+      '<button type="button" data-era="2010s">2010</button>' +
+      '<button type="button" data-era="2020s" class="is-active">2020</button>';
 
     var canvas = frame.querySelector('.chart-canvas');
     if (canvas) frame.insertBefore(pager, canvas);
