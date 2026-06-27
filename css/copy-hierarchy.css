@@ -1332,6 +1332,14 @@
   .copy-question-rail__lead {
     text-align: left;
   }
+
+  .prologue-inner .copy-question-rail {
+    align-items: center;
+  }
+
+  .prologue-inner .copy-question-rail__lead {
+    text-align: center;
+  }
 }
 
 /* 场记/影像标注 */
