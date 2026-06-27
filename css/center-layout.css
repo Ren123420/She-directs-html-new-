@@ -737,6 +737,11 @@
 
 /* ---- 手机窄屏（次要） ---- */
 @media (max-width: 960px) {
+  :root {
+    --chart-width: calc(100vw - var(--page-pad-sm) * 2);
+    --copy-width: calc(100vw - var(--page-pad-sm) * 2);
+  }
+
   .chapter-section .scroll-step {
     padding: 40px var(--page-pad-sm);
     gap: 24px;
