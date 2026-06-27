@@ -135,21 +135,22 @@
         data: ['男导演', '女导演', '女导演占比'],
         bottom: 0
       },
-      xAxis: { type: 'category', data: years, axisLabel: { interval: 2 } },
+      xAxis: { type: 'category', data: years, axisLabel: { interval: 2, fontSize: 14, fontFamily: C.fonts.mono } },
       yAxis: [
         {
           type: 'value',
           name: '活跃导演人数',
-          nameTextStyle: { fontFamily: C.fonts.mono, fontSize: 10 },
+          nameTextStyle: { fontFamily: C.fonts.mono, fontSize: 12 },
+          axisLabel: { fontSize: 14, fontFamily: C.fonts.mono },
           min: 0
         },
         {
           type: 'value',
           name: '占比 (%)',
-          nameTextStyle: { fontFamily: C.fonts.mono, fontSize: 10 },
+          nameTextStyle: { fontFamily: C.fonts.mono, fontSize: 12 },
+          axisLabel: { formatter: '{value}%', fontSize: 14, fontFamily: C.fonts.mono },
           min: 0,
           max: 14,
-          axisLabel: { formatter: '{value}%' }
         }
       ],
       series: [
@@ -158,7 +159,7 @@
           type: 'bar',
           stack: 'directors',
           data: male,
-          itemStyle: { color: T.inkRed, opacity: 0.85 },
+          itemStyle: { color: '#6a8caa' },
           emphasis: { focus: 'series' }
         },
         {
@@ -166,7 +167,7 @@
           type: 'bar',
           stack: 'directors',
           data: female,
-          itemStyle: { color: T.roseMain },
+          itemStyle: { color: '#d4899e' },
           emphasis: { focus: 'series' }
         },
         {

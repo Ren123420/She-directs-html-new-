@@ -78,7 +78,7 @@
       legend: {
         data: ['女导演作品', '男导演对照'],
         top: 4,
-        textStyle: { fontSize: 10, fontFamily: "'Punk Typewriter', monospace" }
+        textStyle: { fontSize: 12, fontFamily: "'Punk Typewriter', monospace" }
       },
       xAxis: {
         type: 'value',
@@ -87,10 +87,10 @@
         name: '类型标签占比（%）',
         nameLocation: 'middle',
         nameGap: 28,
-        nameTextStyle: { fontSize: 10, color: T.inkNote },
+        nameTextStyle: { fontSize: 12, color: T.inkNote },
         axisLabel: {
           formatter: function (v) { return Math.abs(v) + '%'; },
-          fontSize: 9
+          fontSize: 12
         },
         splitLine: { lineStyle: { type: 'dashed', color: T.paperArchive } }
       },
@@ -98,7 +98,7 @@
         type: 'category',
         data: genres,
         axisTick: { show: false },
-        axisLabel: { fontSize: 11, fontFamily: "'Huiwen', serif" }
+        axisLabel: { fontSize: 13, fontFamily: "'Huiwen', serif" }
       },
       series: [
         {
@@ -110,7 +110,7 @@
             show: true,
             position: 'left',
             formatter: function (p) { return Math.abs(p.value).toFixed(1) + '%'; },
-            fontSize: 9,
+            fontSize: 11,
             color: T.roseDeep
           },
           data: femaleVals
@@ -124,7 +124,7 @@
             show: true,
             position: 'right',
             formatter: function (p) { return p.value.toFixed(1) + '%'; },
-            fontSize: 9,
+            fontSize: 11,
             color: T.inkCharcoal
           },
           data: maleVals
@@ -209,7 +209,7 @@
           }).join('<br>');
         }
       },
-      legend: { data: categories, bottom: 0, textStyle: { fontSize: 10 } },
+      legend: { data: categories, bottom: 0, textStyle: { fontSize: 12 } },
       xAxis: {
         type: 'value',
         max: 100,
@@ -231,7 +231,7 @@
             show: true,
             position: 'inside',
             formatter: function (p) { return p.value >= 8 ? p.value.toFixed(1) + '%' : ''; },
-            fontSize: 10,
+            fontSize: 12,
             color: '#fff'
           },
           data: [female[idx], male[idx]]
@@ -277,7 +277,7 @@
       legend: {
         data: ['女导演作品', '男导演对照'],
         top: 0,
-        textStyle: { fontSize: 10 }
+        textStyle: { fontSize: 12 }
       },
       xAxis: {
         type: 'value',
@@ -304,7 +304,7 @@
             show: true,
             position: 'left',
             formatter: function (p) { return Math.abs(p.value) >= 6 ? Math.abs(p.value).toFixed(1) + '%' : ''; },
-            fontSize: 10
+            fontSize: 12
           },
           data: femaleVals
         },
@@ -317,7 +317,7 @@
             show: true,
             position: 'right',
             formatter: function (p) { return p.value >= 6 ? p.value.toFixed(1) + '%' : ''; },
-            fontSize: 10
+            fontSize: 12
           },
           data: maleVals
         }
@@ -558,7 +558,7 @@
       animationDuration: 900,
       grid: { left: 120, right: 48, top: 36, bottom: 48 },
       tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
-      legend: { data: categories, bottom: 0, textStyle: { fontSize: 9 } },
+      legend: { data: categories, bottom: 0, textStyle: { fontSize: 12 } },
       xAxis: { type: 'value', max: 100, axisLabel: { formatter: '{value}%' } },
       yAxis: { type: 'category', data: ['女导演作品', '男导演对照'], axisTick: { show: false } },
       series: categories.map(function (cat, idx) {
@@ -572,7 +572,7 @@
             show: true,
             position: 'inside',
             formatter: function (p) { return p.value >= 10 ? p.value.toFixed(0) + '%' : ''; },
-            fontSize: 9,
+            fontSize: 12,
             color: '#fff'
           },
           data: [pcts(female)[idx], pcts(male)[idx]]

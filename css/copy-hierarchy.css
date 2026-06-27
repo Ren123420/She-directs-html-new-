@@ -1143,9 +1143,9 @@
   width: var(--copy-width);
   max-width: min(var(--copy-width), calc(100vw - var(--page-pad, 40px) * 2));
   margin: clamp(20px, 3vh, 32px) auto 0;
-  padding: 0 0 0 14px;
-  border-left: 3px solid var(--rose-deep);
-  text-align: left;
+  padding: 0;
+  text-align: justify;
+  text-justify: inter-ideograph;
   text-indent: 0;
   font-size: clamp(16px, 1.45vw, 18px);
   line-height: 1.85;

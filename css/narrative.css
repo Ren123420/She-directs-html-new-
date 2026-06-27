@@ -187,6 +187,18 @@
   text-align: left;
 }
 
+.prologue-inner .copy-editorial p {
+  text-indent: 0;
+}
+
+.prologue-inner .copy-pull-line {
+  border-left: none;
+  background: none;
+  box-shadow: none;
+  padding-left: 0;
+}
+
+
 /* ---- ????? ---- */
 .chapter-gate {
   position: relative;

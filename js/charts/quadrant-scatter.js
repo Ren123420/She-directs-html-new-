@@ -399,7 +399,7 @@
             position: 'top',
             distance: 4,
             fontFamily: FONT_CN,
-            fontSize: 9,
+            fontSize: 11,
             color: C.charcoal
           } : { show: false },
           emphasis: {
@@ -458,14 +458,14 @@
           name: UI.xAxis,
           nameLocation: 'middle',
           nameGap: 28,
-          nameTextStyle: { fontFamily: FONT_CN, fontSize: 10, color: C.note },
+          nameTextStyle: { fontFamily: FONT_CN, fontSize: 12, color: C.note },
           min: 0.001,
           max: Math.max(maxYi * 1.3, 10),
           axisLine: { lineStyle: { color: C.archive } },
           axisTick: { show: false },
           axisLabel: {
             fontFamily: FONT,
-            fontSize: 9,
+            fontSize: 12,
             color: C.note,
             formatter: function (v) { return String(v); }
           },
@@ -474,13 +474,13 @@
         yAxis: {
           type: 'value',
           name: UI.yAxis,
-          nameTextStyle: { fontFamily: FONT_CN, fontSize: 10, color: C.note },
+          nameTextStyle: { fontFamily: FONT_CN, fontSize: 12, color: C.note },
           min: 4,
           max: 9,
           interval: 1,
           axisLine: { show: false },
           axisTick: { show: false },
-          axisLabel: { fontFamily: FONT, fontSize: 9, color: C.note },
+          axisLabel: { fontFamily: FONT, fontSize: 12, color: C.note },
           splitLine: { lineStyle: { color: C.archive, type: 'dashed', opacity: 0.7 } }
         },
         tooltip: {

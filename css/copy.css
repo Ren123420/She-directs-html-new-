@@ -615,10 +615,11 @@
   letter-spacing: 0.02em;
 }
 
-.slate-card-quote .slate-quote-cite {
+.slate-card-quote .body .slate-quote-cite {
   margin-top: 14px;
   font-size: 11px;
   color: #9c9688;
+  text-align: right;
 }
 
 .body-copy .slate-card p,

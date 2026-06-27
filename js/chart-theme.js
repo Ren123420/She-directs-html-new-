@@ -47,13 +47,13 @@
       categoryAxis: {
         axisLine: { lineStyle: { color: TOKENS.paperArchive } },
         axisTick: { lineStyle: { color: TOKENS.paperArchive } },
-        axisLabel: { fontFamily: FONT_MONO, color: TOKENS.inkNote, fontSize: 12 },
+        axisLabel: { fontFamily: FONT_MONO, color: TOKENS.inkNote, fontSize: 13 },
         splitLine: { lineStyle: { color: TOKENS.paperArchive, type: 'dashed' } }
       },
       valueAxis: {
         axisLine: { show: false },
         axisTick: { show: false },
-        axisLabel: { fontFamily: FONT_MONO, color: TOKENS.inkNote, fontSize: 12 },
+        axisLabel: { fontFamily: FONT_MONO, color: TOKENS.inkNote, fontSize: 13 },
         splitLine: { lineStyle: { color: TOKENS.paperArchive, type: 'dashed' } }
       }
     });
