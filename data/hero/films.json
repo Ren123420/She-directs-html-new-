@@ -70,12 +70,12 @@
     "director": "刘若英",
     "year": "2018",
     "doubanId": "",
-    "poster": "assets/最好的我们—中文海报.png",
+    "poster": "assets/posters/houlai.jpg",
     "fallback": "assets/hero/houlai.svg",
     "url": "",
     "hero": false,
     "center": false,
-    "localPoster": "assets/最好的我们—中文海报.png"
+    "localPoster": "assets/posters/houlai.jpg"
   },
   {
     "id": "nihao",
