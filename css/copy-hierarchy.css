@@ -517,6 +517,152 @@
   margin: 0 auto;
 }
 
+/* ===== 数据素描 · 代码版（替换 03.png）===== */
+.sketch-feature-wrap {
+  display: flex;
+  align-items: center;
+  gap: clamp(24px, 4vw, 48px);
+}
+
+/* 2×2 编辑排版网格 */
+.sketch-cards-list {
+  flex: 1 1 0;
+  min-width: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  align-self: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.sketch-card-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: clamp(20px, 3vh, 32px) clamp(16px, 2vw, 28px);
+  border: none;
+}
+
+/* 虚线十字轴分割 */
+.sketch-card-item:nth-child(1),
+.sketch-card-item:nth-child(2) {
+  border-bottom: 1px dashed var(--paper-archive);
+}
+
+.sketch-card-item:nth-child(1),
+.sketch-card-item:nth-child(3) {
+  border-right: 1px dashed var(--paper-archive);
+}
+
+.sketch-card-icon {
+  width: 34px;
+  height: 34px;
+  margin-bottom: 2px;
+  opacity: 0.9;
+}
+
+.sketch-card-icon svg {
+  display: block;
+  width: 34px;
+  height: 34px;
+}
+
+.sketch-card-body {
+  min-width: 0;
+}
+
+/* eyebrow 标签：小、间距宽、降调 */
+.sketch-card-title {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  color: var(--ink-note);
+  margin: 0;
+  line-height: 1.4;
+  text-indent: 0 !important;
+}
+
+.sketch-card-title strong {
+  color: var(--rose-deep);
+  font-weight: 600;
+}
+
+/* 数据行：提升为展示尺寸的视觉主角 */
+.sketch-card-data {
+  font-family: 'Huiwen', 'Noto Serif SC', serif;
+  font-size: clamp(17px, 1.5vw, 22px);
+  font-weight: 700;
+  color: var(--rose-deep);
+  margin: 0;
+  line-height: 1.3;
+  text-indent: 0 !important;
+}
+
+/* caption：细小静音 */
+.sketch-card-desc {
+  font-size: clamp(11px, 0.85vw, 13px);
+  color: var(--ink-note);
+  margin: 0;
+  line-height: 1.6;
+  text-indent: 0 !important;
+  opacity: 0.82;
+}
+
+.sketch-silhouette-col {
+  flex: 0 0 clamp(260px, 42%, 500px);
+  position: relative;
+  overflow: hidden;
+  align-self: stretch;
+  min-height: clamp(380px, 62vh, 580px);
+  margin: 0;
+  padding: 0;
+}
+
+.sketch-silhouette-col img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: auto;
+  max-width: none;
+}
+
+@media (max-width: 680px) {
+  .sketch-feature-wrap {
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .sketch-cards-list {
+    align-self: stretch;
+    grid-template-columns: 1fr;
+  }
+
+  .sketch-card-item:nth-child(1),
+  .sketch-card-item:nth-child(2) {
+    border-bottom: 1px dashed var(--paper-archive);
+  }
+
+  .sketch-card-item:nth-child(1),
+  .sketch-card-item:nth-child(3) {
+    border-right: none;
+  }
+
+  .sketch-card-item:nth-child(4) {
+    border-bottom: none;
+  }
+
+  .sketch-silhouette-col {
+    flex: 0 0 auto;
+    width: min(200px, 60vw);
+    min-height: auto;
+    align-self: center;
+  }
+}
+
 .data-sketch {
   display: grid;
   grid-template-columns: minmax(88px, 112px) 1fr;
