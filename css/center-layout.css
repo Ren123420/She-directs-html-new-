@@ -742,6 +742,11 @@
     --copy-width: calc(100vw - var(--page-pad-sm) * 2);
   }
 
+  .prologue-inner {
+    padding-left: var(--page-pad-sm);
+    padding-right: var(--page-pad-sm);
+  }
+
   .chapter-section .scroll-step {
     padding: 40px var(--page-pad-sm);
     gap: 24px;
