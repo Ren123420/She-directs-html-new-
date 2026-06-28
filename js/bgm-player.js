@@ -1,6 +1,5 @@
 /**
- * 背景音乐 · 光碟按钮播放/暂停
- * 主文件：assets/audio/给电影人的情书 - 蔡琴.mp3
+ * 背景音乐 · 打开网页自动播放（浏览器阻止则等首次交互）
  */
 (function (global) {
   'use strict';
@@ -20,6 +19,7 @@
     audio.volume = 0.42;
     var candidateIndex = 0;
     var resolved = false;
+    var autoPlayAttempted = false;
 
     function setPlaying(playing) {
       btn.classList.toggle('is-playing', playing);
@@ -72,7 +72,45 @@
       if (replay && replay.catch) replay.catch(function () {});
     }
 
+    function tryPlay() {
+      if (!audio.src) loadCandidate(0);
+      ensureLoop();
+      var playPromise = audio.play();
+      if (playPromise && playPromise.catch) {
+        playPromise.catch(function () {
+          // 浏览器阻止了自动播放，等用户交互
+        });
+      }
+    }
+
+    function tryAutoPlay() {
+      if (autoPlayAttempted) return;
+      autoPlayAttempted = true;
+
+      // 等音频就绪后尝试自动播放
+      if (resolved) {
+        tryPlay();
+      } else {
+        audio.addEventListener('canplay', function onCanPlay() {
+          audio.removeEventListener('canplay', onCanPlay);
+          tryPlay();
+        });
+        loadCandidate(0);
+      }
+    }
+
+    function onUserInteraction() {
+      if (!audio.paused) return;
+      tryPlay();
+      // 移除监听，后续不再触发
+      document.removeEventListener('click', onUserInteraction);
+      document.removeEventListener('scroll', onUserInteraction);
+      document.removeEventListener('keydown', onUserInteraction);
+      document.removeEventListener('touchstart', onUserInteraction);
+    }
+
     ensureLoop();
+
     audio.addEventListener('error', tryNextSource);
     audio.addEventListener('loadeddata', function () {
       ensureLoop();
@@ -93,7 +131,6 @@
       setPlaying(false);
     });
 
-    /* 部分浏览器 loop 属性对 mp3 不生效，ended 时强制重播 */
     audio.addEventListener('ended', restartLoop);
 
     btn.addEventListener('click', function () {
@@ -103,18 +140,28 @@
         loadCandidate(0);
       }
       if (audio.paused) {
-        if (!audio.src) loadCandidate(0);
-        ensureLoop();
-        var playPromise = audio.play();
-        if (playPromise && playPromise.catch) {
-          playPromise.catch(function () {
-            markUnavailable();
-          });
-        }
+        tryPlay();
       } else {
         audio.pause();
       }
     });
+
+    // 尝试自动播放
+    loadCandidate(0);
+
+    if (document.readyState === 'complete') {
+      setTimeout(tryAutoPlay, 300);
+    } else {
+      window.addEventListener('load', function () {
+        setTimeout(tryAutoPlay, 300);
+      });
+    }
+
+    // 如果自动播放被拦截，等首次用户交互
+    document.addEventListener('click', onUserInteraction);
+    document.addEventListener('scroll', onUserInteraction);
+    document.addEventListener('keydown', onUserInteraction);
+    document.addEventListener('touchstart', onUserInteraction);
 
     setPlaying(false);
   }
